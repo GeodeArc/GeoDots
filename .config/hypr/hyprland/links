@@ -1,0 +1,6 @@
+source = symlinks/anim
+source = symlinks/deco
+source = symlinks/envvars
+source = symlinks/keys
+source = symlinks/monitor
+source = symlinks/wrules
