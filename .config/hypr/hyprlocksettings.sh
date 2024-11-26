@@ -1,11 +1,8 @@
 #!/bin/bash
 
 # Paths to the templates and the target configuration file
-# TEMPLATE_DIR="$HOME/Dots/Hyprlock/Templates"
-# CONFIG_FILE="$HOME/.config/hypr/hyprlock.conf"
-
-TEMPLATE_DIR="$HOME/Documents/DOTS/.config/hypr"
-CONFIG_FILE="$HOME/dotfiles/.config/hypr/hyprlock.conf"
+TEMPLATE_DIR="$HOME/Dots/.config/hyprlock/"
+CONFIG_FILE="$HOME/.config/hypr/hyprlock.conf"
 
 #!/bin/bash
 # Bash Menu Script Example
