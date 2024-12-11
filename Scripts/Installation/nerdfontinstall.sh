@@ -1,37 +1,26 @@
 #!/bin/bash
 
-# Path to the state file
 STATE_FILE="/tmp/dotfontinstall"
 
-# Check if the state file exists and has "nerdfontinstalled"
 if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "nerdfontinstalled" ]]; then
     echo "Nerd font already installed. Skipping this step."
+    sleep 1
     exit 0
 fi
 
-# Create fonts directory
-FONT_DIR="$HOME/.local/share/fonts"
-mkdir -p "$FONT_DIR"
-
-# Function to download and install a nerd font
 install_nerd_font() {
     local font_name="$1"
-    local font_url="$2"
-
-    echo "Downloading $font_name..."
-    wget -q --show-progress -O "/tmp/${font_name}.zip" "$font_url"
+    local font_pkg="$2"
 
     echo "Installing $font_name..."
-    unzip -q "/tmp/${font_name}.zip" -d "$FONT_DIR"
-    rm "/tmp/${font_name}.zip"
+    sudo pacman -Sy --needed "$font_pkg"
 
     echo "$font_name installed successfully!"
 }
 
-# Choice
 while true; do
     clear
-    echo "Nerd Font not installed. Proceeding with installation!"
+    echo "Nerd Font may not be installed. Proceeding with installation!"
     echo ""
     echo "Select a Nerd Font to install. This will allow nerd emojis/icons to render correctly:"
     echo "1) JetBrainsMono Nerd Font"
@@ -41,33 +30,40 @@ while true; do
     echo "5) I already have a nerd font! What are you talking about?"
     echo ""
 
-    read -p "Enter your choice of Font [1-5]: " choice
+    read -p "Enter your choice of Font [1-5]: " nerdfont
 
-    case "$choice" in
+    case "$nerdfont" in
         1)
             clear
-            install_nerd_font "JetBrainsMono" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
+            install_nerd_font "JetBrainsMono" "ttf-jetbrains-mono-nerd"
             break
             ;;
         2)
             clear
-            install_nerd_font "Hack" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip"
+            install_nerd_font "Hack" "ttf-hack-nerd"
             break
             ;;
         3)
             clear
-            install_nerd_font "FiraCode" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+            install_nerd_font "FiraCode" "ttf-firacode-nerd"
             break
             ;;
         4)
             clear
-            echo "Please visit https://www.nerdfonts.com/font-downloads to download a font of your choice."
+            echo "Please visit https://www.nerdfonts.com/font-downloads to download a font of your choice, or use pacman."
+            echo "If you are still in a TTY (no desktop), open up another TTY with CTRL+ALT+F3-F12, and install a font with pacman."
+            echo "Alternatively, close the script and reopen once installed. When prompted, select 'I already have a nerd font'."
+            echo ""
+            echo "Please note: You will not receive font updates by downloading a font from the website."
+            echo ""
             read -p "Press Enter when you have manually installed your font." 
             break
             ;;
         5)
             clear
             echo "Whoops! Sorry about that! Continuing.."
+            echo "nerdfontinstalled" > "$STATE_FILE"
+            sleep 1
             exit 0
             ;;
         *)
@@ -77,9 +73,9 @@ while true; do
     esac
 done
 
-# Update state file and refresh font cache
 fc-cache -fv
 echo "nerdfontinstalled" > "$STATE_FILE"
 clear
-echo "Nerd Font installation complete"
+echo "Nerd Font installation complete!"
+read -p "Press Enter when you are ready to move on." 
 exit 0
