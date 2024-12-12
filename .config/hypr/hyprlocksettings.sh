@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # Paths to the templates and the target configuration file
-TEMPLATE_DIR="$HOME/Dots/.config/hyprlock/"
-CONFIG_FILE="$HOME/.config/hypr/hyprlock.conf"
+TEMPLATE_DIR="$HOME/Dots/Config/hyprlock/"
+CONFIG_FILE="$HOME/Dots/Config/hyprlock.conf"
 
 #!/bin/bash
-# Bash Menu Script Example
 
 echo "Welcome to the Hyprlock Settings!"
 echo "Press CTRL+C at any time to quit"
@@ -38,7 +37,6 @@ done
 
 # Display resolution options
 echo "Please choose a resolution that fits your MAIN display (1-5):"
-echo "0. DEV - MrDogeFace Preset"
 echo "1. 720p - 768p"
 echo "2. 1080p - 1200p"
 echo "3. 1440p"
@@ -69,9 +67,6 @@ update_config() {
 }
 
 case $choice in
-    0)
-        update_config "hyprlockog"
-        ;;
     1)
         update_config "720"
         ;;
