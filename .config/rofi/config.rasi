@@ -1,0 +1,128 @@
+// GLOBAL CONFIGURATION
+configuration {    
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c}";
+}
+
+// GLOBAL
+* {
+    font:                        "FiraCode Nerd Font 10";
+    background:                  #010101;
+    background-alt:              #141414;
+    foreground:                  #FFFFFF;
+    selected:                    #141414;
+    active:                      #141414;
+    urgent:                      #3d0400;
+    alternate-normal-background: #000000;
+}
+
+
+// DEFAULT WINDOW
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       680px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    enabled:                     true;
+    border:                      2px solid;
+    border-radius:               15px;
+    border-color:                #FFF;
+    cursor:                      "default";
+    background-color:            @background;
+}
+
+// DEFAULT MAINBOX
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+// DEFAULT LISTBOX
+listbox {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+// DEFAULT TOP BAR
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     20 20px;
+    background-color:            transparent;
+    background-image:            url("~/Dots/Wallpapers/main/wallc1.png", width);
+    text-color:                  @foreground;
+    orientation:                 horizontal;
+    children:                    [ "textbox-prompt-colon", "entry"];
+}
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         " :";
+    padding:                     12px 15px;
+    border-radius:               100%;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+}
+entry {
+    enabled:                     true;
+    expand:                      false;
+    width:                       300px;
+    padding:                     12px 16px;
+    border-radius:               100%;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
+}
+
+// DEFAULT LIST
+listview {
+    enabled:                      true;
+    columns:                      1;
+    lines:                        10;
+    cycle:                        false;
+    dynamic:                      false;
+    scrollbar:                    false;
+    layout:                       vertical;
+    reverse:                      false;
+    fixed-height:                 true;
+    fixed-columns:                true;
+    spacing:                      0px;
+    padding:                      10px;
+    margin:                       0px;
+    background-color:             @background;
+    border:                       0px;
+}
+
+// ELEMENTS
+element {
+    enabled:                     true;
+    spacing:                     5px;
+    padding:                     10px;
+    border-radius:               10px;
+    background-color:            @background;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+    orientation:                 vertical;
+}
+
+element selected.normal {
+    background-color: @selected;
+}
+element selected.active {
+  background-color: @active;
+}

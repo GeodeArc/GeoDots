@@ -1,21 +1,12 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
+//
+// Original Author : Aditya Shakya (adi1090x)
+// Original Github : @adi1090x
+// Adapted by : @GeodeArc
+//
 
-/*****----- Configuration -----*****/
-configuration {
-    show-icons:                 false;
-    hover-select:               true;
-    me-select-entry:            "";
-    me-accept-entry:            "MousePrimary";
-}
+// STILL TO DO: IMPORT PYWAL STUFF
 
-/*****----- Global Properties -----*****/
+// PROPERTIES
 * {
     font:                        "FiraCode Nerd Font 10";
     background:                  #010101;
@@ -26,11 +17,7 @@ configuration {
     urgent:                      #808080;
 }
 
-/*
-USE_BUTTONS=YES
-*/
-
-/*****----- Main Window -----*****/
+// WINDOW
 window {
     transparency:                "real";
     location:                    center;
@@ -40,15 +27,16 @@ window {
     x-offset:                    0px;
     y-offset:                    0px;
 
-    padding:                     0px;
+    // FOR ALL WIDGETS
+    enabled:                     true;
     border:                      2px solid;
-    border-radius:               20px;
+    border-radius:               15px;
     border-color:                #FFF;
     cursor:                      "default";
     background-color:            @background;
 }
 
-/*****----- Main Box -----*****/
+// MAINBOX
 mainbox {
     enabled:                     true;
     spacing:                     0px;
@@ -61,7 +49,7 @@ mainbox {
     children:                    [ "inputbar", "listview", "message" ];
 }
 
-/*****----- Inputbar -----*****/
+// TOP BAR
 inputbar {
     enabled:                     true;
     spacing:                     0px;
@@ -70,11 +58,10 @@ inputbar {
     background-image:            url("~/Dots/Wallpapers/main/blurred.png", width);
     children:                    [ "textbox-prompt-colon", "dummy","prompt"];
 }
-
 dummy {
+    // CENTER PADDING
     background-color:            transparent;
 }
-
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
@@ -92,7 +79,7 @@ prompt {
     text-color:                  #FFF;
 }
 
-/*****----- Listview -----*****/
+// LIST
 listview {
     enabled:                     true;
     columns:                     4;
@@ -111,7 +98,7 @@ listview {
     cursor:                      "default";
 }
 
-/*****----- Elements -----*****/
+// ELEMENTS
 element {
     enabled:                     true;
     padding:                     30px 10px;
@@ -133,7 +120,7 @@ element selected.normal {
     text-color:                  var(background);
 }
 
-/*****----- Message -----*****/
+// MESSAGE
 message {
     enabled:                     true;
     margin:                      0px;

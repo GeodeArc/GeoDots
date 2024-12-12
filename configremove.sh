@@ -5,5 +5,3 @@ read -p "Press enter to delete cache files, or ctrl+c to stop this script: "
 
 rm -r /tmp/dotaurinstall
 rm -r /tmp/dotfontinstall
-
-
