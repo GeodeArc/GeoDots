@@ -13,19 +13,17 @@ read -p 'Press ENTER to START the installation: '
 # FONT INSTALLATION #
 # 
 
-./Dots/Scripts/Installation/nerdfontinstall.sh
-./Dots/Scripts/Installation/fontinstall.sh
+./Dots/Scripts/Installation/install-nerdfonts.sh
+./Dots/Scripts/Installation/install-font.sh
 
 # 
 # AUR INSTALL #
 # 
 
-./Dots/Scripts/Installation/aurinstall.sh
+./Dots/Scripts/Installation/install-aur.sh
 
 # 
 # GTK DARK THEME INSTALL #
 # 
 
-./Dots/Scripts/Installation/libadwaitafix.sh
-
-
+./Dots/Scripts/Installation/fix-libadwaita.sh
