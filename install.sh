@@ -1,5 +1,6 @@
 #!/bin/bash
 
+clear
 echo "Welcome to Geode's Dots Installer!"
 echo ""
 echo "These dotfiles are specific to Arch Linux ONLY! An update may come eventually for other distrobutions"
@@ -12,19 +13,19 @@ read -p 'Press ENTER to START the installation: '
 # FONT INSTALLATION #
 # 
 
-./Scripts/Installation/nerdfontinstall.sh
-./Scripts/Installation/fontinstall.sh
+./Dots/Scripts/Installation/nerdfontinstall.sh
+./Dots/Scripts/Installation/fontinstall.sh
 
 # 
 # AUR INSTALL #
 # 
 
-./Scripts/Installation/aurinstall.sh
+./Dots/Scripts/Installation/aurinstall.sh
 
 # 
 # GTK DARK THEME INSTALL #
 # 
 
-./Scripts/Installation/libadwaitafix.sh
+./Dots/Scripts/Installation/libadwaitafix.sh
 
 
