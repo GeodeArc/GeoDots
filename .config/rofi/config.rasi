@@ -1,3 +1,12 @@
+//
+// Original Author : Aditya Shakya (adi1090x)
+// Original Github : @adi1090x
+// Adapted by : @GeodeArc
+//
+
+// STILL TO DO: IMPORT PYWAL STUFF AND WALLPAPER YEH
+// FONT STUFF AS WELL
+
 // GLOBAL CONFIGURATION
 configuration {    
     hover-select:               true;

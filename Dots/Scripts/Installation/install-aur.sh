@@ -1,3 +1,5 @@
+#!/bin/bash
+
 AUR_FILE="/tmp/dotaurinstall"
 
 if [[ -f "$AUR_FILE" ]]; then
@@ -12,7 +14,7 @@ install_aur_helper() {
     local aurh_url="$2"
     
     clear
-    echo "Downloading $aurh_name...}"
+    echo "Downloading $aurh_name..."
     git clone $aurh_url ~/$aurh_name
     clear
     echo "Now installing"

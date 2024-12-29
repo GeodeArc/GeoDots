@@ -1,0 +1,354 @@
+/* GENERAL SETTINGS */
+
+@import "settings/pywal.css";
+
+* {
+    font-family: "FiraCode Nerd", "JetbrainsMono Nerd", "Hack Nerd", sans-serif;
+    border: none;
+    border-radius: 0px;
+}
+
+window#waybar {
+    border-bottom: 0px solid #ffffff;
+    background: transparent;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* WORKSPACES */
+
+#workspaces {
+    background: @background;
+    margin: 3px 10px;
+    padding: 3px 3px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #FFF;
+    opacity: 0.8;
+    border: 2px solid @foreground;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 2px 3px;
+    border-radius: 10px;
+    border: 0px;
+    color: #FFF;
+    transition: all 0.1s ease-in-out;
+    opacity: 0.5;
+}
+
+#workspaces button.active {
+    color: #FFF;
+    background: @color4;
+    border-radius: 5px;
+    padding: 0px 15px;
+    transition: all 0.1s ease-in-out;
+    opacity: 1.0;
+}
+
+#workspaces button:hover {
+    color: #FFF;
+    background: @color4;
+    border-radius: 15px;
+    opacity: 0.4;
+}
+
+/* TOOLTIPS */
+
+tooltip {
+    border-radius: 8px;
+    background-color: @background;
+    opacity: 0.8;
+    padding: 20px;
+    margin: 0px;
+}
+
+tooltip label {
+    color: #FFF;
+}
+
+/* WINDOW */
+
+#window {
+    background: @background;
+    margin: 3px 10px;
+    padding: 3px 8px;
+    border-radius: 8px;
+    color: #FFF;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* TASKBAR */
+
+#taskbar {
+    background: @background;
+    margin: 3px 10px;
+    padding: 3px 3px;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+
+#taskbar button {
+    margin: 0;
+    border-radius: 8px;
+    padding: 0px 5px 0px 5px;
+}
+
+#taskbar.empty {
+    background:transparent;
+    border:0;
+    padding:0;
+    margin:0;
+}
+
+/* QUICK LINKS */
+
+#custom-cliphist, /* TO BE ADDED */ 
+#custom-settings, 
+#custom-wallpaper, 
+#custom-system,
+#custom-brightness {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @foreground;
+}
+
+#custom-hypridle.active {
+    color: @iconcolor;
+}
+
+#custom-hypridle.notactive {
+    color: @foreground;
+}
+
+/* IDLE INHIBITOR (TO BE ADDED) (RIGHT) */
+
+#idle_inhibitor {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #ffffff;
+}
+
+#idle_inhibitor.activated {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @foreground;
+}
+
+/* APP MENU */
+
+#custom-appmenu {
+    background: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 10px;
+    margin: 4px 10px;
+    padding: 3px 8px;
+    opacity: 0.8;
+    border: 2px solid @foreground;
+}
+
+/* UPDATES (TO BE ADDED) (RIGHT) */
+
+#custom-updates {
+    background-color: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 10px;
+    margin: 3px 10px;
+    padding: 3px 8px;
+    opacity: 0.8;
+}
+
+#custom-updates.green {
+    background-color: @background;
+}
+
+#custom-updates.yellow {
+    background-color: #ff9a3c;
+    color: #FFFFFF;
+}
+
+#custom-updates.red {
+    background-color: #dc2f2f;
+    color: #FFFFFF;
+}
+
+/* HARDWARE GROUP */
+
+#disk,#memory,#cpu,#language {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    color: @foreground;
+}
+
+#language {
+    margin-right: 8px;
+}
+
+/* MEDIA */
+#custom-media {
+    background-color: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 10px;
+    margin: 3px 10px;
+    padding: 3px 8px;
+    opacity:0.8;
+}
+
+
+/* AUDIO REACT */
+
+#cava {
+    background-color: @background;
+    font-size: 10px;
+    color: #FFF;
+    border-radius: 10px;
+    margin: 3px 10px;
+    padding: 3px 8px;
+    opacity:0.8;
+}
+
+/* NETWORK */
+
+#network {
+    background-color: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 10px 0px 0px 10px;
+    margin: 3px 0px 3px 10px;
+    padding: 3px 15px;
+    opacity:0.8;
+}
+
+#network.ethernet {
+    background-color: @background;
+    color: #FFF;
+}
+
+#network.wifi {
+    background-color: @background;
+    color: #FFF;
+}
+
+/* BLUETOOTH */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 0px 0px 0px 0px;
+    margin: 3px 0px 3px 0px;
+    padding: 3px 15px;
+    opacity:0.8;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* BATTERY (LAPTOP ONLY) (RIGHT) */
+
+#battery {
+    background-color: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 0px 0px 0px 0px;
+    margin: 3px 0px 3px 0px;
+    padding: 3px 15px;
+    opacity:0.8;
+}
+
+#battery.charging, #battery.plugged {
+    color: #FFF;
+    background-color: @background;
+}
+
+@keyframes blink {
+    to {
+        background-color: @background;
+        color: #FFF;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #FFF;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* SOUND */
+
+#pulseaudio {
+    background-color: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 0px 10px 10px 0px;
+    margin: 3px 10px 3px 0px;
+    padding: 3px 15px;
+    opacity:0.8;
+}
+
+#pulseaudio.muted {
+    background-color: @background;
+    color: #ff0000;
+}
+
+
+/* SYS TRAY */
+
+#tray {
+    padding: 0px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* POWER MENU */
+
+#custom-exit {
+    margin: 3px 0px;
+    padding: 3px 8px;
+    font-size: 20px;
+    color: @foreground;
+    opacity: 0.8;
+}
+
+/* CLOCK */
+
+#clock {
+    background-color: @background;
+    font-size: 14px;
+    color: #FFF;
+    border-radius: 10px;
+    margin: 4px 10px;
+    margin-left: 18px;
+    padding: 3px 8px;
+    opacity: 0.8;
+    border: 2px solid @foreground;   
+}
