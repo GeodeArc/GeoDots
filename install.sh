@@ -12,7 +12,6 @@ echo " Y8888P88   Y88888   Y88P8Y  88888888P   Y888YP   Y8888  88888P  "
 echo ""
 echo "GeoDots Installer v0.0.1alpha"
 echo ""
-echo ""
 
 while true; do
     echo "Welcome to Geode's Dots Installer!"
@@ -20,12 +19,12 @@ while true; do
     echo ""
     echo "┌─ Please choose an installation option:"
     echo "│"
-    echo "├─ ▶  (1) Quick Install"
-    echo "├─ ◆  (2) Guided Install"
-    echo "├─ ?? (3) Whats the difference?"
+    echo "├─ ▶  [1] Quick Install"
+    echo "├─ ▶  [2] Guided Install"
+    echo "├─ ?  [3] Whats the difference?"
+    echo "├─ X  [4] Exit installation"  
     echo "│"
-    echo "└─ Please type a number from 1-3':"
-    echo ""
+    echo "└─ Please type a number [1-4], and hit ENTER:"
     read -p " ■ " installtype
 
     case "$installtype" in
@@ -44,7 +43,13 @@ while true; do
             echo "Guided install will let you pick and choose whats installed onto your system. Select this option if you would like to have a cleaner/more personalized system, or dont have a lot of storage. Like the quick installation, you will need to enter your sudo password at times."
             echo ""
             read -p "Press ENTER to continue: "
+            clear
             ;;    
+        4)  
+            clear
+            echo "Bye bye!"
+            break
+            ;;
         *)
             clear
             echo "✗ Invalid choice. Please try again."
