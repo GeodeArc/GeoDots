@@ -16,4 +16,4 @@ read -p "Press enter to delete cache files, or ctrl+c to stop this script: "
 rm -r /tmp/dotaurinstall
 rm -r /tmp/dotfontinstall
 
-read -P "Done, press ENTER to exit"
+read -p "Done, press ENTER to exit"
