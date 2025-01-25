@@ -52,7 +52,7 @@ while true; do
             ;;
         *)
             clear
-            echo "✗ Invalid choice. Please try again."
+            echo "X Invalid choice. Please try again."
             echo ""
             ;;
     esac

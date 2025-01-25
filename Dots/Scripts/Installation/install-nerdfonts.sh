@@ -1,13 +1,17 @@
 #!/bin/bash
 
+STATE_FILE="/tmp/geodots_skipchecks"
+
 clear
 
-STATE_FILE="/tmp/dotfontinstall"
-
-if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "nerdfontinstalled" ]]; then
-    echo "Nerd font already installed. Skipping this step."
-    sleep 1
-    exit 0
+if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
+    echo "Check skipping enabled!"
+    else
+        if pacman -Qq | grep -qE 'ttf.*nerd|nerd.*ttf'; then
+            echo "Nerd font already installed. Skipping this step."
+            sleep 1
+            exit 0
+        fi
 fi
 
 install_nerd_font() {
@@ -18,6 +22,8 @@ install_nerd_font() {
     sudo pacman -Sy --needed "$font_pkg"
 
     echo "$font_name installed successfully!"
+    read -p "Press Enter when you are ready to move on." 
+
 }
 
 while true; do
@@ -62,9 +68,6 @@ while true; do
             break
             ;;
         5)
-            clear
-            echo "nerdfontinstalled" > "$STATE_FILE"
-            sleep 1
             exit 0
             ;;
         *)
@@ -76,7 +79,6 @@ while true; do
 done
 
 fc-cache -fv
-echo "nerdfontinstalled" > "$STATE_FILE"
 clear
 echo "Nerd Font installation complete!"
 read -p "Press Enter when you are ready to move on." 

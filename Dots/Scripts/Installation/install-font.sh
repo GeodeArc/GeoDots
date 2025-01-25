@@ -1,26 +1,49 @@
 #!/bin/bash
 
+STATE_FILE="/tmp/geodots_skipchecks"
+
 clear
 
-if pacman -Qq | grep -qE '^noto-fonts(-|$)'; then
-    echo "Noto fonts already installed. Skipping this step."
-    sleep 1
-    exit 0
+if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
+    echo "Check skipping enabled!"
+    else
+        if pacman -Qq $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") &>/dev/null; then
+            echo "Noto fonts already installed. Skipping this step."
+            sleep 1
+            exit 0
+        fi
 fi
 
 install_noto_font() {
-    echo "Installing noto fonts..."
-    sudo pacman -Sy --needed $(pacman -Ssq noto-fonts)
-    echo "$font_name installed successfully!"
-    echo ""
+    while true; do
+        echo "Installing noto fonts..."
+        sudo pacman -Sy --needed $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") # In case of chaotic AUR users
+
+        if pacman -Qq $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") &>/dev/null; then
+            clear
+            echo "Fonts installed successfully!"
+            read -p "Press Enter when you are ready to move on."
+            exit 0
+        else
+            echo ""
+            echo "WARNING: Installation of noto-fonts failed or could not be verified."
+            read -p "Press ENTER to try again or type 'skip' to skip this step: " choice
+            if [[ "$choice" == "skip" ]]; then
+                break
+            fi
+            clear
+        fi
+    done
 }
 
 while true; do
-    clear
     echo "Couldnt find any/all noto-fonts, would you like to install them?"
-    echo "This will ensure that you have most languages/symbols/emojis present:"
+    echo "This will ensure that you have most languages/symbols/emojis installed."
+    echo ""
     echo "This will be a pretty large download, but id recommend it if you have the space."
-    read -p "[Y OR N] " notofont
+    echo ""
+    echo "Enter your choice [Y OR N]"
+    read -p " ■ " notofont
 
     case "$notofont" in
         y)

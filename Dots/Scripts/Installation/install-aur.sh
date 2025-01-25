@@ -1,13 +1,25 @@
 #!/bin/bash
 
+STATE_FILE="/tmp/geodots_skipchecks"
+AUR_FILE="/tmp/geodots_aurhelper"
+
 clear
 
-AUR_FILE="/tmp/dotaurinstall"
-
-if [[ -f "$AUR_FILE" ]]; then
-    echo "AUR helper already installed. Skipping this step."
-    sleep 1
-    exit 0
+if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
+    echo "Check skipping enabled!"
+    else
+        if pacman -Qq yay &>/dev/null; then
+            echo "AUR helper already installed. Skipping this step."
+            echo "yay -Sy" > "$AUR_FILE"
+            sleep 1
+            exit 0
+        fi
+        if pacman -Qq paru &>/dev/null; then
+            echo "AUR helper already installed. Skipping this step."
+            echo "paru -Sy" > "$AUR_FILE"
+            sleep 1
+            exit 0
+        fi
 fi
 
 install_aur_helper() {
@@ -23,6 +35,7 @@ install_aur_helper() {
     makepkg -si
 
     if pacman -Q $aurh_name &>/dev/null; then
+        clear
         echo "$aurh_name installed successfully!"
         echo "$aurh_name -Sy" > "$AUR_FILE"
         sleep 1
@@ -56,7 +69,9 @@ installed_aur_helper() {
                         sleep 1
                         exit 0
                     else
-                        read -p "Couldnt seem to find yay, press ENTER to go back"
+                        echo ""
+                        read -p "Couldnt seem to find yay, are you sure its installed? Press ENTER to go back"
+                        clear
                     fi
                     ;;
                 2)
@@ -67,7 +82,9 @@ installed_aur_helper() {
                         sleep 1
                         exit 0
                     else
-                        read -p "Couldnt seem to find paru, press ENTER to go back"
+                        echo ""
+                        read -p "Couldnt seem to find paru, are you sure its installed? Press ENTER to go back"
+                        clear
                     fi
                     ;;
                 3)
@@ -106,7 +123,7 @@ custom_aur_helper() {
             exit 0
         else
             clear
-            echo "✗ Invalid choice. Please try again."
+            echo "X Please try again."
             echo ""
         fi
     done
