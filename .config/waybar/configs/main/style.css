@@ -339,6 +339,15 @@ window#waybar.empty #window {
     opacity: 0.8;
 }
 
+/* NOTIFS */
+
+#custom-notification {
+    color: @foreground;
+    font-size: 20px;
+    margin: 3px 0px;
+    padding: 3px 8px;
+}
+
 /* CLOCK */
 
 #clock {
@@ -347,7 +356,6 @@ window#waybar.empty #window {
     color: #FFF;
     border-radius: 10px;
     margin: 4px 10px;
-    margin-left: 18px;
     padding: 3px 8px;
     opacity: 0.8;
     border: 2px solid @foreground;   

@@ -4,15 +4,15 @@
 // Adapted by : @GeodeArc
 //
 
-// STILL TO DO: IMPORT PYWAL STUFF AND WALLPAPER YEH
-// FONT STUFF AS WELL
+@import "options/font.rasi"
+@import "options/wallpaper.rasi"
 
 // PROPERTIES
 * {
     font:                        "FiraCode Nerd Font 10";
     background:                  #010101;
     background-alt:              #010101;
-    foreground:                  #ffffff;
+    foreground:                  #FFFFFF;
     selected:                    #141414;
     active:                      #141414;
     urgent:                      #808080;
@@ -54,9 +54,9 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     0px;
-    padding:                     100px 80px;
+    padding:                     50px 80px;
     background-color:            transparent;
-    background-image:            url("~/Dots/Wallpapers/main/blurred.png", width);
+    background-image:            @wallpaper;
     children:                    [ "textbox-prompt-colon", "dummy","prompt"];
 }
 dummy {

@@ -4,10 +4,12 @@
 // Adapted by : @GeodeArc
 //
 
-// STILL TO DO: IMPORT PYWAL STUFF AND WALLPAPER YEH
-// FONT STUFF AS WELL
+// STILL TO DO - PYWAL COLORS
 
-// GLOBAL CONFIGURATION
+@import "options/font.rasi"
+@import "options/wallpaper.rasi"
+
+// DEFAULT CONFIGURATION
 configuration {    
     hover-select:               true;
     me-select-entry:            "";
@@ -16,9 +18,8 @@ configuration {
     window-format:              "{w} · {c}";
 }
 
-// GLOBAL
+// DEFAULT PROPERTIES
 * {
-    font:                        "FiraCode Nerd Font 10";
     background:                  #010101;
     background-alt:              #141414;
     foreground:                  #FFFFFF;
@@ -26,6 +27,9 @@ configuration {
     active:                      #141414;
     urgent:                      #3d0400;
     alternate-normal-background: #000000;
+    lines:                       10;
+    columns:                     1;
+    cycle:                       false;
 }
 
 
@@ -39,6 +43,7 @@ window {
     x-offset:                    0px;
     y-offset:                    0px;
 
+    // FOR ALL WIDGETS
     enabled:                     true;
     border:                      2px solid;
     border-radius:               15px;
@@ -69,12 +74,12 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     20 20px;
+    padding:                     50px 60px;
     background-color:            transparent;
-    background-image:            url("~/Dots/Wallpapers/main/wallc1.png", width);
+    background-image:            @wallpaper;
     text-color:                  @foreground;
     orientation:                 horizontal;
-    children:                    [ "textbox-prompt-colon", "entry"];
+    children:                    [ "textbox-prompt-colon", "entry" ];
 }
 textbox-prompt-colon {
     enabled:                     true;
@@ -101,20 +106,21 @@ entry {
 // DEFAULT LIST
 listview {
     enabled:                      true;
-    columns:                      1;
-    lines:                        10;
-    cycle:                        false;
+    columns:                      @columns;
+    lines:                        @lines;
+    cycle:                        @cycle;
     dynamic:                      false;
     scrollbar:                    false;
     layout:                       vertical;
     reverse:                      false;
     fixed-height:                 true;
     fixed-columns:                true;
-    spacing:                      0px;
+  
     padding:                      10px;
-    margin:                       0px;
     background-color:             @background;
+    text-color:                   @foreground;
     border:                       0px;
+    cursor:                       "default";
 }
 
 // ELEMENTS

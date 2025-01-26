@@ -1,10 +1,7 @@
 //
-// WAYBAR CONFIG - Original by TheFrankyDoll (https://github.com/TheFrankyDoll/win10-style-waybar)
+// WAYBAR CONFIG - Original: https://github.com/TheFrankyDoll/win10-style-waybar
 // MODIFIED BY @GeodeArc
 //
-
-// VERY VERY UNFINISHED
-
 {
     // General Settings
     "output": "DP-1",
@@ -30,44 +27,19 @@
         "hyprland/language",
         "clock"
     ],
+    
     "hyprland/language": {
         "format": "{}",
         "format-en": "ENG",
         "format-ru": "РУС"
     },
+    
     "custom/os_button": {
         "format": "",
         "on-click": "rofi -show drun",
         "tooltip": false
     },
-    "cpu": {
-        "interval": 5,
-        "format": "  {usage}%",
-        "max-length": 10
-    },
-    "temperature": {
-        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
-        "input-filename": "temp2_input",
-        "critical-threshold": 75,
-        "tooltip": false,
-        "format-critical": "({temperatureC}°C)",
-        "format": "({temperatureC}°C)"
-    },
-    "disk": {
-        "interval": 30,
-        "format": "󰋊 {percentage_used}%",
-        "path": "/",
-        "tooltip": true,
-        "unit": "GB",
-        "tooltip-format":  "Available {free} of {total}"
-    },
-    "memory": {
-        "interval": 10,
-        "format": "  {percentage}%",
-        "max-length": 10,
-        "tooltip": true,
-        "tooltip-format": "RAM - {used:0.1f}GiB used"
-    },
+    
     "wlr/taskbar": {
         "format": "{icon}",
         "icon-size": 28,
@@ -78,10 +50,12 @@
         "ignore-list": [],
         "on-click": "activate"
     },
+    
     "tray": {
         "icon-size": 18,
         "spacing": 3
     },
+    
     "clock": {
         "format": "      {:%R\n %d.%m.%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -107,6 +81,7 @@
             "on-scroll-down": "shift_down"
         }
     },
+    
     "network": {
         "format-wifi": " {icon}",
         "format-ethernet": "󰈁󰍹 ",
@@ -119,6 +94,7 @@
             "󰤨 "
         ]
     },
+    
     "battery": {
         "states": {
             "good": 95,
@@ -143,6 +119,7 @@
             "󰁹"
         ]
     },
+    
     "pulseaudio": {
         "max-volume": 150,
         "scroll-step": 10,

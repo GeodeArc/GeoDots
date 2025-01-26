@@ -7,7 +7,7 @@
 ##
 
 dir="$HOME/.config/rofi/launcher"
-theme='main'
+theme='vertical'
 
 ## Run
 rofi \

@@ -4,26 +4,25 @@
 // Adapted by : @GeodeArc
 //
 
-// STILL TO DO: IMPORT PYWAL STUFF AND WALLPAPER YEH
-// FONT STUFF AS WELL
+@import "options/font.rasi"
+@import "options/wallpaper.rasi"
 
 // CONFIGURATION
 configuration {
     modi:                       "drun,run,filebrowser";
     show-icons:                 true;
-    display-drun:               "APPS";
-    display-run:                "RUN";
-    display-filebrowser:        "FILES";
+    display-drun:               " APPS";
+    display-run:                "󰲌 RUN";
+    display-filebrowser:        " FILES";
     drun-display-format:        "{name}";
     window-format:              "{w} · {c}";
 }
 
 // PROPERTIES
 * {
-    font:                        "FiraCode Nerd Font 10";
     background:                  #010101;
     background-alt:              #141414;
-    foreground:                  #ffffff;
+    foreground:                  #FFFFFF;
     selected:                    #141414;
     active:                      #141414;
     urgent:                      #808080;
@@ -51,7 +50,6 @@ window {
     background-color:            @background;
 }
 
-
 // MAINBOX
 mainbox {
     enabled:                     true;
@@ -74,9 +72,9 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     100px 60px;
+    padding:                     50px 60px;
     background-color:            transparent;
-    background-image:            url("~/Dots/Wallpapers/main/wallc1.png", width);
+    background-image:            @wallpaper;
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];

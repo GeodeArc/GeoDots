@@ -3,15 +3,12 @@
 // MODIFIED BY @GeodeArc
 //
 
-// SHOULD BE REORGANIZED
-
 {
     // General Settings
-    "output": "",
-    "layer": "top",
+    "output": "DP-1",
+    "layer": "bottom",
     "margin-top": 8,
     "margin-bottom": 0,
-    "layer": "top",
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
@@ -34,13 +31,13 @@
 
     // Modules Right    
     "modules-right": [
-        "cava", // NEEDS waybar-cava installed!
         "network",
         "bluetooth",
         "battery",
         "pulseaudio",
         "tray",
-        "clock"
+        "custom/notification",
+        "clock",
     ],
     
     
@@ -176,6 +173,7 @@
   // Clock
   "clock": {
     "format": "{:%I:%M %p}",
+    "format-alt": "{:%d-%m-%Y}",
     "on-click": "gnome-clocks",
     "tooltip": true,
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -363,25 +361,12 @@
     ],
     "scroll-step": 1
 
-  // Cava
+  // Notifs
   },
-  "cava": {
-        "framerate": 30,
-        "autosens": 1,
-        "bars": 20,
-        "sleep_timer": 10,
-        "method": "pulse",
-        "source": "auto",
-        "stereo": true,
-        "reverse": false,
-        "bar_delimiter": 0,
-        "monstercat": true,
-        "waves": true,
-        "noise_reduction": 0.65,
-        "input_delay": 0,
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-        "actions": {
-                   "on-click-right": "mode"
-                   }
-    },
+  "custom/notification": {
+      "format": "󰂚",
+      "tooltip-format": "Notificaion Center",
+      "on-click": "swaync-client -t",
+      "on-click-right": "swaync-client -R && swaync-client -rs && pkill swaync-client",
+  }
 }
