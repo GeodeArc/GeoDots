@@ -42,7 +42,7 @@ while true; do
         clear
         echo "Packages installed successfully!"
         read -p "Press Enter when you are ready to move on."
-        return
+        break
     else
         echo ""
         echo "WARNING: Installation of packages failed or could not be verified."
@@ -65,7 +65,7 @@ while true; do
         clear
         echo "AURs installed successfully!"
         read -p "Press Enter when you are ready to move on."
-        return
+        break
     else
         echo ""
         echo "WARNING: Installation of AURs failed or could not be verified."
@@ -88,7 +88,7 @@ while true; do
             clear
             echo "QT Packages installed successfully!"
             read -p "Press Enter when you are ready to move on."
-            return
+            break
         else
             echo ""
             echo "WARNING: Installation of QT packages failed or could not be verified."
@@ -108,7 +108,7 @@ while true; do
             clear
             echo "GTK Packages installed successfully!"
             read -p "Press Enter when you are ready to move on."
-            return
+            break
         else
             echo ""
             echo "WARNING: Installation of GTK packages failed or could not be verified."
@@ -127,6 +127,8 @@ while true; do
         $AUR_HELPER nautilus gnome-text-editor gnome-software gnome-keyring polkit-gnome kate kwrite dolphin discover kwallet hyprpolkitagent
     fi
 done
+
+read -p "Packages installed successfully, press enter to copy dotfiles to your system."
 
 echo "Copying configs to config folders."
 for dir in "${DIRS[@]}"; do
