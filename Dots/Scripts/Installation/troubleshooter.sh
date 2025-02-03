@@ -91,7 +91,7 @@ while true; do
             clear
             ;;    
         4) 
-            sed -i '/^\[chaotic-aur\]$/d; /^\s*Include\s*=\s*\/etc\/pacman.d\/chaotic-mirrorlist$/d' /etc/pacman.conf
+            sudo sed -i '/^\[chaotic-aur\]$/d; /^\s*Include\s*=\s*\/etc\/pacman.d\/chaotic-mirrorlist$/d' /etc/pacman.conf
             read -p "Should be done, press ENTER to return to the main menu"
             clear
             ;;
