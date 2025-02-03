@@ -5,7 +5,6 @@
 
 {
     // General Settings
-    "output": "DP-1",
     "layer": "bottom",
     "margin-top": 8,
     "margin-bottom": 0,
@@ -174,7 +173,6 @@
   "clock": {
     "format": "{:%I:%M %p}",
     "format-alt": "{:%d-%m-%Y}",
-    "on-click": "gnome-clocks",
     "tooltip": true,
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -221,7 +219,6 @@
     "interval": 30,
     "format": "  D {percentage_used}% ",
     "path": "/",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   // Keyboard Layout
@@ -266,7 +263,7 @@
     "tooltip-format-ethernet": "󰈀  {ifname}\n\nIP: {ipaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "~/Dots/Scripts/waybar/nmtoggle.sh",
+    "on-click": "~/Dots/Scripts/Waybar/nmtoggle.sh",
     "on-click-right": "nm-connection-editor"
   },
 
@@ -317,7 +314,7 @@
     "format-disabled": "",
     "format-off": "",
     "interval": 30,
-    "on-click": "~/Dots/Scripts/waybar/batoggle.sh",
+    "on-click": "~/Dots/Scripts/Waybar/batoggle.sh",
     "format-no-controller": "",
 	"tooltip-format": " {controller_alias}\n\n{num_connections} connected",
 	"tooltip-format-connected": " {controller_alias}\n\n{num_connections} connected",

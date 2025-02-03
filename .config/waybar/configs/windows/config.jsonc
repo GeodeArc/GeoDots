@@ -4,7 +4,6 @@
 //
 {
     // General Settings
-    "output": "DP-1",
     "spacing": 0,
     "layer": "bottom",
     "position": "bottom",

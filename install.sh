@@ -11,6 +11,7 @@ echo "Y88b  d88P Y8b.     Y88..88P 888  .d88P Y88..88P Y88b.       X88 "
 echo " Y8888P88   Y88888   Y88P8Y  88888888P   Y888YP   Y8888  88888P  "
 echo ""
 echo "GeoDots Installer v0.0.1alpha"
+echo "This installer currently donest help you if you have NVIDIA. Please check the hyprland wiki for NVIDIA instructions."
 echo ""
 
 while true; do
@@ -19,7 +20,7 @@ while true; do
     echo ""
     echo "┌─ Please choose an installation option:"
     echo "│"
-    echo "├─ ▶  [1] Quick Install"
+    echo "├─ ▶  [1] Quick Install (NOT DONE YET)"
     echo "├─ ▶  [2] Guided Install"
     echo "├─ ?  [3] Whats the difference?"
     echo "├─ X  [4] Exit installation"  
@@ -48,7 +49,7 @@ while true; do
         4)  
             clear
             echo "Bye bye!"
-            break
+            exit 0
             ;;
         *)
             clear

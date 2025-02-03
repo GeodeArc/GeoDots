@@ -9,14 +9,14 @@ if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
     echo "Check skipping enabled!"
     else
         if pacman -Qq yay &>/dev/null; then
-            echo "AUR helper already installed. Skipping this step."
-            echo "yay -Sy" > "$AUR_FILE"
+            echo "AUR helper (yay) already installed. Skipping this step."
+            echo "yay -Sy --needed" > "$AUR_FILE"
             sleep 1
             exit 0
         fi
         if pacman -Qq paru &>/dev/null; then
-            echo "AUR helper already installed. Skipping this step."
-            echo "paru -Sy" > "$AUR_FILE"
+            echo "AUR helper (paru) already installed. Skipping this step."
+            echo "paru -Sy --needed" > "$AUR_FILE"
             sleep 1
             exit 0
         fi
@@ -27,6 +27,18 @@ install_aur_helper() {
     local aurh_url="$2"
     
     clear
+    echo "Checking if dependencies are met"
+    sudo pacman -Sy --needed git base-devel
+    if pacman -Q git base-devel &>/dev/null; then
+        echo "Dependencies installed."
+    else
+        echo ""
+        echo "WARNING: Installation of base dependencies failed or could not be verified."
+        read -p "Press ENTER to return to the main menu for another attempt."
+        clear
+        return        
+    fi
+
     echo "Downloading $aurh_name..."
     git clone $aurh_url ~/$aurh_name
     clear
@@ -37,7 +49,7 @@ install_aur_helper() {
     if pacman -Q $aurh_name &>/dev/null; then
         clear
         echo "$aurh_name installed successfully!"
-        echo "$aurh_name -Sy" > "$AUR_FILE"
+        echo "$aurh_name -Sy --needed" > "$AUR_FILE"
         sleep 1
         exit 0
     else
@@ -65,26 +77,40 @@ installed_aur_helper() {
                    if pacman -Q yay &>/dev/null; then
                         clear
                         echo "yay verified to be installed."
-                        echo "yay -Sy" > "$AUR_FILE"
+                        echo "yay -Sy --needed" > "$AUR_FILE"
                         sleep 1
                         exit 0
                     else
                         echo ""
-                        read -p "Couldnt seem to find yay, are you sure its installed? Press ENTER to go back"
+                        echo "Couldnt seem to find yay, are you sure its installed? Press ENTER to go back."
+                        echo "If you are SURE it is installed, or like to watching things break, type 'iamasillybilly' to skip."
+                        read -p " ■ " skipaur
+                        if [[ "$skipaur" == "iamasillybilly" ]]; then
+                            echo "yay -Sy --needed" > "$AUR_FILE"
+                            exit 0
+                        fi
                         clear
+                        return                        
                     fi
                     ;;
                 2)
                     if pacman -Q paru &>/dev/null; then
                         clear
                         echo "paru verified to be installed."
-                        echo "paru -Sy" > "$AUR_FILE"
+                        echo "paru -Sy --needed" > "$AUR_FILE"
                         sleep 1
                         exit 0
                     else
                         echo ""
-                        read -p "Couldnt seem to find paru, are you sure its installed? Press ENTER to go back"
+                        echo "Couldnt seem to find paru, are you sure its installed? Press ENTER to go back."
+                        echo "If you are SURE it is installed, or like to watching things break, type 'iamasillybilly' to skip."
+                        read -p " ■ " skipaur
+                        if [[ "$skipaur" == "iamasillybilly" ]]; then
+                            echo "paru -Sy --needed" > "$AUR_FILE"
+                            exit 0
+                        fi
                         clear
+                        return
                     fi
                     ;;
                 3)
@@ -93,7 +119,7 @@ installed_aur_helper() {
                     ;;
                 *)
                     clear
-                    echo "✗ Invalid choice. Please try again."
+                    echo "X Invalid choice. Please try again."
                     echo ""
                     ;;
         esac
@@ -108,7 +134,7 @@ custom_aur_helper() {
         echo ""
         echo "If you got here by mistake, please type 'back' in lowercase to return to the previous menu."
         echo ""
-        echo "E.g: 'paru -Sy', or 'yay -Sy'"
+        echo "E.g: 'paru -Sy --needed', or 'yay -Sy --needed'"
         read -p "Enter here: " customaur
 
         if [[ "$customaur" == "back" ]]; then
@@ -119,7 +145,14 @@ custom_aur_helper() {
         if [[ -n "$customaur" ]]; then
             echo "Setting $customaur as AUR helper"
             echo $customaur > "$AUR_FILE"
-            read -p "Press ENTER to continue, or CTRL+C if you made a mistake"
+            echo ""
+            echo "Press ENTER to continue, or 'back' if you made a mistake"
+            read -p " ■ " finalaurcheck
+            
+            if [[ "$finalaurcheck" == "back" ]]; then
+                clear
+                return
+            fi
             exit 0
         else
             clear
@@ -162,7 +195,7 @@ while true; do
                 ;;
             *)
                 clear
-                echo "✗ Invalid choice. Please try again."
+                echo "X Invalid choice. Please try again."
                 echo ""
                 ;;
     esac

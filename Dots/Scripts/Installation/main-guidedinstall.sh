@@ -1,23 +1,27 @@
 #!/bin/bash
 
 clear
-echo " ✓ Selected Guided Install"
 
 # 
-# FONT INSTALLATION #
+# AUR INSTALL
+# 
+./Dots/Scripts/Installation/install-aur.sh
+
+# 
+# FONT INSTALLATION
 # 
 
 ./Dots/Scripts/Installation/install-nerdfonts.sh
 ./Dots/Scripts/Installation/install-font.sh
 
+#
+# TWEAKS/FINAL INSTALL 
+#
+
+./Dots/Scripts/Installation/install-options.sh
+
 # 
-# AUR INSTALL #
+# PACKAGE INSTALL
 # 
 
-./Dots/Scripts/Installation/install-aur.sh
-
-# 
-# GTK DARK THEME INSTALL #
-# 
-
-./Dots/Scripts/Installation/fix-libadwaita.sh
+./Dots/Scripts/Installation/install-packages.sh

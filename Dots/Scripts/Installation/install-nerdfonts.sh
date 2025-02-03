@@ -21,9 +21,27 @@ install_nerd_font() {
     echo "Installing $font_name..."
     sudo pacman -Sy --needed "$font_pkg"
 
-    echo "$font_name installed successfully!"
-    read -p "Press Enter when you are ready to move on." 
-
+    if pacman -Qq $(pacman -Ssq $font_name) &>/dev/null; then
+            clear
+            echo "Fonts installed successfully!"
+            read -p "Press Enter when you are ready to move on."
+            exit 0
+        else
+            echo ""
+            echo "WARNING: Installation of nerd font failed or could not be verified."
+            echo "Press ENTER to return to the main menu for another attempt"
+            echo "Alternatively, type 'skip' to skip, or 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "skip" ]]; then
+                exit 0
+            fi
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
+            return
+        fi
 }
 
 while true; do
@@ -43,17 +61,14 @@ while true; do
         1)
             clear
             install_nerd_font "JetBrainsMono" "ttf-jetbrains-mono-nerd"
-            break
             ;;
         2)
             clear
             install_nerd_font "Hack" "ttf-hack-nerd"
-            break
             ;;
         3)
             clear
             install_nerd_font "FiraCode" "ttf-firacode-nerd"
-            break
             ;;
         4)
             clear
@@ -65,14 +80,13 @@ while true; do
             echo ""
             read -p "Press Enter when you have manually installed your font." 
             exit 0
-            break
             ;;
         5)
             exit 0
             ;;
         *)
             clear
-            echo "✗ Invalid choice. Please try again."
+            echo "X Invalid choice. Please try again."
             echo ""
             ;;
     esac

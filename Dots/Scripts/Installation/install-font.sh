@@ -21,17 +21,25 @@ install_noto_font() {
 
         if pacman -Qq $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") &>/dev/null; then
             clear
-            echo "Fonts installed successfully!"
+            echo "Fonts are installed!"
             read -p "Press Enter when you are ready to move on."
             exit 0
         else
             echo ""
-            echo "WARNING: Installation of noto-fonts failed or could not be verified."
-            read -p "Press ENTER to try again or type 'skip' to skip this step: " choice
+            echo "WARNING: Installation of nerd font failed or could not be verified."
+            echo "Press ENTER to return to the main menu for another attempt"
+            echo "Alternatively, type 'skip' to skip, or 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
             if [[ "$choice" == "skip" ]]; then
-                break
+                exit 0
+            fi
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
             fi
             clear
+            return
+            return
         fi
     done
 }
@@ -42,29 +50,16 @@ while true; do
     echo ""
     echo "This will be a pretty large download, but id recommend it if you have the space."
     echo ""
-    echo "Enter your choice [Y OR N]"
+    echo "Enter your choice [Y/N]"
     read -p " ■ " notofont
 
     case "$notofont" in
-        y)
-            install_noto_font
-            break
-            ;;
-        Y)
-            install_noto_font
-            break
-            ;;
-        n)
-            echo "Skipping!"
-            break
-            ;;
-        N)
-            echo "Skipping!"
-            break
-            ;;
+        [Yy]) install_noto_font ;;
+        [Nn]) echo "Skipping!"; exit 0 ;;
         *)
-            echo "Invalid choice. Please try again."
-            sleep 1
+            clear
+            echo "X Invalid choice. Please try again."
+            echo ""
             ;;
     esac
 done

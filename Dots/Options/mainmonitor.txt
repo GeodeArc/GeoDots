@@ -1,7 +1,0 @@
-For things like Hyprlock, pywal grab info, etc.
-
-Status: Unfinished
-
-Completed example:
-----------------------
-DP-1

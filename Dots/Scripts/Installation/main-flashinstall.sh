@@ -1,10 +1,20 @@
 #!/bin/bash
 
 clear 
-echo " ✓ Selected Flash Install"
 
-sleep 5
+echo "Unfinished, press ENTER to go back"
+read -p " ■ " 
+./install.sh
 
 # 
-# SELECTION #
+# SELECTION
 # 
+
+# ./Dots/Scripts/Installation/flash-options.sh
+
+# 
+# INSTALL
+# 
+
+# ./Dots/Scripts/Installation/flash-install.sh
+

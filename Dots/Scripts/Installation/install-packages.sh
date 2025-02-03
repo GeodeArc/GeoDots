@@ -1,3 +1,157 @@
 #!/bin/bash
 
+APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
+AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 
+PACMAN_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-pacman)"
+AUR_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-aurs)"
+GTK_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-gtk)"
+QT_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-qt)"
+DIRS=(
+    "$HOME/Dots"
+    "$HOME/dofiles"
+    "$HOME/Dotfiles"
+    "$HOME/.config/hypr"
+    "$HOME/.config/kitty"
+    "$HOME/.config/rofi"
+    "$HOME/.config/swaync"
+    "$HOME/.config/wal"
+    "$HOME/.config/waybar"
+    "$HOME/.config/waypaper"
+)
+CODIRS=(
+    "$HOME/.config/hypr"
+    "$HOME/.config/kitty"
+    "$HOME/.config/rofi"
+    "$HOME/.config/swaync"
+    "$HOME/.config/wal"
+    "$HOME/.config/waybar"
+    "$HOME/.config/waypaper"
+)
+
+echo "Now ready for installation!"
+read -p "Press ENTER to begin installation "
+
+#echo "Checking for package conflicts."
+# ADD LATER MAYBE
+
+while true; do
+    echo "Installing PACMAN packages"
+    sudo pacman -S --needed $PACMAN_PKGS
+    if pacman -Qq $PACMAN_PKGS &>/dev/null; then
+        clear
+        echo "Packages installed successfully!"
+        read -p "Press Enter when you are ready to move on."
+        return
+    else
+        echo ""
+        echo "WARNING: Installation of packages failed or could not be verified."
+        echo "Press ENTER for another attempt"
+        echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+        read -p " ■ " choice
+        if [[ "$choice" == "troubleshoot" ]]; then
+            clear
+            ./Dots/Scripts/Installation/troubleshooter.sh
+        fi
+        clear
+    fi
+done
+
+while true; do
+    echo "Installing AUR packages"
+    $AUR_HELPER $AUR_PKGS
+    cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/
+    if pacman -Qq $AUR_PKGS &>/dev/null; then
+        clear
+        echo "AURs installed successfully!"
+        read -p "Press Enter when you are ready to move on."
+        return
+    else
+        echo ""
+        echo "WARNING: Installation of AURs failed or could not be verified."
+        echo "Press ENTER for another attempt"
+        echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+        read -p " ■ " choice
+        if [[ "$choice" == "troubleshoot" ]]; then
+            clear
+            ./Dots/Scripts/Installation/troubleshooter.sh
+        fi
+        clear
+    fi
+done
+
+while true; do
+    if [[ "$APPTYPE_FILE" == "qt" ]]; then
+        $AUR_HELPER $QT_PKGS
+        cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/
+        if pacman -Qq $QT_PKGS &>/dev/null; then
+            clear
+            echo "QT Packages installed successfully!"
+            read -p "Press Enter when you are ready to move on."
+            return
+        else
+            echo ""
+            echo "WARNING: Installation of QT packages failed or could not be verified."
+            echo "Press ENTER for another attempt"
+            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
+        fi
+    elif [[ "$APPTYPE_FILE" == "gtk" ]]; then
+        $AUR_HELPER $GTK_PKGS
+        cp 
+        if pacman -Qq $GTK_PKGS &>/dev/null; then
+            clear
+            echo "GTK Packages installed successfully!"
+            read -p "Press Enter when you are ready to move on."
+            return
+        else
+            echo ""
+            echo "WARNING: Installation of GTK packages failed or could not be verified."
+            echo "Press ENTER for another attempt"
+            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
+        fi
+        return
+    else
+        echo "Warning: App type file not found/invalid. Installing fallback packages, modify hyprland.conf to your specification."
+        $AUR_HELPER nautilus gnome-text-editor gnome-software gnome-keyring polkit-gnome kate kwrite dolphin discover kwallet hyprpolkitagent
+    fi
+done
+
+echo "Copying configs to config folders."
+for dir in "${DIRS[@]}"; do
+    if [ -d "$dir" ]; then
+        echo "Removing $dir"
+        rm -rf "$dir"
+    fi
+done
+sudo cp -a $HOME/GeoDots/.config/. ~/.config/
+
+echo "Creating DOTFILES folder (~/Dots)"
+cp -a $HOME/GeoDots/Dots $HOME/Dots
+
+echo "Creating symlinks from .config to Dots folder"
+for dir in "${CODIRRS[@]}"; do
+    if [ -d "$dir" ]; then
+        echo "Creating symlink $dir"
+        ln -s $dir $HOME/Dots/Config
+    fi
+done
+
+clear
+echo "Congratulations, DOTFILES should be successfully installed!"
+echo "A reboot is required for most things to work"
+echo ""
+read -p "Press ENTER to continue"
+echo "postinstall" > /tmp/geodots_install 
+sudo reboot
