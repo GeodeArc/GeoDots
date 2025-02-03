@@ -48,7 +48,8 @@ while true; do
     echo "├─ ▶  [1] Clear Pacman/AUR Cache (General Fixes)"
     echo "├─ ▶  [2] Check network with nmtui (Error 404s etc) (Only for NetworkManager users)"
     echo "├─ ▶  [3] Conflicting Packages ('Conflicts Found', 'Couldnt satisfy depends' etc)"
-    echo "├─ X  [4] Exit Troubleshooter"
+    echo "├─ ▶  [4] Remove Chaotic-AUR ('Conflicts Found', 'Couldnt satisfy depends' etc)"
+    echo "├─ X  [5] Exit Troubleshooter"
     echo "│"
     echo "└─ Enter your choice [1-4]"
     read -p " ■ " pacman
@@ -89,7 +90,12 @@ while true; do
             read -p "The command has been completed, please press ENTER to return to the menu"
             clear
             ;;    
-        4)  
+        4) 
+            sed -i '/^\[chaotic-aur\]$/d; /^\s*Include\s*=\s*\/etc\/pacman.d\/chaotic-mirrorlist$/d' /etc/pacman.conf
+            read -p "Should be done, press ENTER to return to the main menu"
+            clear
+            ;;
+        5)  
             clear
             echo "Bye bye!"
             exit 0
