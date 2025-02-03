@@ -1,5 +1,6 @@
 #!/bin/bash
 
+APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 OLDDM="$(cat /tmp/geodots_olddm)"
 DIRS=(
@@ -16,9 +17,8 @@ DIRS=(
 )
 
 clear
-echo "none" > $APPTYPE_FILE
 
-while [[ -f "$APPTYPE_FILE" && "$(cat "$APPTYPE_FILE")" == "none" ]]; do
+while true; do
     echo "Would you like primarily QT (KDE) or GTK (GNOME) apps (e.g Nautilus for GTK, Dolphin for QT)"
     echo "Please check the wiki for more info: https://github.com/GeodeArc/GeoDots/wiki/QT-VS-GTK"
     echo ""
@@ -32,10 +32,12 @@ while [[ -f "$APPTYPE_FILE" && "$(cat "$APPTYPE_FILE")" == "none" ]]; do
         1)
         echo qt > /tmp/geodots_apptype
         clear
+        break
         ;; 
         2)
         echo gtk > /tmp/geodots_apptype
         clear
+        break
         ;; 
         3) 
         clear
@@ -305,12 +307,22 @@ chaoticinstall () {
 
                 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
                 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-
-                echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
-
-                sudo pacman -Sy
-                clear
-                return
+                
+                if pacman -Qq chaotic-keyring chaotic-mirrorlist &>/dev/null; then
+                    echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
+                    sudo pacman -Sy
+                    clear
+                    return
+                else
+                    echo ""
+                    echo "WARNING: Installation of chaoticaur failed or could not be verified."
+                    echo "Press ENTER for another attempt, or type 'skip' to skip." 
+                    read -p " ■ " chaoticfail
+                    if [[ "$chaoticfail" == "skip" ]]; then
+                        clear
+                        return
+                    fi
+                fi
                 ;;
                 [Nn])
                 clear
