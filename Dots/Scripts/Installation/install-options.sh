@@ -4,7 +4,6 @@ APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 OLDDM="$(cat /tmp/geodots_olddm)"
 MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
-MONDESCS=( $(hyprctl monitors | grep description | sed 's/^\s*description: //') )
 DIRS=(
     "$HOME/Dots"
     "$HOME/dofiles"
@@ -344,17 +343,18 @@ monitorselect() {
     while true; do
         echo "Select a monitor:"
         for i in "${!MONITORS[@]}"; do
-            echo "$((i+1))) ${MONITORS[i]} - ${MONDESCS[i]}"
+            echo "$((i+1))) ${MONITORS[i]}"
         done
 
-        echo -n "Enter the number of your preferred monitor: "
+        echo -n "Enter the number of your preferred primary (main) monitor: "
         read -r choice
 
         if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le ${#MONITORS[@]} ]; then
             break
         fi
-        echo "Invalid selection. Please try again."
         clear
+        echo "X Please try again."
+        echo ""
     done
 
     selected_monitor=${MONITORS[$((choice-1))]}
