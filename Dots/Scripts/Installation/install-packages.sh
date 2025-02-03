@@ -42,6 +42,7 @@ while true; do
         clear
         echo "Packages installed successfully!"
         read -p "Press Enter when you are ready to move on."
+        clear
         break
     else
         echo ""
@@ -65,6 +66,7 @@ while true; do
         clear
         echo "AURs installed successfully!"
         read -p "Press Enter when you are ready to move on."
+        clear
         break
     else
         echo ""
@@ -83,11 +85,12 @@ done
 while true; do
     if [[ "$APPTYPE_FILE" == "qt" ]]; then
         $AUR_HELPER $QT_PKGS
-        cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/
+        cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/
         if pacman -Qq $QT_PKGS &>/dev/null; then
             clear
             echo "QT Packages installed successfully!"
             read -p "Press Enter when you are ready to move on."
+            clear
             break
         else
             echo ""
@@ -103,11 +106,12 @@ while true; do
         fi
     elif [[ "$APPTYPE_FILE" == "gtk" ]]; then
         $AUR_HELPER $GTK_PKGS
-        cp 
+        cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/
         if pacman -Qq $GTK_PKGS &>/dev/null; then
             clear
             echo "GTK Packages installed successfully!"
             read -p "Press Enter when you are ready to move on."
+            clear
             break
         else
             echo ""
@@ -149,6 +153,8 @@ for dir in "${CODIRRS[@]}"; do
         ln -s $dir $HOME/Dots/Config
     fi
 done
+
+waypaper --random
 
 clear
 echo "Congratulations, DOTFILES should be successfully installed!"
