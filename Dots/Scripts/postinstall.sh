@@ -9,6 +9,8 @@ echo " dP         88888P   88888P    dP       Y88888P   88888P    dP    88888P  
 echo "                                                                          88       "
 echo "                                                                          dP       "
 
+MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
+
 monitorselect() {
     while true; do
         echo "Select a monitor:"
@@ -28,7 +30,8 @@ monitorselect() {
     done
 
     selected_monitor=${MONITORS[$((choice-1))]}
-    echo "$selected_monitor" > "$HOME/GeoDots/Dots/Options/mainmonitor"
+    echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
+    waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg
     clear
 }
 

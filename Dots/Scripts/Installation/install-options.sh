@@ -3,7 +3,6 @@
 APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 OLDDM="$(cat /tmp/geodots_olddm)"
-MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
 DIRS=(
     "$HOME/Dots"
     "$HOME/dofiles"
