@@ -21,7 +21,7 @@ install_nerd_font() {
     echo "Installing $font_name..."
     sudo pacman -Sy --needed "$font_pkg"
 
-    if pacman -Qq $(pacman -Ssq $font_name) &>/dev/null; then
+    if pacman -Qq $(pacman -Ssq $font_pkg) &>/dev/null; then
             clear
             echo "Fonts installed successfully!"
             read -p "Press Enter when you are ready to move on."

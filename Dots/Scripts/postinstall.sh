@@ -9,6 +9,32 @@ echo " dP         88888P   88888P    dP       Y88888P   88888P    dP    88888P  
 echo "                                                                          88       "
 echo "                                                                          dP       "
 
+monitorselect() {
+    while true; do
+        echo "Select a monitor:"
+        for i in "${!MONITORS[@]}"; do
+            echo "$((i+1))) ${MONITORS[i]}"
+        done
+
+        echo -n "Enter the number of your preferred primary (main) monitor: "
+        read -r choice
+
+        if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le ${#MONITORS[@]} ]; then
+            break
+        fi
+        clear
+        echo "X Please try again."
+        echo ""
+    done
+
+    selected_monitor=${MONITORS[$((choice-1))]}
+    echo "$selected_monitor" > "$HOME/GeoDots/Dots/Options/mainmonitor"
+    clear
+}
+
+monitorselect
+echo "complete" > $HOME/Dots/Options/startup
+
 echo "Still working here, for now, edit the hyprland config to your liking, and hopefully you have a working PC!"
 read -p "Press ENTER to exit." 
 
