@@ -156,11 +156,11 @@ done
 
 echo "Generating default color scheme:"
 wal -i "$HOME/Dots/Wallpapers/wall1.jpg"
+echo "postinstall" > $HOME/Dots/Options/startup
 
 clear
 echo "Congratulations, DOTFILES should be successfully installed!"
 echo "A reboot is required for most things to work"
 echo ""
 read -p "Press ENTER to continue"
-echo "postinstall" > $HOME/Dots/Options/startup
 sudo reboot

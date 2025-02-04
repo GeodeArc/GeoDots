@@ -36,10 +36,8 @@ monitorselect() {
 }
 
 monitorselect
-echo "complete" > $HOME/Dots/Options/startup
 
-echo "Still working here, for now, edit the hyprland config to your liking, and hopefully you have a working PC!"
-read -p "Press ENTER to exit." 
+echo "complete" > $HOME/Dots/Options/startup
 
 #echo "You have more than one monitor"
 #echo "Would you like to setup your monitors now, or just leave it at the defaults? [Y/N]"
