@@ -147,10 +147,10 @@ echo "Creating DOTFILES folder (~/Dots)"
 cp -a $HOME/GeoDots/Dots $HOME/Dots
 
 echo "Creating symlinks from .config to Dots folder"
-for dir in "${CODIRRS[@]}"; do
+for dir in "${CODIRS[@]}"; do
     if [ -d "$dir" ]; then
         echo "Creating symlink $dir"
-        ln -s $dir $HOME/Dots/Config
+        ln -s $dir $HOME/Dots/Config/
     fi
 done
 

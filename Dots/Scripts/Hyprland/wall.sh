@@ -8,7 +8,7 @@ cache_file="$HOME/.cache/swww/$monitor"
 wallpaper=$(grep -v "^Lanczos3" "$cache_file")
 
 genwal=$wallpaper
-echo "* { wallpaper: url(\"$genwal\", width); }" > "$HOME/.config/rofi/wallpaper.rasi"
+echo "* { wallpaper: url(\"$genwal\", width); }" > "$HOME/.config/rofi/options/wallpaper.rasi"
 
 wal -q -i $genwal
 
