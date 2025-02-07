@@ -114,6 +114,7 @@ browserinstall () {
         local browserpackage="$1"
         $AUR_HELPER $browserpackage
         if pacman -Q $browserpackage &>/dev/null; then
+            clear
             echo "Browser successfully installed!"
             read -p "Press ENTER to move on: "
             clear
