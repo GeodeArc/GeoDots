@@ -322,6 +322,7 @@ chaoticinstall () {
                         clear
                         return
                     fi
+                    clear
                 fi
                 ;;
                 [Nn])

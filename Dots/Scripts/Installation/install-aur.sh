@@ -49,8 +49,8 @@ install_aur_helper() {
     if pacman -Q $aurh_name &>/dev/null; then
         clear
         echo "$aurh_name installed successfully!"
-        echo "$aurh_name -Sy --needed" > "$aurh_name"
-        rm $HOME/$AUR_FILE
+        echo "$aurh_name -Sy --needed" > "$AUR_FILE"
+        sudo rm -r $HOME/$aurh_name
         echo "AUR helper installed!"
         read -p "Press Enter when you are ready to move on."
         exit 0
