@@ -31,13 +31,19 @@ monitorselect() {
 
     selected_monitor=${MONITORS[$((choice-1))]}
     echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
-    waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg
     clear
 }
 
 monitorselect
 
+waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg
+
+echo "Moving GeoDots config to backup"
+mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
+
 echo "complete" > $HOME/Dots/Options/startup
+
+sleep 1
 
 #echo "You have more than one monitor"
 #echo "Would you like to setup your monitors now, or just leave it at the defaults? [Y/N]"

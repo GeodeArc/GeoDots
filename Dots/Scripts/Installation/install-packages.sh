@@ -132,7 +132,11 @@ while true; do
     fi
 done
 
-read -p "Packages installed successfully, press enter to copy dotfiles to your system."
+echo "Packages installed successfully!"
+echo "Please save any unsaved documents, as the system will reboot after this is complete!"
+read -p "Press enter to copy dotfiles to your system."
+
+xdg-user-dirs-gtk-update
 
 echo "Copying configs to config folders."
 for dir in "${DIRS[@]}"; do
@@ -141,7 +145,10 @@ for dir in "${DIRS[@]}"; do
         rm -rf "$dir"
     fi
 done
-sudo cp -a $HOME/GeoDots/.config/. ~/.config/
+
+sudo cp -a $HOME/GeoDots/.config/. $HOME/.config/
+mv $HOME/.config/.zshrc $HOME
+mv $HOME/.config/.bashrc $HOME
 
 echo "Creating DOTFILES folder (~/Dots)"
 cp -a $HOME/GeoDots/Dots $HOME/Dots
@@ -162,5 +169,6 @@ clear
 echo "Congratulations, DOTFILES should be successfully installed!"
 echo "A reboot is required for most things to work"
 echo ""
-read -p "Press ENTER to continue"
+echo "Rebooting in 5 seconds, press CTRL+C to abort!"
+sleep 5
 sudo reboot

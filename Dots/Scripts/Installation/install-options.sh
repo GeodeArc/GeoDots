@@ -154,9 +154,9 @@ themeconfig() {
         esac
 
         echo ""
-        sudo pacman -S --needed xdg-desktop-portal xdg-desktop-portal-gnome xdg-desktop-portal-hyprland adw-gtk-theme
+        sudo pacman -S --needed xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme
 
-        if ! pacman -Qq xdg-desktop-portal xdg-desktop-portal-gnome xdg-desktop-portal-hyprland adw-gtk-theme &>/dev/null; then
+        if ! pacman -Qq xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme &>/dev/null; then
             echo ""
             echo "WARNING: Installation of theme dependencies failed or could not be verified."
             read -p "Press ENTER to try again or type 'skip' to skip this step: " choice
@@ -269,7 +269,7 @@ selectdm() {
             ;;
             3)
             clear
-            echo "Currently Unfinished, please select another!"
+            echo "true" > $HOME/GeoDots/Dots/Options/autologin
             echo ""
             ;;
             4)
@@ -346,6 +346,8 @@ backup () {
                 [Yy])
                 backupdir="$HOME/GeoDots/Dots/Backup/$(date +'%Y-%m-%d-%H:%M:%S')"
                 mkdir -p "$backupdir"
+                cp -a "$HOME/.zshrc" "$backupdir"
+                cp -a "$HOME/.bashrc" "$backupdir" 
                 for dir in "${DIRS[@]}"; do
                     if [ -d "$dir" ]; then
                         echo "Backing up $dir"
