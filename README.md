@@ -17,7 +17,7 @@
 
   <p></p>
   
-  > If thers an issue installing, please submit a bug report! 
+  > Should work on pretty much any arch based system (minimal, or not). If thers an issue installing, please submit a bug report! 
   
   ```bash
   bash <(curl -s "https://geodearc.github.io/GeoDots/autoinstall.sh")
@@ -63,3 +63,8 @@
   <h3>Current:</h3>
   <h3>Later:</h3>
 </details> 
+
+### 💞 Special thanks/credits:
+- ML4W, for the original waybar design (https://ml4w.com)
+- adi1090x, for the original rofi designs (https://github.com/adi1090x/rofi)
+- zDyanTB, for the original swaync design (https://github.com/zDyanTB/HyprNova)
