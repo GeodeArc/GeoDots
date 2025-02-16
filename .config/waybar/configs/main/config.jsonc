@@ -4,43 +4,42 @@
 //
 
 {
-    // General Settings
-    "layer": "bottom",
-    "margin-top": 8,
-    "margin-bottom": 0,
-    "margin-left": 0,
-    "margin-right": 0,    
-    "spacing": 0,
-    "height": 41,
+  // General Settings
+  "layer": "bottom",
+  "margin-top": 8,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,    
+  "spacing": 0,
+  "height": 46,
 
-    // Modules Left
-    "modules-left": [
-        "custom/appmenu",
-        "group/settings",
-        "group/hardware",
-        "wlr/taskbar",
-        "hyprland/window"
-    ],
+  // Modules Left
+  "modules-left": [
+      "custom/appmenu",
+      "group/settings",
+      "group/hardware",
+      "wlr/taskbar",
+      "hyprland/window"
+  ],
 
-    // Modules Center
-    "modules-center": [
-        "hyprland/workspaces",
-        "custom/media"
-    ],
+  // Modules Center
+  "modules-center": [
+      "hyprland/workspaces",
+      "custom/media"
+  ],
 
-    // Modules Right    
-    "modules-right": [
-        "network",
-        "bluetooth",
-        "battery",
-        "pulseaudio",
-        "tray",
-        "custom/notification",
-        "clock",
-    ],
-    
-    
-  // Workspaces
+  // Modules Right    
+  "modules-right": [
+      "network",
+      "bluetooth",
+      "battery",
+      "pulseaudio",
+      "tray",
+      "custom/notification",
+      "clock",
+  ],
+  
+// Workspaces
   "hyprland/workspaces": {
     "on-scroll-up": "hyprctl dispatch workspace r-1",
     "on-scroll-down": "hyprctl dispatch workspace r+1",
@@ -49,7 +48,7 @@
     "all-outputs": false,
     "format": "{}",
     "format-icons": {
-      "urgent": "",
+      "urgent": "",
       "active": "",
       "default": ""
     },
@@ -57,18 +56,17 @@
       "*": 5
     }
   },
-  
 
   // Taskbar
   "wlr/taskbar": {
-	"format": "{icon}",
-	"icon-size": 18,
-	"tooltip-format": "{title}",
-	"sort-by-app-id": true,
-	"on-click": "activate",
-	"on-click-middle": "close",
+  "format": "{icon}",
+  "icon-size": 18,
+  "tooltip-format": "{title}",
+  "sort-by-app-id": false,
+  "on-click": "activate",
+  "on-click-middle": "close",
         "all-outputs": true,
-        "ignore-list": ["alactritty", "kitty"]
+        "ignore-list": ["alactritty", "kitty", "foot"]
   },
 
   // Hyprland Window
@@ -77,37 +75,12 @@
     "separate-outputs": false
   },
 
-  // Empty
-  "custom/empty": {
-    "format": ""
-  },
-
-  // Cliphist
-  "custom/cliphist": {
-    "format": "",
-    "on-click": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh",
-    "on-click-right": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh d",
-    "on-click-middle": "sleep 0.1 && ~/.config/ml4w/scripts/cliphist.sh w",
-    "tooltip-format": "Clipboard Manager"
-  },
-
-  // Updates Count
-  "custom/updates": {
-    "format": "  {}",
-    "escape": true,
-    "return-type": "json",
-    "exec": "~/.config/ml4w/scripts/updates.sh",
-    "restart-interval": 1800,
-    "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
-    "on-click-right": "~/.config/ml4w/settings/software.sh"
-  },
-
   // Wallpaper
   "custom/wallpaper": {
     "format": "",
     "on-click": "waypaper",
-    "on-click-right": "~/.config/hypr/scripts/wallpaper-effects.sh",
-    "tooltip-format": "Left: Select a wallpaper\nRight: Select wallpaper effect"
+    "on-click-right": "waypaper --random",
+    "tooltip-format": "Change wallpaper"
   },
 
   // Brightness
@@ -123,12 +96,10 @@
     "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center",
     "tooltip-format": "Settings"
   },
-  
+
   // Rofi Application Launcher
   "custom/appmenu": {
-    // START APPS LABEL
-    "format": "Apps",
-    // END APPS LABEL
+    "format": "   Apps",
     "on-click": "~/.config/rofi/launcher.sh",
     "tooltip-format": "Open App Launcher"
   },
@@ -138,29 +109,6 @@
     "format": "",
     "on-click": "~/.config/rofi/launcher.sh",
     "tooltip-format": "Open App Launcher"
-  },
-
-  // Hypridle inhibitor
-  "custom/hypridle": {
-    "format": "",
-    "return-type": "json",
-    "escape": true,
-    "exec-on-event": true,
-    "interval": 60,
-    "exec": "~/.config/hypr/scripts/hypridle.sh status",
-    "on-click": "~/.config/hypr/scripts/hypridle.sh toggle",
-    "on-click-right": "hyprlock"
-  },
-
-  // Keyboard State
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
   },
 
   // System tray
@@ -173,6 +121,7 @@
   "clock": {
     "format": "{:%I:%M %p}",
     "format-alt": "{:%d-%m-%Y}",
+    "on-click-right": "gnome-clocks",
     "tooltip": true,
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -188,7 +137,7 @@
                               }
                     },
         "actions":  {
-                    "on-click-right": "mode",
+                    "on-click-middle": "mode",
                     "on-scroll-up": "tz_down",
                     "on-scroll-down": "tz_up",
                     "on-scroll-up": "shift_down",
@@ -253,7 +202,7 @@
     ]
   },
 
-// Network
+  // Network
   "network": {
     "format": "󰲛  Offline",
     "format-wifi": " ",
@@ -307,21 +256,21 @@
       "car": " ",
       "default": [" ", "  ", "  ", "  "]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pwvucontrol"
   },
 
   // Bluetooth
   "bluetooth": {
     "format": "",
-    "format-disabled": "",
-    "format-off": "",
+    "format-disabled": "󰂲 Disabled",
+    "format-off": "󰂲 Off",
     "interval": 30,
     "on-click": "~/Dots/Scripts/waybar/batoggle.sh",
-    "format-no-controller": "",
-	"tooltip-format": " {controller_alias}\n\n{num_connections} connected",
-	"tooltip-format-connected": " {controller_alias}\n\n{num_connections} connected",
-	"tooltip-format-enumerate-connected": " {device_alias}",
-	"tooltip-format-enumerate-connected-battery": " {device_alias}\t{device_battery_percentage}%"
+    "format-no-controller": "󰂲 Dead",
+  "tooltip-format": " {controller_alias}\n\n{num_connections} connected",
+  "tooltip-format-connected": " {controller_alias}\n\n{num_connections} connected",
+  "tooltip-format-enumerate-connected": " {device_alias}",
+  "tooltip-format-enumerate-connected-battery": " {device_alias}\t{device_battery_percentage}%"
   },
 
   // Other
@@ -330,7 +279,7 @@
     "interval": 60,
     "icon": false
   },
-  
+
   // Media
   "custom/media": {
     "interval": 1,

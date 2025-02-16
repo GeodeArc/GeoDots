@@ -51,7 +51,6 @@ install_aur_helper() {
         echo "$aurh_name installed successfully!"
         echo "$aurh_name -Sy --needed" > "$AUR_FILE"
         sudo rm -r $HOME/$aurh_name
-        echo "AUR helper installed!"
         read -p "Press Enter when you are ready to move on."
         exit 0
     else
