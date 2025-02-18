@@ -212,7 +212,7 @@
     "tooltip-format-ethernet": "󰈀  {ifname}\n\nIP: {ipaddr}\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "~/Dots/Scripts/waybar/nmtoggle.sh",
+    "on-click": "~/Dots/Scripts/Waybar/nmtoggle.sh",
     "on-click-right": "nm-connection-editor"
   },
 
@@ -264,7 +264,7 @@
     "format-disabled": "󰂲 Disabled",
     "format-off": "󰂲 Off",
     "interval": 30,
-    "on-click": "~/Dots/Scripts/waybar/batoggle.sh",
+    "on-click": "~/Dots/Scripts/Waybar/batoggle.sh",
     "on-click-right": "blueman-manager",
     "format-no-controller": "",
   "tooltip-format": " {controller_alias}\n\n{num_connections} connected",
