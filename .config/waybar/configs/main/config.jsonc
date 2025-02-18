@@ -35,7 +35,7 @@
       "battery",
       "pulseaudio",
       "tray",
-      "custom/notification",
+      "custom/sidebar",
       "clock",
   ],
   
@@ -83,17 +83,16 @@
     "tooltip-format": "Change wallpaper"
   },
 
-  // Brightness
-  "custom/brightness": {
+  // Night Light
+  "custom/nightlight": {
     "format": "󰃟",
-    "on-click": "com.sidevesh.Luminance",
-    "tooltip-format": "Change brightness"
+    "on-click": "pgrep hyprsunset && { pkill hyprsunset; notify-send -i night-light-disabled-symbolic 'Night Light Disabled'; } || { hyprsunset -t 4800 & notify-send -i night-light-symbolic 'Night Light Enabled'; }",
+    "tooltip-format": "Night Light"
   },
-
+  
   // Settings
   "custom/settings": {
     "format": "",
-    "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center",
     "tooltip-format": "Settings"
   },
 
@@ -153,22 +152,21 @@
 
   // CPU
   "cpu": {
+    "interval": 5,
     "format": "/ C {usage}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   // Memory
   "memory": {
+    "interval": 5,
     "format": "/ M {}% ",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   // Harddisc space used
   "disk": {
-    "interval": 30,
+    "interval": 5,
     "format": "  D {percentage_used}% ",
     "path": "/",
-    "on-click": "~/.config/ml4w/settings/system-monitor.sh"
   },
 
   // Keyboard Layout
@@ -197,7 +195,7 @@
     },
     "modules": [
       "custom/settings",
-      "custom/brightness",
+      "custom/nightlight",
       "custom/wallpaper"
     ]
   },
@@ -241,7 +239,7 @@
     "scroll-step": 1,
     "format": "{icon}  {volume}%",
     "format-bluetooth": "{icon}  {volume}%  {format_source}",
-    "format-bluetooth-muted": "  {volume}  {format_source}",
+    "format-bluetooth-muted": "  Muted  {format_source}",
     "format-muted": "  Muted",
     "format-source": "{volume}% ",
     "format-source-muted": "",
@@ -256,7 +254,8 @@
       "car": " ",
       "default": [" ", "  ", "  ", "  "]
     },
-    "on-click": "pwvucontrol"
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    "on-click-right": "pavucontrol"
   },
 
   // Bluetooth
@@ -266,7 +265,8 @@
     "format-off": "󰂲 Off",
     "interval": 30,
     "on-click": "~/Dots/Scripts/waybar/batoggle.sh",
-    "format-no-controller": "󰂲 Dead",
+    "on-click-right": "blueman-manager",
+    "format-no-controller": " Dead",
   "tooltip-format": " {controller_alias}\n\n{num_connections} connected",
   "tooltip-format-connected": " {controller_alias}\n\n{num_connections} connected",
   "tooltip-format-enumerate-connected": " {device_alias}",
@@ -311,10 +311,9 @@
 
   // Notifs
   },
-  "custom/notification": {
-      "format": "󰂚",
-      "tooltip-format": "Notificaion Center",
-      "on-click": "swaync-client -t",
-      "on-click-right": "swaync-client -R && swaync-client -rs && pkill swaync-client",
+  "custom/sidebar": {
+      "format": "󱗼",
+      "tooltip-format": "Sidebar",
+      "on-click": "swaync-client -R && swaync-client -rs && swaync-client -t",
   }
 }
