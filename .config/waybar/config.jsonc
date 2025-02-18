@@ -254,8 +254,8 @@
       "car": " ",
       "default": [" ", "  ", "  ", "  "]
     },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    "on-click-right": "pavucontrol
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol"
   },
 
   // Bluetooth
@@ -266,7 +266,7 @@
     "interval": 30,
     "on-click": "~/Dots/Scripts/waybar/batoggle.sh",
     "on-click-right": "blueman-manager",
-    "format-no-controller": " Dead",
+    "format-no-controller": "",
   "tooltip-format": " {controller_alias}\n\n{num_connections} connected",
   "tooltip-format-connected": " {controller_alias}\n\n{num_connections} connected",
   "tooltip-format-enumerate-connected": " {device_alias}",

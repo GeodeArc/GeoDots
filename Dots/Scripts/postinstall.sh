@@ -34,12 +34,10 @@ monitorselect() {
     clear
 }
 
+mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
 monitorselect
 
 waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg
-
-echo "Moving GeoDots config to backup"
-mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
 
 echo "complete" > $HOME/Dots/Options/startup
 
