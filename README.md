@@ -36,7 +36,7 @@
   sudo pacman -S --needed git base-devel
   ```
   - 💾 Begin Installation!
-  > Needs to be in home folder, may make the script more adaptive if i feel like it
+  > Needs to be in home folder for now! May make the script better/adaptive if i feel like it
   ```
   cd
   git clone https://github.com/GeodeArc/GeoDots/
@@ -48,11 +48,13 @@
 # 
 
 ### 🖼️ SCREENSHOTS:
-![screen1](https://github.com/user-attachments/assets/5a1b534a-d438-4d53-a352-1e33935a1b4a)
+![Dots 1](https://github.com/user-attachments/assets/58ec042b-2fa6-4fc3-9a6b-aebfde197afc)
 
-![screen2](https://github.com/user-attachments/assets/b42781a5-a1f9-44f4-8896-31161bb978bf)
+![Dots 2](https://github.com/user-attachments/assets/510848f9-4be8-465f-8c87-29b1bf4fc418)
 
-![Screenshotﾠ2025-02-16ﾠ17:49:01](https://github.com/user-attachments/assets/7b519a9b-c542-44d7-9e9d-9434bd34f197)
+![Dots 3](https://github.com/user-attachments/assets/257173da-a71f-4501-8909-76d178040656)
+
+![image](https://github.com/user-attachments/assets/7cf8db7c-b7e1-4c32-aa70-027477feccec)
 
 # 
 
@@ -63,6 +65,8 @@
   <h3>Current:</h3>
   <h3>Later:</h3>
 </details> 
+
+# 
 
 ### 💞 Special thanks/credits:
 - ML4W, for the original waybar design (https://ml4w.com)
