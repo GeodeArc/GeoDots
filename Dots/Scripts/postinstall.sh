@@ -39,6 +39,10 @@ monitorselect
 
 waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg
 
+sleep 1
+
+waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg # I have to do this twice because wal (or swww) sucks first time... smh
+
 echo "complete" > $HOME/Dots/Options/startup
 
 sleep 1
