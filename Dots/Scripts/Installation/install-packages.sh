@@ -163,6 +163,7 @@ done
 
 echo "Generating default color scheme:"
 wal -i "$HOME/Dots/Wallpapers/wall1.jpg"
+ln -s $dir $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/colors.conf
 echo "postinstall" > $HOME/Dots/Options/startup
 
 clear
