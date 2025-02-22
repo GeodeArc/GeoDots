@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=win11-sddm-theme
+Description=Windows 11 login screen theme for SDDM.
+Author=birbkeks
+License=MIT
+Type=sddm-theme
+Version=1
+Website=https://github.com/birbkeks/win11-sddm-theme
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+Email=birbkeks@proton.me
+Theme-Id=win11-sddm-theme
+Theme-API=2.0
+QtVersion=6

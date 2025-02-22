@@ -261,7 +261,7 @@ selectdm() {
             if pacman -Q sddm qt6-5compat qt6-multimedia &>/dev/null; then
                 clear
                 echo "Installing SDDM theme:"
-                sudo cp -r $HOME/GeoDots/.config/sddm/win11-sddm-theme /usr/share/sddm/themes
+                sudo cp -r $HOME/GeoDots/.config/sddm/theme/win11-sddm-theme /usr/share/sddm/themes
                 sudo cp $HOME/GeoDots/.config/sddm/default.conf /usr/lib/sddm/sddm.conf.d/
                 sudo mkdir -p /etc/sddm.conf.d # just incase
                 sudo rm /etc/sddm.conf.d/kde_settings.conf # this takes precedence over regular sddm config, so this will remove it.
