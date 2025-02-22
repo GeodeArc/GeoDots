@@ -63,7 +63,26 @@
 <details> 
   <summary>🟡 Roadmap</summary>
   <h3>Current:</h3>
+  
+  - Font choices (rofi kitty etc)
+  
+  - Add ZSH/Bash selection
+    
+  - Add auto install
+    
+  - Add cursor (bibata modern ice/classic depending on light/dark theme)
+    
+  - Proper light/dark theme support (waybar✅, gtk3/4✅, swaync, rofi)
+    
   <h3>Later:</h3>
+  
+  - GDM config (Ready to be merged)
+  
+  - Add monitor setup to post install
+    
+  - Settings/config script
+    
+  - Add hyprlock autologon (maybe with sddm since that seems easy)
 </details> 
 
 # 
