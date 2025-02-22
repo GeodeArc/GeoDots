@@ -31,7 +31,7 @@ monitorselect() {
 
     selected_monitor=${MONITORS[$((choice-1))]}
     echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
-    echo "$monitor = $selected_monitor" > "$HOME/.config/hypr/monitor.conf"
+    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/monitor.conf"
     clear
 }
 
