@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <p>⚠ This is an VERY VERY unfinished project! While it should be installable, you may run into issues.</p>
+  <p>⚠️ This is a VERY VERY unfinished project! While it should be installable, you may run into issues.</p>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
@@ -72,7 +72,7 @@
     
   - Add cursor (bibata modern ice/classic depending on light/dark theme)
     
-  - Proper light/dark theme support (waybar✅, gtk3/4✅, swaync, rofi)
+  - Proper light/dark theme support (waybar✅, gtk3/4✅, swaync❌, rofi❌)
     
   <h3>Later:</h3>
   
