@@ -266,6 +266,9 @@ selectdm() {
                 sudo mkdir -p /etc/sddm.conf.d # just incase
                 sudo rm /etc/sddm.conf.d/kde_settings.conf # this takes precedence over regular sddm config, so this will remove it.
                 sudo cp $HOME/GeoDots/.config/sddm/default.conf /etc/sddm.conf.d/ # just incase
+                sudo cp -r $HOME/GeoDots/Dots/Wallpapers/wall1.jpg /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/wallpaper.jpg # temp wallpaper
+                cp $HOME/GeoDots/.config/sddm/wallpaperupdate.sh $HOME/GeoDots/Dots/Scripts/Hyprland
+                sudo rm -r $HOME/GeoDots/.config/sddm/
                 clear
                 return
             else
