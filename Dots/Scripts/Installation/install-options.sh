@@ -60,7 +60,17 @@ done
 
 browserselect() {
     while true; do
-        echo "What browser would you like to install?"
+        local browsers=("firefox" "chromium" "brave" "vivaldi" "google-chrome" "floorp" "librewolf" "epiphany") # Feel free to suggest other browsers I can add here. Doesnt check flatpaks, i know sorry
+        for browser in "${browsers[@]}"; do
+            if command -v "$browser" >/dev/null 2>&1; then
+                echo "$browser browser is already installed, skipping browser installation"
+                sleep 1
+                clear
+                return
+            fi
+        done
+            
+        echo "Couldnt find a browser, would you like to install one now?"
         echo ""
         echo "[1]  Firefox"
         echo "[2]  Chromium"
@@ -123,11 +133,17 @@ browserinstall () {
             echo ""
             echo "WARNING: Installation of browser failed or could not be verified."
             echo "Press ENTER for another attempt, or type 'skip' to skip." 
+            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
             read -p " ■ " browserfail
             if [[ "$browserfail" == "skip" ]]; then
                 clear
                 return
             fi
+            if [[ "$browserfail" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
         fi
     done
 }
@@ -157,24 +173,30 @@ themeconfig() {
         echo ""
         sudo pacman -S --needed xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme
 
-        if ! pacman -Qq xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme &>/dev/null; then
+        if pacman -Qq xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme &>/dev/null; then
+            mkdir -p ~/.config/xdg-desktop-portal/
+            echo "[preferred]\ndefault=hyprland;gtk" > ~/.config/xdg-desktop-portal/hyprland-portals.conf
+        
+            echo "Setting $theme theme"
+            gsettings set org.gnome.desktop.interface color-scheme "$theme"
+            gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+            clear
+            echo "Theme successfully installed!"
+            read -p "Press ENTER to move on: "
+            clear
+            return
+        else
             echo ""
             echo "WARNING: Installation of theme dependencies failed or could not be verified."
-            read -p "Press ENTER to try again or type 'skip' to skip this step: " choice
-            if [[ "$choice" == "skip" ]]; then
-                return
+            echo "Press ENTER for another attempt" 
+            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " themefail
+            if [[ "$themefail" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
             fi
-            continue
+            clear
         fi
-
-        mkdir -p ~/.config/xdg-desktop-portal/
-        echo "[preferred]\ndefault=hyprland;gtk" > ~/.config/xdg-desktop-portal/hyprland-portals.conf
-    
-        echo "Setting $theme theme"
-        gsettings set org.gnome.desktop.interface color-scheme "$theme"
-        gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
-        clear
-        return
     done
 }
 
@@ -234,19 +256,30 @@ selectdm() {
         read -p " ■ " dmchoice
         case "$dmchoice" in
             1)
-            sudo pacman -S --needed sddm
+            sudo pacman -S --needed sddm qt6-5compat qt6-multimedia
             sudo systemctl enable sddm
-            if pacman -Q sddm &>/dev/null; then
+            if pacman -Q sddm qt6-5compat qt6-multimedia &>/dev/null; then
                 clear
+                echo "Installing SDDM theme:"
+                sudo cp -r $HOME/GeoDots/.config/sddm/win11-sddm-theme /usr/share/sddm/themes
+                sudo cp $HOME/GeoDots/.config/sddm/default.conf /usr/lib/sddm/sddm.conf.d/
+                sudo mkdir -p /etc/sddm.conf.d # just incase
+                sudo rm /etc/sddm.conf.d/kde_settings.conf # this takes precedence over regular sddm config, so this will remove it.
+                sudo cp $HOME/GeoDots/.config/sddm/default.conf /etc/sddm.conf.d/ # just incase
                 return
             else
                 echo ""
                 echo "WARNING: Installation of display manager failed or could not be verified."
                 echo "Press ENTER for another attempt, or type 'skip' to skip." 
+                echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
                 read -p " ■ " dmfail
                 if [[ "$dmfail" == "skip" ]]; then
                     clear
                     return
+                fi
+                if [[ "$dmfail" == "troubleshoot" ]]; then
+                    clear
+                    ./Dots/Scripts/Installation/troubleshooter.sh
                 fi
                 clear
             fi
@@ -261,11 +294,17 @@ selectdm() {
                 echo ""
                 echo "WARNING: Installation of display manager failed or could not be verified."
                 echo "Press ENTER for another attempt, or type 'skip' to skip." 
+                echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
                 read -p " ■ " dmfail
                 if [[ "$dmfail" == "skip" ]]; then
                     clear
                     return
                 fi
+                if [[ "$dmfail" == "troubleshoot" ]]; then
+                    clear
+                    ./Dots/Scripts/Installation/troubleshooter.sh
+                fi
+                clear
             fi
             ;;
             3)
@@ -285,9 +324,6 @@ selectdm() {
         esac
     done
 }
-
-# COULD ADD PLYMOUTH INSTALLATION, we will see, seems kinda risky
-# Would need autodetection for users current setup (grub, efistub etc)
 
 chaoticinstall () {
     while true; do
@@ -318,11 +354,16 @@ chaoticinstall () {
                     echo ""
                     echo "WARNING: Installation of chaoticaur failed or could not be verified."
                     echo "Press ENTER for another attempt, or type 'skip' to skip." 
+                    echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
                     read -p " ■ " chaoticfail
                     if [[ "$chaoticfail" == "skip" ]]; then
                         clear
                         return
                     fi
+                    if [[ "$chaoticfail" == "troubleshoot" ]]; then
+                        clear
+                        ./Dots/Scripts/Installation/troubleshooter.sh
+                     fi
                     clear
                 fi
                 ;;

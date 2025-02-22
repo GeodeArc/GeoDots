@@ -163,6 +163,8 @@ done
 
 echo "Generating default color scheme:"
 wal -i "$HOME/Dots/Wallpapers/wall1.jpg"
+echo "Creating current wallpaper file"
+ln -s /Dots/Wallpapers/wall1.jpg $HOME/Dots/Options/wallpaper
 echo "postinstall" > $HOME/Dots/Options/startup
 
 clear
