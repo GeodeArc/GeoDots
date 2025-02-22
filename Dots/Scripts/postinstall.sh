@@ -34,18 +34,17 @@ monitorselect() {
     clear
 }
 
-mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
 monitorselect
 
+echo "Setting wallpaper, please sit tight"
+
+mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
 waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg
-
 sleep 1
-
 waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg # I have to do this twice because wal (or swww) sucks first time... smh
-
 echo "complete" > $HOME/Dots/Options/startup
 
-sleep 1
+sleep 2
 
 #echo "You have more than one monitor"
 #echo "Would you like to setup your monitors now, or just leave it at the defaults? [Y/N]"
