@@ -266,6 +266,7 @@ selectdm() {
                 sudo mkdir -p /etc/sddm.conf.d # just incase
                 sudo rm /etc/sddm.conf.d/kde_settings.conf # this takes precedence over regular sddm config, so this will remove it.
                 sudo cp $HOME/GeoDots/.config/sddm/default.conf /etc/sddm.conf.d/ # just incase
+                clear
                 return
             else
                 echo ""
