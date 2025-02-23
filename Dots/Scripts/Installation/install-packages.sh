@@ -82,6 +82,37 @@ while true; do
     fi
 done
 
+nautilustweak () {
+    while true; do
+        echo "Also install nautilus tweaks (copy path, terminal, admin)? [Y/N]"
+        read -p " ■ " tweaks
+        case "$tweaks" in
+            [Yy])
+                $AUR_HELPER nautilus-open-any-terminal nautilus-python libnautilus-extension python-gobject
+                git clone https://github.com/ronen25/nautilus-copypath
+                mkdir ~/.local/share/nautilus-python
+                mkdir ~/.local/share/nautilus-python/extensions
+                cd nautilus-copypath
+                cp nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
+                $AUR_HELPER nautilus-admin-gtk4
+                gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
+                nautilus -q
+                clear
+                return
+                ;;
+            [Nn])
+                clear
+                return
+                ;;
+            *)
+                clear
+                echo "X Please try again."
+                echo ""
+                ;;
+        esac
+    done
+}
+
 while true; do
     if [[ "$APPTYPE_FILE" == "qt" ]]; then
         $AUR_HELPER $QT_PKGS
@@ -109,6 +140,7 @@ while true; do
         cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/
         if pacman -Qq $GTK_PKGS &>/dev/null; then
             clear
+            nautilustweak
             echo "GTK Packages installed successfully!"
             read -p "Press Enter when you are ready to move on."
             clear
@@ -129,6 +161,7 @@ while true; do
     else
         echo "Warning: App type file not found/invalid. Installing fallback packages, modify hyprland.conf to your specification."
         $AUR_HELPER nautilus gnome-text-editor gnome-software gnome-keyring polkit-gnome kate kwrite dolphin discover kwallet hyprpolkitagent
+        break
     fi
 done
 
