@@ -48,13 +48,13 @@
 # 
 
 ### 🖼️ SCREENSHOTS:
-![Dots 1](https://github.com/user-attachments/assets/58ec042b-2fa6-4fc3-9a6b-aebfde197afc)
+![dots 1](https://github.com/user-attachments/assets/41bd028b-df93-4774-b819-48cbffd705ea)
 
-![Dots 2](https://github.com/user-attachments/assets/510848f9-4be8-465f-8c87-29b1bf4fc418)
+![dots 2](https://github.com/user-attachments/assets/e4ebf4ab-f9db-402d-886a-00431d4af9c5)
 
-![Dots 3](https://github.com/user-attachments/assets/257173da-a71f-4501-8909-76d178040656)
+![dots 3](https://github.com/user-attachments/assets/a2406630-567b-4615-8a21-e6054313b0f7)
 
-![image](https://github.com/user-attachments/assets/7cf8db7c-b7e1-4c32-aa70-027477feccec)
+![dots 4](https://github.com/user-attachments/assets/98cb6124-0732-4edd-9f36-d9db4d494280)
 
 # 
 
