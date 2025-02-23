@@ -11,14 +11,16 @@ rofidir="$HOME/.config/rofi/screenshot/"
 theme="main"
 
 # Options
-option_1="󰍹"
-option_2=""
-option_3="󰴱"
+option_1="󰹑"
+option_2=""
+option_3="󱊅"
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-theme ${rofidir}/${theme}.rasi
+		-theme ${rofidir}/${theme}.rasi \
+		-p " $USER" \
+		-mesg "Monitor | Window | Selection" 
 }
 
 # Pass variables to rofi dmenu

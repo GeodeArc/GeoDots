@@ -58,13 +58,17 @@
     },
     "mpris": {
       "image-size": 96,
-      "image-radius": 12
+      "image-radius": 12,
+      "blacklist": ["playerctld"]
     },
     "volume": {
-      "label": "  ",
-        "show-per-app": false,
-        "show-per-app-icon": true,
-        "show-per-app-label":true
+      "label": "   ",
+      "show-per-app": true,
+      "show-per-app-label": false,
+      "show-per-app-icon": true,
+      "expand-button-label": "  ",
+      "collapse-button-label": "  ",
+      "empty-list-label": "No players"
     },
     "buttons-grid": {
       "actions": [

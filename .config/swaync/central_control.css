@@ -9,10 +9,10 @@
 
 * {
   color:            @text;
-  all: unset;
-  font-size: 14px;
-  font-family: "FiraCode Nerd Font 10";
-  transition: 200ms;
+  all:              unset;
+  font-size:        14px;
+  font-family:      "FiraCode Nerd Font 10";
+  transition:       200ms;
 
 }
 
@@ -131,7 +131,7 @@ progressbar {
 
 /* Do not disturb */
 .widget-dnd {
-  margin: 6px;
+  margin: 10px;
   font-size: 1.2rem;
 }
 
@@ -164,7 +164,7 @@ progressbar {
 .widget-buttons-grid {
   font-size: x-large;
   padding: 2px 4px;
-  margin: 6px;
+  margin: 0px 4px 30px 4px;
   border-radius: 10px;
   background: @background-alt;
 }
@@ -183,14 +183,14 @@ progressbar {
 /* Music player */
 .widget-mpris {
     border-radius: 10px;
-    margin: 20px 6px;
-    padding: 0px 0px;
+    margin: 0px 4px 0px 4px;
 }
 
 .widget-mpris-player {
     background-color: @background-alt;
     border-radius: 10px;
     padding: 8px;
+    box-shadow: none;
 }
 
 .widget-mpris > box > button {
@@ -240,14 +240,28 @@ trough highlight:hover {
 .widget-volume {
   background-color: @background-sec;
   padding: 8px;
-  margin: 8px;
+  margin: 0px 2px;
   border-radius: 10px;
 }
 
 .widget-volume trough {
+  padding: 3px;
   background: @background-alt;
 }
 
 .widget-volume trough slider {
   min-height: 1.25rem;
 }
+
+.widget-volume .per-app-volume {
+  padding-right: 26px;
+}
+
+.widget-volume box {
+  padding: 8px;
+}
+
+.widget-volume .per-app-volume image {
+  margin-right: 12px;
+}
+

@@ -62,7 +62,7 @@ browserselect() {
     while true; do
         local browsers=("firefox" "chromium" "brave" "vivaldi" "google-chrome" "floorp" "librewolf" "epiphany") # Feel free to suggest other browsers I can add here. Doesnt check flatpaks, i know sorry
         for browser in "${browsers[@]}"; do
-            if command -v "$browser" >/dev/null 2>&1; then
+            if command -v "$browser" >/dev/null 2>&1; then # command instead of pacman, because different versions of packages.
                 echo "$browser browser is already installed, skipping browser installation"
                 sleep 1
                 clear
@@ -173,7 +173,7 @@ themeconfig() {
         echo ""
         sudo pacman -S --needed xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme
 
-        if pacman -Qq xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme &>/dev/null; then
+        if pacman -Q xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme &>/dev/null; then
             mkdir -p ~/.config/xdg-desktop-portal/
             echo "[preferred]\ndefault=hyprland;gtk" > ~/.config/xdg-desktop-portal/hyprland-portals.conf
         
@@ -290,9 +290,9 @@ selectdm() {
             fi
             ;;
             2)
-            sudo pacman -S --needed gdm
+            $AUR_HELPER gdm gdm-settings
             sudo systemctl enable gdm
-            if pacman -Q gdm &>/dev/null; then
+            if pacman -Q gdm gdm-settings &>/dev/null; then
                 clear
                 return
             else
@@ -350,7 +350,7 @@ chaoticinstall () {
                 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
                 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
                 
-                if pacman -Qq chaotic-keyring chaotic-mirrorlist &>/dev/null; then
+                if pacman -Q chaotic-keyring chaotic-mirrorlist &>/dev/null; then
                     echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
                     sudo pacman -Sy
                     clear
