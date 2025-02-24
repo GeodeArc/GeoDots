@@ -4,10 +4,9 @@
 // Adapted by : @GeodeArc
 //
 
-// STILL TO DO - PYWAL COLORS
-
 @import "options/font.rasi"
 @import "options/wallpaper.rasi"
+@import "options/colors.rasi"
 
 // DEFAULT CONFIGURATION
 configuration {    
@@ -20,13 +19,12 @@ configuration {
 
 // DEFAULT PROPERTIES
 * {
-    background:                  #010101;
-    background-alt:              #141414;
-    foreground:                  #FFFFFF;
+    background:                  #010101; // Could switch to @background, dont think it looks/works as good
+    background-alt:              #141414; // See above comment
     selected:                    #141414;
     active:                      #141414;
-    urgent:                      #3d0400;
-    alternate-normal-background: #000000;
+    urgent:                      #3d0400; 
+    alternate-normal-background: #000000; // See above comment
     lines:                       10;
     columns:                     1;
     cycle:                       false;
@@ -47,7 +45,7 @@ window {
     enabled:                     true;
     border:                      2px solid;
     border-radius:               15px;
-    border-color:                #FFF;
+    border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
 }

@@ -6,13 +6,12 @@
 
 @import "options/font.rasi"
 @import "options/wallpaper.rasi"
+@import "options/colors.rasi"
 
 // PROPERTIES
 * {
-    font:                        "FiraCode Nerd Font 10";
     background:                  #010101;
     background-alt:              #010101;
-    foreground:                  #FFFFFF;
     selected:                    #141414;
     active:                      #141414;
     urgent:                      #808080;
@@ -32,7 +31,7 @@ window {
     enabled:                     true;
     border:                      2px solid;
     border-radius:               15px;
-    border-color:                #FFF;
+    border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
 }

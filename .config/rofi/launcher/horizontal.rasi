@@ -6,6 +6,7 @@
 
 @import "options/font.rasi"
 @import "options/wallpaper.rasi"
+@import "options/colors.rasi"
 
 // CONFIGURATION
 configuration {
@@ -22,7 +23,6 @@ configuration {
 * {
     background:                  #010101;
     background-alt:              #141414;
-    foreground:                  #FFFFFF;
     selected:                    #141414;
     active:                      #141414;
     urgent:                      #808080;
@@ -45,7 +45,7 @@ window {
     enabled:                     true;
     border:                      2px solid;
     border-radius:               15px;
-    border-color:                #FFF;
+    border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
 }
