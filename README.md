@@ -70,7 +70,7 @@
     
   - Add auto install
     
-  - Add cursor (bibata modern ice/classic depending on light/dark theme)
+  - Add cursor (bibata modern ice/classic depending on light/dark theme) (1/2)
     
   - Proper light/dark theme support (waybar✅, gtk3/4✅, swaync❌, rofi❌)
     
@@ -91,3 +91,4 @@
 - ML4W, for the original waybar design (https://ml4w.com)
 - adi1090x, for the original rofi designs (https://github.com/adi1090x/rofi)
 - zDyanTB, for the original swaync design (https://github.com/zDyanTB/HyprNova)
+- birbkeks, for the SDDM theme (more theme options probably coming soon).
