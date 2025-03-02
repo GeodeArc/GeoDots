@@ -73,6 +73,8 @@
   - Add cursor (bibata modern ice/classic depending on light/dark theme) (1/2)
     
   - Proper light/dark theme support (waybar✅, gtk3/4✅, swaync❌, rofi❌)
+
+  - NVIDIA selection (i folded)
     
   <h3>Later:</h3>
   
