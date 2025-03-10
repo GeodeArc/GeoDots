@@ -86,7 +86,7 @@
   // Night Light
   "custom/nightlight": {
     "format": "󰃟",
-    "on-click": "pgrep hyprsunset && { pkill hyprsunset; notify-send -i night-light-disabled-symbolic 'Night Light Disabled'; } || { hyprsunset -t 4800 & notify-send -i night-light-symbolic 'Night Light Enabled'; }",
+    "on-click": "pgrep hyprsunset && { pkill hyprsunset; notify-send -i night-light-disabled-symbolic -e 'Night Light Disabled'; } || { hyprsunset -t 4800 & notify-send -i night-light-symbolic -e 'Night Light Enabled'; }",
     "tooltip-format": "Night Light"
   },
   

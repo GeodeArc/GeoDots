@@ -199,6 +199,12 @@ wal -i "$HOME/Dots/Wallpapers/wall1.jpg"
 ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/colors.conf
 ln -s $HOME/.cache/wal/colors-rofi-pywal.rasi $HOME/.config/rofi/options/colors.rasi
 ln -s $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/settings/pywal.css
+
+echo "Making temporary cache files for wal"
+mkdir -p $HOME/.cache/wal/
+mv $HOME/GeoDots/.config/wal/colors-hyprland.conf $HOME/.cache/wal/
+mv $HOME/GeoDots/.config/wal/colors-rofi-pywal.rasi $HOME/.cache/wal/
+
 echo "postinstall" > $HOME/Dots/Options/startup
 
 clear
