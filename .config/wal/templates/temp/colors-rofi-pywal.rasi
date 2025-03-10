@@ -1,4 +1,4 @@
-* {{
+* {
     background: #0d0d2d;
     foreground: #f3ded2;
     color0:     #0d0d2d;
@@ -17,4 +17,4 @@
     color13:    #F390A4;
     color14:    #F6A1A8;
     color15:    #f3ded2;
-}}
+}
