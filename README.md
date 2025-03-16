@@ -64,6 +64,8 @@
 <details> 
   <summary>🟡 Roadmap</summary>
   <h3>Current:</h3>
+
+  - Clean up rofi/swaync/hyprland configs.
   
   - Font choices (rofi kitty etc)
   
@@ -72,8 +74,6 @@
   - Add auto install
     
   - Add cursor (bibata modern ice/classic depending on light/dark theme) (1/2)
-    
-  - Proper light/dark theme support (waybar✅, gtk3/4✅, swaync❌, rofi❌)
 
   - NVIDIA selection (i folded)
     
