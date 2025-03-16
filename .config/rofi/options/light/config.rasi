@@ -46,7 +46,7 @@ window {
     enabled:                     true;
     border:                      2px solid;
     border-radius:               15px;
-    border-color:                #000;
+    border-color:                @background-alt;;
     cursor:                      "default";
     background-color:            @background;
 }
