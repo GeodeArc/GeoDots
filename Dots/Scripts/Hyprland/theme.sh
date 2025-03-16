@@ -27,6 +27,7 @@ while true; do
     gsettings set org.gnome.desktop.interface color-scheme "$theme"
     gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
     echo "$type" > $HOME/Dots/Options/theme
+    echo "main" > $HOME/.config/waybar/type   
     cp -a $HOME/.config/waybar/configs/$type/. $HOME/.config/waybar/
     cp -a $HOME/.config/swaync/themes/$type/. $HOME/.config/swaync/
     cp -a $HOME/.config/rofi/options/$type/. $HOME/.config/rofi/
