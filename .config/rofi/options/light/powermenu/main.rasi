@@ -71,15 +71,15 @@ textbox-prompt-colon {
     str:                         " System";
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @active;
-    text-color:                  #FFF;
+    background-color:            @background;
+    text-color:                  @foreground;
 }
 prompt {
     enabled:                     true;
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @active;
-    text-color:                  #FFF;
+    background-color:            @background;
+    text-color:                  @foreground;
 }
 
 // LIST
@@ -107,13 +107,13 @@ element {
     padding:                     30px 10px;
     border-radius:               12px;
     background-color:            @background-alt;
-    text-color:                  #FFF;
+    text-color:                  @foreground;
     cursor:                      pointer;
 }
 element-text {
     font:                        "feather bold 32";
     background-color:            transparent;
-    text-color:                  #FFF;
+    text-color:                  @foreground;
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
