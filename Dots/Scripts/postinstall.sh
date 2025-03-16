@@ -37,14 +37,13 @@ monitorselect() {
 
 monitorselect
 
-echo "Setting wallpaper, please sit tight"
+echo "Setting wallpaper/applying some changes, please sit tight"
 
 mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
 nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg &
 sleep 1
 nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg & # I have to do this twice because wal (or swww) sucks first time... smh
-
-echo "complete" > $HOME/Dots/Options/startup
+sleep 1
 rm $HOME/nohup.out
 clear
 echo "Finished setting wallpaper. Your Computer is now ready!"
@@ -52,4 +51,5 @@ echo ""
 
 bash $HOME/Dots/Scripts/Hyprland/settings.sh
 
+echo "complete" > $HOME/Dots/Options/startup
 exit 0
