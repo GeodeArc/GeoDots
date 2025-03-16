@@ -182,8 +182,8 @@ themeconfig() {
             echo "Setting $theme theme"
             gsettings set org.gnome.desktop.interface color-scheme "$theme"
             gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
-            echo "$type" > $HOME/GeoDots/Dots/options/theme
-            cp -a $HOME/GeoDots/.config/waybar/configs/$type/. > $HOME/GeoDots/.config/waybar/
+            echo "$type" > $HOME/GeoDots/Dots/Options/theme
+            cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
             clear
             echo "Theme successfully installed!"
             read -p "Press ENTER to move on: "
