@@ -27,13 +27,15 @@ while true; do
     gsettings set org.gnome.desktop.interface color-scheme "$theme"
     gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
     echo "$type" > $HOME/Dots/Options/theme
-    cp -a $HOME/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
-    cp -a $HOME/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/
-    cp -a $HOME/.config/rofi/options/$type/. $HOME/GeoDots/.config/rofi/
+    cp -a $HOME/.config/waybar/configs/$type/. $HOME/.config/waybar/
+    cp -a $HOME/.config/swaync/themes/$type/. $HOME/.config/swaync/
+    cp -a $HOME/.config/rofi/options/$type/. $HOME/.config/rofi/
+	killall waybar
+	waybar &
     clear
     echo "Theme successfully installed!"
-    echo "A reboot is usually needed to ensure everything is correctly themed."
+    echo "If it didnt apply, try rebooting."
     echo ""
-    read -p "Press ENTER to restart now, otherwise press CTRL+C to restart later."
-    reboot
+    read -p "Press ENTER to exit"
+    exit 0
 done
