@@ -20,7 +20,7 @@
   > Should work on pretty much any arch based system (minimal, or not). If thers an issue installing, please submit a bug report! 
   
   ```bash
-  bash <(curl -s "https://geodearc.github.io/GeoDots/autoinstall.sh")
+  bash <(curl -s "https://geodearc.github.io/GeoDots/install.sh")
   ```
   
  > I'm working on cleaning up the install scripts, but they should work for now.
