@@ -24,12 +24,13 @@
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
 .control-center {
-  background: alpha(@background, .80);
+  background: alpha(#FFF, .80);
   border-radius: 10px;
   border: 2px solid @foreground;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
   margin: 10px;
   padding: 12px;
+  color: #000;
 }
 
 /* Notifications  */
@@ -187,7 +188,7 @@ progressbar {
 }
 
 .widget-mpris-player {
-    background-color: @background-alt;
+    background-color: alpha(@background, .70);
     border-radius: 10px;
     padding: 8px;
     box-shadow: none;
@@ -199,7 +200,7 @@ progressbar {
 }
  
 .widget-mpris button {
-  color: #FFF;
+  color: #000;
 }
 
 .widget-mpris button:hover {
@@ -229,12 +230,12 @@ trough highlight {
     padding: 5px;
     background: @selected;
     border-radius: 20px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 5px rgba(200, 200, 200, .5);
 }
 trough highlight:hover {
     padding: 5px;
     background: @selected;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 5px rgba(200, 200, 200, 1);
 }
 
 .widget-volume {

@@ -84,6 +84,14 @@ done
 
 nautilustweak () {
     while true; do
+
+        if pacman -Qq nautilus-admin-gtk4 &>/dev/null; then # Just checking one package because im lazy + it should work.
+            echo "Nautilus tweaks installed, skipping"
+            sleep 1
+            clear
+            return
+        fi
+
         echo "Also install nautilus tweaks (copy path, terminal, admin)? [Y/N]"
         read -p " ■ " tweaks
         case "$tweaks" in

@@ -84,18 +84,22 @@ browserselect() {
         case "$browsertype" in
             1)
             browserinstall "firefox"
+            echo "firefox" > $HOME/GeoDots/Dots/Options/browser
             return
             ;; 
             2)
             browserinstall "chromium"
+            echo "chromium" > $HOME/GeoDots/Dots/Options/browser
             return
             ;; 
             3) 
             browserinstall "brave-bin"        
+            echo "brave" > $HOME/GeoDots/Dots/Options/browser
             return
             ;;
             4) 
             browserinstall "vivaldi"
+            echo "vivaldi" > $HOME/GeoDots/Dots/Options/browser
             return
             ;;
             5) 
@@ -104,6 +108,7 @@ browserselect() {
             echo "If you get it wrong, you can always install it later."
             read -p " ■ " browsername
             browserinstall "$browsername"
+            echo "$browsername" > $HOME/GeoDots/Dots/Options/browser
             return
             ;;
             6) 
@@ -183,7 +188,9 @@ themeconfig() {
             gsettings set org.gnome.desktop.interface color-scheme "$theme"
             gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
             echo "$type" > $HOME/GeoDots/Dots/Options/theme
-            cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
+            cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/swaync/
+            cp -a $HOME/GeoDots/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/
+            cp -a $HOME/GeoDots/.config/rofi/options/$type/. $HOME/GeoDots/.config/rofi/
             clear
             echo "Theme successfully installed!"
             read -p "Press ENTER to move on: "
