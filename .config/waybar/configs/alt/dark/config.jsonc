@@ -18,18 +18,18 @@
       "custom/appmenu",
       "group/settings",
       "group/hardware",
-      "wlr/taskbar",
-      "hyprland/window"
+      "hyprland/workspaces",
+      "wlr/taskbar"
   ],
 
   // Modules Center
   "modules-center": [
-      "hyprland/workspaces",
-      "custom/media"
+      "hyprland/window",
   ],
 
   // Modules Right    
   "modules-right": [
+      "custom/media",
       "network",
       "bluetooth",
       "battery",
@@ -58,13 +58,13 @@
   },
 
   // Taskbar
-  "wlr/taskbar": {
-  "format": "{icon}",
-  "icon-size": 18,
-  "tooltip-format": "{title}",
-  "sort-by-app-id": false,
-  "on-click": "activate",
-  "on-click-middle": "close",
+    "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "sort-by-app-id": false,
+    "on-click": "activate",
+    "on-click-middle": "close",
         "all-outputs": true,
         "ignore-list": ["alactritty", "kitty", "foot"]
   },
@@ -72,7 +72,32 @@
   // Hyprland Window
   "hyprland/window": {
     "max-length": 85,
-    "separate-outputs": false
+    "separate-outputs": false,
+    "rewrite": {
+    
+      // SYS/BASE PROGRAMS
+      "": 
+        "  Hyprland",
+
+      "~": "   Terminal",
+      "zsh": "   Terminal",
+      "class<kitty>": "   Terminal",
+
+      "VLC media player": 
+        "󰕼   VLC Media Player",
+      "(.*) - VLC media player": 
+        "󰕼   VLC | $1",
+
+      "(.*) - mpv": 
+        "   MPV | $1",
+      
+      "Authenticate": 
+        "󰻌   Authenticate",
+      
+      // MISC
+      "• Discord(.*)": "Discord$1",
+      "(.*)Discord(.*)": "   $1Discord$2",
+      }
   },
 
   // Wallpaper

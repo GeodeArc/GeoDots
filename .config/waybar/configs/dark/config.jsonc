@@ -38,7 +38,7 @@
       "custom/sidebar",
       "clock",
   ],
-
+  
 // Workspaces
   "hyprland/workspaces": {
     "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -58,7 +58,7 @@
   },
 
   // Taskbar
-  "wlr/taskbar": {
+    "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 18,
     "tooltip-format": "{title}",
