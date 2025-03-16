@@ -188,7 +188,7 @@ themeconfig() {
             gsettings set org.gnome.desktop.interface color-scheme "$theme"
             gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
             echo "$type" > $HOME/GeoDots/Dots/Options/theme
-            cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/swaync/
+            cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
             cp -a $HOME/GeoDots/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/
             cp -a $HOME/GeoDots/.config/rofi/options/$type/. $HOME/GeoDots/.config/rofi/
             clear
