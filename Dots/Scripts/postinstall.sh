@@ -25,7 +25,7 @@ monitorselect() {
             break
         fi
         clear
-        echo "X Please try again."
+       echo "X Please try again."
         echo ""
     done
 
@@ -43,13 +43,12 @@ mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
 nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg &
 sleep 1
 nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg & # I have to do this twice because wal (or swww) sucks first time... smh
-sleep 1
-rm $HOME/nohup.out
 clear
+echo "complete" > $HOME/Dots/Options/startup
 echo "Finished setting wallpaper. Your Computer is now ready!"
 echo ""
 
 bash $HOME/Dots/Scripts/Hyprland/settings.sh
 
-echo "complete" > $HOME/Dots/Options/startup
+rm $HOME/nohup.out
 exit 0
