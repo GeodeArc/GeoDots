@@ -64,6 +64,7 @@ browserselect() {
         for browser in "${browsers[@]}"; do
             if command -v "$browser" >/dev/null 2>&1; then # command instead of pacman, because different versions of packages.
                 echo "$browser browser is already installed, skipping browser installation"
+                echo "$browser" > $HOME/GeoDots/Dots/Options/browser
                 sleep 1
                 clear
                 return

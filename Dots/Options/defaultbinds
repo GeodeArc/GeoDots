@@ -10,6 +10,7 @@ SUPER + T = Open Text Editor
 SUPER + B = Open Browser
 CTRL + SHIFT + ESC = Task Manager (Resources)
 
+
 Important:
 SUPER + SPACE = Launch Apps (App Menu)
 SUPER + Q = Quit App (also ALT + F4)
