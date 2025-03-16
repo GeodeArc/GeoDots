@@ -46,16 +46,10 @@ nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg & # I have to do this
 
 echo "complete" > $HOME/Dots/Options/startup
 rm $HOME/nohup.out
+clear
+echo "Finished setting wallpaper. Your Computer is now ready!"
+echo ""
 
-sleep 1
+bash $HOME/Dots/Scripts/Hyprland/settings.sh
 
-#echo "You have more than one monitor"
-#echo "Would you like to setup your monitors now, or just leave it at the defaults? [Y/N]"
-#read -p " ■ " 
-# List monitors (somehow) and do each monitor at a time.
-# Save user specified info like rotation, scale, and position
-# Automatically choose best resolution
-# Refresh rate is too risky, let the user configure this later.#!/bin/bash
-# Save to ~/Dots/Options maybe?
-
-# Other ~/Dots/Options stuff
+exit 0

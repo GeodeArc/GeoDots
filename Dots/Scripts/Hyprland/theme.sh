@@ -31,7 +31,8 @@ while true; do
     cp -a $HOME/.config/swaync/themes/$type/. $HOME/.config/swaync/
     cp -a $HOME/.config/rofi/options/$type/. $HOME/.config/rofi/
 	killall waybar
-	waybar &
+	nohup waybar &
+    sleep 0.5
     clear
     echo "Theme successfully installed!"
     echo "If it didnt apply, try rebooting."

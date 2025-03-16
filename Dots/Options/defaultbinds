@@ -1,0 +1,70 @@
+Default Keybinds. PRESS Q TO EXIT.
+
+SUPER is your windows key, also known as mainMod.
+At any time, press SUPER + K to see keybinds.
+
+Base Apps:
+SUPER + ENTER = Open Terminal
+SUPER + E = Open File Manager
+SUPER + T = Open Text Editor
+SUPER + B = Open Browser
+CTRL + SHIFT + ESC = Task Manager (Resources)
+
+Important:
+SUPER + SPACE = Launch Apps (App Menu)
+SUPER + Q = Quit App (also ALT + F4)
+
+SUPER + V = Toggle App Floating
+SUPER + F = Toggle App Fullscreen
+SUPER + J = Toggle App Split
+SUPER + SHIFT + F = Toggle App Maximized
+
+SUPER + L = Lock Computer
+CTRL + ALT + DELETE = Emergency Exit
+
+
+Menus:
+SUPER + SHIFT + L = Power menu
+SUPER + SHIFT + S = Screenshot MenuAK
+SUPER + C = Clipboard History
+SUPER + PERIOD (.) = Emoji Selector
+
+
+Terminal actions:
+SUPER + SHIFT + T = Change Dark/Light Theme
+SUPER + U = Update Computer (+ flatpaks)
+SUPER + K = See Default Keybinds (doesnt update!)
+
+
+Waybar Controls:
+SUPER + SHIFT + B = Refresh Waybar
+SUPER + CTRL + B = Change Waybar Style
+SUPER + ALT + B = Disable/enable Waybar
+
+
+Wallpaper:
+SUPER + B = Select Wallpaper
+SUPER + SHIFT + B = Random Wallpaper
+
+
+Workspace Management:
+SUPER + (num) = Switch to workspace (Number)
+SUPER + (arrow) = Switch to workspace to the left/right
+
+SUPER + SHIFT + (num) = Move window to workspace (Number)
+SUPER + SHIFT + (arrow) = Move window to workspace left/right
+
+SUPER + CTRL + (num)	= Move window silently to workspace (Number)
+SUPER + CTRL + (arrow) = Move window silently to workspace left/right
+
+
+Window Management:
+ALT + (arrow) = Focus window to the (direction)
+ALT + SHIFT + (arrow) = Move window to the (direction)
+ALT + CTRL + (arrow) = Resize window from the (direction)
+
+ALT + TAB = Switch windows
+SUPER + TAB	= Switch windows (reverse)
+
+SUPER + MOUSE_LEFT = Move window
+SUPER + MOUSE_RIGHT = Resize window

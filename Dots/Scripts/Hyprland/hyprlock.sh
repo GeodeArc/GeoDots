@@ -4,7 +4,8 @@
 TEMPLATE_DIR="$HOME/Dots/Config/hyprlock/"
 CONFIG_FILE="$HOME/Dots/Config/hyprlock.conf"
 
-#!/bin/bash
+read -p "This utility is unfinished, sorry for the inconvenience. Press ENTER to exit."
+exit 0
 
 echo "Welcome to the Hyprlock Settings!"
 echo "Press CTRL+C at any time to quit"
@@ -16,19 +17,19 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Change Background")
-	clear
-	break
+			clear
+			break
             ;;
         "Edit Primary Display")
-	clear
-	break
+			clear
+			break
             ;;
-        "Change Resolution Preset")
-	clear
-	break
+        "Change Size Preset")
+			clear
+			break
             ;;
         "Quit")
-        clear
+		    clear
             break
             ;;
         *) echo "Invalid option '$REPLY'";;
@@ -80,16 +81,16 @@ case $choice in
         update_config "2160"
         ;;
     5)
-    	echo ""
-	echo "Unfortunately, I havent made a config for your monitor resolution, sorry!"
-	echo "Please edit hyprlock config accordingly (~/.config/hypr/hyprlock.conf, or ~/Dotfiles/Hyprlock/hyprlock.conf), or try some presets."
-	echo ""
-	read -p "Hit enter to exit"
-	;;
+		echo ""
+		echo "Unfortunately, I havent made a config for your monitor resolution, sorry!"
+		echo "Please edit hyprlock config accordingly (~/.config/hypr/hyprlock.conf, or ~/Dots/Config/hypr/hyprlock.conf), or try some presets."
+		echo ""
+		read -p "Hit enter to exit"
+		;;
     *)
         echo ""
         echo "  Could find this template, please make sure you typed a number from 1-3!"
         echo ""
-	read -p "Hit enter to exit"
+		read -p "Hit enter to exit"
         ;;
 esac
