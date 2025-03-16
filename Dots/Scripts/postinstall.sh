@@ -7,7 +7,7 @@ echo " 88        88    88 Y8ooooo.   88             8b 88ooood8   88   88    88 
 echo " 88        88.  .88       88   88      d8    .8P 88.  ...   88   88.  .88 88.  .88 "
 echo " dP         88888P   88888P    dP       Y88888P   88888P    dP    88888P  88Y888P  "
 echo "                                                                          88       "
-echo "                                                                          dP       "
+echo "                                                                          8P       "
 
 MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
 
@@ -15,7 +15,7 @@ monitorselect() {
     while true; do
         echo "Select a monitor:"
         for i in "${!MONITORS[@]}"; do
-            echo "$((i+1))) ${MONITORS[i]}"
+            echo "$((i+1)) - ${MONITORS[i]}"
         done
 
         echo -n "Enter the number of your preferred primary (main) monitor: "
@@ -25,7 +25,7 @@ monitorselect() {
             break
         fi
         clear
-       echo "X Please try again."
+        echo "X Please try again."
         echo ""
     done
 

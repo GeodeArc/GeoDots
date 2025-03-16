@@ -36,9 +36,11 @@ while true; do
         	clear
             bash $HOME/Dots/Scripts/Hyprland/update.sh    
             clear
+            ;;
         6)
         	echo "Bye bye!"
         	exit 0
+            ;;
         *)
             clear
             echo "X Please try again."
