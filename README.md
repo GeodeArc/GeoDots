@@ -51,7 +51,7 @@
 
 ![dots 1](https://github.com/user-attachments/assets/65eca131-0196-47e3-ba4f-c87f75a48c6e)
 
-![dots 2](https://github.com/user-attachments/assets/049830b8-5055-42eb-8cb5-7b575e700313)
+![dots 2](https://github.com/user-attachments/assets/e682a2a9-1e13-40ed-8680-3514e7ecaeb9)
 
 ![dots 3](https://github.com/user-attachments/assets/d01c9cfe-2b76-4bd6-a287-489c7626428b)
 
