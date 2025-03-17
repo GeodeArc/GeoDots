@@ -42,10 +42,6 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 # OTHER
 alias update="paru && flatpak upgrade"
 alias x="exit"
-alias ws="waydroid session start"
-alias wx="waydroid session stop"
-alias vs="sudo virsh net-start default"
-alias vx="sudo virsh net-destroy default"
 alias yeet="paru -Rcns"
 alias remove="paru -Rns"
 

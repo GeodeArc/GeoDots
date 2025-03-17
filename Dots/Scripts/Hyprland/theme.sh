@@ -36,7 +36,7 @@ while true; do
     sleep 0.5
     clear
     echo "Theme successfully installed!"
-    echo "If it didnt apply, try rebooting."
+    echo "If some areas dont seem correctly themed, try rebooting. If that didnt work for you, there may be a theme conflict somewhere."
     echo ""
     read -p "Press ENTER to exit"
     exit 0
