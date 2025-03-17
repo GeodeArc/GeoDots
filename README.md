@@ -19,7 +19,7 @@
   
   > Should work on pretty much any arch based system (minimal, or not). If thers an issue installing, please submit a bug report! 
   
-  ```bash
+  ```
   bash <(curl -s "https://geodearc.github.io/GeoDots/install.sh")
   ```
   
@@ -43,6 +43,19 @@
   cd GeoDots
   ./install.sh
   ```
+</details> 
+
+<details> 
+  <summary>🐧 Actually Manual</summary>
+
+  <p></p>
+    
+  - 🗃️ Ensure the dependencies listed in /Dots/Scripts/Installation/pkgs/ are installed
+
+  - 🔶 Go to each config folder in /Dots/Config, and put a config (e.g light alt waybar, GTK hyprland.conf), and move it to the root of that config folder
+
+  - 💾 Copy folders from /Dots/Config to your .config folder
+
 </details> 
 
 # 
