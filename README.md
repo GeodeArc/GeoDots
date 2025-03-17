@@ -54,9 +54,11 @@
     
   - 🗃️ Ensure the dependencies listed in /Dots/Scripts/Installation/pkgs/ are installed
 
-  - 🔶 Go to each config folder in /Dots/Config, and put a config (e.g light alt waybar, GTK hyprland.conf), and move it to the root of that config folder
+  - 🔶 Go to each config folder in /.config/, and put a config (e.g light alt waybar, GTK hyprland.conf), and move it to the root of that config folder
 
-  - 💾 Copy folders from /Dots/Config to your .config folder
+  - 💾 Copy folders from /.config/ to your .config folder
+
+  - 💫 Copy the /Dots folder to your home directory.
 
 </details> 
 
