@@ -12,6 +12,8 @@
 
 ### 🌟 INSTALLATION:
 
+> I'm working on cleaning up the install scripts, but they should work for now.
+
 <details> 
   <summary>⌛ Automatic (RECOMMENDED)</summary>
 
@@ -22,8 +24,8 @@
   ```
   bash <(curl -s "https://geodearc.github.io/GeoDots/install.sh")
   ```
-  
- > I'm working on cleaning up the install scripts, but they should work for now.
+ > If running this results in an error, try running `bash` beforehand, then try again.
+
 </details> 
 <details> 
   <summary>⌨ Manual(ish)</summary>
