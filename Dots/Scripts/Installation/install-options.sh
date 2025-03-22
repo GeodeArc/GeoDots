@@ -18,45 +18,48 @@ DIRS=(
 
 clear
 
-while true; do
-    echo "Would you like primarily QT (KDE) or GTK (GNOME) apps (e.g Nautilus for GTK, Dolphin for QT)"
-    echo "Please check the wiki for more info: https://github.com/GeodeArc/GeoDots/wiki/QT-VS-GTK"
-    echo ""
-    echo "[1]  QT"
-    echo "[2]  GTK"
-    echo "[3]  What does this mean?"
-    echo ""
-    read -p " ■ " apptype
+toolkitselect () {
+    while true; do
+        echo "Would you like primarily QT (KDE) or GTK (GNOME) apps (e.g Nautilus for GTK, Dolphin for QT)"
+        echo "Please check the wiki for more info: https://github.com/GeodeArc/GeoDots/wiki/QT-VS-GTK"
+        echo ""
+        echo "[1]  QT"
+        echo "[2]  GTK"
+        echo "[3]  What does this mean?"
+        echo ""
+        read -p " ■ " apptype
 
-    case "$apptype" in
-        1)
-        echo qt > /tmp/geodots_apptype
-        clear
-        break
-        ;; 
-        2)
-        echo gtk > /tmp/geodots_apptype
-        clear
-        break
-        ;; 
-        3) 
-        clear
-        echo "Depending on what you choose (GTK or QT), the installer will install different apps based on the two different toolkits, these being GTK and QT."
-        echo ""
-        echo "In simple terms, some people prefer the way QT looks/operates over how GTK looks/operates, and vice versa. Its all personal preference."
-        echo ""
-        echo "If you want to see the difference between the two, please check the wiki for more information."
-        echo ""
-        read -p "Press ENTER to continue: "
-        clear
-        ;;
-        *) 
-        clear
-        echo "X Please try again."
-        echo ""
-        ;;
-    esac
-done
+        case "$apptype" in
+            1)
+            echo qt > /tmp/geodots_apptype
+            clear
+            break
+            ;; 
+            2)
+            echo gtk > /tmp/geodots_apptype
+            clear
+            break
+            ;; 
+            3) 
+            clear
+            echo "Depending on what you choose (GTK or QT), the installer will install different apps based on the two different toolkits, these being GTK and QT."
+            echo ""
+            echo "In simple terms, some people prefer the way QT looks/operates over how GTK looks/operates, and vice versa. Its all personal preference."
+            echo ""
+            echo "If you want to see the difference between the two, please check the wiki for more information."
+            echo ""
+            read -p "Press ENTER to continue: "
+            clear
+            ;;
+            *) 
+            clear
+            echo "X Please try again."
+            echo ""
+            ;;
+        esac
+    done
+}
+
 
 browserselect() {
     while true; do
@@ -433,6 +436,9 @@ backup () {
 }
 
 while true; do
+    #aurinstall
+    #fontinstall
+    toolkitselect
     browserselect
     themeconfig
     checkdm

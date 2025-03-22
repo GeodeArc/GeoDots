@@ -44,8 +44,8 @@ SUPER + ALT + B = Disable/enable Waybar
 
 
 Wallpaper:
-SUPER + B = Select Wallpaper
-SUPER + SHIFT + B = Random Wallpaper
+SUPER + W = Select Wallpaper
+SUPER + SHIFT + W = Random Wallpaper
 
 
 Workspace Management:
