@@ -10,6 +10,9 @@
 > [!NOTE]
 > This will only work for Arch Linux. This MAY change in the future, no guarantees though.
 
+> [!WARNING]
+> Hyprland 48 introduced some breaking changes, please download the new hyprland.conf if you are currently using the dotfiles and experiencing errors. github path: /.config/hypr/temp/(qt or gtk)/hyprland.conf
+
 ### 🌟 INSTALLATION:
 
 > I'm working on cleaning up the install scripts, but they should work for now.
