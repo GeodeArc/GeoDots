@@ -5,7 +5,6 @@
 * {
     font-family: "FiraCode Nerd", "JetbrainsMono Nerd", "Hack Nerd", sans-serif;
     border: none;
-    border-radius: 0px;
 }
 
 window#waybar {
@@ -116,6 +115,10 @@ tooltip label {
     opacity: 0.8;
     color: @foreground;
 }
+
+#custom-system {
+    margin-right: 15px;
+  }
 
 #custom-hypridle.active {
     color: @iconcolor;
@@ -323,6 +326,14 @@ tooltip label {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background-color: #D4D4D4;
+    color: #000;
+}
+#tray * :hover {
+    color: #000;
 }
 
 /* POWER MENU */

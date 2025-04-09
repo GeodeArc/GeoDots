@@ -71,7 +71,7 @@
 
   // Hyprland Window
   "hyprland/window": {
-    "max-length": 85,
+    "max-length": 50,
     "separate-outputs": false,
     "rewrite": {
     
@@ -308,6 +308,7 @@
   // Media
   "custom/media": {
     "interval": 1,
+    "max-length": 40,
     "exec": "~/.config/waybar/settings/mediaexec.sh",
     "on-click": "~/.config/waybar/settings/mediatoggle.sh"
   },
