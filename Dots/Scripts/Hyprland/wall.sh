@@ -14,12 +14,11 @@ ln -s $genwal $HOME/Dots/Options/wallpaper
 echo "* { wallpaper: url(\"$genwal\", width); }" > "$HOME/.config/rofi/options/wallpaper.rasi"
 
 wal -q -i $genwal
-
-sleep 0.1
-
-$HOME/Dots/Scripts/Waybar/waybar.sh
-
 swaync-client -R
 swaync-client -rs
+
+sleep 0.5
+
+$HOME/Dots/Scripts/Waybar/waybar.sh
 
 #pywalfox update

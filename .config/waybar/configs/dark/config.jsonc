@@ -58,7 +58,7 @@
   },
 
   // Taskbar
-    "wlr/taskbar": {
+  "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 18,
     "tooltip-format": "{title}",
@@ -118,6 +118,7 @@
   // Settings
   "custom/settings": {
     "format": "",
+    "on-click": "kitty $HOME/Dots/Scripts/Hyprland/settings.sh",
     "tooltip-format": "Settings"
   },
 
@@ -172,7 +173,8 @@
   // System
   "custom/system": {
     "format": "",
-    "tooltip": false
+    "on-click": "resources",
+    "tooltip-format": "Open Resources"
   },
 
   // CPU
@@ -341,5 +343,6 @@
       "format": "󱗼",
       "tooltip-format": "Sidebar",
       "on-click": "swaync-client -R && swaync-client -rs && swaync-client -t",
+      "on-click-right": "pkill swaync && swaync &",
   }
 }

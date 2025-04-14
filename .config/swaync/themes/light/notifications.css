@@ -16,8 +16,6 @@
   /*urgent:                @color6;      Urgency critical */
   /*text-selected:         @background; */
 
-  color: @text;
-
   all: unset;
   font-size: 10px;
   font-family: "FiraCode Nerd Font 10";

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 swaync-client -t
-resources
+rofi -modi emoji -show emoji

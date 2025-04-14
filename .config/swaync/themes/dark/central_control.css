@@ -30,6 +30,7 @@
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
   margin: 10px;
   padding: 12px;
+  padding-top: 2px;
 }
 
 /* Notifications  */
@@ -100,13 +101,13 @@ progressbar {
 
 .notification-group {
   margin: 2px 8px 2px 8px;
-
 }
 .notification-group-headers {
   font-weight: bold;
   font-size: 1.25rem;
   color: @text;
   letter-spacing: 2px;
+  padding-bottom: 10px
 }
 
 .notification-group-icon {
@@ -162,16 +163,15 @@ progressbar {
 
 /* Buttons menu */
 .widget-buttons-grid {
-  font-size: x-large;
-  padding: 2px 4px;
-  margin: 0px 4px 30px 4px;
+  padding: 4px 2px;
+  margin: 0px 10px 20px 10px;
   border-radius: 10px;
   background: @background-alt;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
-  margin: 4px 12px;
-  padding: 8px 16px;
+  margin: 2px 5px;
+  padding: 14px 18px;
   background: transparent;
   border-radius: 10px;
 }
@@ -180,10 +180,15 @@ progressbar {
   background: @hover;
 }
 
+.widget-buttons-grid button label {
+  font-size: 1.05rem;
+}
+
+
 /* Music player */
 .widget-mpris {
     border-radius: 10px;
-    margin: 0px 4px 0px 4px;
+    margin: 5px 10px 0px 10px;
 }
 
 .widget-mpris-player {
@@ -212,7 +217,7 @@ progressbar {
  
 .widget-mpris-title {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
  
 .widget-mpris-subtitle {
@@ -240,6 +245,8 @@ trough highlight:hover {
 .widget-volume {
   background-color: @background-sec;
   padding: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   margin: 0px 2px;
   border-radius: 10px;
 }
@@ -265,3 +272,24 @@ trough highlight:hover {
   margin-right: 12px;
 }
 
+.widget-backlight {
+  background-color: @background-sec;
+  padding: 8px;
+  padding-bottom: 4px;
+  padding-right: 44px;
+  margin: 0px 1px;
+  border-radius: 10px;
+}
+
+.widget-backlight trough {
+  padding: 3px;
+  background: @background-alt;
+}
+
+.widget-backlight trough slider {
+  min-height: 1.25rem;
+}
+
+.widget-backlight box {
+  padding: 8px;
+}
