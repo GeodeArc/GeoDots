@@ -10,35 +10,45 @@
 rofidir="$HOME/.config/rofi/screenshot/"
 theme="main"
 
+timer="$(cat "$HOME/.config/rofi/screenshot/options/timer")"
+freeze="$(cat "$HOME/.config/rofi/screenshot/options/freeze")"
+
 # Options
 option_1="󰹑"
 option_2=""
 option_3="󱊅"
+option_4=""
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
 		-theme ${rofidir}/${theme}.rasi \
 		-p " $USER" \
-		-mesg "Monitor | Window | Selection" 
+		-mesg "Monitor | Window | Selection | Settings" 
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3" | rofi_cmd
+	echo -e "$option_1\n$option_2\n$option_3\n$option_4" | rofi_cmd
 }	
 
 # take shots
 shotscreen () {
-	hyprshot -m output -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png
+	$timer
+	hyprshot -m output -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png $freeze
 }
 
 shotwin () {
-	hyprshot -m window -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png
+	$timer
+	hyprshot -m window -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png $freeze
 }
 
 shotarea () {
-	hyprshot -m region -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png
+	$timer
+	hyprshot -m region -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png $freeze
+}
+settings () {
+	$HOME/.config/rofi/screenshot-settings.sh
 }
 
 # Execute Command
@@ -52,6 +62,8 @@ run_cmd() {
 	elif [[ "$1" == '--opt3' ]]; then
 		sleep 0.5
 		shotarea
+	elif [[ "$1" == '--opt4' ]]; then
+		settings	
 	fi
 }
 
@@ -66,5 +78,8 @@ case ${chosen} in
         ;;
     $option_3)
 		run_cmd --opt3
+        ;;
+    $option_4)
+    	run_cmd --opt4
         ;;
 esac

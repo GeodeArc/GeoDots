@@ -10,11 +10,14 @@
 
 // PROPERTIES
 * {
-    background:                  #010101;
-    background-alt:              #010101;
-    selected:                    #141414;
-    active:                      #141414;
-    urgent:                      #808080;
+    background:                  #fff;
+    background-alt:              #fff;
+    foreground:                  #000;
+    selected:                    #B6B6B6;
+    active:                      #B6B6B6;
+    urgent:                      #FFBBBB;
+    alternate-normal-background: #EAEAEA;
+    selected-normal-foreground:  #000;
 }
 
 // WINDOW
@@ -23,7 +26,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       600;
+    width:                       450;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -31,7 +34,7 @@ window {
     enabled:                     true;
     border:                      2px solid;
     border-radius:               15px;
-    border-color:                @foreground;
+    border-color:                @background-alt;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -68,21 +71,21 @@ textbox-prompt-colon {
     str:                         "  Screenshot";
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @active;
-    text-color:                  #FFF;
+    background-color:            @background;
+    text-color:                  @foreground;
 }
 prompt {
     enabled:                     true;
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @active;
-    text-color:                  #FFF;
+    background-color:            @background;
+    text-color:                  @foreground;
 }
 
 // LIST
 listview {
     enabled:                     true;
-    columns:                     4;
+    columns:                     3;
     lines:                       1;
     cycle:                       true;
     dynamic:                     true;
@@ -104,13 +107,13 @@ element {
     padding:                     30px 10px;
     border-radius:               12px;
     background-color:            @background-alt;
-    text-color:                  #FFF;
+    text-color:                  @foreground;
     cursor:                      pointer;
 }
 element-text {
     font:                        "feather bold 32";
     background-color:            transparent;
-    text-color:                  #FFF;
+    text-color:                  @foreground;
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;

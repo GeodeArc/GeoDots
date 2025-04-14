@@ -23,7 +23,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       600;
+    width:                       750;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -82,7 +82,7 @@ prompt {
 // LIST
 listview {
     enabled:                     true;
-    columns:                     4;
+    columns:                     5;
     lines:                       1;
     cycle:                       true;
     dynamic:                     true;

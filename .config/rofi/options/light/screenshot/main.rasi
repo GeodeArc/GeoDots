@@ -26,7 +26,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       450;
+    width:                       600;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -85,7 +85,7 @@ prompt {
 // LIST
 listview {
     enabled:                     true;
-    columns:                     3;
+    columns:                     4;
     lines:                       1;
     cycle:                       true;
     dynamic:                     true;
