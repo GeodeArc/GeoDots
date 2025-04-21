@@ -1,7 +1,7 @@
-"$HOME/.config/hypr"
-"$HOME/.config/kitty"
-"$HOME/.config/rofi"
-"$HOME/.config/swaync"
-"$HOME/.config/wal"
-"$HOME/.config/waybar"
-"$HOME/.config/waypaper"
+$HOME/.config/hypr
+$HOME/.config/kitty
+$HOME/.config/rofi
+$HOME/.config/swaync
+$HOME/.config/wal
+$HOME/.config/waybar
+$HOME/.config/waypaper
