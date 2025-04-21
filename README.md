@@ -8,7 +8,7 @@
 </div>
 
 > [!WARNING]
-> First major version will be releasing soon (maybe)! Includes a revamped install script, choice over MANY design styles, and an upgrade system!
+> First major version will be releasing soon (maybe)! Includes a revamped install script, fixes, new scripts, and an upgrade system!
 
 > [!NOTE]
 > This will only work for Arch Linux. This MAY change in the future, no guarantees though.
