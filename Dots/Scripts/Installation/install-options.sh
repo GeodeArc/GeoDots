@@ -1,8 +1,6 @@
 #!/bin/bash
 
-APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
-OLDDM="$(cat /tmp/geodots_olddm)"
 dirs="$(curl -s https://geodearc.github.io/GeoDots/dirs)"
 otherdots=(
     "$HOME/Dotfiles"
