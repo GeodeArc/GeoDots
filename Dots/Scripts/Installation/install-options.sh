@@ -3,17 +3,11 @@
 APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 OLDDM="$(cat /tmp/geodots_olddm)"
-DIRS=(
-    "$HOME/Dots"
-    "$HOME/dofiles"
+dirs="$(curl -s https://geodearc.github.io/GeoDots/dirs)"
+otherdots=(
     "$HOME/Dotfiles"
-    "$HOME/.config/hypr"
-    "$HOME/.config/kitty"
-    "$HOME/.config/rofi"
-    "$HOME/.config/swaync"
-    "$HOME/.config/wal"
-    "$HOME/.config/waybar"
-    "$HOME/.config/waypaper"
+    "$HOME/dotfiles"
+    "$HOME/dots"
 )
 
 clear
@@ -276,6 +270,7 @@ selectdm() {
             if pacman -Q sddm qt6-5compat qt6-multimedia &>/dev/null; then
                 clear
                 echo "Installing SDDM theme:"
+                tar -xf $HOME/GeoDots/.config/sddm/theme/win11-sddm-theme.tar.xz -C $HOME/GeoDots/.config/sddm/theme/
                 sudo cp -r $HOME/GeoDots/.config/sddm/theme/win11-sddm-theme /usr/share/sddm/themes
                 sudo cp $HOME/GeoDots/.config/sddm/default.conf /usr/lib/sddm/sddm.conf.d/
                 sudo mkdir -p /etc/sddm.conf.d # just incase
@@ -411,7 +406,8 @@ backup () {
                 mkdir -p "$backupdir"
                 cp -a "$HOME/.zshrc" "$backupdir"
                 cp -a "$HOME/.bashrc" "$backupdir" 
-                for dir in "${DIRS[@]}"; do
+
+                for dir in "${dirs[@]}"; do
                     if [ -d "$dir" ]; then
                         echo "Backing up $dir"
                         cp -a "$dir" "$backupdir/"
@@ -419,6 +415,61 @@ backup () {
                         echo "Skipping $dir"
                     fi
                 done
+
+                clear
+
+                #if [ -d "$otherdots" ]; then
+                #    echo "Found other dotfiles directory/ies that may conflict:"
+                #    echo ""
+                #    for dir in "${otherdots[@]}"; do
+                #        if [ -d "$dir" ]; then
+                #            echo "$dir"
+                #        else
+                #        echo ""
+                #        fi
+                #        
+                #    done
+                #    echo ""
+                #    echo "What would you like to do?"
+                #
+                #    echo "[1]  Backup these directories"
+                #    echo "[2]  Keep these directories"
+                #    echo "[3]  Remove these directories"
+                #
+                #    read -p " ■ " backup2
+                #
+                #    case "$backup2" in
+                #    [1])
+                #    for dir in "${otherdots[@]}"; do
+                #        if [ -d "$dir" ]; then    
+                #            echo "Backing up $dir"
+                #            cp -a "$dir" "$backupdir/"
+                #        else
+                #            echo "Skipping $dir"
+                #        fi
+                #    done
+                #    ;;
+                #    [2])
+                #    echo "Keeping directories"
+                #    ;;
+                #    [3])
+                #    for dir in "${otherdots[@]}"; do
+                #        if [ -d "$dir" ]; then
+                #            echo "Removing $dir"
+                #            rm -rf "$dir"
+                #        else
+                #            echo "Skipping $dir"
+                #        fi
+                #    done
+                #    ;;
+                #   *)
+                #   clear
+                #    echo "X Please try again."
+                #    echo ""
+                #    ;;
+                #    esac
+                #fi
+
                 clear
                 exit 0
                 ;;
