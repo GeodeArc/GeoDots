@@ -2,6 +2,7 @@
 /* Edited (poorly) by @GeodeArc */
 
 @define-color text            @foreground;
+@define-color border          alpha(@foreground, 0.8);
 @define-color background-alt  alpha(@color1, .4);
 @define-color selected        @color6;
 @define-color hover           alpha(@selected, .4);
@@ -26,7 +27,7 @@
 .control-center {
   background: alpha(@background, .80);
   border-radius: 10px;
-  border: 2px solid @foreground;
+  border: 2px solid @border;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
   margin: 10px;
   padding: 12px;

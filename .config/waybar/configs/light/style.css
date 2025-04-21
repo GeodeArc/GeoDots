@@ -50,7 +50,7 @@ window#waybar {
     color: #000;
     background: @color4;
     border-radius: 15px;
-    opacity: 0.4;
+    opacity: 0.8;
 }
 
 /* TOOLTIPS */

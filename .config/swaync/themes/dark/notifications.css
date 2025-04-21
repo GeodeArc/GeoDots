@@ -2,6 +2,7 @@
 /* Edited (poorly) by @GeodeArc */
 
 @define-color text            @foreground;
+@define-color border          alpha(@foreground, 0.9);
 @define-color background-alt  @color1;
 @define-color selected        @color3;
 @define-color hover           @color5;
@@ -33,7 +34,7 @@
 .floating-notifications.background .notification-row .notification-background {
   background: alpha(@background, .80);
   box-shadow: 0 0 8px 0 rgba(0,0,0,.6);
-  border: 2px solid @foreground;
+  border: 2px solid @border;
   border-radius: 10px;
   margin: 10px;
   padding: 0;
