@@ -7,11 +7,11 @@
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
+> [!WARNING]
+> First major version will be releasing soon (maybe)! Includes a revamped install script, choice over MANY design styles, and an upgrade system!
+
 > [!NOTE]
 > This will only work for Arch Linux. This MAY change in the future, no guarantees though.
-
-> [!WARNING]
-> Hyprland 48 introduced some breaking changes, please download the new hyprland.conf if you are currently using the dotfiles and experiencing errors. github path: /.config/hypr/temp/(qt or gtk)/hyprland.conf
 
 ### 🌟 INSTALLATION:
 
