@@ -68,6 +68,7 @@
 # 
 
 ### 🖼️ SCREENSHOTS:
+(out of date, new images coming soon)
 
 ![dots 1](https://github.com/user-attachments/assets/65eca131-0196-47e3-ba4f-c87f75a48c6e)
 
