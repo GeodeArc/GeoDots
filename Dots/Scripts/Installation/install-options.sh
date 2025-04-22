@@ -1,7 +1,7 @@
 #!/bin/bash
 
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
-dirs="$(curl -s https://geodearc.github.io/GeoDots/dirs)"
+codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
 otherdots=(
     "$HOME/Dotfiles"
     "$HOME/dotfiles"
@@ -401,19 +401,23 @@ backup () {
         case "$dobackup" in
                 [Yy])
                 backupdir="$HOME/GeoDots/Dots/Backup/$(date +'%Y-%m-%d-%H:%M:%S')"
+                directory="$HOME/.config"
+
                 mkdir -p "$backupdir"
                 cp -a "$HOME/.zshrc" "$backupdir"
-                cp -a "$HOME/.bashrc" "$backupdir" 
+                cp -a "$HOME/.bashrc" "$backupdir"
+                cp -a "$HOME/Dots" "$backupdir"
 
-                for dir in "${dirs[@]}"; do
-                    if [ -d "$dir" ]; then
-                        echo "Backing up $dir"
-                        cp -a "$dir" "$backupdir/"
+                for dir in $codirs; do
+                    source="$HOME/.config/$dir"
+
+                    if [ -d "$source" ]; then
+                        echo "Creating backup $source to $directory"
+                        cp -r "$source" "$backupdir/$dir"
                     else
-                        echo "Skipping $dir"
+                        echo "Skipping $dir, doesnt exist"
                     fi
                 done
-
                 clear
 
                 #if [ -d "$otherdots" ]; then
