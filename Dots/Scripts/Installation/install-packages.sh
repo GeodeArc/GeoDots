@@ -3,11 +3,10 @@
 APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 
-PACMAN_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-pacman)"
-AUR_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-aurs)"
-GTK_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-gtk)"
-QT_PKGS="$(cat $HOME/GeoDots/Dots/Scripts/Installation/pkgs/pkg-qt)"
-dirs="$(curl -s https://geodearc.github.io/GeoDots/dirs)"
+PACMAN_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-pacman)"
+AUR_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-aur)"
+GTK_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-gtk)"
+QT_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-qt)"
 codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
 
 echo "Now ready for installation!"
@@ -161,10 +160,18 @@ read -p "Press enter to copy dotfiles to your system."
 xdg-user-dirs-gtk-update
 
 echo "Removing old config/dotfiles folders."
-for dir in "${dirs[@]}"; do
-    if [ -d "$dir" ]; then
-        echo "Removing $dir"
-        rm -rf "$dir"
+sudo rm -r $HOME/Dots
+rm -r $HOME/.zshrc
+rm -r $HOME/.bashrc
+
+for dir in $codirs; do
+    source="$HOME/.config/$dir"
+
+    if [ -d "$source" ]; then
+        echo "Removing $source"
+        rm -r "$source"
+    else
+        echo "Skipping $dir, doesnt exist"
     fi
 done
 
@@ -182,10 +189,15 @@ echo "Creating DOTFILES folder (~/Dots)"
 cp -a $HOME/GeoDots/Dots $HOME/Dots
 
 echo "Creating symlinks from .config to Dots folder"
-for dir in "${codirs[@]}"; do
-    if [ -d "$dir" ]; then
-        echo "Creating symlink $dir"
-        ln -s $dir $HOME/Dots/Config/
+for dir in $codirs; do
+    source="$HOME/.config/$dir"
+    directory="$HOME/Dots/Config"
+
+    if [ -d "$source" ]; then
+        echo "Linking $source to $directory"
+        ln -sf "$source" "$directory"
+    else
+        echo "Skipping $source, doesnt exist"
     fi
 done
 
