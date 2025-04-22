@@ -4,7 +4,7 @@ APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 
 PACMAN_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-pacman)"
-AUR_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-aur)"
+AUR_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-aurs)"
 GTK_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-gtk)"
 QT_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-qt)"
 codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
@@ -41,7 +41,6 @@ done
 while true; do
     echo "Installing AUR packages"
     $AUR_HELPER $AUR_PKGS
-    cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/
     if pacman -Qq $AUR_PKGS &>/dev/null; then
         clear
         echo "AURs installed successfully!"
