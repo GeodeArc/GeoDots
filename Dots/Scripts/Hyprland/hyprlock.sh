@@ -4,9 +4,6 @@
 TEMPLATE_DIR="$HOME/Dots/Config/hyprlock/"
 CONFIG_FILE="$HOME/Dots/Config/hyprlock.conf"
 
-read -p "This utility is unfinished, sorry for the inconvenience. Press ENTER to exit."
-exit 0
-
 echo "Welcome to the Hyprlock Settings!"
 echo "Press CTRL+C at any time to quit"
 echo ""

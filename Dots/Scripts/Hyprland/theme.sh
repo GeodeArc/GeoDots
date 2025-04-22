@@ -2,6 +2,8 @@
 
 while true; do    
     echo "Light theme or dark theme? [L/D]"
+    echo "(or Q to exit)"
+    echo ""
     read -p " ■ " lightordark
     
     case "$lightordark" in
@@ -14,6 +16,9 @@ while true; do
         theme="prefer-dark"
         gtk_theme="adw-gtk3-dark"
         type="dark"
+        ;;
+        [Qq])
+        exit 0 
         ;;
         *) 
         clear
