@@ -1,6 +1,9 @@
 #!/bin/bash
 
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
+STATE_FILE="/tmp/geodots_skipchecks"
+AUR_FILE="/tmp/geodots_aurhelper"
+
 codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
 otherdots=(
     "$HOME/Dotfiles"
@@ -8,7 +11,324 @@ otherdots=(
     "$HOME/dots"
 )
 
-clear
+#
+# AUR HELPER INSTALLATION
+#
+
+aurinstall() {
+    while true; do
+        if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
+            echo "Check skipping enabled!"
+        else
+            if pacman -Qq yay &>/dev/null; then
+                echo "AUR helper (yay) already installed. Skipping this step."
+                echo "yay -Sy --needed" > "$AUR_FILE"
+                sleep 1
+                clear
+                return
+            fi
+            if pacman -Qq paru &>/dev/null; then
+                echo "AUR helper (paru) already installed. Skipping this step."
+                echo "paru -Sy --needed" > "$AUR_FILE"
+                sleep 1
+                clear
+                return
+            fi
+        fi
+
+        echo "An AUR helper is needed for installation. Please pick either yay or paru, or specify one."
+        echo ""
+        echo "yay is a simple/lightweight AUR helper known for its simplicity. Some of the defaults it has can be confusing."
+        echo "paru is a feature rich/lightweight AUR helper known for good defaults/user experience. It will take longer to install due to Rust."
+        echo "You can always install another aur helper at any time after installation, dont feel locked into one."
+        echo ""
+        echo "▶  [1] yay"
+        echo "▶  [2] paru"
+        echo "◆  [3] I have another AUR helper id like to use"
+        echo ""
+        read -p "Please choose an option [1-4] " aurhelper
+
+        case "$aurhelper" in
+                1)
+                    clear
+                    install_aur_helper "yay" "https://aur.archlinux.org/yay"
+                    ;;
+                2)
+                    clear
+                    install_aur_helper "paru" "https://aur.archlinux.org/paru"
+                    ;;
+                3)
+                    clear
+                    custom_aur_helper 
+                    ;;
+                *)
+                    clear
+                    echo "X Invalid choice. Please try again."
+                    echo ""
+                    ;;
+        esac
+
+        if [[ $? -eq 0 ]]; then # checks for return 0
+			return
+		fi
+    done
+}
+
+install_aur_helper() {
+    while true; do
+        local aurh_name="$1"
+        local aurh_url="$2"
+        
+        clear
+        echo "Checking if dependencies are met"
+        sudo pacman -Sy --needed git base-devel
+
+        if pacman -Q git base-devel &>/dev/null; then
+            echo "Dependencies installed."
+        else
+            echo ""
+            echo "WARNING: Installation of AUR helper failed or could not be verified."
+            echo "Press ENTER for another attempt" 
+            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
+            return
+        fi
+
+        echo "Downloading $aurh_name..."
+        git clone $aurh_url ~/$aurh_name
+        clear
+        echo "Now installing"
+        cd ~/$aurh_name
+        makepkg -si
+
+        if pacman -Q $aurh_name &>/dev/null; then
+            clear
+            echo "$aurh_name installed successfully!"
+            echo "$aurh_name -Sy --needed" > "$AUR_FILE"
+            sudo rm -r $HOME/$aurh_name
+            read -p "Press Enter when you are ready to move on."
+            clear
+            return 0
+        else
+            echo ""
+            echo "WARNING: Installation of AUR helper failed or could not be verified."
+            echo "Press ENTER for another attempt" 
+            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
+        fi
+    done
+}
+
+custom_aur_helper() {
+    while true; do
+        echo "Please specify the command your AUR helper uses to install packages/preferably update the repositories as well."
+        echo "- Check your AUR helpers documentation if you dont know what command/flags you need to use."
+        echo "- Be careful here, Installation will not work properly/at all if this is messed up."
+        echo ""
+        echo "If you got here by mistake, please type 'back' in lowercase to return to the previous menu."
+        echo ""
+        echo "E.g: 'paru -Sy --needed', or 'yay -Sy --needed'"
+        read -p "Enter here: " customaur
+
+        if [[ "$customaur" == "back" ]]; then
+            clear
+            return 1
+        fi
+
+        if [[ -n "$customaur" ]]; then
+            echo "Setting $customaur as AUR helper"
+            echo $customaur > "$AUR_FILE"
+            echo ""
+            echo "Press ENTER to continue, or 'back' if you made a mistake"
+            read -p " ■ " finalaurcheck
+            if [[ "$finalaurcheck" == "back" ]]; then
+                clear
+                continue
+            fi
+            clear
+            return 0
+        else
+            clear
+            echo "X Please try again."
+            echo ""
+        fi
+    done
+}
+
+#
+# FONT INSTALLATION
+#
+
+fontinstall() {
+    while true; do
+        if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
+            echo "Check skipping enabled!"
+        else
+            if pacman -Qq $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") &>/dev/null; then
+                echo "Noto fonts already installed. Skipping this step."
+                sleep 1
+                clear
+                return
+            fi
+        fi
+
+        echo "Couldnt find any/all noto-fonts, would you like to install them?"
+        echo "This will ensure that you have most languages/symbols/emojis installed."
+        echo ""
+        echo "This will be a pretty large download, but id recommend it if you have the space."
+        echo ""
+        echo "Enter your choice [Y/N]"
+        read -p " ■ " notofont
+
+        case "$notofont" in
+            [Yy]) 
+                install_noto_font 
+                ;;
+            [Nn]) 
+                echo "Skipping!"
+                clear
+                return
+                ;;
+            *)
+                clear
+                echo "X Invalid choice. Please try again."
+                echo ""
+                ;;
+        esac
+
+        if [[ $? -eq 0 ]]; then # checks for return 0
+			return
+		fi
+    done
+}
+
+install_noto_font() {
+    while true; do
+        echo "Installing noto fonts..."
+        sudo pacman -Sy --needed $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") # In case of chaotic AUR users
+
+        if pacman -Qq $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") &>/dev/null; then
+            clear
+            echo "Fonts are installed!"
+            read -p "Press Enter when you are ready to move on."
+            return 0
+        else
+            echo ""
+            echo "WARNING: Installation of nerd font failed or could not be verified."
+            echo "Press ENTER to return to the main menu for another attempt"
+            echo "Alternatively, type 'skip' to skip, or 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "skip" ]]; then
+                return 0
+            fi
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
+            return 1
+        fi
+    done
+}
+
+#
+# NERD FONT INSTALLATION
+# CURRENTLY DEPRECATED
+#
+
+install_nerd_font() { # disabled for now until font choice is complete
+    local font_name="$1"
+    local font_pkg="$2"
+
+    echo "Installing $font_name..."
+    sudo pacman -Sy --needed "$font_pkg"
+
+    if pacman -Qq $(pacman -Ssq $font_pkg) &>/dev/null; then
+            clear
+            echo "Fonts installed successfully!"
+            read -p "Press Enter when you are ready to move on."
+            return
+        else
+            echo ""
+            echo "WARNING: Installation of nerd font failed or could not be verified."
+            echo "Press ENTER to return to the main menu for another attempt"
+            echo "Alternatively, type 'skip' to skip, or 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "skip" ]]; then
+                return
+            fi
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            clear
+            return
+        fi
+}
+
+nerdinstall() { # disabled for now until font choice is complete
+    while true; do
+        echo "Nerd Font may not be installed. Proceeding with installation!"
+        echo ""
+        echo "Select a Nerd Font to install. This will allow nerd emojis/icons to render correctly:"
+        echo "▶  [1] JetBrainsMono Nerd Font"
+        echo "▶  [2] Hack Nerd Font"
+        echo "▶  [3] FiraCode Nerd Font"
+        echo "◆  [4] Choose my own"
+        echo "◆  [5] I already have a nerd font / skip"
+        echo ""
+        echo "Enter your choice of Font [1-5]: "
+        read -p " ■ " nerdfont
+
+        case "$nerdfont" in
+            1)
+                clear
+                install_nerd_font "JetBrainsMono" "ttf-jetbrains-mono-nerd"
+                ;;
+            2)
+                clear
+                install_nerd_font "Hack" "ttf-hack-nerd"
+                ;;
+            3)
+                clear
+                install_nerd_font "FiraCode" "ttf-firacode-nerd"
+                ;;
+            4)
+                clear
+                echo "Please visit https://www.nerdfonts.com/font-downloads to download a font of your choice, or use pacman."
+                echo "If you are still in a TTY (no desktop), open up another TTY with CTRL+ALT+(F3-F12), and install a font with pacman."
+                echo "Alternatively, close the script and reopen once installed. When prompted, select 'I already have a nerd font'."
+                echo ""
+                echo "Please note: You will not receive font updates by downloading a font from the website."
+                echo ""
+                read -p "Press Enter when you have manually installed your font." 
+                return
+                ;;
+            5)
+                return
+                ;;
+            *)
+                clear
+                echo "X Invalid choice. Please try again."
+                echo ""
+                ;;
+        esac
+    done
+}
+
+#
+# TOOLKIT SELECTION
+#
 
 toolkitselect () {
     while true; do
@@ -52,19 +372,27 @@ toolkitselect () {
     done
 }
 
+#
+# BROWSER SELECTION
+#
 
 browserselect() {
     while true; do
         local browsers=("firefox" "chromium" "brave" "vivaldi" "google-chrome" "floorp" "librewolf" "epiphany") # Feel free to suggest other browsers I can add here. Doesnt check flatpaks, i know sorry
-        for browser in "${browsers[@]}"; do
-            if command -v "$browser" >/dev/null 2>&1; then # command instead of pacman, because different versions of packages.
-                echo "$browser browser is already installed, skipping browser installation"
-                echo "$browser" > $HOME/GeoDots/Dots/Options/browser
-                sleep 1
-                clear
-                return
-            fi
-        done
+
+        if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
+            echo "Check skipping enabled!"
+        else
+            for browser in "${browsers[@]}"; do
+                if command -v "$browser" >/dev/null 2>&1; then # command instead of pacman, because different versions of packages.
+                    echo "$browser browser is already installed, skipping browser installation"
+                    echo "$browser" > $HOME/GeoDots/Dots/Options/browser
+                    sleep 1
+                    clear
+                    return
+                fi
+            done
+        fi
             
         echo "Couldnt find a browser, would you like to install one now?"
         echo ""
@@ -135,12 +463,12 @@ browserinstall () {
             echo "WARNING: Installation of browser failed or could not be verified."
             echo "Press ENTER for another attempt, or type 'skip' to skip." 
             echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-            read -p " ■ " browserfail
-            if [[ "$browserfail" == "skip" ]]; then
+            read -p " ■ " choice
+            if [[ "$choice" == "skip" ]]; then
                 clear
                 return
             fi
-            if [[ "$browserfail" == "troubleshoot" ]]; then
+            if [[ "$choice" == "troubleshoot" ]]; then
                 clear
                 ./Dots/Scripts/Installation/troubleshooter.sh
             fi
@@ -148,6 +476,10 @@ browserinstall () {
         fi
     done
 }
+
+#
+# THEME SELECTION
+#
 
 themeconfig() {
     while true; do    
@@ -197,8 +529,8 @@ themeconfig() {
             echo "WARNING: Installation of theme dependencies failed or could not be verified."
             echo "Press ENTER for another attempt" 
             echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-            read -p " ■ " themefail
-            if [[ "$themefail" == "troubleshoot" ]]; then
+            read -p " ■ " choice
+            if [[ "$choice" == "troubleshoot" ]]; then
                 clear
                 ./Dots/Scripts/Installation/troubleshooter.sh
             fi
@@ -207,6 +539,9 @@ themeconfig() {
     done
 }
 
+#
+# DISPLAY MANAGER INSTALLATION
+#
 
 checkdm() {
     local dm_changed=0
@@ -338,6 +673,10 @@ selectdm() {
     done
 }
 
+#
+# CHAOTIC AUR INSTALLATION
+#
+
 chaoticinstall () {
     while true; do
         if grep chaotic-aur /etc/pacman.conf &>/dev/null; then
@@ -394,6 +733,10 @@ chaoticinstall () {
     done
 }
 
+#
+# BACKUP
+#
+
 backup () {
     while true; do
         echo "Would you like to backup existing config folders? [Y/N]"
@@ -419,65 +762,11 @@ backup () {
                     fi
                 done
                 clear
-
-                #if [ -d "$otherdots" ]; then
-                #    echo "Found other dotfiles directory/ies that may conflict:"
-                #    echo ""
-                #    for dir in "${otherdots[@]}"; do
-                #        if [ -d "$dir" ]; then
-                #            echo "$dir"
-                #        else
-                #        echo ""
-                #        fi
-                #        
-                #    done
-                #    echo ""
-                #    echo "What would you like to do?"
-                #
-                #    echo "[1]  Backup these directories"
-                #    echo "[2]  Keep these directories"
-                #    echo "[3]  Remove these directories"
-                #
-                #    read -p " ■ " backup2
-                #
-                #    case "$backup2" in
-                #    [1])
-                #    for dir in "${otherdots[@]}"; do
-                #        if [ -d "$dir" ]; then    
-                #            echo "Backing up $dir"
-                #            cp -a "$dir" "$backupdir/"
-                #        else
-                #            echo "Skipping $dir"
-                #        fi
-                #    done
-                #    ;;
-                #    [2])
-                #    echo "Keeping directories"
-                #    ;;
-                #    [3])
-                #    for dir in "${otherdots[@]}"; do
-                #        if [ -d "$dir" ]; then
-                #            echo "Removing $dir"
-                #            rm -rf "$dir"
-                #        else
-                #            echo "Skipping $dir"
-                #        fi
-                #    done
-                #    ;;
-                #   *)
-                #   clear
-                #    echo "X Please try again."
-                #    echo ""
-                #    ;;
-                #    esac
-                #fi
-
-                clear
-                exit 0
+                return
                 ;;
                 [Nn])
                 clear
-                exit 0
+                return
                 ;;
                 *)
                 clear
@@ -489,12 +778,16 @@ backup () {
 }
 
 while true; do
-    #aurinstall
-    #fontinstall
+    aurinstall
+    fontinstall
+    #nerdinstall (disabled for now - havent properly implemented font selection yet)
     toolkitselect
     browserselect
     themeconfig
     checkdm
     chaoticinstall
     backup
+
+    echo "Getting latest Dotfiles package list - Please wait"
+    exit 0
 done

@@ -9,11 +9,10 @@ GTK_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-gtk)"
 QT_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-qt)"
 codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
 
+clear
+
 echo "Now ready for installation!"
 read -p "Press ENTER to begin installation "
-
-#echo "Checking for package conflicts."
-# ADD LATER MAYBE
 
 while true; do
     echo "Installing PACMAN packages"
@@ -63,7 +62,6 @@ done
 
 nautilustweak () {
     while true; do
-
         if pacman -Qq nautilus-admin-gtk4 &>/dev/null; then # Just checking one package because im lazy + it should work.
             echo "Nautilus tweaks installed, skipping"
             sleep 1
