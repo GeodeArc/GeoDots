@@ -1,6 +1,7 @@
 #!/bin/bash
 
 clear
+echo "" > /tmp/geodots_aurhelper
 
 #
 # DOTFILES OPTIONS + BASE INSTALL 
