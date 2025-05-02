@@ -11,6 +11,8 @@ otherdots=(
     "$HOME/dots"
 )
 
+echo "" > /tmp/geodots_aurhelper
+
 #
 # AUR HELPER INSTALLATION
 #
