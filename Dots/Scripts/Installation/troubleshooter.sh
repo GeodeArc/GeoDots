@@ -53,7 +53,7 @@ while true; do
     echo "├─ ▶  [4] Remove Chaotic-AUR ('Conflicts Found', 'Couldnt satisfy depends' etc)"
     echo "├─ X  [5] Exit Troubleshooter"
     echo "│"
-    echo "└─ Enter your choice [1-4]"
+    echo "└─ Enter your choice [1-5]"
     read -p " ■ " pacman
 
     case "$pacman" in

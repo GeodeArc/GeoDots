@@ -46,20 +46,29 @@ aurinstall() {
         echo "▶  [2] paru"
         echo "◆  [3] I have another AUR helper id like to use"
         echo ""
-        read -p "Please choose an option [1-4] " aurhelper
+        read -p "Please choose an option [1-3] " aurhelper
 
         case "$aurhelper" in
                 1)
                     clear
                     install_aur_helper "yay" "https://aur.archlinux.org/yay"
+                    if [[ $? -eq 0 ]]; then # checks for return 0
+			            return
+		            fi
                     ;;
                 2)
                     clear
                     install_aur_helper "paru" "https://aur.archlinux.org/paru"
+                    if [[ $? -eq 0 ]]; then # checks for return 0
+			            return
+		            fi
                     ;;
                 3)
                     clear
-                    custom_aur_helper 
+                    custom_aur_helper
+                    if [[ $? -eq 0 ]]; then # checks for return 0
+			            return
+		            fi 
                     ;;
                 *)
                     clear
@@ -67,10 +76,6 @@ aurinstall() {
                     echo ""
                     ;;
         esac
-
-        if [[ $? -eq 0 ]]; then # checks for return 0
-			return
-		fi
     done
 }
 
@@ -87,16 +92,17 @@ install_aur_helper() {
             echo "Dependencies installed."
         else
             echo ""
-            echo "WARNING: Installation of AUR helper failed or could not be verified."
+            echo "WARNING: Installation of dependencies failed or could not be verified."
             echo "Press ENTER for another attempt" 
             echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
             read -p " ■ " choice
+
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./troubleshooter.sh
             fi
             clear
-            return
+            return 1
         fi
 
         echo "Downloading $aurh_name..."
@@ -120,11 +126,15 @@ install_aur_helper() {
             echo "Press ENTER for another attempt" 
             echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
             read -p " ■ " choice
+
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                echo "Running troubleshooter..."
+                cd $HOME/GeoDots/Dots/Scripts/Installation/ # weird af but i gotta do it.
+                ./troubleshooter.sh
             fi
             clear
+            return 1
         fi
     done
 }
@@ -192,7 +202,10 @@ fontinstall() {
 
         case "$notofont" in
             [Yy]) 
-                install_noto_font 
+                install_noto_font
+                if [[ $? -eq 0 ]]; then # checks for return 0
+			        return
+		        fi
                 ;;
             [Nn]) 
                 echo "Skipping!"
@@ -205,10 +218,6 @@ fontinstall() {
                 echo ""
                 ;;
         esac
-
-        if [[ $? -eq 0 ]]; then # checks for return 0
-			return
-		fi
     done
 }
 
