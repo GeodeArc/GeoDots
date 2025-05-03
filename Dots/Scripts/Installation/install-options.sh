@@ -242,7 +242,7 @@ install_noto_font() {
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./troubleshooter.sh
             fi
             clear
             return 1
@@ -278,7 +278,7 @@ install_nerd_font() { # disabled for now until font choice is complete
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./troubleshooter.sh
             fi
             clear
             return
@@ -479,7 +479,7 @@ browserinstall () {
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./troubleshooter.sh
             fi
             clear
         fi
@@ -541,7 +541,7 @@ themeconfig() {
             read -p " ■ " choice
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./troubleshooter.sh
             fi
             clear
         fi
@@ -636,7 +636,7 @@ selectdm() {
                 fi
                 if [[ "$dmfail" == "troubleshoot" ]]; then
                     clear
-                    ./Dots/Scripts/Installation/troubleshooter.sh
+                    ./troubleshooter.sh
                 fi
                 clear
             fi
@@ -659,7 +659,7 @@ selectdm() {
                 fi
                 if [[ "$dmfail" == "troubleshoot" ]]; then
                     clear
-                    ./Dots/Scripts/Installation/troubleshooter.sh
+                    ./troubleshooter.sh
                 fi
                 clear
             fi
@@ -723,7 +723,7 @@ chaoticinstall () {
                     fi
                     if [[ "$chaoticfail" == "troubleshoot" ]]; then
                         clear
-                        ./Dots/Scripts/Installation/troubleshooter.sh
+                        ./troubleshooter.sh
                      fi
                     clear
                 fi
