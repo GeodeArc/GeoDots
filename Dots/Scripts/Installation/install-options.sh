@@ -99,6 +99,7 @@ install_aur_helper() {
 
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
+                cd $HOME/GeoDots/Dots/Scripts/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -242,6 +243,7 @@ install_noto_font() {
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
+                cd $HOME/GeoDots/Dots/Scripts/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -278,6 +280,7 @@ install_nerd_font() { # disabled for now until font choice is complete
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
+                cd $HOME/GeoDots/Dots/Scripts/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -479,6 +482,7 @@ browserinstall () {
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
+                cd $HOME/GeoDots/Dots/Scripts/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -541,6 +545,7 @@ themeconfig() {
             read -p " ■ " choice
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
+                cd $HOME/GeoDots/Dots/Scripts/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -636,6 +641,7 @@ selectdm() {
                 fi
                 if [[ "$dmfail" == "troubleshoot" ]]; then
                     clear
+                    cd $HOME/GeoDots/Dots/Scripts/Installation/
                     ./troubleshooter.sh
                 fi
                 clear
@@ -723,6 +729,7 @@ chaoticinstall () {
                     fi
                     if [[ "$chaoticfail" == "troubleshoot" ]]; then
                         clear
+                        cd $HOME/GeoDots/Dots/Scripts/Installation/
                         ./troubleshooter.sh
                      fi
                     clear
