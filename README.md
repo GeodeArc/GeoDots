@@ -7,9 +7,6 @@
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
-> [!WARNING]
-> First major version will be releasing soon (maybe)! Includes a revamped install script, fixes, new scripts, and an upgrade system!
-
 > [!NOTE]
 > This will only work for Arch Linux. This MAY change in the future, no guarantees though.
 
@@ -55,28 +52,27 @@
 
   <p></p>
     
-  - 🗃️ Ensure the dependencies listed in /Dots/Scripts/Installation/pkgs/ are installed
+  - 🗃️ Head over the the gh-pages branch, and install the dependencies in the text files labled 'pkg'
 
   - 🔶 Go to each config folder in /.config/, and put a config (e.g light alt waybar, GTK hyprland.conf), and move it to the root of that config folder
 
   - 💾 Copy folders from /.config/ to your .config folder
 
-  - 💫 Copy the /Dots folder to your home directory.
+  - 💫 Copy the /Dots folder to your home directory
 
 </details> 
 
 # 
 
 ### 🖼️ SCREENSHOTS:
-(out of date, new images coming soon)
 
-![dots 1](https://github.com/user-attachments/assets/65eca131-0196-47e3-ba4f-c87f75a48c6e)
+![dots1](https://github.com/user-attachments/assets/b26a1b4a-86f7-4606-8451-5d5e7f1fc9fb)
 
-![dots 2](https://github.com/user-attachments/assets/e682a2a9-1e13-40ed-8680-3514e7ecaeb9)
+![dots2](https://github.com/user-attachments/assets/6698c4b8-ddb0-45a1-9bb6-ce364fce1321)
 
-![dots 3](https://github.com/user-attachments/assets/d01c9cfe-2b76-4bd6-a287-489c7626428b)
+![dots3](https://github.com/user-attachments/assets/e6ba7d35-bee7-47c4-ac88-47dac3e0ee1e)
 
-![dots 4](https://github.com/user-attachments/assets/724c384d-9d3a-43cd-adf1-7f9786d9d848)
+![dots4](https://github.com/user-attachments/assets/6caa0ed8-fd97-49a3-8b8e-17aba315451d)
 
 # 
 
