@@ -2,7 +2,7 @@
 
 APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
-$BROWSER="$(cat $HOME/GeoDots/Dots/Options/browser)"
+BROWSER="$(cat $HOME/GeoDots/Dots/Options/browser)"
 
 PACMAN_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-pacman)"
 AUR_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-aurs)"
