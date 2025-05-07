@@ -1,6 +1,5 @@
 #!/bin/bash
 
-AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 STATE_FILE="/tmp/geodots_skipchecks"
 AUR_FILE="/tmp/geodots_aurhelper"
 
@@ -419,23 +418,23 @@ browserselect() {
 
         case "$browsertype" in
             1)
-            browserinstall "firefox"
             echo "firefox" > $HOME/GeoDots/Dots/Options/browser
+            clear
             return
             ;; 
             2)
-            browserinstall "chromium"
             echo "chromium" > $HOME/GeoDots/Dots/Options/browser
+            clear
             return
             ;; 
-            3) 
-            browserinstall "brave-bin"        
+            3)   
             echo "brave" > $HOME/GeoDots/Dots/Options/browser
+            clear
             return
             ;;
             4) 
-            browserinstall "vivaldi"
             echo "vivaldi" > $HOME/GeoDots/Dots/Options/browser
+            clear
             return
             ;;
             5) 
@@ -448,6 +447,7 @@ browserselect() {
             return
             ;;
             6) 
+            echo "Skipped during install - Clear this line and add your browser's command here for SUPER+B to open your browser." > $HOME/GeoDots/Dots/Options/browser
             clear
             return
             ;;
@@ -457,36 +457,6 @@ browserselect() {
             echo ""
             ;;
         esac
-    done
-}
-
-browserinstall () {
-    while true; do
-        local browserpackage="$1"
-        $AUR_HELPER $browserpackage
-        if pacman -Q $browserpackage &>/dev/null; then
-            clear
-            echo "Browser successfully installed!"
-            read -p "Press ENTER to move on: "
-            clear
-            return
-        else
-            echo ""
-            echo "WARNING: Installation of browser failed or could not be verified."
-            echo "Press ENTER for another attempt, or type 'skip' to skip." 
-            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-            read -p " ■ " choice
-            if [[ "$choice" == "skip" ]]; then
-                clear
-                return
-            fi
-            if [[ "$choice" == "troubleshoot" ]]; then
-                clear
-                cd $HOME/GeoDots/Dots/Scripts/Installation/
-                ./troubleshooter.sh
-            fi
-            clear
-        fi
     done
 }
 
@@ -503,11 +473,13 @@ themeconfig() {
             [Ll]) 
             theme="prefer-light"
             gtk_theme="adw-gtk3" 
+            #kvantum_theme
             type="light"
             ;;
             [Dd]) 
             theme="prefer-dark"
             gtk_theme="adw-gtk3-dark"
+            #kvantum_theme
             type="dark"
             ;;
             *) 
@@ -648,9 +620,9 @@ selectdm() {
             fi
             ;;
             2)
-            $AUR_HELPER gdm gdm-settings
+            sudo pacman -S --needed gdm
             sudo systemctl enable gdm
-            if pacman -Q gdm gdm-settings &>/dev/null; then
+            if pacman -Q gdm &>/dev/null; then
                 clear
                 return
             else

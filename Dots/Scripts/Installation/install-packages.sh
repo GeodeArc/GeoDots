@@ -2,6 +2,7 @@
 
 APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
+$BROWSER="$(cat $HOME/GeoDots/Dots/Options/browser)"
 
 PACMAN_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-pacman)"
 AUR_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-aurs)"
@@ -100,6 +101,7 @@ nautilustweak () {
 
 while true; do
     if [[ "$APPTYPE_FILE" == "qt" ]]; then
+        echo "Installing QT related packages"
         $AUR_HELPER $QT_PKGS
         cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/
         if pacman -Qq $QT_PKGS &>/dev/null; then
@@ -121,6 +123,7 @@ while true; do
             clear
         fi
     elif [[ "$APPTYPE_FILE" == "gtk" ]]; then
+        echo "Installing GTK related packages"
         $AUR_HELPER $GTK_PKGS
         cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/
         if pacman -Qq $GTK_PKGS &>/dev/null; then
@@ -142,11 +145,40 @@ while true; do
             fi
             clear
         fi
-        return
     else
         echo "Warning: App type file not found/invalid. Installing fallback packages, modify hyprland.conf to your specification."
         $AUR_HELPER nautilus gnome-text-editor gnome-software gnome-keyring polkit-gnome kate kwrite dolphin discover kwallet hyprpolkitagent
         break
+    fi
+done
+
+while true; do
+    if grep Skipped $HOME/GeoDots/Dots/Options/browser &>/dev/null; then
+        return
+    else
+        echo "Installing Browser"
+        $AUR_HELPER $BROWSER
+        if pacman -Q $BROWSER &>/dev/null; then
+            echo "Browser installed successfully!"
+            read -p "Press Enter when you are ready to move on."
+            clear
+            break
+        else 
+            echo ""
+            echo "WARNING: Installation of Browser failed or could not be verified."
+            echo "Press ENTER for another attempt, or type 'skip' to ignore."
+            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+            read -p " ■ " choice
+            if [[ "$choice" == "troubleshoot" ]]; then
+                clear
+                ./Dots/Scripts/Installation/troubleshooter.sh
+            fi
+            if [[ "$choice" == "skip" ]]; then
+                clear
+                break
+            fi
+            clear
+        fi
     fi
 done
 
