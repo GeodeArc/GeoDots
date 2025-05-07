@@ -154,11 +154,12 @@ done
 
 while true; do
     if grep Skipped $HOME/GeoDots/Dots/Options/browser &>/dev/null; then
-        return
+        break
     else
         echo "Installing Browser"
         $AUR_HELPER $BROWSER
         if pacman -Q $BROWSER &>/dev/null; then
+            clear
             echo "Browser installed successfully!"
             read -p "Press Enter when you are ready to move on."
             clear
