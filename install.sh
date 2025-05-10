@@ -1,28 +1,34 @@
 #!/bin/bash
 
-echo "It is recommended to update your system before installation."
-echo "Do this now? [Y/N]"
-read -p " ■ " update
+while true; do
+    echo ""
+    echo "It is recommended to update your system before installation."
+    echo "Do this now? [Y/N]"
+    read -p " ■ " update
 
-case "$update" in
-	y)
-            sudo pacman -Syu
-            ;;
-        Y)
-            sudo pacman -Syu
-            ;;
-        n)
-            echo "Skipping!"
-            ;;
-        N)
-            echo "Skipping!"
-            ;;
-        *)
-            clear
-            echo "X Invalid choice. Please try again."
-            echo ""
-            ;;
-esac
+    case "$update" in
+        y)
+                sudo pacman -Syu
+                break
+                ;;
+            Y)
+                sudo pacman -Syu
+                break
+                ;;
+            n)
+                echo "Skipping!"
+                break
+                ;;
+            N)
+                echo "Skipping!"
+                break
+                ;;
+            *)
+                clear
+                echo "X Invalid choice. Please try again."
+                ;;
+    esac
+done
 
 sudo pacman -S --needed git base-devel
 
