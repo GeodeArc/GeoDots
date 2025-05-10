@@ -597,7 +597,7 @@ selectdm() {
                 sudo cp $HOME/GeoDots/.config/sddm/default.conf /etc/sddm.conf.d/ # just incase
                 sudo mkdir -p /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/
                 sudo cp -r $HOME/GeoDots/Dots/Wallpapers/wall1.jpg /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/wallpaper.jpg # temp wallpaper
-                cp $HOME/GeoDots/.config/sddm/wallpaperupdate.sh $HOME/GeoDots/Dots/Scripts/Hyprland
+                mv $HOME/GeoDots/.config/sddm/update_sddm_wall.sh $HOME/GeoDots/Dots/Scripts/
                 sudo rm -r $HOME/GeoDots/.config/sddm/
                 clear
                 return
