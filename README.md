@@ -82,9 +82,11 @@
   <summary>🟡 Roadmap</summary>
   <h3>Current:</h3>
 
-  - Clean up rofi/swaync/hyprland configs.
+  - Fix colours for rofi/hyprland
+
+  - Add hyprlock click widgets when available?
   
-  - Font choices (rofi kitty etc)
+  - Ability to choose nerd font
   
   - Add ZSH/Bash selection
     
@@ -93,14 +95,10 @@
   - Add cursor (bibata modern ice/classic depending on light/dark theme) (1/2)
 
   - NVIDIA selection (i folded)
-    
-  <h3>Later:</h3>
-  
-  - GDM config (Ready to be merged)
   
   - Add monitor setup to post install
     
-  - Settings/config script
+  - Finish settings script
     
   - Add hyprlock autologon (maybe with sddm since that seems easy)
 </details> 
