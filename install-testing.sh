@@ -39,6 +39,6 @@ echo "Removing previous version if needed"
 sudo rm -r GeoDots
 clear
 echo "Cloning Repo"
-git clone https://github.com/GeodeArc/GeoDots
+git clone -b testing --single-branch https://github.com/GeodeArc/GeoDots
 cd GeoDots
 ./install.sh
