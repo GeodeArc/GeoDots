@@ -778,7 +778,7 @@ while true; do
 
     echo "Getting latest Dotfiles package list - Please wait"
     curl -o $HOME/GeoDots/pkg-pacman -s https://geodearc.github.io/GeoDots/pkg-pacman
-    curl -o $HOME/GeoDots/pkg-aur -s https://geodearc.github.io/GeoDots/pkg-aurs
+    curl -o $HOME/GeoDots/pkg-aurs -s https://geodearc.github.io/GeoDots/pkg-aurs
     curl -o $HOME/GeoDots/pkg-gtk -s https://geodearc.github.io/GeoDots/pkg-gtk
     curl -o $HOME/GeoDots/pkg-qt -s https://geodearc.github.io/GeoDots/pkg-qt
     exit 0
