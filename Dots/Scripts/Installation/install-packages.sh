@@ -10,10 +10,70 @@ GTK_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-gtk)"
 QT_PKGS="$(curl -s https://geodearc.github.io/GeoDots/pkg-qt)"
 codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
 
+PKGS_CONFLICT_LIST="$(curl -s https://geodearc.github.io/GeoDots/pkg-conflicts)"
+PKG_CONFLICTS=$(pacman -Qq $PKGS_CONFLICT_LIST 2>&1 | sed '/error: \|rofi-wayland/d')
+
 clear
 
 echo "Now ready for installation!"
 read -p "Press ENTER to begin installation "
+
+clear
+echo "Checking for conflicts"
+
+while true; do
+	if pacman -Qq $(echo $PKG_CONFLICTS) &>/dev/null; then
+		clear
+		echo "Package conflicts found (likely -git packages, these dotfiles install non git packages):"
+		echo $PKG_CONFLICTS
+		echo ""
+		echo "What would you like to do?"
+		echo "1. Remove conflicting packages and proceed to installation"
+		echo "2. Edit package list to override installation of normal packages (allowing these conflicts)"
+		echo ""
+		read -p " ■ " choice
+		case "$choice" in
+			1)
+				clear
+				sudo pacman -Rcns $PKG_CONFLICTS
+				;; 
+			2) 
+				clear
+				echo "Downloading package list to disk, please wait"
+				curl -o $HOME/GeoDots/pkg-pacman-override -s https://geodearc.github.io/GeoDots/pkg-pacman
+				curl -o $HOME/GeoDots/pkg-aur-override -s https://geodearc.github.io/GeoDots/pkg-aurs
+				curl -o $HOME/GeoDots/pkg-gtk-override -s https://geodearc.github.io/GeoDots/pkg-gtk
+				curl -o $HOME/GeoDots/pkg-qt-override -s https://geodearc.github.io/GeoDots/pkg-qt
+				clear
+				echo "Look for similar matches to the packages below (usually without -git), and remove them from the list"
+				echo $PKG_CONFLICTS
+				echo ""
+				echo "You will look inside 4 package lists, once finished editing press CTRL+S then CTRL+X to save/exit."
+				read -p "Press ENTER to begin"
+				sudo pacman -S --needed nano
+				nano $HOME/GeoDots/pkg-pacman-override
+				nano $HOME/GeoDots/pkg-aur-override
+				nano $HOME/GeoDots/pkg-gtk-override
+				nano $HOME/GeoDots/pkg-qt-override
+				clear
+				read -p "Finished, press ENTER to continue"
+				PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman-override)"
+				AUR_PKGS="$(cat $HOME/GeoDots/pkg-aur-override)"
+				GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk-override)"
+				QT_PKGS="$(cat $HOME/GeoDots/pkg-qt-override)"
+				break
+				;;
+            *)
+                clear
+                echo "X Invalid choice. Please try again."
+                echo ""
+                ;;
+        esac
+	else
+		echo "No conflicts found!"
+		break
+	fi
+done
 
 while true; do
     echo "Installing PACMAN packages"
