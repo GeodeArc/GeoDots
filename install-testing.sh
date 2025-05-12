@@ -2,8 +2,6 @@
 
 while true; do
     echo ""
-    echo "TESTING BRANCH - MAY ENCOUNTER PROBLEMS!"
-    echo ""
     echo "It is recommended to update your system before installation."
     echo "Do this now? [Y/N]"
     read -p " ■ " update
@@ -32,9 +30,15 @@ while true; do
     esac
 done
 
+echo "Installing required depends if needed"
 sudo pacman -S --needed git base-devel
+clear
 
 cd
+echo "Removing previous version if needed"
+sudo rm -r GeoDots
+clear
+echo "Cloning Repo"
 git clone https://github.com/GeodeArc/GeoDots
 cd GeoDots
 ./install.sh
