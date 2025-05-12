@@ -8,6 +8,40 @@ echo "   88    88       88.  .88 88.  .88 88.  .88 88 88.  ...       88 88    88
 echo "   dP    dP        88888P   88888P  88Y8888' dP  88888P'  88888P' dP    dP  88888P   88888P'   dP   "
 echo ""
 
+conflict1() {
+    echo "Please enter the name of the conflicting package/s below (the SECOND one listed when it failed)"
+    echo ""
+    echo "Example: swww-0.9.5-2 and swww-git-0.9.5.r183.g3e2e2ba-1 are in conflict"
+    echo "In this example, you would type 'swww-git', as its conflicting"
+    echo ""
+    echo "Conflicts like this should have been resolved in the installation script, if you would like, please report the conflicting package in the form of a bug report."
+    echo ""
+    read -p " ■ " pkgrm
+    sudo pacman -Rcns $pkgrm
+    read -p "The command has been completed, press ENTER to return to the menu"
+}
+
+conflict2() {
+    echo "Downloading package list to disk, please wait"
+    curl -o $HOME/GeoDots/pkg-pacman -s https://geodearc.github.io/GeoDots/pkg-pacman
+    curl -o $HOME/GeoDots/pkg-aurs -s https://geodearc.github.io/GeoDots/pkg-aurs
+    curl -o $HOME/GeoDots/pkg-gtk -s https://geodearc.github.io/GeoDots/pkg-gtk
+    curl -o $HOME/GeoDots/pkg-qt -s https://geodearc.github.io/GeoDots/pkg-qt
+    clear
+    echo "Look for similar matches to the packages below (usually without -git), and remove them from the list"
+    echo $PKG_CONFLICTS
+    echo ""
+    echo "You will look inside 4 package lists, once finished editing press CTRL+S then CTRL+X to save/exit."
+    read -p "Press ENTER to begin"
+    sudo pacman -S --needed nano
+    nano $HOME/GeoDots/pkg-pacman
+    nano $HOME/GeoDots/pkg-aurs
+    nano $HOME/GeoDots/pkg-gtk
+    nano $HOME/GeoDots/pkg-qt
+    clear
+    read -p "Finished, press ENTER to return to the menu"
+}
+
 customcmd() {
     echo "Couldnt find an AUR helper, are you using a custom AUR helper? [Y/N/?]"
     read -p " ■ " customaur
@@ -50,7 +84,7 @@ while true; do
     echo "├─ ▶  [1] Clear Pacman/AUR Cache (General Fixes)"
     echo "├─ ▶  [2] Check network with nmtui (Error 404s etc) (Only for NetworkManager users)"
     echo "├─ ▶  [3] Conflicting Packages ('Conflicts Found', 'Couldnt satisfy depends' etc)"
-    echo "├─ ▶  [4] Remove Chaotic-AUR ('Conflicts Found', 'Couldnt satisfy depends' etc)"
+    echo "├─ ▶  [4] Remove Chaotic-AUR (Issues relating to downloading packages after setup)"
     echo "├─ X  [5] Exit Troubleshooter"
     echo "│"
     echo "└─ Enter your choice [1-5]"
@@ -79,17 +113,31 @@ while true; do
             ;;  
         3)  
             clear
-            echo "Please enter the name of the conflicting package/s below (the SECOND one listed when it failed)"
-            echo "If more conflicting packages show up, enter Y (to remove) for all and see if it works"
-            echo ""
-            echo "Example: swww-0.9.5-2 and swww-git-0.9.5.r183.g3e2e2ba-1 are in conflict"
-            echo "In this example, you would type 'swww-git'"
-            echo ""
-            echo "Be very careful here, if you see important things being listed for removal (e.g xorg), you may run into trouble"
-            echo "If you remove your desktop environment, make sure to finish installation before logging out so you still have a working system"
-            read -p " ■ " pkgrm
-            sudo pacman -Rcns $pkgrm
-            read -p "The command has been completed, please press ENTER to return to the menu"
+                while true; do
+                echo "What would you like to do?"
+                echo ""
+                echo "1. Remove conflicting packages"
+                echo "2. Modify package lists to allow this package to be used instead (overriding normal packages)"
+                echo ""
+                read -p " ■ " choice
+                case "$choice" in
+                    1)
+                        conflict1
+                        clear
+                        break
+                        ;;
+                    2)
+                        conflict2
+                        clear
+                        break
+                        ;;
+                    *)
+                        clear
+                        echo "X Invalid choice. Please try again."
+                        echo ""
+                        ;;
+                esac
+            done
             clear
             ;;    
         4) 
