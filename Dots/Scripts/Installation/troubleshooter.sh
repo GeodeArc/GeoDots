@@ -28,8 +28,7 @@ conflict2() {
     curl -o $HOME/GeoDots/pkg-gtk -s https://geodearc.github.io/GeoDots/pkg-gtk
     curl -o $HOME/GeoDots/pkg-qt -s https://geodearc.github.io/GeoDots/pkg-qt
     clear
-    echo "Look for similar matches to the packages below (usually without -git), and remove them from the list"
-    echo $PKG_CONFLICTS
+    echo "Look for similar matches to your conflicting/broken package"
     echo ""
     echo "You will look inside 4 package lists, once finished editing press CTRL+S then CTRL+X to save/exit."
     read -p "Press ENTER to begin"
@@ -117,7 +116,7 @@ while true; do
                 echo "What would you like to do?"
                 echo ""
                 echo "1. Remove conflicting packages"
-                echo "2. Modify package lists to allow this package to be used instead (overriding normal packages)"
+                echo "2. Modify package lists to remove conflicts"
                 echo ""
                 read -p " ■ " choice
                 case "$choice" in

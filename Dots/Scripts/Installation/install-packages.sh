@@ -51,6 +51,10 @@ while true; do
 				nano $HOME/GeoDots/pkg-qt
 				clear
 				read -p "Finished, press ENTER to continue"
+                PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
+                AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
+                GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
+                QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
 				break
 				;;
             *)
@@ -83,6 +87,10 @@ while true; do
         if [[ "$choice" == "troubleshoot" ]]; then
             clear
             ./Dots/Scripts/Installation/troubleshooter.sh
+            PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
+            AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
+            GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
+            QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
         fi
         clear
     fi
@@ -106,6 +114,10 @@ while true; do
         if [[ "$choice" == "troubleshoot" ]]; then
             clear
             ./Dots/Scripts/Installation/troubleshooter.sh
+            PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
+            AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
+            GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
+            QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
         fi
         clear
     fi
@@ -169,6 +181,10 @@ while true; do
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
                 ./Dots/Scripts/Installation/troubleshooter.sh
+                PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
+                AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
+                GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
+                QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
             fi
             clear
         fi
@@ -192,6 +208,10 @@ while true; do
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
                 ./Dots/Scripts/Installation/troubleshooter.sh
+                PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
+                AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
+                GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
+                QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
             fi
             clear
         fi
