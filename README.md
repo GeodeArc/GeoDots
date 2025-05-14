@@ -24,8 +24,7 @@
   ```
   sh <(curl -s "https://geodearc.github.io/GeoDots/install.sh")
   ```
- > If running this results in an error, try running `bash` beforehand, then try again.
-
+  
 </details> 
 <details> 
   <summary>⌨ Manual(ish)</summary>
