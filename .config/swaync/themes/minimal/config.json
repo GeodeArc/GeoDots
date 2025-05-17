@@ -1,0 +1,68 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "cssPriority": "user",
+
+  "control-center-width": 400,
+  "control-center-height": 800, 
+
+  "notification-window-width": 400,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 160,
+  "notification-body-image-width": 200,
+
+  "timeout": 4,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+  
+  "fit-to-screen": false,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 100,
+  "hide-on-clear": false,
+  "hide-on-action": false,
+  "script-fail-notify": true,
+  "notification-visibility": {
+    "example-name": {
+      "state": "muted",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    }
+  },
+  "widgets": [
+    "label",
+    "mpris",
+    "backlight",
+    "volume",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "dnd": {
+      "text": "Do not disturb"
+    },
+    "label": {
+      "max-lines": 1,
+      "text": " "
+    },
+    "mpris": {
+      "image-size": 96,
+      "image-radius": 12,
+      "blacklist": ["playerctld"]
+    },
+    "backlight": {
+      "label": " 󰃞   ",
+      "step": 5
+    },
+    "volume": {
+      "label": "   ",
+      "show-per-app": true,
+      "show-per-app-label": false,
+      "show-per-app-icon": true,
+      "expand-button-label": "  ",
+      "collapse-button-label": "  ",
+      "empty-list-label": "No players"
+    }
+  }
+}

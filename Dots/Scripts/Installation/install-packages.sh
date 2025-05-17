@@ -176,6 +176,9 @@ while true; do
         echo "Installing QT related packages"
         $AUR_HELPER $QT_PKGS
         cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/
+        cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/configs/default
+        cp $HOME/GeoDots/.config/hypr/temp/qt/min/hyprland.conf $HOME/GeoDots/.config/hypr/configs/game
+        rm -r $HOME/GeoDots/.config/hypr/temp/
         if pacman -Qq $QT_PKGS &>/dev/null; then
             clear
             echo "QT Packages installed successfully!"
@@ -202,6 +205,9 @@ while true; do
         echo "Installing GTK related packages"
         $AUR_HELPER $GTK_PKGS
         cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/
+        cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/configs/default
+        cp $HOME/GeoDots/.config/hypr/temp/gtk/min/hyprland.conf $HOME/GeoDots/.config/hypr/configs/game
+        rm -r $HOME/GeoDots/.config/hypr/temp/
         if pacman -Qq $GTK_PKGS &>/dev/null; then
             clear
             nautilustweak

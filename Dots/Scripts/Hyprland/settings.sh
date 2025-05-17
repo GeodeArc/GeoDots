@@ -12,7 +12,7 @@ while true; do
     echo "What would you like to do?"
     echo ""
     echo "1. See keybinds                                       󰌌"
-    echo "2. Change your theme                                  󰔎"
+    echo "2. More coming soon!                                  "
     echo "3. Monitors Configuration         (Unfinished)        󰍺"
     echo "4. Lock Screen Customization      (Unfinished)        "
     echo "5. Bar Customization              (Unfinished)        󰘔"
@@ -30,9 +30,8 @@ while true; do
             clear
             ;;
         2)
-        	clear
-            $HOME/Dots/Scripts/Hyprland/theme.sh
             clear
+            $HOME/Dots/Scripts/Hyprland/placeholder.sh   
             ;;
         3)
         	clear
@@ -50,7 +49,7 @@ while true; do
             clear
             ;;
         6)
-        	clear
+      	  	clear
             $HOME/Dots/Scripts/Hyprland/placeholder.sh    
             clear
             ;;
@@ -60,7 +59,7 @@ while true; do
             clear
             ;;
         8)
-        	clear
+      	  	clear
             $HOME/Dots/Scripts/Hyprland/placeholder.sh    
             clear
             ;;

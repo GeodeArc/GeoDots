@@ -1,4 +1,4 @@
 #!/bin/bash
 
 swaync-client -t
-waypaper --random
+~/.config/rofi/mode.sh

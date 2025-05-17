@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cp -a $HOME/.config/waybar/configs/minimal/. $HOME/.config/waybar/
+cp -a $HOME/.config/swaync/themes/minimal/. $HOME/.config/swaync/
+cp -a $HOME/.config/hypr/configs/game/hyprland.conf $HOME/.config/hypr/
+
+sleep 0.5 
+
+killall waybar
+waybar &
+
+notify-send -i applications-games-symbolic "Game Mode Active"
+
+sleep 0.5

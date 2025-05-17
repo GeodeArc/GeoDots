@@ -1,0 +1,237 @@
+/* Original theme: https://github.com/zDyanTB/HyprNova */
+/* Edited (poorly) by @GeodeArc */
+
+@define-color text            #000;
+@define-color background-alt  #000;
+@define-color selected        #ff5400;
+@define-color hover           alpha(@selected, .4);
+@define-color urgent          #ff0000;
+
+* {
+  color:            @text;
+  all:              unset;
+  font-size:        14px;
+  font-family:      "FiraCode Nerd Font 10";
+}
+
+/* Avoid 'annoying' backgroud */
+.blank-window {  
+  background: transparent;  
+}
+  
+/* CONTROL CENTER ------------------------------------------------------------------------ */
+
+.control-center {
+  background: #000;
+  border: 1px solid #ff7700;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
+  padding: 12px;
+  padding-top: 2px;
+}
+
+/* Notifications  */
+.control-center .notification-row .notification-background,
+.control-center .notification-row .notification-background .notification.critical {
+  background: #101010;
+  margin: 4px 0px;
+  padding: 4px;
+}
+
+.control-center .notification-row .notification-background .notification.critical {
+    background: #101010;
+}
+
+.control-center .notification-row .notification-background .notification .notification-content {
+  margin: 6px;
+  padding: 8px 6px 2px 2px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * {
+  min-height: 3.4em;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
+  background: alpha(@selected, .8);
+  color: @text;
+  margin: 6px;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+  background: #101010;
+}
+
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+  background: #101010;
+}
+
+/* Buttons */
+progressbar,
+progress {
+  border-radius: 12px;
+}
+
+progressbar {
+  background-color: rgba(255,255,255,.1);
+}
+
+/* Notifications expanded-group */
+
+.notification-group {
+  margin: 2px 8px 2px 8px;
+}
+.notification-group-headers {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 2px;
+  padding-bottom: 10px
+}
+
+.notification-group-icon {
+  color: #fff;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: #101010;
+  color: #fff;
+  margin: 4px; 
+  padding: 4px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+    background: #101010;
+    color: #fff;
+}  
+
+/* WIDGETS --------------------------------------------------------------------------- */
+
+/* Do not disturb */
+.widget-dnd {
+  margin: 10px;
+  font-size: 1.2rem;
+}
+
+.widget-dnd > switch {
+  background: #101010;
+  font-size: initial;
+  box-shadow: none;
+  padding: 2px;
+}
+
+.widget-dnd > switch:hover {
+  background: @hover;
+}
+
+.widget-dnd > switch:checked {
+  background: @selected;
+}
+
+.widget-dnd > switch:checked:hover {
+  background: @hover;
+}
+
+.widget-dnd > switch slider {
+  background: #fff;
+}
+
+/* Music player */
+.widget-mpris {
+    margin: 5px 10px 0px 10px;
+}
+
+.widget-mpris-player {
+    background: #101010;
+    padding: 8px;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+.widget-mpris > box > button {
+  color: @text;
+}
+ 
+.widget-mpris button {
+  color: #FFF;
+}
+
+.widget-mpris button:hover {
+  color: #ff7700;
+}
+
+.widget-mpris-album-art {
+  border-radius: 1px;
+}
+ 
+.widget-mpris-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+ 
+.widget-mpris-subtitle {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* Volume widget */
+trough {
+    background: transparent;
+}
+trough highlight {
+    padding: 5px;
+    background: @selected;
+}
+trough highlight:hover {
+    padding: 5px;
+    background: @selected;
+}
+
+.widget-volume {
+  padding: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin: 0px 2px;
+}
+
+.widget-volume trough {
+  padding: 3px;
+  background: #101010;
+}
+
+.widget-volume trough slider {
+  min-height: 1.25rem;
+}
+
+.widget-volume .per-app-volume {
+  padding-right: 26px;
+}
+
+.widget-volume box {
+  padding: 8px;
+}
+
+.widget-volume .per-app-volume image {
+  margin-right: 12px;
+}
+
+.widget-backlight {
+  background-color: @background-sec;
+  padding: 8px;
+  padding-bottom: 4px;
+  padding-right: 44px;
+  margin: 0px 1px;
+}
+
+.widget-backlight trough {
+  padding: 3px;
+  background: @background-alt;
+}
+
+.widget-backlight trough slider {
+  min-height: 1.25rem;
+}
+
+.widget-backlight box {
+  padding: 8px;
+}

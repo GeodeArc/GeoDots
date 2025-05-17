@@ -1,0 +1,51 @@
+{
+    "spacing": 4,
+    "height": 25,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["custom/spotify"],
+    "modules-right": ["tray", "pulseaudio", "cpu", "memory", "clock","custom/sidebar"],
+
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace r-1",
+    "on-scroll-down": "hyprctl dispatch workspace r+1",
+    "on-click": "activate",
+    "active-only": true,
+    "all-outputs": false,
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>[{:%Y %B}]</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "[{:%H:%M}]",
+        "format-alt": "[{:%Y-%m-%d}]"
+    },
+    "cpu": {
+        "format": "[CPU:{usage}%]",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "[MEM:{percentage}%]"
+    },
+    "battery": {
+        "format": "[BAT:{capacity}%]"
+    },
+    "pulseaudio": {
+        "format": "[VOL:{volume}%]",
+        "format-muted": "[VOL: M]",
+        "on-click": "pavucontrol"
+    },
+    "custom/spotify": {
+		"interval": 1,
+		"exec": "~/.config/waybar/settings/mediaexec.sh",
+		"on-click": "~/.config/waybar/settings/mediatoggle.sh"
+    },
+    "custom/sidebar": {
+      "format": " 󱗼  ",
+      "tooltip-format": "Sidebar",
+      "on-click": "swaync-client -R && swaync-client -rs && swaync-client -t",
+  	}
+}
