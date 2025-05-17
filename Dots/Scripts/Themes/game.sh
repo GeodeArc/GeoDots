@@ -9,6 +9,7 @@ sleep 0.5
 killall waybar
 waybar &
 
-notify-send -i applications-games-symbolic "Game Mode Active"
+swaync-client -R
+swaync-client -rs
 
 sleep 0.5

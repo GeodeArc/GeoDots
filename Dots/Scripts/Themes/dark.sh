@@ -17,6 +17,7 @@ sleep 0.5
 killall waybar
 waybar &
 
-notify-send -i view-reveal-symbolic "Dark Mode Active"
+swaync-client -R
+swaync-client -rs
 
 sleep 0.5

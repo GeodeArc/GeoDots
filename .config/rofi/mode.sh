@@ -33,11 +33,14 @@ chosen="$(run_rofi)"
 case ${chosen} in
     $lmode)
     	$HOME/Dots/Scripts/Themes/light.sh
+    	notify-send -i view-reveal-symbolic "Light Mode Active"
         ;;
     $dmode)
     	$HOME/Dots/Scripts/Themes/dark.sh
+    	notify-send -i view-reveal-symbolic "Dark Mode Active"
         ;;
     $gmode)
 		$HOME/Dots/Scripts/Themes/game.sh
+		notify-send -i applications-games-symbolic "Game Mode Active"
         ;;
 esac

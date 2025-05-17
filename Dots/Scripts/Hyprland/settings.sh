@@ -31,7 +31,8 @@ while true; do
             ;;
         2)
             clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh   
+            $HOME/Dots/Scripts/Hyprland/placeholder.sh
+            clear   
             ;;
         3)
         	clear
