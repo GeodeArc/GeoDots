@@ -22,7 +22,7 @@
   > Should work on pretty much any arch based system (minimal, or not). If thers an issue installing, please submit a bug report! 
 
   ```
-  sh <(curl -fsSL "https://geodearc.github.io/GeoDots/install.sh")
+  bash <(curl -fsSL "https://geodearc.github.io/GeoDots/install.sh")
   ```
   <p></p>
 

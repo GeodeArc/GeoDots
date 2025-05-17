@@ -230,6 +230,7 @@ install_noto_font() {
             clear
             echo "Fonts are installed!"
             read -p "Press Enter when you are ready to move on."
+            claer
             return 0
         else
             echo ""
@@ -238,6 +239,7 @@ install_noto_font() {
             echo "Alternatively, type 'skip' to skip, or 'troubleshoot' to run the troubleshooter"
             read -p " ■ " choice
             if [[ "$choice" == "skip" ]]; then
+                clear
                 return 0
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
