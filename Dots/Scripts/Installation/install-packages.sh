@@ -10,8 +10,9 @@ GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
 QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
 
 codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
+INSTALLED_PKGS=$(pacman -Qq)
 PKGS_CONFLICT_LIST="$(curl -s https://geodearc.github.io/GeoDots/pkg-conflicts)"
-PKG_CONFLICTS=$(pacman -Qq $PKGS_CONFLICT_LIST 2>&1 | sed '/error: \|rofi-wayland/d')
+PKG_CONFLICTS=""
 
 clear
 
@@ -21,53 +22,62 @@ read -p "Press ENTER to begin installation "
 clear
 echo "Checking for conflicts"
 
-while true; do
-	if pacman -Qq $(echo $PKG_CONFLICTS) &>/dev/null; then
-		clear
-		echo "Package conflicts found (likely -git packages, these dotfiles install non git packages):"
-		echo $PKG_CONFLICTS
-		echo ""
-		echo "What would you like to do?"
-		echo "1. Remove conflicting packages and proceed to installation"
-		echo "2. Modify package lists to allow this package to be used instead (overriding normal packages)"
-		echo ""
-		read -p " ■ " choice
-		case "$choice" in
-			1)
-				clear
-				sudo pacman -Rcns $PKG_CONFLICTS
-				;; 
-			2) 
-				clear
-				echo "Look for similar matches to the packages below (usually without -git), and remove them from the list"
-				echo $PKG_CONFLICTS
-				echo ""
-				echo "You will look inside 4 package lists, once finished editing press CTRL+S then CTRL+X to save/exit."
-				read -p "Press ENTER to begin"
-				sudo pacman -S --needed nano
-				nano $HOME/GeoDots/pkg-pacman
-				nano $HOME/GeoDots/pkg-aurs
-				nano $HOME/GeoDots/pkg-gtk
-				nano $HOME/GeoDots/pkg-qt
-				clear
-				read -p "Finished, press ENTER to continue"
-                PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
+for pkg in $PKGS_CONFLICT_LIST; do
+    if echo "$INSTALLED_PKGS" | grep -qx "$pkg"; then
+        PKG_CONFLICTS+="$pkg "
+    fi
+done
+
+PKG_CONFLICTS=$(echo "$PKG_CONFLICTS" | sed 's/\brofi-wayland\b//g' | xargs) # removes false positive since rofi/rofi-wayland are identified by pacman -Qq.
+
+if [[ -z "$PKG_CONFLICTS" ]]; then
+    echo "No conflicts found!"
+    sleep 1
+else
+    while true; do
+        clear
+        echo "Package conflicts found (likely -git packages, these dotfiles install non-git packages):"
+        echo $PKG_CONFLICTS
+        echo ""
+        echo "What would you like to do?"
+        echo "1. Remove conflicting packages and proceed to installation"
+        echo "2. Modify package lists to allow this package to be used instead (overriding normal packages)"
+        echo ""
+        read -p " ■ " choice
+        case "$choice" in
+            1)
+                clear
+                sudo pacman -Rcns $PKG_CONFLICTS
+                break
+                ;; 
+            2) 
+                clear
+                echo "Look for similar matches to the packages below (usually without -git), and remove them from the list"
+                echo $PKG_CONFLICTS
+                echo ""
+                echo "You will look inside 4 package lists, once finished editing press CTRL+S then CTRL+X to save/exit."
+                read -p "Press ENTER to begin"
+                sudo pacman -S --needed nano
+                nano $HOME/GeoDots/pkg-pacman
+                nano $HOME/GeoDots/pkg-aurs
+                nano $HOME/GeoDots/pkg-gtk
+                nano $HOME/GeoDots/pkg-qt
+                clear
+                read -p "Finished, press ENTER to continue"
+                PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)"
                 AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
                 GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
                 QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
-				break
-				;;
+                break
+                ;;
             *)
                 clear
                 echo "X Invalid choice. Please try again."
                 echo ""
                 ;;
         esac
-	else
-		echo "No conflicts found!"
-		break
-	fi
-done
+    done
+fi
 
 while true; do
     echo "Installing PACMAN packages"
