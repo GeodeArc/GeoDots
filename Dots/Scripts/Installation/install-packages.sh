@@ -175,12 +175,6 @@ while true; do
     if [[ "$APPTYPE_FILE" == "qt" ]]; then
         echo "Installing QT related packages"
         $AUR_HELPER $QT_PKGS
-        cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/
-        cp $HOME/GeoDots/.config/hypr/temp/qt/hyprland.conf $HOME/GeoDots/.config/hypr/configs/default
-        cp $HOME/GeoDots/.config/hypr/temp/qt/min/hyprland.conf $HOME/GeoDots/.config/hypr/configs/game
-        rm -r $HOME/GeoDots/.config/hypr/temp/
-        rm -r $HOME/GeoDots/.config/hypr/configs/game/temp
-        rm -r $HOME/GeoDots/.config/hypr/configs/default/temp
         if pacman -Qq $QT_PKGS &>/dev/null; then
             clear
             echo "QT Packages installed successfully!"
@@ -206,12 +200,6 @@ while true; do
     elif [[ "$APPTYPE_FILE" == "gtk" ]]; then
         echo "Installing GTK related packages"
         $AUR_HELPER $GTK_PKGS
-        cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/
-        cp $HOME/GeoDots/.config/hypr/temp/gtk/hyprland.conf $HOME/GeoDots/.config/hypr/configs/default
-        cp $HOME/GeoDots/.config/hypr/temp/gtk/min/hyprland.conf $HOME/GeoDots/.config/hypr/configs/game
-        rm -r $HOME/GeoDots/.config/hypr/temp/
-        rm -r $HOME/GeoDots/.config/hypr/configs/game/temp
-        rm -r $HOME/GeoDots/.config/hypr/configs/default/temp
         if pacman -Qq $GTK_PKGS &>/dev/null; then
             clear
             nautilustweak
@@ -300,6 +288,8 @@ mkdir -p $HOME/.cache/wal/
 mv $HOME/GeoDots/.config/wal/templates/temp/colors-hyprland.conf $HOME/.cache/wal/
 mv $HOME/GeoDots/.config/wal/templates/temp/colors-rofi-pywal.rasi $HOME/.cache/wal/
 rm $HOME/GeoDots/.config/wal/templates/temp/
+
+cp -r $HOME/GeoDots/.config/hypr/configs/default/hyprland.conf $HOME/GeoDots/.config/hypr/
 
 sudo cp -a $HOME/GeoDots/.config/. $HOME/.config/
 mv $HOME/.config/.zshrc $HOME

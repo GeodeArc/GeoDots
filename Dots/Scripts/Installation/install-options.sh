@@ -357,11 +357,13 @@ toolkitselect () {
         case "$apptype" in
             1)
             echo qt > /tmp/geodots_apptype
+            echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/options/apptype.conf
             clear
             break
             ;; 
             2)
             echo gtk > /tmp/geodots_apptype
+            echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/options/apptype.conf
             clear
             break
             ;; 
@@ -506,6 +508,9 @@ themeconfig() {
             gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
             gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
             echo "$type" > $HOME/GeoDots/Dots/Options/theme
+
+            echo -e "\$xcursor-theme = $cursor_theme\n\$hyprcursor-theme = $cursor_theme" | sudo tee $HOME/GeoDots/.config/hypr/options/cursortheme.conf
+
             cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
             cp -a $HOME/GeoDots/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/
             cp -a $HOME/GeoDots/.config/rofi/options/$type/. $HOME/GeoDots/.config/rofi/
