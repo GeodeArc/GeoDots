@@ -33,11 +33,11 @@ chosen="$(run_rofi)"
 case ${chosen} in
     $lmode)
     	$HOME/Dots/Scripts/Themes/light.sh
-    	notify-send -i view-reveal-symbolic "Light Mode Active"
+    	notify-send -i view-reveal-symbolic "Light Mode Active" "You will need to log out to see cursor theme changes."
         ;;
     $dmode)
     	$HOME/Dots/Scripts/Themes/dark.sh
-    	notify-send -i view-reveal-symbolic "Dark Mode Active"
+    	notify-send -i view-reveal-symbolic "Dark Mode Active" "You will need to log out to see cursor theme changes."
         ;;
     $gmode)
 		$HOME/Dots/Scripts/Themes/game.sh
