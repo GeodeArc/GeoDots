@@ -509,7 +509,7 @@ themeconfig() {
             gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
             echo "$type" > $HOME/GeoDots/Dots/Options/theme
 
-            echo -e "\$xcursor-theme = $cursor_theme\n\$hyprcursor-theme = $cursor_theme" | sudo tee $HOME/GeoDots/.config/hypr/options/cursortheme.conf
+            echo -e "\$cursortheme = $cursor_theme" | sudo tee $HOME/GeoDots/.config/hypr/options/cursortheme.conf
 
             cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
             cp -a $HOME/GeoDots/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/
