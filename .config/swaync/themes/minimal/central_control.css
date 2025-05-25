@@ -3,7 +3,7 @@
 
 @define-color text            #000;
 @define-color background-alt  #000;
-@define-color selected        #ff7700;
+@define-color selected        #ff5400;
 @define-color hover           alpha(@selected, .4);
 @define-color urgent          #ff0000;
 
@@ -23,7 +23,7 @@
 
 .control-center {
   background: #000;
-  border: 1px solid #ff7700;
+  border: 1px solid #ff5400;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
   padding: 12px;
   padding-top: 2px;
@@ -141,7 +141,7 @@ progressbar {
   padding: 4px 2px;
   margin: 0px 10px 20px 10px;
   border-radius: 0px;
-  background: #000;
+  background: #101010;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
@@ -180,7 +180,7 @@ progressbar {
 }
 
 .widget-mpris button:hover {
-  color: #ff7700;
+  color: #ff5400;
 }
 
 .widget-mpris-album-art {
