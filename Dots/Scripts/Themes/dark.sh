@@ -9,7 +9,7 @@ gsettings set org.gnome.desktop.interface color-scheme "$theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
 settings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
 
-echo -e "\$cursortheme = $cursor_theme" | sudo tee $HOME/GeoDots/.config/hypr/options/cursortheme.conf
+echo -e "\$cursortheme = $cursor_theme" | sudo tee $HOME/.config/hypr/options/cursortheme.conf
 
 echo "$type" > $HOME/Dots/Options/theme
 echo "main" > $HOME/.config/waybar/type   

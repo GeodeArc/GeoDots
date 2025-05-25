@@ -15,13 +15,13 @@ while true; do
     echo "1. Get started with GeoDots                           "
     echo "2. See Default Keybinds                               󰌌"
     echo "-------------------------------------------------------"
-    echo "4. Customize Dotfiles             (Unfinished)        "
-    echo "3. Hardware Configuration         (Unfinished)        󰍺"
+    echo "3. Customize Dotfiles             (Unfinished)        "
+    echo "4. Hardware Configuration         (Unfinished)        󰍺"
     echo "-------------------------------------------------------"
-    echo "8. Upgrade Dotfiles               (Unfinished)        "
-    echo "8. Remove Dotfiles                (Unfinished)        󱔌"
+    echo "5. Upgrade Dotfiles               (Unfinished)        "
+    echo "6. Remove Dotfiles                (Unfinished)        󱔌"
     echo "-------------------------------------------------------"
-    echo "9. Leave                                              󰈆"
+    echo "7. Leave                                              󰈆"
     echo "-------------------------------------------------------"
     echo ""
     read -p " ■ " choice
@@ -58,16 +58,6 @@ while true; do
             clear
             ;;
         7)
-            clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh    
-            clear
-            ;;
-        8)
-      	  	clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh    
-            clear
-            ;;
-        9)
         	echo "Bye bye!"
         	exit 0
             ;;
