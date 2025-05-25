@@ -7,7 +7,7 @@ type="dark"
 
 gsettings set org.gnome.desktop.interface color-scheme "$theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
-settings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
+gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
 
 echo -e "\$cursortheme = $cursor_theme" | sudo tee $HOME/.config/hypr/options/cursortheme.conf
 
@@ -24,5 +24,7 @@ waybar &
 
 swaync-client -R
 swaync-client -rs
+
+hyprctl reload
 
 sleep 0.5
