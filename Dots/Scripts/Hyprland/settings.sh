@@ -11,27 +11,30 @@ while true; do
     echo ""
     echo "What would you like to do?"
     echo ""
-    echo "1. See keybinds                                       󰌌"
-    echo "2. More coming soon!                                  "
-    echo "3. Monitors Configuration         (Unfinished)        󰍺"
-    echo "4. Lock Screen Customization      (Unfinished)        "
-    echo "5. Bar Customization              (Unfinished)        󰘔"
-    echo "6. Menus Customization            (Unfinished)        󰹯"
-    echo "7. Sidebar/Notif Customization    (Unfinished)        "
-    echo "8. Upgrade Dotfiles               (Unfinished)        󰚰"
+    echo "-------------------------------------------------------"
+    echo "1. Get started with GeoDots                           "
+    echo "2. See Default Keybinds                               󰌌"
+    echo "-------------------------------------------------------"
+    echo "4. Customize Dotfiles             (Unfinished)        "
+    echo "3. Hardware Configuration         (Unfinished)        󰍺"
+    echo "-------------------------------------------------------"
+    echo "8. Upgrade Dotfiles               (Unfinished)        "
+    echo "8. Remove Dotfiles                (Unfinished)        󱔌"
+    echo "-------------------------------------------------------"
     echo "9. Leave                                              󰈆"
+    echo "-------------------------------------------------------"
     echo ""
     read -p " ■ " choice
 
     case $choice in
         1)
             clear
-            less $HOME/Dots/Options/defaultbinds
+            less $HOME/Dots/Guide/getting-started
             clear
             ;;
         2)
             clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh
+            less $HOME/Dots/Guide/default-binds
             clear   
             ;;
         3)

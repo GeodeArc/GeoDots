@@ -474,13 +474,15 @@ themeconfig() {
         case "$lightordark" in
             [Ll]) 
             theme="prefer-light"
-            gtk_theme="adw-gtk3" 
+            gtk_theme="adw-gtk3"
+            cursor_theme="Bibata-Modern-Ice" 
             #kvantum_theme
             type="light"
             ;;
             [Dd]) 
             theme="prefer-dark"
             gtk_theme="adw-gtk3-dark"
+            cursor_theme="Bibata-Modern-Classic"
             #kvantum_theme
             type="dark"
             ;;
@@ -502,6 +504,7 @@ themeconfig() {
             echo "Setting $theme theme"
             gsettings set org.gnome.desktop.interface color-scheme "$theme"
             gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+            gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
             echo "$type" > $HOME/GeoDots/Dots/Options/theme
             cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
             cp -a $HOME/GeoDots/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/

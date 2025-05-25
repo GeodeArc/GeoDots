@@ -1,11 +1,13 @@
 #!/bin/bash
 
 theme="prefer-light"
-gtk_theme="adw-gtk3" 
+gtk_theme="adw-gtk3"
+cursor_theme="Bibata-Modern-Ice"
 type="light"
 
 gsettings set org.gnome.desktop.interface color-scheme "$theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+settings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
 echo "$type" > $HOME/Dots/Options/theme
 echo "main" > $HOME/.config/waybar/type   
 cp -a $HOME/.config/waybar/configs/$type/. $HOME/.config/waybar/

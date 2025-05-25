@@ -89,24 +89,23 @@
   <h3>Current:</h3>
 
   - Fix colours for rofi/hyprland
-
-  - Add hyprlock click widgets when available?
-  
-  - Ability to choose nerd font
-  
-  - Add ZSH/Bash selection
     
   - Add auto install
-    
-  - Add cursor (bibata modern ice/classic depending on light/dark theme) (1/2)
-
-  - NVIDIA selection (i folded)
-  
-  - Add monitor setup to post install
     
   - Finish settings script
     
   - Add hyprlock autologon (maybe with sddm since that seems easy)
+
+  <h3>Maybe later:</h3>
+
+  - Ability to choose nerd font (might not add)
+
+  - Add hyprlock click widgets when available?
+
+  - Installer for other distros
+
+  - NVIDIA selection (i folded)
+
 </details> 
 
 # 
