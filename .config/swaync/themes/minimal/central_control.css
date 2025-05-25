@@ -3,7 +3,7 @@
 
 @define-color text            #000;
 @define-color background-alt  #000;
-@define-color selected        #ff5400;
+@define-color selected        #ff7700;
 @define-color hover           alpha(@selected, .4);
 @define-color urgent          #ff0000;
 
@@ -134,6 +134,29 @@ progressbar {
 
 .widget-dnd > switch slider {
   background: #fff;
+}
+
+/* Buttons menu */
+.widget-buttons-grid {
+  padding: 4px 2px;
+  margin: 0px 10px 20px 10px;
+  border-radius: 0px;
+  background: #000;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button {
+  margin: 2px 5px;
+  padding: 14px 18px;
+  background: transparent;
+  border-radius: 0px;
+}
+
+.widget-buttons-grid>flowbox>flowboxchild>button:hover {
+  background: @hover;
+}
+
+.widget-buttons-grid button label {
+  font-size: 1.05rem;
 }
 
 /* Music player */

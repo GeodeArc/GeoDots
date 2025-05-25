@@ -10,26 +10,24 @@ SUPER + T = Open Text Editor
 SUPER + B = Open Browser
 CTRL + SHIFT + ESC = Task Manager (Resources)
 
-
 Important:
 SUPER + SPACE = Launch Apps (App Menu)
-SUPER + Q = Quit App (also ALT + F4)
+SUPER + Q = Quit App
 
 SUPER + V = Toggle App Floating
-SUPER + F = Toggle App Fullscreen
 SUPER + J = Toggle App Split
+SUPER + F = Toggle App Fullscreen
 SUPER + SHIFT + F = Toggle App Maximized
 
 SUPER + L = Lock Computer
-CTRL + ALT + DELETE = Emergency Exit
-
+CTRL + ALT + DELETE = Exit
 
 Menus:
 SUPER + SHIFT + L = Power menu
-SUPER + SHIFT + S = Screenshot MenuAK
+SUPER + SHIFT + S = Screenshot Menu
 SUPER + C = Clipboard History
 SUPER + PERIOD (.) = Emoji Selector
-
+SUPER + M = Theme Selector
 
 Terminal actions:
 SUPER + SHIFT + T = Change Dark/Light Theme
@@ -49,13 +47,13 @@ SUPER + SHIFT + W = Random Wallpaper
 
 
 Workspace Management:
-SUPER + (num) = Switch to workspace (Number)
+SUPER + (num) = Switch to workspace (num)
 SUPER + (arrow) = Switch to workspace to the left/right
 
-SUPER + SHIFT + (num) = Move window to workspace (Number)
+SUPER + SHIFT + (num) = Move window to workspace (num)
 SUPER + SHIFT + (arrow) = Move window to workspace left/right
 
-SUPER + CTRL + (num)	= Move window silently to workspace (Number)
+SUPER + CTRL + (num)	= Move window silently to workspace (num)
 SUPER + CTRL + (arrow) = Move window silently to workspace left/right
 
 
