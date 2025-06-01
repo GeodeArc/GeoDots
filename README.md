@@ -1,9 +1,9 @@
-<div align="center">
-  <h1>Geode's Dots</h1>
-</div>
+<h3 align="center">
+  <img width="80%" src=https://github.com/user-attachments/assets/b3c9cd7c-dce9-44cb-9a21-434054c2f737/>
+</h3>
 
 <div align="center">
-  <p>⚠️ This is a VERY VERY unfinished project! While it should be installable, you may run into issues.</p>
+  <p>⚠️ This is an unfinished project! While it should be installable, you may run into issues.</p>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
@@ -78,7 +78,9 @@
 
 ![dots3](https://github.com/user-attachments/assets/e6ba7d35-bee7-47c4-ac88-47dac3e0ee1e)
 
-![dots4](https://github.com/user-attachments/assets/6caa0ed8-fd97-49a3-8b8e-17aba315451d)
+![dots4](https://github.com/user-attachments/assets/6572e620-b8bd-4f87-b52b-e3c5dbda27b5)
+
+![dots5](https://github.com/user-attachments/assets/6caa0ed8-fd97-49a3-8b8e-17aba315451d)
 
 # 
 
