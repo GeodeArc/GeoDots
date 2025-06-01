@@ -40,7 +40,7 @@ freeze () {
 		echo "false" > $HOME/Dots/Options/screenshot
 		echo "" > $HOME/.config/rofi/screenshot/options/freeze 
 	else 
-		notify-send -i applets-screenshooter-symbolic "Enabled Screenshot Freeze"	
+		notify-send -i applets-screenshooter-symbolic "Enabled Screenshot Freeze" "This may not work on virtual machines"
 		echo "true" > $HOME/Dots/Options/screenshot
 		echo "-z" > $HOME/.config/rofi/screenshot/options/freeze
 	fi

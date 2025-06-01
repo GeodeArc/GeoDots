@@ -35,17 +35,17 @@ run_rofi() {
 # take shots
 shotscreen () {
 	$timer
-	hyprshot -m output -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png $freeze
+	hyprshot -m output -o ~/Pictures/Screenshots -f Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png $freeze
 }
 
 shotwin () {
 	$timer
-	hyprshot -m window -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png $freeze
+	hyprshot -m window -o ~/Pictures/Screenshots -f Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png $freeze
 }
 
 shotarea () {
 	$timer
-	hyprshot -m region -o ~/Pictures/Screenshots -f Screenshotﾠ$(date "+%Y-%m-%dﾠ%H:%M:%S").png $freeze
+	hyprshot -m region -o ~/Pictures/Screenshots -f Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png $freeze
 }
 settings () {
 	$HOME/.config/rofi/screenshot-settings.sh
