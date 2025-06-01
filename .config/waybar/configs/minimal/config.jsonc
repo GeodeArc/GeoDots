@@ -36,7 +36,8 @@
     "pulseaudio": {
         "format": "[VOL:{volume}%]",
         "format-muted": "[VOL: M]",
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
     "custom/spotify": {
 		"interval": 1,
@@ -47,6 +48,6 @@
       "format": "󱗼",
       "tooltip-format": "L: Sidebar\nR: Reload configuration",
       "on-click": "swaync-client -t",
-      "on-click-right": "swaync-client -R && swaync-client -rs",
+      "on-click-right": "swaync-client -R && swaync-client -rs"
   }
 }
