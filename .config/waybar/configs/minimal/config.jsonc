@@ -43,9 +43,10 @@
 		"exec": "~/.config/waybar/settings/mediaexec.sh",
 		"on-click": "~/.config/waybar/settings/mediatoggle.sh"
     },
-    "custom/sidebar": {
-      "format": " 󱗼  ",
-      "tooltip-format": "Sidebar",
-      "on-click": "swaync-client -R && swaync-client -rs && swaync-client -t",
-  	}
+  "custom/sidebar": {
+      "format": "󱗼",
+      "tooltip-format": "L: Sidebar\nR: Reload configuration",
+      "on-click": "swaync-client -t",
+      "on-click-right": "swaync-client -R && swaync-client -rs",
+  }
 }
