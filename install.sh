@@ -19,33 +19,27 @@ while true; do
     echo ""
     echo "┌─ Please choose an installation option:"
     echo "│"
-    echo "├─ ▶  [1] Quick Install (NOT DONE YET)"
-    echo "├─ ▶  [2] Guided Install"
-    echo "├─ ?  [3] Whats the difference?"
-    echo "├─ X  [4] Exit installation"  
+    echo "├─ ▶  [1] Install"
+    echo "├─ ?  [2] About GeoDots"
+    echo "├─ X  [3] Exit installation"  
     echo "│"
     echo "└─ Please type a number [1-4], and hit ENTER:"
     read -p " ■ " installtype
 
     case "$installtype" in
         1)
-            ./Dots/Scripts/Installation/main-flashinstall.sh
+            ./Dots/Scripts/Installation/main-guidedinstall.sh 
             break
             ;;
         2)
-            ./Dots/Scripts/Installation/main-guidedinstall.sh
-            break
-            ;;  
-        3)
             clear
-            echo "Quick install will let you choose between a few things, then will install the dotfiles in entirety. Select this if you dont care too much about specifics, and just want a working system. This will require quite a bit of free storage, and you must still enter your sudo password occasioanlly."
-            echo ""
-            echo "Guided install will let you pick and choose whats installed onto your system. Select this option if you would like to have a cleaner/more personalized system, or dont have a lot of storage. Like the quick installation, you will need to enter your sudo password at times."
+            echo "GeoDots is a collection of configurations that can be applied with this script."
+            echo "More info will be here soon"
             echo ""
             read -p "Press ENTER to continue: "
             clear
             ;;    
-        4)  
+        3)  
             clear
             echo "Bye bye!"
             exit 0
