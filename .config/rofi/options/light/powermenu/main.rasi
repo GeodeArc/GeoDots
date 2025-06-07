@@ -16,7 +16,7 @@
     selected:                    #B6B6B6;
     active:                      #B6B6B6;
     urgent:                      #FFBBBB;
-    alternate-normal-background: #EAEAEA;
+    alternate-normal-background: #fff;
     selected-normal-foreground:  #000;
 }
 
