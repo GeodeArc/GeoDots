@@ -48,6 +48,7 @@ window {
     border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
+    padding:                     0;
 }
 
 // MAINBOX

@@ -49,6 +49,7 @@ window {
     border-color:                @background-alt;
     cursor:                      "default";
     background-color:            @background;
+    padding:                     0;
 }
 
 // DEFAULT MAINBOX
