@@ -23,8 +23,8 @@ configuration {
 * {
     background:                  #010101;
     background-alt:              #141414;
-    selected:                    #141414;
-    active:                      #141414;
+    selected:                    #0A0A0A;
+    active:                      #0A0A0A;
     urgent:                      #808080;
     lines:                       1;
     columns:                     6;

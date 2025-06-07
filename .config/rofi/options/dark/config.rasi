@@ -21,8 +21,8 @@ configuration {
 * {
     background:                  #010101; // Could switch to @background, dont think it looks/works as good
     background-alt:              #141414; // See above comment
-    selected:                    #141414;
-    active:                      #141414;
+    selected:                    #0A0A0A;
+    active:                      #0A0A0A;
     urgent:                      #3d0400; 
     alternate-normal-background: #000000; // See above comment
     lines:                       10;

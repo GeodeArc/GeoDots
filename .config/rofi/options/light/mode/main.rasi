@@ -11,7 +11,7 @@
 // PROPERTIES
 * {
     background:                  #fff;
-    background-alt:              #fff;
+    background-alt:              #EAEAEA;
     foreground:                  #000;
     selected:                    #B6B6B6;
     active:                      #B6B6B6;
