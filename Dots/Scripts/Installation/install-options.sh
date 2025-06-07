@@ -230,7 +230,7 @@ install_noto_font() {
             clear
             echo "Fonts are installed!"
             read -p "Press Enter when you are ready to move on."
-            claer
+            clear
             return 0
         else
             echo ""
