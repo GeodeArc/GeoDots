@@ -75,7 +75,7 @@
 - ⚙️ Stupidly simple installer with bug prevention 
 - 💥 3 different modes (Light, Dark, Minimal)
 - 🖌️ Consistent styling (ish)
-- 🌈 Colors scheme changes with wallpaper
+- 🌈 Color scheme changes with wallpaper
 - 🏃 Very easy to configure and get started!
 
 # 
