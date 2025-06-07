@@ -10,9 +10,9 @@
 > [!NOTE]
 > This will only work for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change in the future, no guarantees though.
 
-### 🌟 INSTALLATION:
+#
 
-> I'm working on cleaning up the install scripts, but they should work for now.
+### 🌟 INSTALLATION:
 
 <details> 
   <summary>⌛ Automatic (RECOMMENDED)</summary>
@@ -64,9 +64,19 @@
 
   - 💾 Copy folders from /.config/ to your .config folder
 
-  - 💫 Copy the /Dots folder to your home directory
+  - 🏠 Copy the /Dots folder to your home directory
 
 </details> 
+
+#
+
+### 💫 FEATURES
+
+- ⚙️ Stupidly simple installer with bug prevention 
+- 💥 3 different modes (Light, Dark, Minimal)
+- 🖌️ Consistent styling (ish)
+- 🌈 Colors scheme changes with wallpaper
+- 🏃 Very easy to configure and get started!
 
 # 
 
