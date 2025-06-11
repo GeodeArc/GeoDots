@@ -10,15 +10,6 @@ customization() {
         echo "What would you like to do?"
         echo ""
         echo "-------------------------------------------------------"
-        echo "1. Get started with GeoDots                           "
-        echo "2. See Default Keybinds                               󰌌"
-        echo "-------------------------------------------------------"
-        echo "3. Customize Dotfiles             (Unfinished)        "
-        echo "4. Hardware Configuration         (Unfinished)        󰍺"
-        echo "-------------------------------------------------------"
-        echo "5. Upgrade Dotfiles               (Unfinished)        "
-        echo "6. Remove Dotfiles                (Unfinished)        󱔌"
-        echo "-------------------------------------------------------"
         echo "7. Return                                             󰌑"
         echo "-------------------------------------------------------"
         echo ""
@@ -33,15 +24,6 @@ hardware() {
         echo ""
         echo "What would you like to do?"
         echo ""
-        echo "-------------------------------------------------------"
-        echo "1. Get started with GeoDots                           "
-        echo "2. See Default Keybinds                               󰌌"
-        echo "-------------------------------------------------------"
-        echo "3. Customize Dotfiles             (Unfinished)        "
-        echo "4. Hardware Configuration         (Unfinished)        󰍺"
-        echo "-------------------------------------------------------"
-        echo "5. Upgrade Dotfiles               (Unfinished)        "
-        echo "6. Remove Dotfiles                (Unfinished)        󱔌"
         echo "-------------------------------------------------------"
         echo "7. Return                                             󰌑"
         echo "-------------------------------------------------------"
@@ -70,7 +52,7 @@ while true; do
     echo "5. Upgrade Dotfiles               (Unfinished)        "
     echo "6. Remove Dotfiles                                    󱔌"
     echo "-------------------------------------------------------"
-    echo "7. Leave                                              󰈆"
+    echo "Q. Leave                                              󰈆"
     echo "-------------------------------------------------------"
     echo ""
     read -p " ■ " choice
@@ -108,7 +90,7 @@ while true; do
             $HOME/Dots/Scripts/Hyprland/dotsremove.sh    
             clear
             ;;
-        7)
+        [qQ])
         	echo "Bye bye!"
         	exit 0
             ;;

@@ -89,9 +89,8 @@ removedots() {
                     done
 
                     mv "$HOME/Dots/Backup/$backup_dir/*" "$HOME/.config/"
-                    rm ~/.zshrc
-                    rm ~/.bashrc
-
+                    bash
+                    
                     mv ~/Dots/Backup/$backup_dir/.zshrc ~
                     mv ~/Dots/Backup/$backup_dir/.bashrc ~
 
@@ -109,8 +108,8 @@ removedots() {
                         fi
                     done
 
+                    bash
                     rm ~/.zshrc
-                    rm ~/.bashrc
 
                     echo "Removing ~/Dots"
                     sudo rm ~/Dots
