@@ -32,16 +32,16 @@ backupselect() {
 
         if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le ${#BACKUPS[@]} ]; then
             selected="${BACKUPS[$((choice-1))]}"
-            if [ "$selected" == "Do not restore any backups" ]; then
+            if [ "$selected" == "Do not restore backup" ]; then
                 clear
                 echo "Skipping backup restore."
                 echo
-                return 0
+                break
             else
                 clear
                 backup_dir="$selected"
                 do_backup="true"
-                return 0
+                break
             fi
         fi
         clear
@@ -89,13 +89,12 @@ removedots() {
                     done
 
                     mv "$HOME/Dots/Backup/$backup_dir/*" "$HOME/.config/"
-                    bash
                     
-                    mv ~/Dots/Backup/$backup_dir/.zshrc ~
-                    mv ~/Dots/Backup/$backup_dir/.bashrc ~
-
                     echo "Removing ~/Dots"
                     sudo rm ~/Dots
+
+                    mv ~/Dots/Backup/$backup_dir/.zshrc ~
+                    mv ~/Dots/Backup/$backup_dir/.bashrc ~
                 else
                     for dir in $codirs; do
                         source="$HOME/.config/$dir"
@@ -107,12 +106,9 @@ removedots() {
                             echo "Skipping $dir, doesnt exist"
                         fi
                     done
-
-                    bash
-                    rm ~/.zshrc
-
                     echo "Removing ~/Dots"
                     sudo rm ~/Dots
+                    rm ~/.zshrc
                 fi
                 
                 reboot
