@@ -41,6 +41,7 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # OTHER
 alias update="paru && flatpak upgrade"
+alias settings="$HOME/Dots/Scripts/Hyprland/settings.sh"
 alias x="exit"
 alias yeet="paru -Rcns"
 alias remove="paru -Rns"

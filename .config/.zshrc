@@ -47,7 +47,8 @@ alias gcred="git config credential.helper store"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # OTHER
-alias update="paru && flatpak upgrade"
+alias update="$HOME/Dots/Scripts/Hyprland/update.sh"
+alias settings="$HOME/Dots/Scripts/Hyprland/settings.sh"
 alias x="exit"
 alias yeet="paru -Rcns"
 alias remove="paru -Rns"

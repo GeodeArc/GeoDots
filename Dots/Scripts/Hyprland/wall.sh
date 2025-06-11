@@ -2,7 +2,7 @@
 
 monitor=$(cat $HOME/Dots/Options/mainmonitor)
 
-sleep 1.5
+sleep 1
 
 cache_file="$HOME/.cache/swww/$monitor"
 wallpaper=$(grep -v "^Lanczos3" "$cache_file")
@@ -20,5 +20,3 @@ swaync-client -rs
 sleep 0.5
 
 $HOME/Dots/Scripts/Waybar/waybar.sh
-
-#pywalfox update

@@ -2,8 +2,57 @@
 
 clear
 
+customization() {
+    while true; do
+        echo "CUSTOMIZE DOTFILES"
+        echo "Configure software included with these Dotfiles"
+        echo ""
+        echo "What would you like to do?"
+        echo ""
+        echo "-------------------------------------------------------"
+        echo "1. Get started with GeoDots                           "
+        echo "2. See Default Keybinds                               󰌌"
+        echo "-------------------------------------------------------"
+        echo "3. Customize Dotfiles             (Unfinished)        "
+        echo "4. Hardware Configuration         (Unfinished)        󰍺"
+        echo "-------------------------------------------------------"
+        echo "5. Upgrade Dotfiles               (Unfinished)        "
+        echo "6. Remove Dotfiles                (Unfinished)        󱔌"
+        echo "-------------------------------------------------------"
+        echo "7. Return                                             󰌑"
+        echo "-------------------------------------------------------"
+        echo ""
+        read -p " ■ " choice
+    done
+}
+
+hardware() {
+    while true; do
+        echo "HARDWARE SETTINGS"
+        echo "Change Hardware settings (such as Monitors, Keyboard Layout, Sensitivity etc)"
+        echo ""
+        echo "What would you like to do?"
+        echo ""
+        echo "-------------------------------------------------------"
+        echo "1. Get started with GeoDots                           "
+        echo "2. See Default Keybinds                               󰌌"
+        echo "-------------------------------------------------------"
+        echo "3. Customize Dotfiles             (Unfinished)        "
+        echo "4. Hardware Configuration         (Unfinished)        󰍺"
+        echo "-------------------------------------------------------"
+        echo "5. Upgrade Dotfiles               (Unfinished)        "
+        echo "6. Remove Dotfiles                (Unfinished)        󱔌"
+        echo "-------------------------------------------------------"
+        echo "7. Return                                             󰌑"
+        echo "-------------------------------------------------------"
+        echo ""
+        read -p " ■ " choice
+    done
+}
+
+
 while true; do
-    echo ".dP888 888888 888888 888888 88 88b  88  dPPbb8  .dP888 "
+    echo ".dP888 888888 888888 888888 88 88b  88  dPPbb8  .dP888 " 
     echo "Ybo.   88       88     88   88 88Yb 88 dP        Ybo.  "
     echo " Y8b   888888   88     88   88 88 Yb88 Yb   88b   Y8b  "
     echo "   Y8o 88       88     88   88 88  YY8 Yb   P8     Y8o "
@@ -19,7 +68,7 @@ while true; do
     echo "4. Hardware Configuration         (Unfinished)        󰍺"
     echo "-------------------------------------------------------"
     echo "5. Upgrade Dotfiles               (Unfinished)        "
-    echo "6. Remove Dotfiles                (Unfinished)        󱔌"
+    echo "6. Remove Dotfiles                                    󱔌"
     echo "-------------------------------------------------------"
     echo "7. Leave                                              󰈆"
     echo "-------------------------------------------------------"
@@ -39,22 +88,24 @@ while true; do
             ;;
         3)
         	clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh
+            customization
             clear
             ;;
         4)
         	clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh    
+            hardware
             clear
             ;;
         5)
         	clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh    
+            echo "Getting update information, please wait.."
+            ./dotsupgrade.sh    
             clear
             ;;
         6)
       	  	clear
-            $HOME/Dots/Scripts/Hyprland/placeholder.sh    
+            echo "Getting package list, please wait.."
+            ./dotsremove.sh    
             clear
             ;;
         7)

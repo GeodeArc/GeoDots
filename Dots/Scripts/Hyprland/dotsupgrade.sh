@@ -2,38 +2,44 @@
 
 curver="$(cat $HOME/Dots/Options/currentver)"
 newver="$(curl -s https://geodearc.github.io/GeoDots/version)"
-dirs="$(curl -s https://geodearc.github.io/GeoDots/dirs)"
+codirs="$(curl -s https://geodearc.github.io/GeoDots/dirs)"
+directory="$HOME/.config"
 
+echo ""
 echo "Current Dotfiles Version: $curver"
 echo "New Dotfiles Version: $newver"
 echo ""
-echo "$dirs"
 
-
-upgrade () {
+backup () {
     while true; do
         echo "Would you like to backup existing config folders? [Y/N]"
-        read -p " ■ " dobackup
-        case "$dobackup" in
+        read -p " ■ " choice
+        case "$choice" in
                 [Yy])
                 backupdir="$HOME/Dots/Backup/$(date +'%Y-%m-%d-%H:%M:%S')"
+
                 mkdir -p "$backupdir"
                 cp -a "$HOME/.zshrc" "$backupdir"
                 cp -a "$HOME/.bashrc" "$backupdir" 
-                for dir in "${dirs[@]}"; do
-                    if [ -d "$dir" ]; then
-                        echo "Backing up $dir"
-                        cp -a "$dir" "$backupdir/"
+                cp -a "$HOME/Dots" "$backupdir" 
+
+                for dir in $codirs; do
+                    source="$HOME/.config/$dir"
+
+                    if [ -d "$source" ]; then
+                        echo "Creating backup $source to $directory"
+                        cp -r "$source" "$backupdir/$dir"
                     else
-                        echo "Skipping $dir"
+                        echo "Skipping $dir, doesnt exist"
                     fi
                 done
+
                 clear
-                exit 0
+                break
                 ;;
                 [Nn])
                 clear
-                exit 0
+                break
                 ;;
                 *)
                 clear
@@ -44,17 +50,22 @@ upgrade () {
     done
 }
 
+upgrade() {
+    read -p "This utility isnt finished. Press ENTER to return."
+}
+
 if [[ $curver != $newver ]]; then
-  echo "New version available!"
-  echo ""
-  echo "Press ENTER to continue "
-  read -p " ■ " upgrade
-  clear
-  upgrade
+    echo "New version available!"
+    echo ""
+    echo "Press ENTER to continue "
+    read -p " ■ "
+    clear
+    backup
+    upgrade
 else
-  echo "No new version seems to available."
-  echo "If you believe this is incorrect, please check your internet connection."
-  echo ""
-  echo "Press ENTER to exit"
-  read -p " ■ "
+    echo "No new version seems to available."
+    echo "If you believe this is incorrect, please check your internet connection."
+    echo ""
+    echo "Press ENTER to exit"
+    read -p " ■ "
 fi

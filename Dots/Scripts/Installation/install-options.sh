@@ -546,7 +546,7 @@ checkdm() {
         if [ -f /etc/systemd/system/display-manager.service ]; then
             echo "You currently appear to have a display manager installed."
             echo ""
-            echo "Currently installed (may appear empty for some display managers): $(grep -oP '(?<=ExecStart=/usr/bin/).*' /etc/systemd/system/display-manager.service)"
+            echo "Currently installed: $(grep -oP '(?<=ExecStart=/usr/bin/).*' /etc/systemd/system/display-manager.service)"
             echo "Please check the Hyprland Wiki to see if your display manager is compatible."
             echo ""
             echo "Would you like to keep your current setup? (Y/N)"
