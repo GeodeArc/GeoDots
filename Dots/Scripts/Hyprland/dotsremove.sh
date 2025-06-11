@@ -76,13 +76,7 @@ removedots() {
         case "$choice" in
             [Yy])
                 clear
-                if [ $do_backup == "true" ]; then
-                    rm $HOME/.zshrc
-                    rm $HOME/.bashrc
-
-                    mv "$HOME/Dots/Backup/$backup_dir/.zshrc" "$HOME"
-                    mv "$HOME/Dots/Backup/$backup_dir/.bashrc" "$HOME"
-                    
+                if [ $do_backup == "true" ]; then                    
                     for dir in $codirs; do
                         source="$HOME/.config/$dir"
 
@@ -95,9 +89,14 @@ removedots() {
                     done
 
                     mv "$HOME/Dots/Backup/$backup_dir/*" "$HOME/.config/"
-                    
-                    echo "Removing $HOME/Dots"
-                    sudo rm $HOME/Dots
+                    rm ~/.zshrc
+                    rm ~/.bashrc
+
+                    mv ~/Dots/Backup/$backup_dir/.zshrc ~
+                    mv ~/Dots/Backup/$backup_dir/.bashrc ~
+
+                    echo "Removing ~/Dots"
+                    sudo rm ~/Dots
                 else
                     for dir in $codirs; do
                         source="$HOME/.config/$dir"
@@ -110,11 +109,11 @@ removedots() {
                         fi
                     done
 
-                    rm $HOME/.zshrc
-                    rm $HOME/.bashrc
+                    rm ~/.zshrc
+                    rm ~/.bashrc
 
-                    echo "Removing $HOME/Dots"
-                    sudo rm $HOME/Dots
+                    echo "Removing ~/Dots"
+                    sudo rm ~/Dots
                 fi
                 
                 reboot

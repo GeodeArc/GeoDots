@@ -99,13 +99,13 @@ while true; do
         5)
         	clear
             echo "Getting update information, please wait.."
-            ./dotsupgrade.sh    
+            $HOME/Dots/Scripts/Hyprland/dotsupgrade.sh    
             clear
             ;;
         6)
       	  	clear
             echo "Getting package list, please wait.."
-            ./dotsremove.sh    
+            $HOME/Dots/Scripts/Hyprland/dotsremove.sh    
             clear
             ;;
         7)
