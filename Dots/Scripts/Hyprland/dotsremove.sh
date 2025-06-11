@@ -52,6 +52,7 @@ backupselect() {
 
 backup() {
     if [ ${#BACKUPS[@]} -eq 1 ]; then
+        clear
         echo "No backup directories found in $backup_dir"
         echo ""
     else
@@ -93,7 +94,7 @@ removedots() {
                     cp "$HOME/Dots/Backup/$backup_dir/.bashrc" /tmp/
 
                     echo "Removing ~/Dots"
-                    sudo rm -r "/Dots"
+                    sudo rm -r "$HOME/Dots"
 
                     mv /tmp/.zshrc ~
                     mv /tmp/.bashrc ~
@@ -103,14 +104,16 @@ removedots() {
 
                         if [ -d "$source" ]; then
                             echo "Removing $source"
-                            rm -r "$HOME/Dots"
+                            sudo rm -r "$source"
                         else
                             echo "Skipping $dir, doesnt exist"
                         fi
                     done
+                    sleep 1
+
                     echo "Removing ~/Dots"
-                    rm -r "~/Dots"
-                    rm "~/.zshrc"
+                    sudo rm -r "$HOME/Dots"
+                    sudo rm "$HOME/.zshrc"
                 fi
                 
                 reboot
