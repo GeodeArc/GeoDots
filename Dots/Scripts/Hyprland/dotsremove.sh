@@ -88,27 +88,29 @@ removedots() {
                         fi
                     done
 
-                    mv "$HOME/Dots/Backup/$backup_dir/*" "$HOME/.config/"
-                    
-                    echo "Removing ~/Dots"
-                    sudo rm ~/Dots
+                    cp -r "$HOME/Dots/Backup/$backup_dir/"* "$HOME/.config/"
+                    cp "$HOME/Dots/Backup/$backup_dir/.zshrc" /tmp/
+                    cp "$HOME/Dots/Backup/$backup_dir/.bashrc" /tmp/
 
-                    mv ~/Dots/Backup/$backup_dir/.zshrc ~
-                    mv ~/Dots/Backup/$backup_dir/.bashrc ~
+                    echo "Removing ~/Dots"
+                    sudo rm -r "/Dots"
+
+                    mv /tmp/.zshrc ~
+                    mv /tmp/.bashrc ~
                 else
                     for dir in $codirs; do
                         source="$HOME/.config/$dir"
 
                         if [ -d "$source" ]; then
                             echo "Removing $source"
-                            sudo rm -r "$source"
+                            rm -r "$HOME/Dots"
                         else
                             echo "Skipping $dir, doesnt exist"
                         fi
                     done
                     echo "Removing ~/Dots"
-                    sudo rm ~/Dots
-                    rm ~/.zshrc
+                    rm -r "~/Dots"
+                    rm "~/.zshrc"
                 fi
                 
                 reboot
