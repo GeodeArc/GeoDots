@@ -1,7 +1,9 @@
 #!/bin/bash
 
 while true; do
-    echo ""
+    echo 
+    echo "TESTING BRANCH - Use with caution"
+    echo 
     echo "It is recommended to update your system before installation."
     echo "Do this now? [Y/N]"
     read -p " ■ " update

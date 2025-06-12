@@ -1,7 +1,12 @@
 #!/bin/bash
 
+ver="$(curl -s https://geodearc.github.io/GeoDots/version)"
+
 while true; do
-    echo ""
+    echo 
+    echo "Welcome to GeoDots! Lets get started"
+    echo "Current version: $ver"
+    echo 
     echo "It is recommended to update your system before installation."
     echo "Do this now? [Y/N]"
     read -p " ■ " update
