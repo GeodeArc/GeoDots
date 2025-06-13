@@ -37,7 +37,7 @@ monitorselect() {
 
 monitorselect
 
-sudo rm -r $HOME/GeoDots/
+mv "$HOME/GeoDots/" "$HOME/Dots/Scripts/Installation/GeoDots-$(date +'%Y-%m-%d-%H:%M:%S')"
 
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
 sleep 1
