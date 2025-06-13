@@ -37,11 +37,12 @@ monitorselect() {
 
 monitorselect
 
-rm -r $HOME/GeoDots/
+sudo rm -r $HOME/GeoDots/
 
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
 sleep 1
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null & # I have to do this twice because wal (or swww) sucks first time... smh
+
 echo "complete" > $HOME/Dots/Options/startup
 
 clear
