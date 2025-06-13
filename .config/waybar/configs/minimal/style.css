@@ -7,17 +7,17 @@
 
 window#waybar {
   background-color: #000;
-  color: @text;
+  color: #fff;
   opacity: 1;
 }
 
 #workspaces {
-  background-color: transparent;
+  padding-right: 5px;
 }
 
 #workspaces button {
   padding: 0 5px;
-	color: @text;
+	color: #fff;
 }
 
 #workspaces button.active {
@@ -31,23 +31,23 @@ window#waybar {
 #clock,
 #custom-icon {
   background-color: transparent;
-  color: @text;
-  margin: 0px;
+  color: #fff;
+  margin: 2px;
 }
 
 #tray {
   padding: 5px
 }
 
+#custom-sidebar {
+  padding: 0 10px;
+  padding-right: 15px;
+}
+
 .modules-left {
   padding: 0px 0px 0px 0px;
 }
 
-#window {
-  padding-left: 4px;
-}
-
 .modules-right {
-  background-color: @bg;
   padding: 0px 0px 0px 0px;
 }

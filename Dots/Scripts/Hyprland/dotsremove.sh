@@ -70,7 +70,7 @@ removedots() {
         echo "The following configuration directories will be REMOVED."
         echo "$codirs" 
         echo ""
-        echo "Your computer will restart after this option is selected."
+        echo "Your will be logged out after this option is selected."
         echo "Make sure to backup any important work before doing this."
         echo ""
         read -p " ■ " choice
@@ -116,7 +116,11 @@ removedots() {
                     sudo rm "$HOME/.zshrc"
                 fi
                 
-                reboot
+                clear
+                echo "Logging you out in 3 seconds (Press CTRL+C to abort)"
+                echo "Thank you for trying GeoDots :D"
+                sleep 3
+                hyprctl dispatch exit
                 break
             ;;
             [Nn])

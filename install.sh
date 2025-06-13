@@ -14,8 +14,8 @@ echo "This installer currently donest help you if you have NVIDIA. Please check 
 echo ""
 
 while true; do
-    echo "Welcome to Geode's Dots Installer!"
-    echo "These dotfiles are specific to Arch Linux ONLY! An update may come eventually for other distrobutions"
+    echo "Welcome to the GeoDots Installer!"
+    echo "These dotfiles are specific to Arch Linux ONLY! An update may come eventually for other distros"
     echo ""
     echo "┌─ Please choose an installation option:"
     echo "│"
