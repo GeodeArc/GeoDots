@@ -37,18 +37,22 @@ monitorselect() {
 
 monitorselect
 
-echo "Setting wallpaper/applying some changes, please sit tight"
+echo "Removing installation folder"
+rm $HOME/GeoDots/
 
-mv $HOME/GeoDots/ $HOME/Dots/Backup/Install/
+echo "Setting wallpaper/applying some changes, please sit tight"
+echo "Your waybar may flicker"
+
 nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg &
 sleep 1
 nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg & # I have to do this twice because wal (or swww) sucks first time... smh
-clear
 echo "complete" > $HOME/Dots/Options/startup
-echo "Finished setting wallpaper. Your Computer is now ready!"
-echo ""
+
+clear
+echo "Finished setting up!"
+echo "If waybar didnt recover, press SUPER+SHIFT+B"
+echo
 
 bash $HOME/Dots/Scripts/Hyprland/settings.sh
 
-rm $HOME/nohup.out
 exit 0

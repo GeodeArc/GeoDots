@@ -80,7 +80,7 @@
           "command": "sh -c '~/.config/swaync/scripts/center/clipboard.sh'"
         },
         {
-          "label": "🖥️",
+          "label": "📸",
           "command": "sh -c '~/.config/swaync/scripts/center/screenshot.sh'"
         },
         {
