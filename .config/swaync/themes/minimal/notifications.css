@@ -19,7 +19,7 @@
 
 .floating-notifications.background .notification-row .notification-background {
   background: #000;
-  border: 1px solid #ff7700;
+  border: 1px solid #ff5400;
   border-radius: 0px;
   padding: 0px;
 }
@@ -48,7 +48,7 @@
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
   background-color: #000;
-  border: 1px solid #ff7700;
+  border: 1px solid #ff5400;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {

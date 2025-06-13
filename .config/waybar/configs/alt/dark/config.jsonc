@@ -332,7 +332,7 @@
   },
   "custom/sidebar": {
       "format": "󱗼",
-      "tooltip-format": "L: Sidebar\nR: Reload configuration",
+      "tooltip-format": "L: Sidebar\nR: Reload configuration (wait 5-10 seconds)",
       "on-click": "swaync-client -t",
       "on-click-right": "swaync-client -R && swaync-client -rs && sleep 1 && swaync-client -t"
   }
