@@ -313,7 +313,7 @@ done
 
 echo "Generating default color scheme:"
 wal -i "$HOME/Dots/Wallpapers/wall1.jpg"
-ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/options/colors.conf
+ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/config/colors.conf
 ln -s $HOME/.cache/wal/colors-rofi-dark.rasi $HOME/.config/rofi/options/colors.rasi
 ln -s $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/settings/pywal.css
 

@@ -82,7 +82,7 @@
 
 ### 🖼️ SCREENSHOTS:
 
-![Main Setup with SwayNC](https://github.com/user-attachments/assets/eeba5fcf-422b-4b09-827b-b11ba392d104)
+![Main Setup with swaync](https://github.com/user-attachments/assets/eeba5fcf-422b-4b09-827b-b11ba392d104)
 
 ![CLI apps showcase & Power menu](https://github.com/user-attachments/assets/6c7cf91e-f1fe-43a3-8cb1-aebb41d66e69)
 
@@ -123,6 +123,9 @@
 # 
 
 ### 💞 Special thanks/credits:
+
+Most of these have been modified heavily, but these have still been really helpful!
+
 - ML4W, for the original waybar design (https://ml4w.com)
 - adi1090x, for the original rofi designs (https://github.com/adi1090x/rofi)
 - zDyanTB, for the original swaync design (https://github.com/zDyanTB/HyprNova)
