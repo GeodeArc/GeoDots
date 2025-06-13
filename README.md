@@ -88,7 +88,7 @@
 
 ![Screenshot stuff & Resources](https://github.com/user-attachments/assets/9a5ad75b-a334-4bf1-8a8a-230b44348b93)
 
-![Mininal Config](https://github.com/user-attachments/assets/76406d20-573f-4a56-a41d-d8224ec03654)
+![Minimal Config](https://github.com/user-attachments/assets/9824632d-5602-44cf-91c9-1d969563f47b)
 
 ![Lock Screen (Hyprlock)](https://github.com/user-attachments/assets/10b95804-ec20-4dac-b7e1-399e869e5ea1)
 
