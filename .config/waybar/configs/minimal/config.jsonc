@@ -47,6 +47,6 @@
       "format": "󱗼",
       "tooltip-format": "L: Sidebar\nR: Reload configuration",
       "on-click": "swaync-client -t",
-      "on-click-right": "swaync-client -R && swaync-client -rs"
+      "on-click-right": "swaync-client -R && swaync-client -rs && sleep 1 && swaync-client -t"
   }
 }
