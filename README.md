@@ -82,15 +82,15 @@
 
 ### 🖼️ SCREENSHOTS:
 
-![dots1](https://github.com/user-attachments/assets/b26a1b4a-86f7-4606-8451-5d5e7f1fc9fb)
+![Main Setup with SwayNC](https://github.com/user-attachments/assets/eeba5fcf-422b-4b09-827b-b11ba392d104)
 
-![dots2](https://github.com/user-attachments/assets/6698c4b8-ddb0-45a1-9bb6-ce364fce1321)
+![CLI apps showcase & Power menu](https://github.com/user-attachments/assets/6c7cf91e-f1fe-43a3-8cb1-aebb41d66e69)
 
-![dots3](https://github.com/user-attachments/assets/e6ba7d35-bee7-47c4-ac88-47dac3e0ee1e)
+![Screenshot stuff & Resources](https://github.com/user-attachments/assets/9a5ad75b-a334-4bf1-8a8a-230b44348b93)
 
-![dots4](https://github.com/user-attachments/assets/6572e620-b8bd-4f87-b52b-e3c5dbda27b5)
+![Mininal Config](https://github.com/user-attachments/assets/76406d20-573f-4a56-a41d-d8224ec03654)
 
-![dots5](https://github.com/user-attachments/assets/6caa0ed8-fd97-49a3-8b8e-17aba315451d)
+![Lock Screen (Hyprlock)](https://github.com/user-attachments/assets/10b95804-ec20-4dac-b7e1-399e869e5ea1)
 
 # 
 
