@@ -1,0 +1,199 @@
+//
+// Original Author : Aditya Shakya (adi1090x)
+// Original Github : @adi1090x
+// Adapted by : @GeodeArc
+//
+
+// CONFIGURATION
+configuration {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 true;
+    display-drun:               " APPS";
+    display-run:                "󰲌 RUN";
+    display-filebrowser:        " FILES";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c}";
+}
+
+// PROPERTIES
+* {
+    foreground:                  #fff;
+    background:                  #000;
+    background-alt:              #101010;
+    selected:                    #ff5400;
+    active:                      #ff5400;
+    urgent:                      #FFBBBB;
+    lines:                       1;
+    columns:                     6;
+    cycle:                       false;
+}
+
+// WINDOW
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       980px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    // FOR ALL WIDGETS
+    enabled:                     true;
+    border:                      1px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+    padding:                     0;
+}
+
+// MAINBOX
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+// LISTBOX
+listbox {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+// TOP BAR
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     30px 30px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    orientation:                 horizontal;
+    children:                    [ "entry", "dummy", "mode-switcher" ];
+}
+entry {
+    enabled:                     true;
+    expand:                      false;
+    width:                       300px;
+    padding:                     12px 16px;
+    border-radius:               100%;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
+}
+dummy {
+    expand:                      true;
+    background-color:            transparent;
+}
+mode-switcher{
+    enabled:                     true;
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+button {
+    width:                       100px;
+    padding:                     12px;
+    border-radius:               0;
+    background-color:            @background-alt;
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+button selected {
+    background-color:            @selected;
+    text-color:                  @foreground;
+}
+
+// LIST
+listview {
+    enabled:                     true;
+    columns:                     @columns;
+    lines:                       @lines;
+    cycle:                       @cycle;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+// ELEMENTS
+element {
+    enabled:                     true;
+    spacing:                     5px;
+    padding:                     25px;
+    border-radius:               0px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+    orientation:                 vertical;
+}
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+element normal.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element normal.active {
+    background-color:            @active;
+    text-color:                  @foreground;
+}
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @foreground;
+}
+element selected.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element selected.active {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        64px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+// MESSAGE
+message {
+    background-color:            transparent;
+}
+textbox {
+    padding:                     15px;
+    border-radius:               0px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    padding:                     15px;
+    border-radius:               0px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}

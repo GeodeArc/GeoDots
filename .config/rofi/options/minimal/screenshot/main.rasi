@@ -1,0 +1,118 @@
+//
+// Original Author : Aditya Shakya (adi1090x)
+// Original Github : @adi1090x
+// Adapted by : @GeodeArc
+//
+
+// PROPERTIES
+* {
+    foreground:                  #fff;
+    background:                  #000;
+    background-alt:              #101010;
+    selected:                    #ff5400;
+    active:                      #ff5400;
+    urgent:                      #FFBBBB;
+}
+
+// WINDOW
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       600;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    // FOR ALL WIDGETS
+    enabled:                     true;
+    border:                      1px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+    padding:                     0;
+}
+
+// MAINBOX
+mainbox {
+    enabled:                     true;
+    border-color:                @selected;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview", "message" ];
+}
+
+// TOP BAR
+inputbar {
+    enabled:                     true;
+    spacing:                     0px;
+    padding:                     30px 30px;
+    background-color:            @background-alt;
+    children:                    [ "textbox-prompt-colon" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      true;
+    str:                         "  Screenshot";
+    padding:                     12px;
+    border-radius:               0%;
+    background-color:            @background-alt;
+    text-color:                  #FFF;
+}
+
+// LIST
+listview {
+    enabled:                     true;
+    columns:                     4;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     15px;
+    margin:                      15px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+// ELEMENTS
+element {
+    enabled:                     true;
+    padding:                     30px 10px;
+    border-radius:               0px;
+    background-color:            @background;
+    text-color:                  #FFF;
+    cursor:                      pointer;
+}
+element-text {
+    font:                        "feather bold 32";
+    background-color:            transparent;
+    text-color:                  #FFF;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+element selected.normal {
+    background-color:            var(selected);
+}
+
+// MESSAGE
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     15px;
+    border-radius:               0px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}

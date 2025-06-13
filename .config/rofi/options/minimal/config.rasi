@@ -1,0 +1,124 @@
+//
+// Original Author : Aditya Shakya (adi1090x)
+// Original Github : @adi1090x
+// Adapted by : @GeodeArc
+//
+
+// DEFAULT CONFIGURATION
+configuration {    
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c}";
+}
+
+// DEFAULT PROPERTIES
+* {
+    background:                  #000;
+    background-alt:              #101010;
+    foreground:                  #fff;
+    selected:                    #ff5400;
+    active:                      #ff5400;
+    urgent:                      #FFBBBB;
+    alternate-normal-background: #000;
+    selected-normal-foreground:  #000;
+    lines:                       10;
+    columns:                     1;
+    cycle:                       false;
+}
+
+
+// DEFAULT WINDOW
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       680px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    // FOR ALL WIDGETS
+    enabled:                     true;
+    border:                      1px solid;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+    padding:                     0;
+}
+
+// DEFAULT MAINBOX
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+// DEFAULT LISTBOX
+listbox {
+    spacing:                     10px;
+    padding:                     10px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+// DEFAULT TOP BAR
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     50px 50px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    children:                    [ "entry" ];
+}
+entry {
+    enabled:                     true;
+    expand:                      true;
+    background-color:            @background-alt;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
+}
+
+// DEFAULT LIST
+listview {
+    enabled:                      true;
+    columns:                      @columns;
+    lines:                        @lines;
+    cycle:                        @cycle;
+    dynamic:                      false;
+    scrollbar:                    false;
+    layout:                       vertical;
+    reverse:                      false;
+    fixed-height:                 true;
+    fixed-columns:                true;
+  
+    padding:                      10px;
+    background-color:             @background;
+    text-color:                   @foreground;
+    border:                       0px;
+    cursor:                       "default";
+}
+
+// ELEMENTS
+element {
+    enabled:                     true;
+    spacing:                     5px;
+    padding:                     10px;
+    border-radius:               0px;
+    background-color:            @background;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+    orientation:                 vertical;
+}
+
+element selected.normal {
+    background-color: @selected;
+}
+element selected.active {
+  background-color: @active;
+}
