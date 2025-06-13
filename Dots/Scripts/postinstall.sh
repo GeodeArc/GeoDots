@@ -37,20 +37,14 @@ monitorselect() {
 
 monitorselect
 
-echo "Removing installation folder"
-rm $HOME/GeoDots/
+rm -r $HOME/GeoDots/
 
-echo "Setting wallpaper/applying some changes, please sit tight"
-echo "Your waybar may flicker"
-
-nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg &
+setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
 sleep 1
-nohup waypaper --wallpaper $HOME/Dots/Wallpapers/wall1.jpg & # I have to do this twice because wal (or swww) sucks first time... smh
+setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null & # I have to do this twice because wal (or swww) sucks first time... smh
 echo "complete" > $HOME/Dots/Options/startup
 
 clear
-echo "Finished setting up!"
-echo "If waybar didnt recover, press SUPER+SHIFT+B"
 echo
 
 bash $HOME/Dots/Scripts/Hyprland/settings.sh
