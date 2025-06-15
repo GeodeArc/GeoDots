@@ -658,7 +658,7 @@ selectdm() {
         echo ""
         echo "[1]  SDDM (Recommended)"
         echo "[2]  GDM (Caveat of also installing GNOME)"
-        echo "[3]  Autologin with Hyprlock (NOT FINISHED)"
+        echo "[3]  Hyprlock on Login (No display manager)"
         echo "[4]  None (Not Recommended)"
         echo ""
         read -p " ■ " dmchoice
@@ -714,9 +714,9 @@ selectdm() {
                 fi
                 ;;
             3)
+                echo "enabled" > $HOME/GeoDots/Dots/Options/autologin
                 clear
-                echo "true" > $HOME/GeoDots/Dots/Options/autologin
-                echo ""
+                return
                 ;;
             4)
                 clear

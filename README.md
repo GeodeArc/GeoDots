@@ -98,17 +98,17 @@
 
 <details> 
   <summary>🟡 Roadmap</summary>
-  <h3>Current:</h3>
-
-  - Fix colours for rofi/hyprland
-    
-  - Add auto install
+  <h3>Current (Roadmap for first RELEASE):</h3>
     
   - Finish settings script
-    
-  - Add hyprlock autologon (maybe with sddm since that seems easy)
+
+  - Finish required wiki articles
 
   <h3>Maybe later:</h3>
+
+  - Add hyprlock autologon (maybe with sddm since that seems easy)
+
+  - Add auto install
 
   - Ability to choose nerd font (might not add)
 
