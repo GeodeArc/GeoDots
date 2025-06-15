@@ -126,7 +126,7 @@
 
 Most of these have been modified heavily, but these have still been really helpful!
 
-- ML4W, for the original waybar design (https://ml4w.com)
-- adi1090x, for the original rofi designs (https://github.com/adi1090x/rofi)
-- zDyanTB, for the original swaync design (https://github.com/zDyanTB/HyprNova)
-- birbkeks, for the SDDM theme (more theme options probably coming soon).
+- [ML4W](https://ml4w.com), for the original waybar design
+- [adi1090x](https://github.com/adi1090x/rofi), for the original rofi designs
+- [zDyanTB](https://github.com/zDyanTB/HyprNova), for the original swaync design 
+- [Keyitdev](https://github.com/Keyitdev/sddm-astronaut-theme) and [birbkeks](https://github.com/birbkeks/win11-sddm-theme), for the SDDM themes.

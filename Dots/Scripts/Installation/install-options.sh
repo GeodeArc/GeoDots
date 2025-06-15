@@ -356,33 +356,33 @@ toolkitselect () {
 
         case "$apptype" in
             1)
-            echo qt > /tmp/geodots_apptype
-            echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
-            clear
-            break
-            ;; 
+                echo qt > /tmp/geodots_apptype
+                echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
+                clear
+                break
+                ;; 
             2)
-            echo gtk > /tmp/geodots_apptype
-            echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
-            clear
-            break
-            ;; 
+                echo gtk > /tmp/geodots_apptype
+                echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
+                clear
+                break
+                ;; 
             3) 
-            clear
-            echo "Depending on what you choose (GTK or QT), the installer will install different apps based on the two different toolkits, these being GTK and QT."
-            echo ""
-            echo "In simple terms, some people prefer the way QT looks/operates over how GTK looks/operates, and vice versa. Its all personal preference."
-            echo ""
-            echo "If you want to see the difference between the two, please check the wiki for more information."
-            echo ""
-            read -p "Press ENTER to continue: "
-            clear
-            ;;
+                clear
+                echo "Depending on what you choose (GTK or QT), the installer will install different apps based on the two different toolkits, these being GTK and QT."
+                echo ""
+                echo "In simple terms, some people prefer the way QT looks/operates over how GTK looks/operates, and vice versa. Its all personal preference."
+                echo ""
+                echo "If you want to see the difference between the two, please check the wiki for more information."
+                echo ""
+                read -p "Press ENTER to continue: "
+                clear
+                ;;
             *) 
-            clear
-            echo "X Please try again."
-            echo ""
-            ;;
+                clear
+                echo "X Please try again."
+                echo ""
+                ;;
         esac
     done
 }
@@ -422,44 +422,44 @@ browserselect() {
 
         case "$browsertype" in
             1)
-            echo "firefox" > $HOME/GeoDots/Dots/Options/browser
-            clear
-            return
-            ;; 
+                echo "firefox" > $HOME/GeoDots/Dots/Options/browser
+                clear
+                return
+                ;; 
             2)
-            echo "chromium" > $HOME/GeoDots/Dots/Options/browser
-            clear
-            return
-            ;; 
+                echo "chromium" > $HOME/GeoDots/Dots/Options/browser
+                clear
+                return
+                ;; 
             3)   
-            echo "brave" > $HOME/GeoDots/Dots/Options/browser
-            clear
-            return
-            ;;
+                echo "brave" > $HOME/GeoDots/Dots/Options/browser
+                clear
+                return
+                ;;
             4) 
-            echo "vivaldi" > $HOME/GeoDots/Dots/Options/browser
-            clear
-            return
-            ;;
+                echo "vivaldi" > $HOME/GeoDots/Dots/Options/browser
+                clear
+                return
+                ;;
             5) 
-            echo "Please enter the package name for your browser here."
-            echo "This installer will NOT check if the package is correct/exists beforehand"
-            echo "If you get it wrong, you can always install it later."
-            read -p " ■ " browsername
-            browserinstall "$browsername"
-            echo "$browsername" > $HOME/GeoDots/Dots/Options/browser
-            return
-            ;;
+                echo "Please enter the package name for your browser here."
+                echo "This installer will NOT check if the package is correct/exists beforehand"
+                echo "If you get it wrong, you can always install it later."
+                read -p " ■ " browsername
+                browserinstall "$browsername"
+                echo "$browsername" > $HOME/GeoDots/Dots/Options/browser
+                return
+                ;;
             6) 
-            echo "Skipped during install - Clear this line and add your browser's command here for SUPER+B to open your browser." > $HOME/GeoDots/Dots/Options/browser
-            clear
-            return
-            ;;
+                echo "Skipped during install - Clear this line and add your browser's command here for SUPER+B to open your browser." > $HOME/GeoDots/Dots/Options/browser
+                clear
+                return
+                ;;
             *) 
-            clear
-            echo "X Please try again."
-            echo ""
-            ;;
+                clear
+                echo "X Please try again."
+                echo ""
+                ;;
         esac
     done
 }
@@ -475,19 +475,19 @@ themeconfig() {
         
         case "$lightordark" in
             [Ll]) 
-            theme="prefer-light"
-            gtk_theme="adw-gtk3"
-            cursor_theme="Bibata-Modern-Ice" 
-            #kvantum_theme
-            type="light"
-            ;;
+                theme="prefer-light"
+                gtk_theme="adw-gtk3"
+                cursor_theme="Bibata-Modern-Ice" 
+                #kvantum_theme
+                type="light"
+                ;;
             [Dd]) 
-            theme="prefer-dark"
-            gtk_theme="adw-gtk3-dark"
-            cursor_theme="Bibata-Modern-Classic"
-            #kvantum_theme
-            type="dark"
-            ;;
+                theme="prefer-dark"
+                gtk_theme="adw-gtk3-dark"
+                cursor_theme="Bibata-Modern-Classic"
+                #kvantum_theme
+                type="dark"
+                ;;
             *) 
             clear
             echo "X Please try again."
@@ -554,21 +554,21 @@ checkdm() {
             read -p " ■ " dminstalled
             case "$dminstalled" in
                 [Yy])
-                clear
-                return
-                ;;
+                    clear
+                    return
+                    ;;
                 [Nn])
-                echo "Removing old display manager(s)..."
-                sudo rm /etc/systemd/system/display-manager.service
-                clear
-                selectdm
-                dm_changed=1
-                ;;
+                    echo "Removing old display manager(s)..."
+                    sudo rm /etc/systemd/system/display-manager.service
+                    clear
+                    selectdm
+                    dm_changed=1
+                    ;;
                 *)
-                clear
-                echo "X Please try again."
-                echo ""
-                ;;
+                    clear
+                    echo "X Please try again."
+                    echo ""
+                    ;;
             esac
         else
             echo "Couldn't find a display manager."
@@ -580,6 +580,76 @@ checkdm() {
             return
         fi
     done  
+}
+
+mainsddm() {
+    echo "Installing SDDM theme:"
+    sudo tar -xf $HOME/GeoDots/.config/sddm/theme/sddm-astronaut-theme.tar.xz -C /usr/share/sddm/themes
+    sudo cp -r /usr/share/sddm/themes/sddm-astronaut-theme/Fonts/* /usr/share/fonts/
+    echo -e "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
+
+    sudo cp -r $HOME/GeoDots/Dots/Wallpapers/wall1.jpg /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/wallpaper.jpg
+    mv $HOME/GeoDots/.config/sddm/update_sddm.sh $HOME/GeoDots/Dots/Scripts/Themes
+    rm -r $HOME/GeoDots/.config/sddm/
+}
+
+sddmtheme() {
+    while true; do
+        echo "Please select an SDDM theme"
+        echo "You can preview these themes at https://github.com/GeodeArc/GeoDots/wiki/SDDM-Themes"
+        echo ""
+        echo "[1] Centered"
+        echo "[2] Centered blur"
+        echo "[3] Left blur"
+        echo "[4] Right blur"
+        echo "[5] Windows 11 theme"
+        echo ""
+        read -p " ■ " dmtheme
+        case "$dmtheme" in
+            1)
+                clear
+                mainsddm
+                echo -e "ConfigFile=Themes/center.conf" | sudo tee -a /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+                return
+                ;;
+            2)
+                clear
+                mainsddm
+                echo -e "ConfigFile=Themes/centerblur.conf" | sudo tee -a /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+                return
+                ;;
+            3)
+                clear
+                mainsddm
+                echo -e "ConfigFile=Themes/leftblur.conf" | sudo tee -a /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+                return
+                ;;
+            4)
+                clear
+                mainsddm
+                echo -e "ConfigFile=Themes/rightblur.conf" | sudo tee -a /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop
+                return
+                ;;
+            5)
+                clear
+                echo "Installing SDDM theme:"
+                sudo tar -xf $HOME/GeoDots/.config/sddm/theme/win11-sddm-theme.tar.xz -C /usr/share/sddm/themes
+                sudo cp -r /usr/share/sddm/themes/win11-sddm-theme/Fonts/* /usr/share/fonts/
+                echo -e "[Theme]\nCurrent=win11-sddm-theme" | sudo tee /etc/sddm.conf
+
+                sudo mkdir -p /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/
+                sudo cp -r $HOME/GeoDots/Dots/Wallpapers/wall1.jpg /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/wallpaper.jpg
+                mv $HOME/GeoDots/.config/sddm/update_sddm.sh $HOME/GeoDots/Dots/Scripts/Themes
+                rm -r $HOME/GeoDots/.config/sddm/
+                return
+                ;;
+            *)
+            clear
+            echo "X Please try again."
+            echo ""
+            ;;
+        esac
+    done
 }
 
 selectdm() {
@@ -594,78 +664,69 @@ selectdm() {
         read -p " ■ " dmchoice
         case "$dmchoice" in
             1)
-            sudo pacman -S --needed sddm qt6-5compat qt6-multimedia
-            sudo systemctl enable sddm
-            if pacman -Q sddm qt6-5compat qt6-multimedia &>/dev/null; then
-                clear
-                echo "Installing SDDM theme:"
-                tar -xf $HOME/GeoDots/.config/sddm/theme/win11-sddm-theme.tar.xz -C $HOME/GeoDots/.config/sddm/theme/
-                sudo cp -r $HOME/GeoDots/.config/sddm/theme/win11-sddm-theme /usr/share/sddm/themes
-                sudo cp $HOME/GeoDots/.config/sddm/default.conf /usr/lib/sddm/sddm.conf.d/
-                sudo mkdir -p /etc/sddm.conf.d # just incase
-                sudo rm /etc/sddm.conf.d/kde_settings.conf # this takes precedence over regular sddm config, so this will remove it.
-                sudo cp $HOME/GeoDots/.config/sddm/default.conf /etc/sddm.conf.d/ # just incase
-                sudo mkdir -p /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/
-                sudo cp -r $HOME/GeoDots/Dots/Wallpapers/wall1.jpg /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/wallpaper.jpg # temp wallpaper
-                mv $HOME/GeoDots/.config/sddm/update_sddm_wall.sh $HOME/GeoDots/Dots/Scripts/
-                sudo rm -r $HOME/GeoDots/.config/sddm/
-                clear
-                return
-            else
-                echo ""
-                echo "WARNING: Installation of display manager failed or could not be verified."
-                echo "Press ENTER for another attempt, or type 'skip' to skip." 
-                echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-                read -p " ■ " dmfail
-                if [[ "$dmfail" == "skip" ]]; then
+                sudo pacman -S --needed sddm qt6-5compat qt6-multimedia
+                sudo systemctl enable sddm
+                if pacman -Q sddm qt6-5compat qt6-multimedia &>/dev/null; then
+                    clear
+                    sddmtheme
                     clear
                     return
-                fi
-                if [[ "$dmfail" == "troubleshoot" ]]; then
+                else
+                    echo ""
+                    echo "WARNING: Installation of display manager failed or could not be verified."
+                    echo "Press ENTER for another attempt, or type 'skip' to skip." 
+                    echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+                    read -p " ■ " dmfail
+                    if [[ "$dmfail" == "skip" ]]; then
+                        clear
+                        return
+                    fi
+                    if [[ "$dmfail" == "troubleshoot" ]]; then
+                        clear
+                        cd $HOME/GeoDots/Dots/Scripts/Installation/
+                        ./troubleshooter.sh
+                    fi
                     clear
-                    cd $HOME/GeoDots/Dots/Scripts/Installation/
-                    ./troubleshooter.sh
                 fi
-                clear
-            fi
-            ;;
+                ;;
             2)
-            sudo pacman -S --needed gdm
-            sudo systemctl enable gdm
-            if pacman -Q gdm &>/dev/null; then
-                clear
-                return
-            else
-                echo ""
-                echo "WARNING: Installation of display manager failed or could not be verified."
-                echo "Press ENTER for another attempt, or type 'skip' to skip." 
-                echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-                read -p " ■ " dmfail
-                if [[ "$dmfail" == "skip" ]]; then
+                sudo pacman -S --needed gdm
+                sudo systemctl enable gdm
+                
+                if pacman -Q gdm &>/dev/null; then
                     clear
                     return
-                fi
-                if [[ "$dmfail" == "troubleshoot" ]]; then
+                else
+                    echo ""
+                    echo "WARNING: Installation of display manager failed or could not be verified."
+                    echo "Press ENTER for another attempt, or type 'skip' to skip." 
+                    echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+                    read -p " ■ " dmfail
+                    if [[ "$dmfail" == "skip" ]]; then
+                        clear
+                        return
+                    fi
+                    if [[ "$dmfail" == "troubleshoot" ]]; then
+                        clear
+                        ./troubleshooter.sh
+                    fi
                     clear
-                    ./troubleshooter.sh
                 fi
-                clear
-            fi
-            ;;
+                ;;
             3)
-            clear
-            echo "true" > $HOME/GeoDots/Dots/Options/autologin
-            echo ""
-            ;;
+                clear
+                echo "true" > $HOME/GeoDots/Dots/Options/autologin
+                echo ""
+                ;;
             4)
-            clear
-            return
-            ;;
+                clear
+                return
+                ;;
             *)
-            clear
-            echo "X Please try again."
-            echo ""
-            ;;
+                clear
+                echo "X Please try again."
+                echo ""
+                ;;
         esac
     done
 }
@@ -688,44 +749,44 @@ chaoticinstall () {
             
             case "$chaotic" in
                 [Yy])
-                sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-                sudo pacman-key --lsign-key 3056513887B78AEB
+                    sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+                    sudo pacman-key --lsign-key 3056513887B78AEB
 
-                sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
-                sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-                
-                if pacman -Q chaotic-keyring chaotic-mirrorlist &>/dev/null; then
-                    echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
-                    sudo pacman -Sy
-                    clear
-                    return
-                else
-                    echo ""
-                    echo "WARNING: Installation of chaoticaur failed or could not be verified."
-                    echo "Press ENTER for another attempt, or type 'skip' to skip." 
-                    echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-                    read -p " ■ " chaoticfail
-                    if [[ "$chaoticfail" == "skip" ]]; then
+                    sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+                    sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+                    
+                    if pacman -Q chaotic-keyring chaotic-mirrorlist &>/dev/null; then
+                        echo -e "\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" | sudo tee -a /etc/pacman.conf
+                        sudo pacman -Sy
                         clear
                         return
-                    fi
-                    if [[ "$chaoticfail" == "troubleshoot" ]]; then
+                    else
+                        echo ""
+                        echo "WARNING: Installation of chaoticaur failed or could not be verified."
+                        echo "Press ENTER for another attempt, or type 'skip' to skip." 
+                        echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+                        read -p " ■ " chaoticfail
+                        if [[ "$chaoticfail" == "skip" ]]; then
+                            clear
+                            return
+                        fi
+                        if [[ "$chaoticfail" == "troubleshoot" ]]; then
+                            clear
+                            cd $HOME/GeoDots/Dots/Scripts/Installation/
+                            ./troubleshooter.sh
+                        fi
                         clear
-                        cd $HOME/GeoDots/Dots/Scripts/Installation/
-                        ./troubleshooter.sh
-                     fi
-                    clear
-                fi
-                ;;
+                    fi
+                    ;;
                 [Nn])
-                clear
-                return
-                ;;
+                    clear
+                    return
+                    ;;
                 *)
-                clear
-                echo "X Please try again."
-                echo ""
-                ;;
+                    clear
+                    echo "X Please try again."
+                    echo ""
+                    ;;
             esac
         fi
     done
@@ -741,36 +802,36 @@ backup () {
         read -p " ■ " dobackup
         case "$dobackup" in
                 [Yy])
-                backupdir="$HOME/GeoDots/Dots/Backup/$(date +'%Y-%m-%d-%H:%M:%S')"
-                directory="$HOME/.config"
+                    backupdir="$HOME/GeoDots/Dots/Backup/$(date +'%Y-%m-%d-%H:%M:%S')"
+                    directory="$HOME/.config"
 
-                mkdir -p "$backupdir"
-                cp -a "$HOME/.zshrc" "$backupdir"
-                cp -a "$HOME/.bashrc" "$backupdir"
-                cp -a "$HOME/Dots" "$backupdir"
+                    mkdir -p "$backupdir"
+                    cp -a "$HOME/.zshrc" "$backupdir"
+                    cp -a "$HOME/.bashrc" "$backupdir"
+                    cp -a "$HOME/Dots" "$backupdir"
 
-                for dir in $codirs; do
-                    source="$HOME/.config/$dir"
+                    for dir in $codirs; do
+                        source="$HOME/.config/$dir"
 
-                    if [ -d "$source" ]; then
-                        echo "Creating backup $source to $directory"
-                        cp -r "$source" "$backupdir/$dir"
-                    else
-                        echo "Skipping $dir, doesnt exist"
-                    fi
-                done
-                clear
-                return
-                ;;
+                        if [ -d "$source" ]; then
+                            echo "Creating backup $source to $directory"
+                            cp -r "$source" "$backupdir/$dir"
+                        else
+                            echo "Skipping $dir, doesnt exist"
+                        fi
+                    done
+                    clear
+                    return
+                    ;;
                 [Nn])
-                clear
-                return
-                ;;
+                    clear
+                    return
+                    ;;
                 *)
-                clear
-                echo "X Please try again."
-                echo ""
-                ;;
+                    clear
+                    echo "X Please try again."
+                    echo ""
+                    ;;
             esac
     done
 }

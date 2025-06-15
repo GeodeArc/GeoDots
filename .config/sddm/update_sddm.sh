@@ -12,7 +12,10 @@ if ! pacman -Q ffmpeg &>/dev/null; then
 fi 
 
 sudo rm -r /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/wallpaper.jpg
+sudo rm -r /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/wallpaper.jpg
 sudo ffmpeg -i $genwal /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/wallpaper.jpg
+sudo ffmpeg -i $genwal /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/wallpaper.jpg
+
 clear
 
 echo "The SDDM wallpaper has been updated to your current wallpaper"
