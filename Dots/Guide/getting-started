@@ -7,10 +7,10 @@ d88P  Y88b                   888  "Y88b          888
 Y88b  d88P Y8b.     Y88..88P 888  .d88P Y88..88P Y88b.       X88 
  "Y8888P88  "Y8888   "Y88P"  8888888P"   "Y88P"   "Y888  88888P'
  
-Welcome to GeoDots, a simple, customizeable, and lightweight Hyprland configuration.
+Welcome to GeoDots, a simple, customizable, and lightweight Hyprland configuration.
 
 Read this article, and many more guides here.
-https://github.com/GeodeArc/GeoDots/wiki/Getting-Started
+https://github.com/GeodeArc/GeoDots/wiki/Overview-Of-GeoDots
 
 Press Q to exit
 
@@ -18,9 +18,9 @@ Press Q to exit
 
 1. How can I get started?
 
-First of all, you should understand that Hyprland is an advanced window manager, meant for users that are willing to learn. You shouldn't use Hyprland if you want a system that 'just works', or want a system that doesnt change.
+First of all, you should understand that Hyprland is an advanced window manager, meant for users that are willing to learn. You shouldn't use Hyprland if you want a system that 'just works', or want a system that doesn't change.
 
-While these Dotfiles are made to be as easy as possible, you will undoubtably encounter issues, some of which may be issues with the Dotfiles, but most times will generally be on you, or your setup.
+While these Dotfiles are made to be as easy as possible, you will undoubtedly encounter issues, some of which may be issues with the Dotfiles, but most times will generally be on you, or your setup.
 
 You should know:
 - How to read documentation
@@ -33,9 +33,9 @@ While technical experience will help significantly, all of this is attainable wi
 
 2. What are Dotfiles?
 
-Dotfiles are configuration files (generally found in the .config folder) that control behaviours/aspects of your system, including applications, tools and scripts. 
+Dotfiles are configuration files (generally found in the .config folder) that control behaviors/aspects of your system, including applications, tools and scripts. 
 
-The term "dotfiles" comes from the fact that these files typically are found in a Folder (or Directory) that starts with a dot (.), makeing them hidden by default.
+The term "dotfiles" comes from the fact that these files typically are found in a Folder (or Directory) that starts with a dot (.), making them hidden by default.
 
 In the context of Hyprland, Dotfiles define the behavior, appearance, keybindings, and other user preferences of your system.
 
@@ -51,8 +51,8 @@ You should firstly determine if the issue you are experiencing is related to the
 
 I would start by creating a Virtual machine (or using another device), and installing Hyprland WITHOUT the use of my dotfiles (read the Hyprland wiki on how to do this). 
 
-If the issue occurs on a fresh Hyprland install, the issue is likely with Hyprland or a specific program. If the issue isnt already documented (look for others with the same problem), you can go ahead and submit a bug report. Make sure you report the bug for the right software (e.g Lock screen bugs should be reported to the Hyprlock repo, app bugs should be reported to that specific apps repo).
+If the issue occurs on a fresh Hyprland install, the issue is likely with Hyprland or a specific program. If the issue isn't already documented (look for others with the same problem), you can go ahead and submit a bug report. Make sure you report the bug for the right software (e.g Lock screen bugs should be reported to the Hyprlock repo, app bugs should be reported to that specific apps repo).
 
-If the issue doesnt occur on a fresh install, it still may not nessicarily be the dotfiles fault (e.g a misconfiguration issue). Try installing the dotfiles on the same virtual machine, and see if it happens there. If it doesn't happen on the virtual machine, its probably an issue you have created, or another program on your setup has messed with (e.g KDE plasma messing with dark mode/light mode switching, etc). 
+If the issue doesn't occur on a fresh install, it still may not necessarily be the dotfiles fault (e.g a misconfiguration issue). Try installing the dotfiles on the same virtual machine, and see if it happens there. If it doesn't happen on the virtual machine, its probably an issue you have created, or another program on your setup has messed with (e.g KDE plasma messing with dark mode/light mode switching, etc). 
 
-If the issue only occurs with the use of my dotfiles, please submit a bug report! If the report is replicteable, I will get to work asap.
+If the issue only occurs with the use of my dotfiles, please submit a bug report! If I am able to replicate your issue, I will get to work asap.

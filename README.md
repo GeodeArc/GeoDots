@@ -19,7 +19,7 @@
 
   <p></p>
   
-  > Should work on pretty much any arch based system (minimal, or not). If thers an issue installing, please submit a bug report! 
+  > Should work on pretty much any arch based system (minimal, or not). If theres an issue installing, please submit a bug report! 
 
   ```
   bash <(curl -fsSL "https://geodearc.github.io/GeoDots/install.sh")
@@ -58,7 +58,7 @@
 
   <p></p>
     
-  - 🗃️ Head over the the gh-pages branch, and install the dependencies in the text files labled 'pkg'
+  - 🗃️ Head over the the gh-pages branch, and install the dependencies in the text files labeled 'pkg'
 
   - 🔶 Go to each config folder in /.config/, and put a config (e.g light alt waybar, GTK hyprland.conf), and move it to the root of that config folder
 
