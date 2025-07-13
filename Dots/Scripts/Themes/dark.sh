@@ -16,7 +16,7 @@ echo "main" > $HOME/.config/waybar/type
 cp -a $HOME/.config/waybar/configs/$type/. $HOME/.config/waybar/
 cp -a $HOME/.config/swaync/themes/$type/. $HOME/.config/swaync/
 cp -a $HOME/.config/rofi/options/$type/. $HOME/.config/rofi/
-cp -a $HOME/.config/hypr/configs/default/hyprland.conf $HOME/.config/hypr/
+cp -a $HOME/.config/hypr/themes/default/hyprland.conf $HOME/.config/hypr/
 sleep 0.5 
 
 killall waybar

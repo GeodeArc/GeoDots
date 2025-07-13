@@ -108,13 +108,15 @@
 
   - Add hyprlock autologon (maybe with sddm since that seems easy)
 
-  - Add auto install
+  - Add matugen GTK theming atleast, maybe deprecate pywal?
+
+  - Add quicker installation (auto install)
 
   - Ability to choose nerd font (might not add)
 
   - Add hyprlock click widgets when available?
 
-  - Installer for other distros
+  - Installer for other distros (sobbing emoji)
 
   - NVIDIA selection (i folded)
 

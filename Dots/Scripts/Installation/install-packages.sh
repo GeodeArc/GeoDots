@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# VARS
+#
+
 APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
 AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
 BROWSER="$(cat $HOME/GeoDots/Dots/Options/browser)"
@@ -14,13 +18,20 @@ INSTALLED_PKGS=$(pacman -Qq)
 PKGS_CONFLICT_LIST="$(curl -s https://geodearc.github.io/GeoDots/pkg-conflicts)"
 PKG_CONFLICTS=""
 
-clear
+#
+# INITIAL
+#
 
+clear
 echo "Now ready for installation!"
 read -p "Press ENTER to begin installation "
-
 clear
 echo "Checking for conflicts"
+
+
+#
+# CONFLICT CHECKING
+#
 
 for pkg in $PKGS_CONFLICT_LIST; do
     if echo "$INSTALLED_PKGS" | grep -qx "$pkg"; then
@@ -28,6 +39,7 @@ for pkg in $PKGS_CONFLICT_LIST; do
     fi
 done
 
+# has to be done after the original variable, since it changes
 PKG_CONFLICTS=$(echo "$PKG_CONFLICTS" | sed 's/\brofi-wayland\b//g' | xargs) # removes false positive since rofi/rofi-wayland are identified by pacman -Qq.
 
 if [[ -z "$PKG_CONFLICTS" ]]; then
@@ -79,6 +91,11 @@ else
     done
 fi
 
+#
+# PACMAN PKGS
+#
+
+
 while true; do
     echo "Installing PACMAN packages"
     sudo pacman -S --needed $PACMAN_PKGS
@@ -105,6 +122,10 @@ while true; do
         clear
     fi
 done
+
+#
+# AUR PKGS
+#
 
 while true; do
     echo "Installing AUR packages"
@@ -133,6 +154,10 @@ while true; do
     fi
 done
 
+#
+# NAUTILUS TWEAKS (for GTK install)
+#
+
 nautilustweak () {
     while true; do
         if pacman -Qq nautilus-admin-gtk4 &>/dev/null; then # Just checking one package because im lazy + it should work.
@@ -148,8 +173,9 @@ nautilustweak () {
             [Yy])
                 $AUR_HELPER nautilus-open-any-terminal nautilus-python libnautilus-extension python-gobject
                 git clone https://github.com/ronen25/nautilus-copypath
-                mkdir ~/.local/share/nautilus-python
-                mkdir ~/.local/share/nautilus-python/extensions
+                mkdir -p ~/.local/share/ # yes there are people without .local/share... (mainly minimal installs)
+                mkdir -p ~/.local/share/nautilus-python
+                mkdir -p ~/.local/share/nautilus-python/extensions
                 cd nautilus-copypath
                 cp nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
                 $AUR_HELPER nautilus-admin-gtk4
@@ -170,6 +196,11 @@ nautilustweak () {
         esac
     done
 }
+
+
+#
+# QT AND GTK PKGS
+#
 
 while true; do
     if [[ "$APPTYPE_FILE" == "qt" ]]; then
@@ -230,8 +261,14 @@ while true; do
     fi
 done
 
+#
+# BROWSER PKGS
+#
+
 while true; do
-    if grep Skipped $HOME/GeoDots/Dots/Options/browser &>/dev/null; then
+    if pacman -Q $BROWSER &>/dev/null; then
+        break
+    elif grep Skipped $HOME/GeoDots/Dots/Options/browser &>/dev/null; then
         break
     else
         echo "Installing Browser"
@@ -261,6 +298,10 @@ while true; do
     fi
 done
 
+#
+# FINAL INSTALL
+# 
+
 echo "Packages installed successfully!"
 echo "Please save any unsaved documents, as the system will reboot after this is complete!"
 read -p "Press enter to copy dotfiles to your system."
@@ -289,7 +330,7 @@ mv $HOME/GeoDots/.config/wal/templates/temp/colors-hyprland.conf $HOME/.cache/wa
 mv $HOME/GeoDots/.config/wal/templates/temp/colors-rofi-pywal.rasi $HOME/.cache/wal/
 rm $HOME/GeoDots/.config/wal/templates/temp/
 
-cp -r $HOME/GeoDots/.config/hypr/configs/default/hyprland.conf $HOME/GeoDots/.config/hypr/
+cp -r $HOME/GeoDots/.config/hypr/themes/default/hyprland.conf $HOME/GeoDots/.config/hypr/
 
 sudo cp -a $HOME/GeoDots/.config/. $HOME/.config/
 mv $HOME/.config/.zshrc $HOME
@@ -298,7 +339,6 @@ mv $HOME/.config/.bashrc $HOME
 echo "Creating DOTFILES folder (~/Dots)"
 cp -a $HOME/GeoDots/Dots $HOME/Dots
 
-echo "Creating symlinks from .config to Dots folder"
 for dir in $codirs; do
     source="$HOME/.config/$dir"
     directory="$HOME/Dots/Config"
