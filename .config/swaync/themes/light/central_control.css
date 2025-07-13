@@ -4,6 +4,7 @@
 @define-color text            @foreground;
 @define-color border          alpha(@foreground, 0.8);
 @define-color background-alt  alpha(@color1, .4);
+@define-color background-bg  alpha(@color1, .75);
 @define-color selected        @color6;
 @define-color hover           alpha(@selected, .4);
 @define-color urgent          @color2;
@@ -38,7 +39,8 @@
 /* Notifications  */
 .control-center .notification-row .notification-background,
 .control-center .notification-row .notification-background .notification.critical {
-  background-color: @background-alt;
+  background-color: @background-bg;
+  color: #fff;
   border-radius: 10px;
   margin: 4px 0px;
   padding: 4px;
@@ -107,19 +109,19 @@ progressbar {
 .notification-group-headers {
   font-weight: bold;
   font-size: 1.25rem;
-  color: @text;
+  color: #000;
   letter-spacing: 2px;
   padding-bottom: 10px
 }
 
 .notification-group-icon {
-  color: @text;
+  color: #000;
 }
 
 .notification-group-collapse-button,
 .notification-group-close-all-button {
   background: transparent;
-  color: @text;
+  color: #000;
   margin: 4px; 
   border-radius: 6px;
   padding: 4px;
@@ -127,7 +129,7 @@ progressbar {
 
 .notification-group-collapse-button:hover,
 .notification-group-close-all-button:hover {
-  background: @hover;
+  background: @background-alt;
 }  
 
 /* WIDGETS --------------------------------------------------------------------------- */
@@ -202,12 +204,12 @@ progressbar {
 }
 
 .widget-mpris > box > button {
-  color: @text;
+  color: #fff;
   border-radius: 10px;
 }
  
 .widget-mpris button {
-  color: #000;
+  color: #fff;
 }
 
 .widget-mpris button:hover {
@@ -221,11 +223,13 @@ progressbar {
 .widget-mpris-title {
     font-weight: 600;
     font-size: 0.9rem;
+    color: #fff;
 }
  
 .widget-mpris-subtitle {
     font-weight: 500;
     font-size: 0.8rem;
+    color: #fff;
 }
 
 /* Volume widget */
