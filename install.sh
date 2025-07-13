@@ -33,9 +33,13 @@ while true; do
             ;;
         2)
             clear
-            echo "GeoDots is a collection of configurations that can be applied with this script."
-            echo "More info will be here soon"
-            echo ""
+            echo "GeoDots is a collection of configurations that can be applied with this simple installation script."
+            echo "These dots are designed to be minimal, while remaining customizable, functional and (relatively) consistent."
+            echo
+            echo "Specs wise, any modern device with hardware acceleration should work well, and a display over 1366x768 is highly recommended."
+            echo  
+            echo "Please check the wiki for more information: https://github.com/GeodeArc/GeoDots/wiki"
+            echo 
             read -p "Press ENTER to continue: "
             clear
             ;;    

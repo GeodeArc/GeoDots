@@ -302,8 +302,8 @@
   "custom/media": {
     "interval": 1,
     "max-length": 40,
-    "exec": "~/.config/waybar/settings/mediaexec.sh",
-    "on-click": "~/.config/waybar/settings/mediatoggle.sh"
+    "exec": "~/Dots/Scripts/Hyprland/mediaexec.sh",
+    "on-click": "~/Dots/Scripts/Hyprland/mediatoggle.sh"
   },
 
   // Backlight:

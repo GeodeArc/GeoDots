@@ -40,8 +40,8 @@
     },
     "custom/spotify": {
 		  "interval": 1,
-		  "exec": "~/.config/waybar/settings/mediaexec.sh",
-		  "on-click": "~/.config/waybar/settings/mediatoggle.sh"
+		  "exec": "~/Dots/Scripts/Hyprland/mediaexec.sh",
+		  "on-click": "~/Dots/Scripts/Hyprland/mediatoggle.sh"
     },
   "custom/sidebar": {
       "format": "󱗼",

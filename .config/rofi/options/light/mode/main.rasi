@@ -34,7 +34,7 @@ window {
     enabled:                     true;
     border:                      2px solid;
     border-radius:               15px;
-    border-color:                @foreground;
+    border-color:                @background-alt;
     cursor:                      "default";
     background-color:            @background;
     padding:                     0;
