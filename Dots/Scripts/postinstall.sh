@@ -37,6 +37,8 @@ monitorselect() {
 
 monitorselect
 
+notify-send -i system-run-symbolic "Applying Initial Colors" "Waybar may flicker, and notifications may double due to a bug in pywal. This is normal."
+
 mv "$HOME/GeoDots/" "$HOME/Dots/Scripts/Installation/GeoDots-$(date +'%Y-%m-%d-%H:%M:%S')"
 
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &

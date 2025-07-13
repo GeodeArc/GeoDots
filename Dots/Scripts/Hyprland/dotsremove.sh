@@ -95,6 +95,7 @@ removedots() {
 
                     echo "Removing ~/Dots"
                     sudo rm -r "$HOME/Dots"
+                    sudo rm /etc/sddm.conf
 
                     mv /tmp/.zshrc ~
                     mv /tmp/.bashrc ~
@@ -114,6 +115,7 @@ removedots() {
                     echo "Removing ~/Dots"
                     sudo rm -r "$HOME/Dots"
                     sudo rm "$HOME/.zshrc"
+                    sudo rm /etc/sddm.conf
                 fi
                 
                 clear

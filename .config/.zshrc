@@ -29,19 +29,7 @@ alias n="nvim"
 alias wifi="nmtui"
 alias h="htop"
 alias b="btop"
-alias m="micro"
 alias e="yazi"
-
-# GIT
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
-alias gpl="git pull"
-alias gst="git stash"
-alias gsp="git stash; git pull"
-alias gchk="git checkout"
-alias gcred="git config credential.helper store"
 
 # UTILS
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -49,9 +37,7 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 # OTHER
 alias update="$HOME/Dots/Scripts/Hyprland/update.sh"
 alias settings="$HOME/Dots/Scripts/Hyprland/settings.sh"
-alias x="exit"
-alias yeet="paru -Rcns"
-alias remove="paru -Rns"
+alias q="exit"
 
 eval "$(starship init zsh)"
 if [[ $(tty) == *"pts"* ]]; then
