@@ -117,7 +117,7 @@ progressbar {
   background: #101010;
   font-size: initial;
   box-shadow: none;
-  padding: 2px;
+  padding: 3px;
 }
 
 .widget-dnd > switch:hover {
@@ -134,6 +134,7 @@ progressbar {
 
 .widget-dnd > switch slider {
   background: #fff;
+  padding: 11px 11px;
 }
 
 /* Buttons menu */
@@ -165,10 +166,12 @@ progressbar {
 }
 
 .widget-mpris-player {
-    background: #101010;
-    padding: 8px;
-    box-shadow: none;
-    border-radius: 0px;
+    margin: 0px 10px 0px 10px;
+}
+
+/* TEMPORARY FIX FOR SWAYNC - CHECK REPO FOR CHANGES */
+.widget-mpris-player box {
+  background-color: @background;
 }
 
 .widget-mpris > box > button {
@@ -177,16 +180,15 @@ progressbar {
  
 .widget-mpris button {
   color: #FFF;
+  padding: 2px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .widget-mpris button:hover {
   color: #ff5400;
 }
 
-.widget-mpris-album-art {
-  border-radius: 1px;
-}
- 
 .widget-mpris-title {
     font-weight: 600;
     font-size: 0.9rem;
@@ -235,7 +237,7 @@ trough highlight:hover {
 }
 
 .widget-volume .per-app-volume image {
-  margin-right: 12px;
+  margin-right: 19px;
 }
 
 .widget-backlight {

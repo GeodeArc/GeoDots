@@ -1,10 +1,9 @@
 {
-  "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "right",
   "positionY": "top",
   "cssPriority": "user",
 
-  "control-center-width": 400,
+  "control-center-width": 358,
   "control-center-height": 720, 
 
   "notification-window-width": 400,
@@ -23,6 +22,10 @@
   "hide-on-clear": false,
   "hide-on-action": false,
   "script-fail-notify": true,
+  
+  "layer-shell": true,
+  "layer-shell-cover-screen": true,
+  
   "notification-visibility": {
     "example-name": {
       "state": "muted",
@@ -49,7 +52,6 @@
     },
     "mpris": {
       "image-size": 96,
-      "image-radius": 12,
       "blacklist": ["playerctld"]
     },
     "backlight": {

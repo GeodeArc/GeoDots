@@ -109,7 +109,7 @@ progressbar {
   font-size: 1.25rem;
   color: @text;
   letter-spacing: 2px;
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 
 .notification-group-icon {
@@ -141,9 +141,8 @@ progressbar {
 .widget-dnd > switch {
   background: @background-alt;
   font-size: initial;
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 2px;
+  border-radius: 100px;
+  padding: 3px;
 }
 
 .widget-dnd > switch:hover {
@@ -151,7 +150,7 @@ progressbar {
 }
 
 .widget-dnd > switch:checked {
-  background: @selected;
+  background: @text;
 }
 
 .widget-dnd > switch:checked:hover {
@@ -159,8 +158,9 @@ progressbar {
 }
 
 .widget-dnd > switch slider {
-  background: @text;
-  border-radius: 6px;
+  background: @selected;
+  padding: 11px 11px;
+  border-radius: 100px;
 }
 
 /* Buttons menu */
@@ -189,25 +189,29 @@ progressbar {
 
 /* Music player */
 .widget-mpris {
-    border-radius: 10px;
-    margin: 5px 0px 0px 0px;
+  border-radius: 10px;
+  margin: 5px 0px 0px 0px;
 }
 
 .widget-mpris-player {
-    background-color: @background-alt;
     border-radius: 10px;
-    padding: 8px;
-    box-shadow: none;
     margin: 0px 10px 0px 10px;
+}
+
+/* TEMPORARY FIX FOR SWAYNC - CHECK REPO FOR CHANGES */
+.widget-mpris-player box {
+  background-color: @background;
 }
 
 .widget-mpris > box > button {
   color: @text;
-  border-radius: 10px;
 }
  
 .widget-mpris button {
   color: #FFF;
+  padding: 2px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
 .widget-mpris button:hover {
@@ -219,13 +223,13 @@ progressbar {
 }
  
 .widget-mpris-title {
-    font-weight: 600;
-    font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
  
 .widget-mpris-subtitle {
-    font-weight: 500;
-    font-size: 0.8rem;
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 
 /* Volume widget */
@@ -272,7 +276,7 @@ trough highlight:hover {
 }
 
 .widget-volume .per-app-volume image {
-  margin-right: 12px;
+  margin-right: 19px;
 }
 
 .widget-backlight {
