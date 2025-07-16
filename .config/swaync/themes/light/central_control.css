@@ -200,15 +200,14 @@ progressbar {
     margin: 0px 10px 0px 10px;
 }
 
-/* TEMPORARY FIX FOR SWAYNC - CHECK REPO FOR CHANGES */
-.widget-mpris-player box {
-  background-color: @background;
-}
+.mpris-background { 
+   filter: blur(6px); 
+} 
 
 .widget-mpris > box > button {
   color: @text;
 }
- 
+
 .widget-mpris button {
   color: #000;
   padding: 2px;
@@ -222,6 +221,7 @@ progressbar {
 
 .widget-mpris-album-art {
   border-radius: 10px;
+  margin: 6px;
 }
  
 .widget-mpris-title {

@@ -11,7 +11,7 @@
 > This will only work for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change in the future, no guarantees though.
 
 > [!WARNING]
-> The notification center (swaync) recently had an update that broke the media background. This is currently disabled (static bg), I am looking into it.
+> For current users, please update the swaync config file. Ive fixed all the glaring issues, please let me know if you find any more.
 
 #
 
