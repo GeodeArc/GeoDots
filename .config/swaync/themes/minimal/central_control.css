@@ -171,11 +171,11 @@ progressbar {
 
 /* TEMPORARY FIX FOR SWAYNC - CHECK REPO FOR CHANGES */
 .widget-mpris-player box {
-  background-color: @background;
+  background-color: #000;
 }
 
 .widget-mpris > box > button {
-  color: @text;
+  color: #fff;
 }
  
 .widget-mpris button {
