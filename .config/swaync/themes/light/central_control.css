@@ -201,7 +201,9 @@ progressbar {
 }
 
 .mpris-background { 
-   filter: blur(6px); 
+  filter: blur(6px); 
+  opacity: 0.6;
+  background-color: @background-alt;
 } 
 
 .widget-mpris > box > button {
@@ -209,7 +211,7 @@ progressbar {
 }
 
 .widget-mpris button {
-  color: #000;
+  color: #fff;
   padding: 2px;
   padding-top: 20px;
   padding-bottom: 10px;
@@ -227,13 +229,13 @@ progressbar {
 .widget-mpris-title {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #000;
+    color: #fff;
 }
  
 .widget-mpris-subtitle {
     font-weight: 500;
     font-size: 0.8rem;
-    color: #000;
+    color: #fff;
 }
 
 /* Volume widget */
