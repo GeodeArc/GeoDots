@@ -15,7 +15,8 @@ SUPER + SPACE = Launch Apps (App Menu)
 SUPER + Q = Quit App
 
 SUPER + V = Toggle App Floating
-SUPER + J = Toggle App Split
+SUPER + O = Toggle App Split
+SUPER + P = Toggle App Pseudo
 SUPER + F = Toggle App Fullscreen
 SUPER + SHIFT + F = Toggle App Maximized
 
@@ -30,8 +31,7 @@ SUPER + PERIOD (.) = Emoji Selector
 SUPER + M = Theme Selector
 
 Terminal actions:
-SUPER + SHIFT + T = Change Dark/Light Theme
-SUPER + U = Update Computer (+ flatpaks)
+SUPER + I = Settings Menu
 SUPER + K = See Default Keybinds (doesnt update!)
 
 
