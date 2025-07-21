@@ -85,7 +85,7 @@
 
 ### 🖼️ SCREENSHOTS:
 
-![Main Setup with swaync](https://github.com/user-attachments/assets/eeba5fcf-422b-4b09-827b-b11ba392d104)
+![Main Setup with SwayNC](https://github.com/user-attachments/assets/20b1735a-2608-432e-b642-b56b6f227d4c)
 
 ![CLI apps showcase & Power menu](https://github.com/user-attachments/assets/6c7cf91e-f1fe-43a3-8cb1-aebb41d66e69)
 
