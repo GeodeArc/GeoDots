@@ -38,26 +38,27 @@ aurinstall() {
         echo "An AUR helper is needed for installation. Please pick either yay or paru, or specify one."
         echo ""
         echo "yay is a simple/lightweight AUR helper known for its simplicity. Some of the defaults it has can be confusing."
-        echo "paru is a feature rich/lightweight AUR helper known for good defaults/user experience. It will take longer to install due to Rust."
+        echo "paru is a feature rich/lightweight AUR helper known for good defaults/user experience. Its my personal favorite, but yay is more popular."
         echo "You can always install another aur helper at any time after installation, dont feel locked into one."
         echo ""
         echo "▶  [1] yay"
         echo "▶  [2] paru"
-        echo "◆  [3] I have another AUR helper id like to use"
+        echo "◆  [3] Not working / I have another AUR helper"
         echo ""
-        read -p "Please choose an option [1-3] " aurhelper
+        echo "Please choose an option [1-3]" 
+        read -p " ■ " aurhelper
 
         case "$aurhelper" in
                 1)
                     clear
-                    install_aur_helper "yay" "https://aur.archlinux.org/yay"
+                    install_aur_helper "yay" "https://aur.archlinux.org/yay-bin.git"
                     if [[ $? -eq 0 ]]; then # checks for return 0
 			            return
 		            fi
                     ;;
                 2)
                     clear
-                    install_aur_helper "paru" "https://aur.archlinux.org/paru"
+                    install_aur_helper "paru" "https://aur.archlinux.org/paru-bin.git"
                     if [[ $? -eq 0 ]]; then # checks for return 0
 			            return
 		            fi
@@ -145,10 +146,13 @@ custom_aur_helper() {
         echo "- Check your AUR helpers documentation if you dont know what command/flags you need to use."
         echo "- Be careful here, Installation will not work properly/at all if this is messed up."
         echo ""
+        echo "If the AUR is down, or you would like to avoid the AUR, you can also enter 'sudo pacman -Sy --needed' here."
+        echo "Make sure to enable Chaotic AUR later, and some packages may not be available (notably nautilus tweaks)."
+        echo ""
         echo "If you got here by mistake, please type 'back' in lowercase to return to the previous menu."
         echo ""
         echo "E.g: 'paru -Sy --needed', or 'yay -Sy --needed'"
-        read -p "Enter here: " customaur
+        read -p " ■ " customaur
 
         if [[ "$customaur" == "back" ]]; then
             clear
@@ -799,6 +803,9 @@ chaoticinstall () {
 backup () {
     while true; do
         echo "Would you like to backup existing config folders? [Y/N]"
+        echo ""
+        echo "If this is a new installation, you can safely skip this step."
+        echo ""
         read -p " ■ " dobackup
         case "$dobackup" in
                 [Yy])
