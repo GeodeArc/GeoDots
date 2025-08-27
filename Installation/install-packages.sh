@@ -4,8 +4,8 @@
 # VARS
 #
 
-APPTYPE_FILE="$(cat /tmp/geodots_apptype)"
-AUR_HELPER="$(cat /tmp/geodots_aurhelper)"
+APPTYPE_FILE="$(cat $HOME/GeoDots/apptype)"
+AUR_HELPER="$(cat $HOME/GeoDots/aurhelper)"
 BROWSER="$(cat $HOME/GeoDots/Dots/Options/browser)"
 
 PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)"
@@ -95,7 +95,6 @@ fi
 # PACMAN PKGS
 #
 
-
 while true; do
     echo "Installing PACMAN packages"
     sudo pacman -S --needed $PACMAN_PKGS
@@ -113,7 +112,7 @@ while true; do
         read -p " ■ " choice
         if [[ "$choice" == "troubleshoot" ]]; then
             clear
-            ./Dots/Scripts/Installation/troubleshooter.sh
+            ./Installation/troubleshooter.sh
             PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
             AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
             GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
@@ -144,7 +143,7 @@ while true; do
         read -p " ■ " choice
         if [[ "$choice" == "troubleshoot" ]]; then
             clear
-            ./Dots/Scripts/Installation/troubleshooter.sh
+            ./Installation/troubleshooter.sh
             PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
             AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
             GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
@@ -168,6 +167,8 @@ nautilustweak () {
         fi
 
         echo "Also install nautilus tweaks (copy path, terminal, admin)? [Y/N]"
+        echo ""
+        echo "Note: If you skipped AUR helper installation, this wont be possible."
         read -p " ■ " tweaks
         case "$tweaks" in
             [Yy])
@@ -220,7 +221,7 @@ while true; do
             read -p " ■ " choice
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./Installation/troubleshooter.sh
                 PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
                 AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
                 GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
@@ -246,7 +247,7 @@ while true; do
             read -p " ■ " choice
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./Installation/troubleshooter.sh
                 PACMAN_PKGS="$(cat $HOME/GeoDots/pkg-pacman)" # refresh may be needed
                 AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
                 GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
@@ -287,7 +288,7 @@ while true; do
             read -p " ■ " choice
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                ./Dots/Scripts/Installation/troubleshooter.sh
+                ./Installation/troubleshooter.sh
             fi
             if [[ "$choice" == "skip" ]]; then
                 clear
@@ -333,8 +334,8 @@ rm $HOME/GeoDots/.config/wal/templates/temp/
 cp -r $HOME/GeoDots/.config/hypr/themes/default/hyprland.conf $HOME/GeoDots/.config/hypr/
 
 sudo cp -a $HOME/GeoDots/.config/. $HOME/.config/
-mv $HOME/.config/.zshrc $HOME
-mv $HOME/.config/.bashrc $HOME
+mv $HOME/.config/sh/.zshrc $HOME
+mv $HOME/.config/sh/.bashrc $HOME
 
 echo "Creating DOTFILES folder (~/Dots)"
 cp -a $HOME/GeoDots/Dots $HOME/Dots

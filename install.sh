@@ -28,7 +28,7 @@ while true; do
 
     case "$installtype" in
         1)
-            ./Dots/Scripts/Installation/main-guidedinstall.sh 
+            ./Installation/main-guidedinstall.sh 
             break
             ;;
         2)

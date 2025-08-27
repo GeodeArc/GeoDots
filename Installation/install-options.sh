@@ -1,7 +1,6 @@
 #!/bin/bash
 
-STATE_FILE="/tmp/geodots_skipchecks"
-AUR_FILE="/tmp/geodots_aurhelper"
+AUR_FILE="$HOME/GeoDots/aurhelper"
 
 codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
 otherdots=(
@@ -16,23 +15,19 @@ otherdots=(
 
 aurinstall() {
     while true; do
-        if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
-            echo "Check skipping enabled!"
-        else
-            if pacman -Qq yay &>/dev/null; then
-                echo "AUR helper (yay) already installed. Skipping this step."
-                echo "yay -Sy --needed" > "$AUR_FILE"
-                sleep 1
-                clear
-                return
-            fi
-            if pacman -Qq paru &>/dev/null; then
-                echo "AUR helper (paru) already installed. Skipping this step."
-                echo "paru -Sy --needed" > "$AUR_FILE"
-                sleep 1
-                clear
-                return
-            fi
+        if pacman -Qq yay &>/dev/null; then
+            echo "AUR helper (yay) already installed. Skipping this step."
+            echo "yay -Sy --needed" > "$AUR_FILE"
+            sleep 1
+            clear
+            return
+        fi
+        if pacman -Qq paru &>/dev/null; then
+            echo "AUR helper (paru) already installed. Skipping this step."
+            echo "paru -Sy --needed" > "$AUR_FILE"
+            sleep 1
+            clear
+            return
         fi
 
         echo "An AUR helper is needed for installation. Please pick either yay or paru, or specify one."
@@ -99,7 +94,7 @@ install_aur_helper() {
 
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                cd $HOME/GeoDots/Dots/Scripts/Installation/
+                cd $HOME/GeoDots/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -131,7 +126,7 @@ install_aur_helper() {
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
                 echo "Running troubleshooter..."
-                cd $HOME/GeoDots/Dots/Scripts/Installation/ # weird af but i gotta do it.
+                cd $HOME/GeoDots/Installation/ # weird af but i gotta do it.
                 ./troubleshooter.sh
             fi
             clear
@@ -185,15 +180,11 @@ custom_aur_helper() {
 
 fontinstall() {
     while true; do
-        if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
-            echo "Check skipping enabled!"
-        else
-            if pacman -Qq $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") &>/dev/null; then
-                echo "Noto fonts already installed. Skipping this step."
-                sleep 1
-                clear
-                return
-            fi
+        if pacman -Qq $(pacman -Ssq noto-fonts | grep -v "^noto-fonts-emoji-flag-git") &>/dev/null; then
+            echo "Noto fonts already installed. Skipping this step."
+            sleep 1
+            clear
+            return
         fi
 
         echo "Couldnt find any/all noto-fonts, would you like to install them?"
@@ -248,7 +239,7 @@ install_noto_font() {
             fi
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                cd $HOME/GeoDots/Dots/Scripts/Installation/
+                cd $HOME/GeoDots/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -270,27 +261,27 @@ install_nerd_font() { # disabled for now until font choice is complete
     sudo pacman -Sy --needed "$font_pkg"
 
     if pacman -Qq $(pacman -Ssq $font_pkg) &>/dev/null; then
-            clear
-            echo "Fonts installed successfully!"
-            read -p "Press Enter when you are ready to move on."
-            return
-        else
-            echo ""
-            echo "WARNING: Installation of nerd font failed or could not be verified."
-            echo "Press ENTER to return to the main menu for another attempt"
-            echo "Alternatively, type 'skip' to skip, or 'troubleshoot' to run the troubleshooter"
-            read -p " ■ " choice
-            if [[ "$choice" == "skip" ]]; then
-                return
-            fi
-            if [[ "$choice" == "troubleshoot" ]]; then
-                clear
-                cd $HOME/GeoDots/Dots/Scripts/Installation/
-                ./troubleshooter.sh
-            fi
-            clear
+        clear
+        echo "Fonts installed successfully!"
+        read -p "Press Enter when you are ready to move on."
+        return
+    else
+        echo ""
+        echo "WARNING: Installation of nerd font failed or could not be verified."
+        echo "Press ENTER to return to the main menu for another attempt"
+        echo "Alternatively, type 'skip' to skip, or 'troubleshoot' to run the troubleshooter"
+        read -p " ■ " choice
+        if [[ "$choice" == "skip" ]]; then
             return
         fi
+        if [[ "$choice" == "troubleshoot" ]]; then
+            clear
+            cd $HOME/GeoDots/Installation/
+            ./troubleshooter.sh
+        fi
+        clear
+        return
+    fi
 }
 
 nerdinstall() { # disabled for now until font choice is complete
@@ -360,13 +351,13 @@ toolkitselect () {
 
         case "$apptype" in
             1)
-                echo qt > /tmp/geodots_apptype
+                echo qt > $HOME/GeoDots/apptype
                 echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 break
                 ;; 
             2)
-                echo gtk > /tmp/geodots_apptype
+                echo gtk > $HOME/GeoDots/apptype
                 echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 break
@@ -399,19 +390,15 @@ browserselect() {
     while true; do
         local browsers=("firefox" "chromium" "brave" "vivaldi" "google-chrome" "floorp" "librewolf" "epiphany") # Feel free to suggest other browsers I can add here. Doesnt check flatpaks, i know sorry
 
-        if [[ -f "$STATE_FILE" && "$(cat "$STATE_FILE")" == "true" ]]; then
-            echo "Check skipping enabled!"
-        else
-            for browser in "${browsers[@]}"; do
-                if command -v "$browser" >/dev/null 2>&1; then # command instead of pacman, because different versions of packages.
-                    echo "$browser browser is already installed, skipping browser installation"
-                    echo "$browser" > $HOME/GeoDots/Dots/Options/browser
-                    sleep 1
-                    clear
-                    return
-                fi
-            done
-        fi
+        for browser in "${browsers[@]}"; do
+            if command -v "$browser" >/dev/null 2>&1; then # command instead of pacman, because different versions of packages.
+                echo "$browser browser is already installed, skipping browser installation"
+                echo "$browser" > $HOME/GeoDots/Dots/Options/browser
+                sleep 1
+                clear
+                return
+            fi
+        done
             
         echo "Couldnt find a browser, would you like to install one now?"
         echo ""
@@ -531,7 +518,7 @@ themeconfig() {
             read -p " ■ " choice
             if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                cd $HOME/GeoDots/Dots/Scripts/Installation/
+                cd $HOME/GeoDots/Installation/
                 ./troubleshooter.sh
             fi
             clear
@@ -593,7 +580,7 @@ mainsddm() {
     echo -e "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
 
     sudo cp -r $HOME/GeoDots/Dots/Wallpapers/wall1.jpg /usr/share/sddm/themes/sddm-astronaut-theme/Backgrounds/wallpaper.jpg
-    mv $HOME/GeoDots/.config/sddm/update_sddm.sh $HOME/GeoDots/Dots/Scripts/Themes
+    mv $HOME/GeoDots/.config/sddm/update_sddm.sh $HOME/GeoDots/Themes
     rm -r $HOME/GeoDots/.config/sddm/
 }
 
@@ -643,7 +630,7 @@ sddmtheme() {
 
                 sudo mkdir -p /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/
                 sudo cp -r $HOME/GeoDots/Dots/Wallpapers/wall1.jpg /usr/share/sddm/themes/win11-sddm-theme/Backgrounds/wallpaper.jpg
-                mv $HOME/GeoDots/.config/sddm/update_sddm.sh $HOME/GeoDots/Dots/Scripts/Themes
+                mv $HOME/GeoDots/.config/sddm/update_sddm.sh $HOME/GeoDots/Themes
                 rm -r $HOME/GeoDots/.config/sddm/
                 return
                 ;;
@@ -687,7 +674,7 @@ selectdm() {
                     fi
                     if [[ "$dmfail" == "troubleshoot" ]]; then
                         clear
-                        cd $HOME/GeoDots/Dots/Scripts/Installation/
+                        cd $HOME/GeoDots/Installation/
                         ./troubleshooter.sh
                     fi
                     clear
@@ -776,7 +763,7 @@ chaoticinstall () {
                         fi
                         if [[ "$chaoticfail" == "troubleshoot" ]]; then
                             clear
-                            cd $HOME/GeoDots/Dots/Scripts/Installation/
+                            cd $HOME/GeoDots/Installation/
                             ./troubleshooter.sh
                         fi
                         clear

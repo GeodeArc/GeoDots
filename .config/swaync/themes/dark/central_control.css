@@ -190,6 +190,7 @@ progressbar {
 /* Music player */
 .widget-mpris {
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .widget-mpris-player {
