@@ -18,13 +18,15 @@ aurinstall() {
         if pacman -Qq yay &>/dev/null; then
             echo "AUR helper (yay) already installed. Skipping this step."
             echo "yay -Sy --needed" > "$AUR_FILE"
+            echo "alias update='yay -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
             sleep 1
             clear
             return
         fi
-        if pacman -Qq paru &>/dev/null; then
+        if pacman -Qq paru &>/dev/null; thens
             echo "AUR helper (paru) already installed. Skipping this step."
             echo "paru -Sy --needed" > "$AUR_FILE"
+            echo "alias update='paru -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
             sleep 1
             clear
             return
@@ -112,6 +114,7 @@ install_aur_helper() {
             clear
             echo "$aurh_name installed successfully!"
             echo "$aurh_name -Sy --needed" > "$AUR_FILE"
+            echo "alias update='$aurh_name -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
             sudo rm -r $HOME/$aurh_name
             read -p "Press Enter when you are ready to move on."
             clear
