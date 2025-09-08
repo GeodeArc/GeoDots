@@ -40,7 +40,7 @@ for pkg in $PKGS_CONFLICT_LIST; do
 done
 
 # has to be done after the original variable, since it changes
-PKG_CONFLICTS=$(echo "$PKG_CONFLICTS" | sed 's/\brofi-wayland\b//g' | xargs) # removes false positive since rofi/rofi-wayland are identified by pacman -Qq.
+PKG_CONFLICTS=$(echo "$PKG_CONFLICTS")
 
 if [[ -z "$PKG_CONFLICTS" ]]; then
     echo "No conflicts found!"
