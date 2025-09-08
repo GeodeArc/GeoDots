@@ -1,17 +1,15 @@
 <h3 align="center">
-  <img width="80%" src=https://github.com/user-attachments/assets/b3c9cd7c-dce9-44cb-9a21-434054c2f737/>
+  <img width="2561" height="1084" alt="GeoDots Banner (cringe)" src="https://github.com/user-attachments/assets/c9e819ac-40ab-4e95-875d-b492a6f20fd8" />
+  <h3 align="center">by <b>GeodeArc <3</b></h3>
 </h3>
 
 <div align="center">
-  <p>⚠️ This is an unfinished project! While it should be installable, you may run into issues.</p>
+  <i>version 0.0.9 or something idk</i>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
 > [!NOTE]
-> This will only work for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change in the future, no guarantees though.
-
-> [!WARNING]
-> For current users, please update the swaync config file. Ive fixed all the glaring issues, please let me know if you find any more.
+> GeoDots is created for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
 
 #
 
@@ -75,7 +73,7 @@
 
 ### 💫 FEATURES
 
-- ⚙️ Stupidly simple installer with bug prevention 
+- ⚙️ Incredibly easy installer with bug prevention 
 - 💥 3 different modes (Light, Dark, Minimal)
 - 🖌️ Consistent styling (ish)
 - 🌈 Color scheme changes with wallpaper
