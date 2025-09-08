@@ -5,6 +5,8 @@
 # Actually complete everything
 # Make things more complex (e.g modifying keybinds, adding monitors etc)
 
+MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
+
 clear
 
 hyprland-look() {
@@ -72,6 +74,15 @@ hyprland-hardware() {
                 clear
                 ;;
             3)
+                clear
+                echo "Below are your current monitors."
+                echo "Please copy one to use for the new primary monitor (e.g DP-1, Virtual-1)"
+                echo 
+                for i in "${!MONITORS[@]}"; do
+                    echo "${MONITORS[i]}"
+                done
+                echo 
+                read -p "Press ENTER to continue"
                 nano $HOME/.config/hypr/config/hardware/primary.conf
                 clear
                 ;;
@@ -138,13 +149,16 @@ hyprland() {
                 clear
                 ;;
             6)
-                nano $HOME/.config/hypr/config/setup/misc.conf
+                nano $HOME/.config/hypr/config/setup/autostart.conf
+                clear
                 ;;
             7)
                 nano $HOME/.config/hypr/config/setup/envvars.conf
+                clear
                 ;;
             8)
                 nano $HOME/.config/hypr/hyprlock.conf
+                clear
                 ;;
             9)  
                 clear
