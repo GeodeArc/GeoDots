@@ -114,7 +114,8 @@ install_aur_helper() {
             clear
             echo "$aurh_name installed successfully!"
             echo "$aurh_name -Sy --needed" > "$AUR_FILE"
-            echo "alias update='$aurh_name -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
+            echo "$aurh_name -Syu" > "$HOME/GeoDots/Dots/Options/aurhelper"
+            echo "alias updatepkgs='$aurh_name -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
             sudo rm -r $HOME/$aurh_name
             read -p "Press Enter when you are ready to move on."
             clear

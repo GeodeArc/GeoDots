@@ -20,3 +20,4 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 # OTHER
 alias settings="$HOME/Dots/Scripts/Hyprland/settings.sh"
 alias q="exit"
+alias update="$HOME/Dots/Scripts/Hyprland/update.sh"
