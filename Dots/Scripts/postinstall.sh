@@ -37,17 +37,12 @@ monitorselect() {
 
 monitorselect
 
-notify-send -i system-run-symbolic "Applying Initial Colors" "Waybar may flicker, and notifications may double due to a bug in pywal. This is normal."
+notify-send -i system-run-symbolic "Applying Initial Colors" "Waybar will refresh during this time."
 
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
-sleep 1
-setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null & # I have to do this twice because wal (or swww) sucks first time... smh
 
 echo "complete" > $HOME/Dots/Options/startup
 
 clear
-echo
-
-bash $HOME/Dots/Scripts/Hyprland/settings.sh
-
+bash $HOME/Dots/Scripts/Settings/settings.sh
 exit 0

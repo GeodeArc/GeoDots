@@ -1,5 +1,6 @@
 # GENERAL
 alias c="clear"
+alias q="exit"
 alias nf="fastfetch"
 alias ff="fastfetch"
 alias ls="eza -a --icons"
@@ -18,6 +19,5 @@ alias e="yazi"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # OTHER
-alias settings="$HOME/Dots/Scripts/Hyprland/settings.sh"
-alias q="exit"
-alias update="$HOME/Dots/Scripts/Hyprland/update.sh"
+alias settings="$HOME/Dots/Scripts/Settings/settings.sh"
+alias update="$HOME/Dots/Scripts/Settings/update.sh"
