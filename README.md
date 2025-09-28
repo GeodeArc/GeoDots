@@ -101,25 +101,29 @@
   <summary>🟡 Roadmap</summary>
   <h3>Current (Roadmap for first RELEASE):</h3>
     
-  - Finish settings script
+  - Add nvim config/editor choice?
 
-  - Finish required wiki articles
+  - Switch from plaintext files to envvars?
+
+  - Make settings script more robust/easier to use
+
+  - Better hyprlock with clickable widgets + more hyprlock themes?
 
   <h3>Maybe later:</h3>
 
-  - Add hyprlock autologon (maybe with sddm since that seems easy)
+  - Add hyprlock autologon (greetd probably)
+
+  - Make some configs (waybar, rofi) less messy
 
   - Add matugen GTK theming atleast, maybe deprecate pywal?
 
+  - Add pywalfox if firefox is selected
+
   - Add quicker installation (auto install)
 
-  - Ability to choose nerd font (might not add)
-
-  - Add hyprlock click widgets when available?
+  - Ability to choose nerd font, terminal, etc (might not add)
 
   - Installer for other distros (sobbing emoji)
-
-  - NVIDIA selection (i folded)
 
 </details> 
 
