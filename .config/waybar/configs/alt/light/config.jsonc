@@ -118,7 +118,7 @@
   // Settings
   "custom/settings": {
     "format": "",
-    "on-click": "kitty $HOME/Dots/Scripts/Hyprland/settings.sh",
+    "on-click": "kitty $HOME/Dots/Scripts/Settings/settings.sh",
     "tooltip-format": "Settings"
   },
 
