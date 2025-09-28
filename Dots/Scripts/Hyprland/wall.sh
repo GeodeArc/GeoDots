@@ -2,9 +2,9 @@
 
 sleep 1
 
-monitor=$(cat $HOME/Dots/Options/mainmonitor)
-cache_file="$HOME/.cache/swww/$monitor"
-wallpaper=$(grep -v "^Lanczos3" "$cache_file")
+primary_monitor=$(cat "$HOME/Dots/Options/mainmonitor")
+wallpaper=$(swww query | grep "^: $primary_monitor:" | sed 's/.*image: //')
+
 genwal=$wallpaper
 wallname=$(echo $genwal | sed 's/.*\///')
 
