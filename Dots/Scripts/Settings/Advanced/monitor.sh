@@ -216,8 +216,6 @@ monitorremove() {
 
     if [[ "$choice" == "0" ]]; then
         clear
-        echo "Abandoned, press ENTER to return."
-        read -p " ■ "
         return
     fi
 
@@ -264,6 +262,10 @@ while true; do
             clear
             nano $HOME/.config/hypr/config/hardware/monitor.conf
             clear
+            ;;
+        4)
+            clear
+            $HOME/Dots/Scripts/Settings/settings.sh
             ;;
         *)
             clear

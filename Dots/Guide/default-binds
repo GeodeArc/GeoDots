@@ -1,6 +1,6 @@
 Default Keybinds. PRESS Q TO EXIT.
 
-SUPER is your windows key, also known as mainMod.
+SUPER is your windows key, also known as Mod.
 At any time, press SUPER + K to see keybinds.
 
 Base Apps:
@@ -20,12 +20,13 @@ SUPER + P = Toggle App Pseudo
 SUPER + F = Toggle App Fullscreen
 SUPER + SHIFT + F = Toggle App Maximized
 
+SUPER + SHIFT + S = Quick Screenshot
 SUPER + L = Lock Computer
 CTRL + ALT + DELETE = Exit
 
 Menus:
 SUPER + SHIFT + L = Power menu
-SUPER + SHIFT + S = Screenshot Menu
+SUPER + S = Screenshot Menu
 SUPER + C = Clipboard History
 SUPER + PERIOD (.) = Emoji Selector
 SUPER + M = Theme Selector
@@ -37,9 +38,7 @@ SUPER + K = See Default Keybinds (doesnt update!)
 
 Waybar Controls:
 SUPER + SHIFT + B = Refresh Waybar
-SUPER + CTRL + B = Change Waybar Style
 SUPER + ALT + B = Disable/enable Waybar
-
 
 Wallpaper:
 SUPER + W = Select Wallpaper

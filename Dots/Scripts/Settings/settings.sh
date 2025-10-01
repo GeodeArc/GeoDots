@@ -122,7 +122,6 @@ hyprland() {
         echo "-------------------------------------------------------"
         echo "8. Edit Hyprlock (Lock Screen)                        "
         echo "-------------------------------------------------------"
-        echo "?. Help                                               󰋼"
         echo "9. Return                                             󰌑"
         echo "-------------------------------------------------------"
         echo ""
@@ -166,11 +165,6 @@ hyprland() {
             9)  
                 clear
                 return
-                ;;
-            [?])
-                clear
-                less $HOME/Dots/Guide/hyprland-help
-                clear
                 ;;
             *)
                 clear
