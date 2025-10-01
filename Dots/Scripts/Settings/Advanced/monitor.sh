@@ -266,6 +266,7 @@ while true; do
         4)
             clear
             $HOME/Dots/Scripts/Settings/settings.sh
+            break
             ;;
         *)
             clear
