@@ -5,6 +5,9 @@
 # Actually complete everything
 # Make things more complex (e.g modifying keybinds, adding monitors etc)
 
+# For advanced config, as well as advanced options, still allow users to edit the file directly if they please
+# Dont add literally every option to advanced options, only the most important stuff (listed)
+
 MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
 
 clear
@@ -27,11 +30,11 @@ hyprland-look() {
 
         case $choice in 
             1)
-                nano $HOME/.config/hypr/config/looks/decor.conf
+                nano $HOME/.config/hypr/config/looks/decor.conf # Add advanced config - Gaps, Rounding, Blur, Shadow, Border colors
                 clear
                 ;;
             2)
-                nano $HOME/.config/hypr/config/looks/animations.conf
+                nano $HOME/.config/hypr/config/looks/animations.conf # just editor
                 clear
                 ;;
             3)
@@ -66,11 +69,11 @@ hyprland-hardware() {
 
         case $choice in 
             1)
-                nano $HOME/.config/hypr/config/hardware/monitor.conf
+                $HOME/Dots/Scripts/Settings/Advanced/monitor.sh
                 clear
                 ;;
             2)
-                nano $HOME/.config/hypr/config/hardware/input.conf
+                nano $HOME/.config/hypr/config/hardware/input.conf # Add advanced config, sensitivity, gestures, and kb layout.
                 clear
                 ;;
             3)
@@ -83,7 +86,7 @@ hyprland-hardware() {
                 done
                 echo 
                 read -p "Press ENTER to continue"
-                nano $HOME/.config/hypr/config/hardware/primary.conf
+                nano $HOME/.config/hypr/config/hardware/primary.conf # Maybe change to selection instead of nano, like postinstall.sh
                 clear
                 ;;
             4)
@@ -141,23 +144,23 @@ hyprland() {
                 clear
                 ;;
             4)
-                nano $HOME/.config/hypr/config/software/keybinds.conf
+                nano $HOME/.config/hypr/config/software/keybinds.conf # Advanced config, add or edit keybinds (this will be tricky but so worth).
                 clear
                 ;;
             5)
-                nano $HOME/.config/hypr/config/software/rules.conf
+                nano $HOME/.config/hypr/config/software/rules.conf # Advanced config, add or edit window rules AND layer rules.
                 clear
                 ;;
             6)
-                nano $HOME/.config/hypr/config/setup/autostart.conf
+                nano $HOME/.config/hypr/config/setup/autostart.conf # Advanced config, add or edit autostart apps.
                 clear
                 ;;
             7)
-                nano $HOME/.config/hypr/config/setup/envvars.conf
+                nano $HOME/.config/hypr/config/setup/envvars.conf # Advanced config, add or edit environment variables.   
                 clear
                 ;;
             8)
-                nano $HOME/.config/hypr/hyprlock.conf
+                nano $HOME/.config/hypr/hyprlock.conf # Advanced config, wallpaper, widgets enabled, media player maybe, fingerprint, etc.
                 clear
                 ;;
             9)  
@@ -200,25 +203,25 @@ customization() {
 
         case $choice in 
             1)
-                nano $HOME/.config/sh/aliases.sh
+                nano $HOME/.config/sh/aliases.sh # Advanced config, add or edit aliases.
                 clear
                 ;;
             2)
-                nano $HOME/.config/hypr/config/cursortheme.conf
+                nano $HOME/.config/hypr/config/cursortheme.conf # Advanced config, set cursor theme (should be really easy)
                 clear
                 ;;
             3)
-                nano $HOME/.config/waybar/settings/items.jsonc
+                nano $HOME/.config/waybar/settings/items.jsonc # Advanced config, modify/change order of items, change workspaces, etc.
                 clear
                 ;;
             4)
                 clear
-                $HOME/Dots/Scripts/Settings/placeholder.sh
+                $HOME/Dots/Scripts/Settings/placeholder.sh # Advanced config, change image, change rofi-emoji to smile, font?, vertical/horizontal launcher.
                 clear
                 ;;
             5)
                 clear
-                $HOME/Dots/Scripts/Settings/placeholder.sh
+                $HOME/Dots/Scripts/Settings/placeholder.sh # Advanced config, change control panel items, change media player type etc? 
                 clear
                 ;;
             6)
