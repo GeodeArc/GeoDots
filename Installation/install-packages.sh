@@ -327,9 +327,6 @@ done
 
 echo "Making temporary cache files for wal"
 mkdir -p $HOME/.cache/wal/
-mv $HOME/GeoDots/.config/wal/templates/temp/colors-hyprland.conf $HOME/.cache/wal/
-mv $HOME/GeoDots/.config/wal/templates/temp/colors-rofi-pywal.rasi $HOME/.cache/wal/
-rm $HOME/GeoDots/.config/wal/templates/temp/
 
 cp -r $HOME/GeoDots/.config/hypr/themes/default/hyprland.conf $HOME/GeoDots/.config/hypr/
 
