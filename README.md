@@ -23,14 +23,14 @@
   > Should work on pretty much any arch based system (minimal, or not). If theres an issue installing, please submit a bug report! 
 
   ```
-  bash <(curl -fsSL "https://geodearc.github.io/GeoDots/install.sh")
+  bash <(curl -fsSL "https://gdrc.me/dots.sh")
   ```
   <p></p>
 
   > If the above command doesnt work, you are likely using a non-standard shell (like fish). Try running this command instead (assumes bash is installed, install `bash` with pacman otherwise).
 
   ```
-  bash -c "$(curl -fsSL https://geodearc.github.io/GeoDots/install.sh)"
+  bash -c "$(curl -fsSL https://gdrc.me/dots.sh)"
   ```
 
 </details> 

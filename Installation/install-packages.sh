@@ -13,9 +13,9 @@ AUR_PKGS="$(cat $HOME/GeoDots/pkg-aurs)"
 GTK_PKGS="$(cat $HOME/GeoDots/pkg-gtk)"
 QT_PKGS="$(cat $HOME/GeoDots/pkg-qt)"
 
-codirs="$(curl -s https://geodearc.github.io/GeoDots/configdirs)"
+codirs="$(curl -s https://gdrc.me/GeoDots/configdirs)"
 INSTALLED_PKGS=$(pacman -Qq)
-PKGS_CONFLICT_LIST="$(curl -s https://geodearc.github.io/GeoDots/pkg-conflicts)"
+PKGS_CONFLICT_LIST="$(curl -s https://gdrc.me/GeoDots/pkg-conflicts)"
 PKG_CONFLICTS=""
 
 #
