@@ -510,7 +510,7 @@ themeconfig() {
 
             cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
             cp -a $HOME/GeoDots/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/
-            cp -a $HOME/GeoDots/.config/rofi/options/$type/. $HOME/GeoDots/.config/rofi/
+            cp -a $HOME/GeoDots/.config/rofi/modern/$type/config.rasi $HOME/GeoDots/.config/rofi/
             clear
             echo "Theme successfully installed!"
             read -p "Press ENTER to move on: "

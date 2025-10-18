@@ -6,10 +6,16 @@
 ## Adapted by : @GeodeArc
 ##
 
-dir="$HOME/.config/rofi/launcher"
-theme='vertical'
+$stlconf="$(cat $HOME/Dots/Options/style)"
+$thmconf="$(cat $HOME/Dots/Options/theme)"
+
+config="$stlconf"
+theme="$thmconf"
+
+dir="$HOME/.config/rofi/$config/$theme/launcher"
+mode='vertical'
 
 ## Run
 rofi \
     -show drun \
-    -theme ${dir}/${theme}.rasi
+    -theme ${dir}/${mode}.rasi

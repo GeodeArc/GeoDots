@@ -6,12 +6,17 @@
 ## Adapted by : @GeodeArc
 ##
 
-# Import Current Theme
-rofidir="$HOME/.config/rofi/screenshot/"
-theme="main"
+$stlconf="$(cat $HOME/Dots/Options/style)"
+$thmconf="$(cat $HOME/Dots/Options/theme)"
 
-timer="$(cat "$HOME/.config/rofi/screenshot/options/timer")"
-freeze="$(cat "$HOME/.config/rofi/screenshot/options/freeze")"
+config="$stlconf"
+theme="$thmconf"
+
+dir="$HOME/.config/rofi/$config/$theme/screenshot"
+mode='main'
+
+timer="$(cat "$HOME/.config/rofi/screenshot/timer")"
+freeze="$(cat "$HOME/.config/rofi/screenshot/freeze")"
 
 # Options
 option_1="󰹑"
@@ -22,7 +27,7 @@ option_4=""
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-theme ${rofidir}/${theme}.rasi \
+		-theme ${dir}/${mode}.rasi \
 		-p " $USER" \
 		-mesg "Monitor | Window | Selection | Settings" 
 }
@@ -54,13 +59,13 @@ settings () {
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		sleep 1
+		sleep 0.5
 		shotscreen
 	elif [[ "$1" == '--opt2' ]]; then
-		sleep 1
+		sleep 0.5
 		shotwin
 	elif [[ "$1" == '--opt3' ]]; then
-		sleep 1
+		sleep 0.5
 		shotarea
 	elif [[ "$1" == '--opt4' ]]; then
 		settings	

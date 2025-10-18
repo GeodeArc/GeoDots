@@ -6,9 +6,14 @@
 ## Adapted by : @GeodeArc
 ##
 
-# Import Current Theme
-rofidir="$HOME/.config/rofi/screenshot/"
-theme="timer"
+$stlconf="$(cat $HOME/Dots/Options/style)"
+$thmconf="$(cat $HOME/Dots/Options/theme)"
+
+config="$stlconf"
+theme="$thmconf"
+
+dir="$HOME/.config/rofi/$config/$theme/screenshot"
+mode='timer'
 
 # Options
 option_1="0s"
@@ -20,7 +25,7 @@ option_5="30s"
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-theme ${rofidir}/${theme}.rasi \
+		-theme ${dir}/${mode}.rasi \
 		-p " $USER"
 }
 
@@ -29,7 +34,7 @@ run_rofi () {
 }	
 
 shot () {
-	echo "sleep $seconds" > $HOME/.config/rofi/screenshot/options/timer
+	echo "sleep $seconds" > $HOME/.config/rofi/screenshot/timer
 }
 
 # Execute Command

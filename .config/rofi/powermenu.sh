@@ -6,9 +6,14 @@
 ## Adapted by : @GeodeArc
 ##
 
-# Current Theme
-dir="$HOME/.config/rofi/powermenu/"
-theme='main'
+$stlconf="$(cat $HOME/Dots/Options/style)"
+$thmconf="$(cat $HOME/Dots/Options/theme)"
+
+config="$stlconf"
+theme="$thmconf"
+
+dir="$HOME/.config/rofi/$config/$theme/powermenu"
+mode='main'
 
 # CMDs
 lastlogin="`last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7`"
@@ -27,8 +32,8 @@ no='X'
 rofi_cmd() {
 	rofi -dmenu \
 		-p " $USER" \
-		-mesg " Last Login: $lastlogin | 󰥔 Uptime: $uptime" \
-		-theme ${dir}/${theme}.rasi
+		-mesg "󰥔 Uptime: $uptime" \
+		-theme ${dir}/${mode}.rasi
 }
 
 # Confirmation CMD
@@ -41,7 +46,7 @@ confirm_cmd() {
 		-dmenu \
 		-p 'Confirmation' \
 		-mesg 'Are you Sure?' \
-		-theme ${dir}/${theme}.rasi
+		-theme ${dir}/${mode}.rasi
 }
 
 # Ask for confirmation
@@ -61,7 +66,7 @@ run_cmd() {
 		if [[ $1 == '--shutdown' ]]; then
 			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
-			reboot
+			systemctl reboot
 		elif [[ $1 == '--logout' ]]; then
 			hyprctl dispatch exit
 		fi

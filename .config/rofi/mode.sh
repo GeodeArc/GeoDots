@@ -6,9 +6,14 @@
 ## Adapted by : @GeodeArc
 ##
 
-# Current Theme
-dir="$HOME/.config/rofi/mode/"
-theme='main'
+$stlconf="$(cat $HOME/Dots/Options/style)"
+$thmconf="$(cat $HOME/Dots/Options/theme)"
+
+config="$stlconf"
+theme="$thmconf"
+
+dir="$HOME/.config/rofi/$config/$theme/launcher"
+mode='main'
 
 # Options
 lmode='☀️'
@@ -20,7 +25,7 @@ rofi_cmd() {
 	rofi -dmenu \
 		-p " $USER" \
 		-mesg "Light | Dark | Minimal" \
-		-theme ${dir}/${theme}.rasi
+		-theme ${dir}/${mode}.rasi
 }
 
 # Pass variables to rofi dmenu

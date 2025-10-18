@@ -5,6 +5,11 @@ gtk_theme="adw-gtk3"
 cursor_theme="Bibata-Modern-Ice"
 type="light"
 
+while true; do    
+    echo "Temporarily disabled for testing."
+    exit 0
+done
+
 gsettings set org.gnome.desktop.interface color-scheme "$theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
 gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
