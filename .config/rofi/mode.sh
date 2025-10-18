@@ -12,7 +12,7 @@ thmconf="$(cat $HOME/Dots/Options/theme)"
 config="$stlconf"
 theme="$thmconf"
 
-dir="$HOME/.config/rofi/$config/$theme/launcher"
+dir="$HOME/.config/rofi/$config/$theme/mode"
 mode='main'
 
 # Options
