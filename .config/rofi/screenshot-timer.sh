@@ -34,7 +34,7 @@ run_rofi () {
 }	
 
 shot () {
-	echo "sleep $seconds" > $HOME/.config/rofi/screenshot/timer
+	echo "sleep $seconds" > $HOME/.config/rofi/options/screenshot/timer
 }
 
 # Execute Command

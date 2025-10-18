@@ -15,8 +15,8 @@ theme="$thmconf"
 dir="$HOME/.config/rofi/$config/$theme/screenshot"
 mode='main'
 
-timer="$(cat "$HOME/.config/rofi/screenshot/timer")"
-freeze="$(cat "$HOME/.config/rofi/screenshot/freeze")"
+timer="$(cat "$HOME/.config/rofi/options/screenshot/timer")"
+freeze="$(cat "$HOME/.config/rofi/options/screenshot/freeze")"
 
 # Options
 option_1="󰹑"

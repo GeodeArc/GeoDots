@@ -43,11 +43,11 @@ freeze () {
 	if grep -q "true" "$HOME/Dots/Options/screenshot"; then
 		notify-send -i applets-screenshooter-symbolic "Disabled Screenshot Freeze"
 		echo "false" > $HOME/Dots/Options/screenshot
-		echo "" > $HOME/.config/rofi/screenshot/timer
+		echo "" > $HOME/.config/rofi/options/screenshot/timer
 	else 
 		notify-send -i applets-screenshooter-symbolic "Enabled Screenshot Freeze" "This may not work on virtual machines"
 		echo "true" > $HOME/Dots/Options/screenshot
-		echo "-z" > $HOME/.config/rofi/screenshot/timer
+		echo "-z" > $HOME/.config/rofi/options/screenshot/timer
 	fi
 	$HOME/.config/rofi/screenshot.sh
 }
