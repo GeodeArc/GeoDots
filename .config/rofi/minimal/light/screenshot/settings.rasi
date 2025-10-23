@@ -1,0 +1,108 @@
+//
+// Original Author : Aditya Shakya (adi1090x)
+// Original Github : @adi1090x
+// Adapted by : @GeodeArc
+//
+
+@import "options/colors.rasi"
+@import "options/font.rasi"
+
+* {
+    text:                        #000;
+    background:                  #fff;
+}
+
+// WINDOW
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       450;
+
+    // FOR ALL WIDGETS
+    enabled:                     true;
+    border:                      1px solid;
+    border-color:                @accent;
+    background-color:            @background;
+}
+
+// MAINBOX
+mainbox {
+    enabled:                     true;
+    border-color:                @accent;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview", "message" ];
+}
+
+// TOP BAR
+inputbar {
+    enabled:                     true;
+    spacing:                     0px;
+    padding:                     30px 30px;
+    background-color:            @background;
+    children:                    [ "textbox-prompt-colon" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "Screenshot";
+    padding:                     12px;
+    background-color:            @background;
+    text-color:                  @text;
+}
+
+// LIST
+listview {
+    enabled:                     true;
+    columns:                     3;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     15px;
+    margin:                      15px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+// ELEMENTS
+element {
+    enabled:                     true;
+    padding:                     30px 10px;
+    background-color:            @background;
+    text-color:                  @text;
+    cursor:                      pointer;
+}
+element-text {
+    font:                        "feather bold 32";
+    background-color:            transparent;
+    text-color:                  @text;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+element selected.normal {
+    background-color:            @accentlow;
+}
+
+// MESSAGE
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     15px;
+    background-color:            @background;
+    text-color:                  @text;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}

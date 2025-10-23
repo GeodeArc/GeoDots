@@ -1,0 +1,172 @@
+//
+// Original Author : Aditya Shakya (adi1090x)
+// Original Github : @adi1090x
+// Adapted by : @GeodeArc
+//
+
+@import "options/colors.rasi"
+@import "options/font.rasi"
+
+// CONFIGURATION
+configuration {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 true;
+    display-drun:               " APPS";
+    display-run:                "󰲌 RUN";
+    display-filebrowser:        " FILES";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c}";
+}
+
+// PROPERTIES
+* {
+    text:                        #000;
+    background:                  #fff;
+    lines:                       1;
+    columns:                     6;
+    cycle:                       false;
+}
+
+// WINDOW
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       980px;
+
+    // FOR ALL WIDGETS
+    enabled:                     true;
+    border:                      1px solid;
+    border-color:                @accent;
+    background-color:            @background;
+}
+
+// MAINBOX
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "listbox" ];
+}
+
+// LISTBOX
+listbox {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+// TOP BAR
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     30px 30px;
+    background-color:            @background;
+    text-color:                  @text;
+    orientation:                 horizontal;
+    children:                    [ "entry", "dummy", "mode-switcher" ];
+}
+entry {
+    enabled:                     true;
+    expand:                      false;
+    width:                       300px;
+    padding:                     12px 16px;
+    background-color:            @background;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search";
+    placeholder-color:           inherit;
+}
+dummy {
+    expand:                      true;
+    background-color:            transparent;
+}
+mode-switcher{
+    enabled:                     true;
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @text;
+}
+button {
+    width:                       100px;
+    padding:                     12px;
+    background-color:            @background;
+    text-color:                  inherit;
+    cursor:                      pointer;
+}
+button selected {
+    background-color:            @accentlow;
+    text-color:                  @text;
+}
+
+// LIST
+listview {
+    enabled:                     true;
+    columns:                     @columns;
+    lines:                       @lines;
+    cycle:                       @cycle;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     10px;
+    background-color:            transparent;
+    text-color:                  @text;
+    cursor:                      "default";
+}
+
+// ELEMENTS
+element {
+    enabled:                     true;
+    spacing:                     5px;
+    padding:                     25px;
+    background-color:            transparent;
+    text-color:                  @text;
+    cursor:                      pointer;
+    orientation:                 vertical;
+}
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+element selected.normal {
+    background-color:            @accentlow;
+    text-color:                  @text;
+}
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        64px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+// MESSAGE
+message {
+    background-color:            transparent;
+}
+textbox {
+    padding:                     15px;
+    background-color:            @background;
+    text-color:                  @text;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+error-message {
+    padding:                     15px;
+    background-color:            @background;
+    text-color:                  @text;
+}
