@@ -10,14 +10,10 @@
 
 // PROPERTIES
 * {
-    background:                  #fff;
-    background-alt:              #EAEAEA;
-    foreground:                  #000;
-    selected:                    #B6B6B6;
-    active:                      #B6B6B6;
-    urgent:                      #FFBBBB;
-    alternate-normal-background: #fff;
-    selected-normal-foreground:  #000;
+    text:                        #000;
+    background:                  #EEEEEE;
+    background-alt:              #D8D8D8;
+    selected:                    #999999;
 }
 
 // WINDOW
@@ -27,27 +23,19 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       750;
-    x-offset:                    0px;
-    y-offset:                    0px;
 
     // FOR ALL WIDGETS
     enabled:                     true;
-    border:                      2px solid;
-    border-radius:               15px;
-    border-color:                @background-alt;
+    border:                      1px solid;
+    border-radius:               20px;
+    border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
-    padding:                     0;
 }
 
 // MAINBOX
 mainbox {
     enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
     border-color:                @selected;
     background-color:            transparent;
     children:                    [ "inputbar", "listview", "message" ];
@@ -62,25 +50,27 @@ inputbar {
     background-image:            @wallpaper;
     children:                    [ "textbox-prompt-colon", "dummy","prompt"];
 }
+
 dummy {
     // CENTER PADDING
     background-color:            transparent;
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "  Screenshot";
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
+    background-color:            @background-alt;
 }
 prompt {
     enabled:                     true;
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
+    background-color:            @background-alt;
 }
 
 // LIST
@@ -107,31 +97,33 @@ element {
     enabled:                     true;
     padding:                     30px 10px;
     border-radius:               12px;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            transparent;
+    text-color:                  @text;
     cursor:                      pointer;
 }
 element-text {
     font:                        "feather bold 32";
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.5;
 }
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
+    background-color:            @background-alt;
+    text-color:                  @text;
 }
 
 // MESSAGE
 message {
     enabled:                     true;
-    margin:                      0px;
     padding:                     15px;
-    border-radius:               0px;
     background-color:            @background-alt;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 textbox {
     background-color:            inherit;
@@ -139,3 +131,4 @@ textbox {
     vertical-align:              0.5;
     horizontal-align:            0.5;
 }
+

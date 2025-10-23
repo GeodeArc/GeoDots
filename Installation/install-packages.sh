@@ -328,8 +328,6 @@ done
 echo "Making temporary cache files for wal"
 mkdir -p $HOME/.cache/wal/
 
-cp -r $HOME/GeoDots/.config/hypr/themes/modern/hyprland.conf $HOME/GeoDots/.config/hypr/
-
 sudo cp -a $HOME/GeoDots/.config/. $HOME/.config/
 mv $HOME/.config/sh/.zshrc $HOME
 mv $HOME/.config/sh/.bashrc $HOME

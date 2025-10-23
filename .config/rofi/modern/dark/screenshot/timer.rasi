@@ -25,8 +25,8 @@ window {
 
     // FOR ALL WIDGETS
     enabled:                     true;
-    border:                      2px solid;
-    border-radius:               15px;
+    border:                      1px solid;
+    border-radius:               20px;
     border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;

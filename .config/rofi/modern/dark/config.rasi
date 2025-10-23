@@ -42,7 +42,7 @@ window {
     // FOR ALL WIDGETS
     enabled:                     true;
     border:                      1px solid;
-    border-radius:               15px;
+    border-radius:               20px;
     border-color:                @foreground;
     background-color:            @background;
     padding:                     0;

@@ -1,5 +1,5 @@
 * {{
-	background: 	{background}80;
+	background: 	{background}CC;
 	foreground: 	{foreground};
 	selected:	    {color1}66;
 	border:     	{foreground}CC;

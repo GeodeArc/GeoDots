@@ -466,70 +466,110 @@ browserselect() {
 #
 
 themeconfig() {
-    while true; do    
-        echo "Do you prefer light theme or dark theme? [L/D]"
-        read -p " ■ " lightordark
+    while true; do
+        echo "Pick a theme for your system. You can change this later on if wanted."
+        echo 
+        echo "[1] Light"
+        echo "[2] Dark"
+        echo 
+        read -p " ■ " picktheme
         
-        case "$lightordark" in
-            [Ll]) 
+        case "$picktheme" in
+            [1]) 
                 theme="prefer-light"
                 gtk_theme="adw-gtk3"
                 cursor_theme="Bibata-Modern-Ice" 
-                #kvantum_theme
                 type="light"
+                break
                 ;;
-            [Dd]) 
+            [2]) 
                 theme="prefer-dark"
                 gtk_theme="adw-gtk3-dark"
                 cursor_theme="Bibata-Modern-Classic"
-                #kvantum_theme
                 type="dark"
+                break
                 ;;
             *) 
-            clear
-            echo "X Please try again."
-            echo ""
-            continue
-            ;;
-        esac
-
-        echo ""
-        sudo pacman -S --needed xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme
-
-        if pacman -Q xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme &>/dev/null; then
-            mkdir -p ~/.config/xdg-desktop-portal/
-            echo "[preferred]\ndefault=hyprland;gtk" > ~/.config/xdg-desktop-portal/hyprland-portals.conf
-        
-            echo "Setting $theme theme"
-            gsettings set org.gnome.desktop.interface color-scheme "$theme"
-            gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
-            gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
-            echo "$type" > $HOME/GeoDots/Dots/Options/theme
-
-            echo -e "\$cursortheme = $cursor_theme" | sudo tee $HOME/GeoDots/.config/hypr/config/cursortheme.conf
-
-            cp -a $HOME/GeoDots/.config/waybar/configs/$type/. $HOME/GeoDots/.config/waybar/
-            cp -a $HOME/GeoDots/.config/swaync/themes/$type/. $HOME/GeoDots/.config/swaync/
-            cp -a $HOME/GeoDots/.config/rofi/modern/$type/config.rasi $HOME/GeoDots/.config/rofi/
-            clear
-            echo "Theme successfully installed!"
-            read -p "Press ENTER to move on: "
-            clear
-            return
-        else
-            echo ""
-            echo "WARNING: Installation of theme dependencies failed or could not be verified."
-            echo "Press ENTER for another attempt" 
-            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-            read -p " ■ " choice
-            if [[ "$choice" == "troubleshoot" ]]; then
                 clear
-                cd $HOME/GeoDots/Installation/
-                ./troubleshooter.sh
-            fi
-            clear
-        fi
+                echo "X Please try again."
+                echo ""
+                ;;
+        esac
     done
+
+    clear
+
+    # --- Style selection loop ---
+    while true; do
+        echo "Pick a style for your system. You can change this later on if wanted."
+        echo "See https://github.com/GeodeArc/GeoDots/wiki/Themes-Modes-Presets for more info"
+        echo
+        echo "[1] Modern"
+        echo "[2] Colorful"
+        echo "[3] Minimal"
+        echo ""
+        read -p " ■ " pickstyle
+
+        case "$pickstyle" in
+            [1])
+                style="modern"
+                break
+                ;;
+            [2])
+                style="colorful"
+                break
+                ;;
+            [3])
+                style="minimal"
+                break
+                ;;
+            *)
+                clear
+                echo "X Please try again."
+                echo ""
+                ;;
+        esac
+    done
+
+    sudo pacman -S --needed xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme
+
+    if pacman -Q xdg-desktop-portal xdg-desktop-portal-gnome adw-gtk-theme &>/dev/null; then
+        mkdir -p ~/.config/xdg-desktop-portal/
+        echo "[preferred]\ndefault=hyprland;gtk" > ~/.config/xdg-desktop-portal/hyprland-portals.conf
+    
+        echo "Setting $theme theme"
+        gsettings set org.gnome.desktop.interface color-scheme "$theme"
+        gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+        gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
+        echo -e "\$cursortheme = $cursor_theme" | sudo tee "$HOME/GeoDots/.config/hypr/config/cursortheme.conf" >/dev/null
+        echo "$type" > "$HOME/GeoDots/Dots/Options/theme"
+
+        echo "Setting $style style"
+        cp -a "$HOME/GeoDots/.config/waybar/$style/$type/." "$HOME/GeoDots/.config/waybar/"
+        cp -a "$HOME/GeoDots/.config/swaync/$style/$type/." "$HOME/GeoDots/.config/swaync/"
+        cp -a "$HOME/GeoDots/.config/rofi/$style/$type/config.rasi" "$HOME/GeoDots/.config/rofi/"
+        cp -r $HOME/GeoDots/.config/hypr/themes/$style/hyprland.conf $HOME/GeoDots/.config/hypr/
+        cp -r $HOME/GeoDots/.config/hypr/themes/$style/hyprlock.conf $HOME/GeoDots/.config/hypr/
+        echo "$style" > "$HOME/GeoDots/Dots/Options/style"
+        
+        clear
+        echo "Theme/Style successfully installed!"
+        read -p "Press ENTER to move on: "
+        clear
+        return
+    else
+        echo ""
+        echo "WARNING: Installation of theme dependencies failed or could not be verified."
+        echo "Press ENTER for another attempt" 
+        echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
+        read -p " ■ " choice
+        if [[ "$choice" == "troubleshoot" ]]; then
+            clear
+            cd "$HOME/GeoDots/Installation/" || exit
+            ./troubleshooter.sh
+        fi
+        clear
+    fi
 }
 
 #

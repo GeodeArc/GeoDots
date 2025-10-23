@@ -6,6 +6,7 @@
 
 @import "options/font.rasi"
 @import "options/wallpaper.rasi"
+@import "options/colors.rasi"
 
 // DEFAULT CONFIGURATION
 configuration {    
@@ -18,14 +19,12 @@ configuration {
 
 // DEFAULT PROPERTIES
 * {
-    background:                  #fff;
-    background-alt:              #EAEAEA;
-    foreground:                  #000;
-    selected:                    #B6B6B6;
-    active:                      #B6B6B6;
-    urgent:                      #FFBBBB;
-    alternate-normal-background: #fff;
-    selected-normal-foreground:  #000;
+    text:                        #000;
+    background:                  #EEEEEE;
+    background-alt:              #D8D8D8;
+    selected:                    #999999;
+    alternate-normal-background: #D8D8D8;
+    alternate-normal-foreground: #000;
     lines:                       10;
     columns:                     1;
     cycle:                       false;
@@ -44,10 +43,9 @@ window {
 
     // FOR ALL WIDGETS
     enabled:                     true;
-    border:                      2px solid;
-    border-radius:               15px;
-    border-color:                @background-alt;
-    cursor:                      "default";
+    border:                      1px solid;
+    border-radius:               20px;
+    border-color:                @foreground;
     background-color:            @background;
     padding:                     0;
 }
@@ -77,7 +75,7 @@ inputbar {
     padding:                     50px 60px;
     background-color:            transparent;
     background-image:            @wallpaper;
-    text-color:                  @foreground;
+    text-color:                  @text;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
@@ -87,8 +85,8 @@ textbox-prompt-colon {
     str:                         " :";
     padding:                     12px 15px;
     border-radius:               100%;
-    background-color:            @background-alt;
     text-color:                  inherit;
+    background-color:            @background-alt;
 }
 entry {
     enabled:                     true;
@@ -96,8 +94,8 @@ entry {
     width:                       300px;
     padding:                     12px 16px;
     border-radius:               100%;
-    background-color:            @background-alt;
     text-color:                  inherit;
+    background-color:            @background-alt;
     cursor:                      text;
     placeholder:                 "Search";
     placeholder-color:           inherit;
@@ -117,9 +115,10 @@ listview {
     fixed-columns:                true;
   
     padding:                      10px;
-    background-color:             @background;
-    text-color:                   @foreground;
+    background-color:             @background-alt;
+    text-color:                   @text;
     border:                       0px;
+    border-radius:                10px;
     cursor:                       "default";
 }
 
@@ -130,14 +129,15 @@ element {
     padding:                     10px;
     border-radius:               10px;
     background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
     cursor:                      pointer;
     orientation:                 vertical;
 }
-
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
 element selected.normal {
-    background-color: @selected;
+    background-color:            @selected;
 }
-element selected.active {
-  background-color: @active;
-}
+

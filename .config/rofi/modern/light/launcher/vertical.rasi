@@ -21,14 +21,10 @@ configuration {
 
 // PROPERTIES
 * {
-    background:                  #fff;
-    background-alt:              #EAEAEA;
-    foreground:                  #000;
-    selected:                    #B6B6B6;
-    active:                      #B6B6B6;
-    urgent:                      #FFBBBB;
-    alternate-normal-background: #fff;
-    selected-normal-foreground:  #000;
+    text:                        #000;
+    background:                  #EEEEEE;
+    background-alt:              #D8D8D8;
+    selected:                    #999999;
     lines:                       6;
     columns:                     1;
     cycle:                       false;
@@ -46,9 +42,9 @@ window {
 
     // FOR ALL WIDGETS
     enabled:                     true;
-    border:                      2px solid;
-    border-radius:               15px;
-    border-color:                @background-alt;
+    border:                      1px solid;
+    border-radius:               20px;
+    border-color:                @foreground;
     cursor:                      "default";
     background-color:            @background;
     padding:                     0;
@@ -79,7 +75,7 @@ inputbar {
     padding:                     50px 30px;
     background-color:            transparent;
     background-image:            @wallpaper;
-    text-color:                  @foreground;
+    text-color:                  @text;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
 }
@@ -112,7 +108,7 @@ mode-switcher{
     enabled:                     true;
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 button {
     width:                       75px;
@@ -124,7 +120,7 @@ button {
 }
 button selected {
     background-color:            @selected;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 
 // LIST
@@ -142,7 +138,7 @@ listview {
     
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
     cursor:                      "default";
 }
 
@@ -153,32 +149,30 @@ element {
     padding:                     10px;
     border-radius:               10px;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
     cursor:                      pointer;
 }
 element normal.normal {
     background-color:            inherit;
     text-color:                  inherit;
 }
-element normal.urgent {
-    background-color:            @urgent;
-    text-color:                  @foreground;
-}
-element normal.active {
-    background-color:            @active;
-    text-color:                  @foreground;
-}
 element selected.normal {
-    background-color:            @selected;
-    text-color:                  @foreground;
+    background-color:            @background-alt;
+    text-color:                  @text;
 }
-element selected.urgent {
-    background-color:            @urgent;
-    text-color:                  @foreground;
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        32px;
+    cursor:                      inherit;
 }
-element selected.active {
-    background-color:            @urgent;
-    text-color:                  @foreground;
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
 element-icon {
     background-color:            transparent;
@@ -203,7 +197,7 @@ textbox {
     padding:                     15px;
     border-radius:               15px;
     background-color:            @background-alt;
-    text-color:                  @foreground;
+    text-color:                  @text;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
@@ -211,5 +205,6 @@ error-message {
     padding:                     15px;
     border-radius:               15px;
     background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
+
