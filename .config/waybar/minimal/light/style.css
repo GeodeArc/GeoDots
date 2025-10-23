@@ -8,8 +8,8 @@
 }
 
 window#waybar {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   opacity: 1;
 }
 
@@ -19,7 +19,7 @@ window#waybar {
 
 #workspaces button {
   padding: 0 5px;
-	color: #fff;
+	color: #000;
 }
 
 #workspaces button.active {
@@ -33,7 +33,7 @@ window#waybar {
 #clock,
 #custom-icon {
   background-color: transparent;
-  color: #fff;
+  color: #000;
   margin: 2px;
 }
 

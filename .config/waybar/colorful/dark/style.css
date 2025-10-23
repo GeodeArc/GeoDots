@@ -1,6 +1,6 @@
 /* GENERAL SETTINGS */
 
-@import "settings/pywal.css";
+@import "colors.css";
 
 * {
     font-family: "FiraCode Nerd", "JetbrainsMono Nerd", "Hack Nerd", sans-serif;
