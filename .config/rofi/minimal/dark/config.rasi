@@ -35,7 +35,7 @@ window {
     // FOR ALL WIDGETS
     enabled:                     true;
     border:                      1px solid;
-    border-color:                @accent;
+    border-color:                @foreground;
     background-color:            #000;
     padding:                     0;
 }
