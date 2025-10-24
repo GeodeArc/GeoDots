@@ -304,6 +304,11 @@ tooltip label {
     background-color: #D4D4D4;
     color: #000;
 }
+
+#tray menu label {
+    color: #000 ;
+}
+
 #tray * :hover {
     color: #000;
 }

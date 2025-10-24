@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.5);
     border: 1px solid @foreground;
     border-radius: 18px;
     opacity: 1;
@@ -46,7 +46,7 @@ window#waybar {
 
 tooltip {
     border: 1px solid @foreground;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #fff;
     opacity: 1;
 }
 
@@ -227,9 +227,14 @@ tooltip label {
 }
 
 #tray menu {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #fff;
     color: #000;
 }
+
+#tray menu label {
+    color: #000 ;
+}
+
 #tray * :hover {
     color: #000;
 }
