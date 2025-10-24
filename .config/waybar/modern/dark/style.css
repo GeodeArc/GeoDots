@@ -1,0 +1,261 @@
+/* GENERAL SETTINGS */
+
+@import "colors.css";
+
+* {
+    font-family: "FiraCode Nerd", "JetbrainsMono Nerd", "Hack Nerd", sans-serif;
+    border: none;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.75);
+    border: 1px solid @foreground;
+    border-radius: 18px;
+    opacity: 1;
+}
+
+/* WORKSPACES */
+
+#workspaces {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+#workspaces button {
+    border-radius: 100px;
+    padding: 2px 6px;
+    margin: 4px 2px;
+    transition: all 0.25s ease-in-out;
+}
+
+#workspaces button.active {
+    color: #fff;
+    background-color: @color4;
+}
+
+#workspaces button:hover {
+    background-color: @color4;
+    opacity: 0.4;
+}
+
+/* TOOLTIPS */
+
+tooltip {
+    border: 1px solid @foreground;
+    
+    background-color: @background;
+    opacity: 1;
+}
+
+tooltip label {
+    color: #FFF;
+}
+
+/* WINDOW */
+
+#window {
+    background: transparent;
+    margin: 4px 0px;
+    margin-left: 5px;
+    padding: 0 8px;
+    color: #FFF;
+    font-size: 14px;
+}
+/* TASKBAR */
+
+#taskbar {
+    background: transparent;
+    margin: 4px 0px;
+    padding: 0 12px;
+}
+
+#taskbar button {
+    margin: 4px 0px;
+    border-radius: 8px;
+    padding: 2px 5px;
+}
+
+#taskbar.empty {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#taskbar button:hover {
+    background: @color4; 
+}
+
+/* QUICK LINKS */
+
+#custom-wallpaper, 
+#custom-nightlight {
+    background-color: transparent;
+    font-size: 18px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+#custom-hypridle.notactive {
+    color: @foreground;
+}
+
+/* APP MENU */
+
+#custom-appmenu {
+    background: transparent;
+    margin: 4px 0px;
+    padding: 0 14px;
+}
+
+/* HARDWARE GROUP */
+
+#disk,#memory,#cpu {
+    background: transparent;
+    margin: 4px 0px;
+    color: @foreground;
+}
+
+#cpu {
+    padding-left: 5px
+}
+
+#disk {
+    padding-right: 5px;
+}
+
+/* MEDIA */
+#custom-media {
+    color: @foreground;
+    background-color: transparent;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+/* NETWORK */
+
+#network {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 20px;
+}
+
+#network.ethernet {
+    background-color: transparent;
+    color: #FFF;
+}
+
+#network.wifi {
+    background-color: transparent;
+    color: #FFF;
+}
+
+/* BLUETOOTH */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* BATTERY (LAPTOP ONLY) (RIGHT) */
+
+#battery {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #FFF;
+    background-color: transparent;
+}
+
+@keyframes blink {
+    to {
+        background-color: transparent;
+        color: #FFF;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #FFF;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* SOUND */
+
+#pulseaudio {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 20px;
+}
+
+#pulseaudio.muted {
+    background-color: transparent;
+    color: #ff0000;
+}
+
+
+/* SYS TRAY */
+
+#tray {
+    background-color: transparent;
+    margin: 4px 0px;
+    padding: 0px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background-color: @background;
+    color: #FFF;
+}
+
+#tray * :hover {
+    color: #FFF;
+}
+
+/* NOTIFS */
+
+#custom-sidebar {
+    background: transparent;
+    color: @foreground;
+    font-size: 18px;
+    margin: 4px 0px;
+    margin-right: 5px;
+    padding: 0 20px;
+}
+
+/* CLOCK */
+
+#clock {
+    background-color: transparent;
+    margin: 4px 0px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+}

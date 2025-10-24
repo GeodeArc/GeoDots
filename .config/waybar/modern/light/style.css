@@ -1,0 +1,256 @@
+/* GENERAL SETTINGS */
+
+@import "colors.css";
+
+* {
+    font-family: "FiraCode Nerd", "JetbrainsMono Nerd", "Hack Nerd", sans-serif;
+    border: none;
+}
+
+window#waybar {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid @foreground;
+    border-radius: 18px;
+    opacity: 1;
+    color: #000;
+}
+
+/* WORKSPACES */
+
+#workspaces {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+#workspaces button {
+    color: #000;
+    border-radius: 100px;
+    padding: 2px 6px;
+    margin: 4px 2px;
+    transition: all 0.25s ease-in-out;
+}
+
+#workspaces button.active {
+    color: #fff;
+    background-color: @color4;
+}
+
+#workspaces button:hover {
+    background-color: @color4;
+    opacity: 0.4;
+}
+
+/* TOOLTIPS */
+
+tooltip {
+    border: 1px solid @foreground;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+}
+
+tooltip label {
+    color: #000;
+}
+
+/* WINDOW */
+
+#window {
+    background: transparent;
+    color: #000;
+    margin: 4px 0px;
+    margin-left: 5px;
+    padding: 0 8px;
+    font-size: 14px;
+}
+
+/* TASKBAR */
+
+#taskbar {
+    background: transparent;
+    margin: 4px 0px;
+    padding: 0 12px;
+}
+
+#taskbar button {
+    margin: 4px 0px;
+    border-radius: 8px;
+    padding: 2px 5px;
+}
+
+#taskbar.empty {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#taskbar button:hover {
+    background: @color4; 
+}
+
+/* QUICK LINKS */
+
+#custom-wallpaper, 
+#custom-nightlight {
+    background-color: transparent;
+    font-size: 18px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+/* APP MENU */
+
+#custom-appmenu {
+    background: transparent;
+    margin: 4px 0px;
+    padding: 0 14px;
+}
+
+/* HARDWARE GROUP */
+
+#disk,#memory,#cpu {
+    background: transparent;
+    margin: 4px 0px;
+    color: #000;
+}
+
+#cpu {
+    padding-left: 5px
+}
+
+#disk {
+    padding-right: 5px;
+}
+
+/* MEDIA */
+#custom-media {
+    color: #000;
+    background-color: transparent;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+/* NETWORK */
+
+#network {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 20px;
+}
+
+#network.ethernet {
+    background-color: transparent;
+}
+
+#network.wifi {
+    background-color: transparent;
+}
+
+/* BLUETOOTH */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* BATTERY (LAPTOP ONLY) (RIGHT) */
+
+#battery {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 10px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #FFF;
+    background-color: transparent;
+}
+
+@keyframes blink {
+    to {
+        background-color: transparent;
+        color: #FFF;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #FFF;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* SOUND */
+
+#pulseaudio {
+    background-color: transparent;
+    font-size: 14px;
+    margin: 4px 0px;
+    padding: 0 20px;
+}
+
+#pulseaudio.muted {
+    background-color: transparent;
+    color: #ff0000;
+}
+
+
+/* SYS TRAY */
+
+#tray {
+    background-color: transparent;
+    margin: 4px 0px;
+    padding: 0px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+}
+#tray * :hover {
+    color: #000;
+}
+
+/* NOTIFS */
+
+#custom-sidebar {
+    background: transparent;
+    color: #000;
+    font-size: 18px;
+    margin: 4px 0px;
+    margin-right: 5px;
+    padding: 0 20px;
+}
+
+/* CLOCK */
+
+#clock {
+    background-color: transparent;
+    margin: 4px 0px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
