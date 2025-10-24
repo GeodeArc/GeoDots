@@ -26,9 +26,14 @@ window#waybar {
   background-color: @foreground;
 }
 
+#window {
+  margin: 0 10px;
+}
+
 #pulseaudio,
 #cpu,
 #memory,
+#disk,
 #battery,
 #clock,
 #custom-icon {
@@ -44,6 +49,11 @@ window#waybar {
 #custom-sidebar {
   padding: 0 10px;
   padding-right: 15px;
+}
+
+#custom-wallpaper,
+#custom-nightlight {
+  padding: 0 10px;
 }
 
 .modules-left {

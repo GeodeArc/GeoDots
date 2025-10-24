@@ -171,25 +171,20 @@
   // CPU
   "cpu": {
     "interval": 5,
-    "format": "/ C {usage}% ",
+    "format": "C {usage}% ",
   },
 
   // Memory
   "memory": {
     "interval": 5,
-    "format": "/ M {}% ",
+    "format": "- M {}% ",
   },
 
   // Harddisc space used
   "disk": {
     "interval": 5,
-    "format": "  D {percentage_used}% ",
+    "format": "- D {percentage_used}% ",
     "path": "/",
-  },
-
-  // Keyboard Layout
-  "hyprland/language": {
-    "format": "/ K {short}"
   },
 
   // Group Hardware
@@ -200,7 +195,7 @@
       "children-class": "not-memory",
       "transition-left-to-right": true
     },
-    "modules": ["custom/system", "disk", "cpu", "memory", "hyprland/language"]
+    "modules": ["custom/system", "cpu", "memory", "disk"]
   },
 
   // Group Settings

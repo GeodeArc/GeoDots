@@ -1,9 +1,9 @@
 {
     "spacing": 4,
     "height": 25,
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "custom/wallpaper", "custom/nightlight", "hyprland/window"],
     "modules-center": ["custom/spotify"],
-    "modules-right": ["tray", "pulseaudio", "cpu", "memory", "clock","custom/sidebar"],
+    "modules-right": ["tray", "pulseaudio", "cpu", "memory", "disk", "clock", "custom/sidebar"],
 
   "hyprland/workspaces": {
     "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -23,11 +23,24 @@
       "format": "[{:%H:%M}]",
       "format-alt": "[{:%Y-%m-%d}]"
     },
+    "custom/wallpaper": {
+      "format": "",
+      "on-click": "waypaper",
+      "on-click-right": "waypaper --random",
+    },
+    "custom/nightlight": {
+      "format": "󰃟",
+      "on-click": "pgrep hyprsunset && { pkill hyprsunset; notify-send -i night-light-disabled-symbolic -e 'Night Light Disabled'; } || { hyprsunset -t 4800 & notify-send -i night-light-symbolic -e 'Night Light Enabled'; }",
+    },
     "cpu": {
       "format": "[CPU:{usage}%]"
     },
     "memory": {
       "format": "[MEM:{percentage}%]"
+    },
+    "disk": {
+      "format": "[DSK:{percentage_used}%]",
+      "path": "/",
     },
     "battery": {
       "format": "[BAT:{capacity}%]"

@@ -1,8 +1,8 @@
 /* Original theme: https://github.com/zDyanTB/HyprNova */
 /* Edited (poorly) by @GeodeArc - Very messy, will clean up later, maybe. I apologize in advance*/
 
-@define-color text            #000;
-@define-color background-alt  #000;
+@define-color text            #fff;
+@define-color background-alt  #fff;
 @define-color selected        @foreground;
 @define-color hover           alpha(@selected, .4);
 @define-color urgent          #ff0000;
@@ -22,23 +22,24 @@
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
 .control-center {
-  background: #000;
+  background: #fff;
   border: 1px solid @foreground;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
   padding: 12px;
   padding-top: 2px;
+  color: #000;
 }
 
 /* Notifications  */
 .control-center .notification-row .notification-background,
 .control-center .notification-row .notification-background .notification.critical {
-  background: #101010;
+  background: #D8D8D8;
   margin: 4px 0px;
   padding: 4px;
 }
 
 .control-center .notification-row .notification-background .notification.critical {
-    background: #101010;
+    background: #D8D8D8;
 }
 
 .control-center .notification-row .notification-background .notification .notification-content {
@@ -57,11 +58,11 @@
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
-  background: #101010;
+  background: #D8D8D8;
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
-  background: #101010;
+  background: #D8D8D8;
 }
 
 /* Buttons */
@@ -82,27 +83,27 @@ progressbar {
 .notification-group-headers {
   font-weight: bold;
   font-size: 1.25rem;
-  color: #fff;
+  color: #000;
   letter-spacing: 2px;
   padding-bottom: 10px
 }
 
 .notification-group-icon {
-  color: #fff;
+  color: #000;
 }
 
 .notification-group-collapse-button,
 .notification-group-close-all-button {
-  background: #101010;
-  color: #fff;
+  background: #D8D8D8;
+  color: #000;
   margin: 4px; 
   padding: 4px;
 }
 
 .notification-group-collapse-button:hover,
 .notification-group-close-all-button:hover {
-    background: #101010;
-    color: #fff;
+    background: #D8D8D8;
+    color: #000;
 }  
 
 /* WIDGETS --------------------------------------------------------------------------- */
@@ -114,7 +115,7 @@ progressbar {
 }
 
 .widget-dnd > switch {
-  background: #101010;
+  background: #D8D8D8;
   font-size: initial;
   box-shadow: none;
   padding: 2px;
@@ -129,7 +130,7 @@ progressbar {
 }
 
 .widget-dnd > switch:checked:hover {
-  background: #101010;
+  background: #D8D8D8;
 }
 
 .widget-dnd > switch slider {
@@ -142,7 +143,7 @@ progressbar {
   padding: 4px 2px;
   margin: 0px 10px 20px 10px;
   border-radius: 0px;
-  background: #101010;
+  background: #D8D8D8;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
@@ -162,15 +163,16 @@ progressbar {
 
 /* Music player */
 .widget-mpris {
-    margin: 5px 10px 0px 10px;
+  margin: 5px 10px 0px 10px;
+  background-color: #D8D8D8;
 }
 
 .widget-mpris-player {
-    margin: 0px 10px 0px 10px;
+  margin: 10px 10px 0px 10px;
 }
 
 .widget-mpris-player box {
-  background-color: #000;
+  background-color: #D8D8D8;
 }
 
 .widget-mpris > box > button {
@@ -178,7 +180,7 @@ progressbar {
 }
  
 .widget-mpris button {
-  color: #FFF;
+  color: #000;
   padding: 2px;
   padding-top: 20px;
   padding-bottom: 10px;
@@ -220,7 +222,7 @@ trough highlight:hover {
 
 .widget-volume trough {
   padding: 3px;
-  background: #101010;
+  background: #D8D8D8;
 }
 
 .widget-volume trough slider {
@@ -248,7 +250,7 @@ trough highlight:hover {
 
 .widget-backlight trough {
   padding: 3px;
-  background: #101010;
+  background: #D8D8D8;
 }
 
 .widget-backlight trough slider {

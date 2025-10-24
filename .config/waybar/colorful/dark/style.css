@@ -157,43 +157,15 @@ tooltip label {
     border: 2px solid @foreground;
 }
 
-/* UPDATES (TO BE ADDED) (RIGHT) */
-
-#custom-updates {
-    background-color: @background;
-    font-size: 14px;
-    color: #FFF;
-    border-radius: 10px;
-    margin: 3px 10px;
-    padding: 3px 8px;
-    opacity: 0.8;
-}
-
-#custom-updates.green {
-    background-color: @background;
-}
-
-#custom-updates.yellow {
-    background-color: #ff9a3c;
-    color: #FFFFFF;
-}
-
-#custom-updates.red {
-    background-color: #dc2f2f;
-    color: #FFFFFF;
-}
-
 /* HARDWARE GROUP */
 
-#disk,#memory,#cpu,#language {
-    margin: 0px;
-    padding: 0px;
+#disk,#memory,#cpu {
     font-size: 14px;
     color: @foreground;
 }
 
-#language {
-    margin-right: 8px;
+#cpu {
+    margin-left: 5px;
 }
 
 /* MEDIA */

@@ -15,10 +15,11 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  background: #000;
+  background: #fff;
   border: 1px solid @foreground;
   border-radius: 0px;
   padding: 0px;
+  color: #000;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification {
@@ -39,18 +40,18 @@
 }
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action {
-  background-color: #000;
+  background-color: #fff;
   margin: 6px;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
-  background-color: #000;
+  background-color: #fff;
   border: 1px solid @foreground;
 }
 
 .floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
-  background-color: #000;
-  color: #000;
+  background-color: #fff;
+  color: #fff;
 }
 
 .image {

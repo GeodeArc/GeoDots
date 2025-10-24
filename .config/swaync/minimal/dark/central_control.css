@@ -162,15 +162,16 @@ progressbar {
 
 /* Music player */
 .widget-mpris {
-    margin: 5px 10px 0px 10px;
+  margin: 5px 10px 0px 10px;
+  background-color: #101010;
 }
 
 .widget-mpris-player {
-    margin: 0px 10px 0px 10px;
+  margin: 10px 10px 0px 10px;
 }
 
 .widget-mpris-player box {
-  background-color: #000;
+  background-color: #101010;
 }
 
 .widget-mpris > box > button {
