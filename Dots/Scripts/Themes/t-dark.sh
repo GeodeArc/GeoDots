@@ -1,6 +1,6 @@
 #!/bin/bash
 
-theme="prefer-dark"
+wgt_theme="prefer-dark"
 gtk_theme="adw-gtk3-dark"
 cursor_theme="Bibata-Modern-Classic"
 

@@ -71,23 +71,23 @@
       "actions": [
         {
           "label": "🎨",
-          "command": "sh -c '~/.config/swaync/scripts/theme.sh'"
+          "command": "sh -c '~/.config/swaync/scripts/theme.sh' &"
         },
         {
           "label": "😀",
-          "command": "sh -c '~/.config/swaync/scripts/emoji.sh'"
+          "command": "sh -c '~/.config/swaync/scripts/emoji.sh' &"
         },
         {
           "label": "📋",
-          "command": "sh -c '~/.config/swaync/scripts/clipboard.sh'"
+          "command": "sh -c '~/.config/swaync/scripts/clipboard.sh' &"
         },
         {
           "label": "📸",
-          "command": "sh -c '~/.config/swaync/scripts/screenshot.sh'"
+          "command": "sh -c '~/.config/swaync/scripts/screenshot.sh' &"
         },
         {
           "label": "↪️",
-          "command": "sh -c '~/.config/swaync/scripts/pmenu.sh'"
+          "command": "sh -c '~/.config/swaync/scripts/pmenu.sh' &"
         }
       ]
     }
