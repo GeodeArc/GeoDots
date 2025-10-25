@@ -16,8 +16,7 @@
   /*urgent:                @color6;      Urgency critical */
   /*text-selected:         @background; */
 
-  color: @text;
-
+  color: #000;
   all: unset;
   font-size: 10px;
   font-family: "FiraCode Nerd Font 10";
@@ -32,7 +31,8 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  background: alpha(@background, .50);
+  background: alpha(#fff, .60);
+  color: #000;
   box-shadow: 0 0 8px 0 rgba(0,0,0,.6);
   border: 1px solid @border;
   border-radius: 18px;
