@@ -502,7 +502,7 @@ themeconfig() {
     # --- Style selection loop ---
     while true; do
         echo "Pick a style for your system. You can change this later on if wanted."
-        echo "See https://github.com/GeodeArc/GeoDots/wiki/Themes-Modes-Presets for more info"
+        echo "See https://github.com/GeodeArc/GeoDots/wiki/Themes-and-Styles for more info."
         echo
         echo "[1] Modern"
         echo "[2] Colorful"

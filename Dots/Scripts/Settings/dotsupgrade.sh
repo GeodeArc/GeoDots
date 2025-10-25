@@ -1,8 +1,8 @@
 #!/bin/bash
 
 curver="$(cat $HOME/Dots/Options/currentver)"
-newver="$(curl -s https://geodearc.github.io/GeoDots/version)"
-codirs="$(curl -s https://geodearc.github.io/GeoDots/dirs)"
+newver="$(curl -s https://gdrc.me/GeoDots/version)"
+codirs="$(curl -s https://gdrc.me/GeoDots/dirs)"
 directory="$HOME/.config"
 
 echo ""
