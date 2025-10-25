@@ -1,7 +1,7 @@
 /* Original theme: https://github.com/zDyanTB/HyprNova */
 /* Edited (poorly) by @GeodeArc */
 
-@define-color text            #fff;
+@define-color text            @foreground;
 @define-color border          alpha(@foreground, 0.8);
 @define-color background-alt  alpha(@color1, .4);
 @define-color background-bg  alpha(@color1, .75);
@@ -10,7 +10,7 @@
 @define-color urgent          @color2;
 
 * {
-  color:            #fff;
+  color:            @text;
   all:              unset;
   font-size:        14px;
   font-family:      "FiraCode Nerd Font 10";
@@ -26,8 +26,7 @@
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
 .control-center {
-  background: alpha(#fff, .60);
-  color: #000;
+  background: alpha(@background, .50);
   border-radius: 18px;
   border: 1px solid @border;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
@@ -39,12 +38,11 @@
 /* Notifications  */
 .control-center .notification-row .notification-background,
 .control-center .notification-row .notification-background .notification.critical {
-  background-color: alpha(#bbb, .80);
+  background-color: alpha(@background, .80);
   border: 1px solid alpha(@foreground, .60);
   border-radius: 8px;
   margin: 4px 0px;
   padding: 4px;
-  color: #000;
 }
 
 .control-center .notification-row .notification-background .notification.critical {
@@ -80,19 +78,17 @@
 .control-center .notification-row .notification-background .close-button {
   background: transparent;
   border-radius: 6px;
-  color: #000;
+  color: @text;
   margin: 0px;
   padding: 4px;
 }
 
 .control-center .notification-row .notification-background .close-button:hover {
   background-color: @selected;
-  color: #000;
 }
 
 .control-center .notification-row .notification-background .close-button:active {
   background-color: @selected;
-  color: #000;
 }
 
 progressbar,
@@ -112,19 +108,19 @@ progressbar {
 .notification-group-headers {
   font-weight: bold;
   font-size: 1.25rem;
-  color: #000;
+  color: @text;
   letter-spacing: 2px;
   padding-bottom: 10px;
 }
 
 .notification-group-icon {
-  color: #000;
+  color: @text;
 }
 
 .notification-group-collapse-button,
 .notification-group-close-all-button {
   background: transparent;
-  color: #000;
+  color: @text;
   margin: 4px; 
   border-radius: 100px;
   padding: 4px;
@@ -132,7 +128,7 @@ progressbar {
 
 .notification-group-collapse-button:hover,
 .notification-group-close-all-button:hover {
-  background: @selected;
+  background: @hover;
 }  
 
 /* WIDGETS --------------------------------------------------------------------------- */
@@ -144,22 +140,22 @@ progressbar {
 }
 
 .widget-dnd > switch {
-  background: alpha(#fff, .40);
+  background: alpha(@background, .50);
   font-size: initial;
   border-radius: 6px;
   padding: 3px;
 }
 
 .widget-dnd > switch:hover {
-  background: alpha(#fff, .80);
+  background: @hover;
 }
 
 .widget-dnd > switch:checked {
-  background: alpha(#fff, .80);
+  background: @text;
 }
 
 .widget-dnd > switch:checked:hover {
-  background: alpha(#fff, .80);
+  background: @hover;
 }
 
 .widget-dnd > switch slider {
@@ -173,7 +169,7 @@ progressbar {
   padding: 4px 2px;
   margin: 0px 10px 20px 10px;
   border-radius: 8px;
-  background: alpha(#fff, .40);
+  background: alpha(@background, .50);
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
@@ -206,10 +202,11 @@ progressbar {
 .mpris-background { 
   filter: blur(6px);
   opacity: 0.6;
+  background-color: @background-alt;
 } 
 
 .widget-mpris > box > button {
-  color: #fff;
+  color: @text;
 }
  
 .widget-mpris button {
@@ -231,13 +228,11 @@ progressbar {
 .widget-mpris-title {
   font-weight: 600;
   font-size: 0.9rem;
-  color: #fff;
 }
  
 .widget-mpris-subtitle {
   font-weight: 500;
   font-size: 0.8rem;
-  color: #fff;
 }
 
 /* Volume widget */
@@ -249,10 +244,12 @@ trough highlight {
     padding: 5px;
     background: @selected;
     border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
 }
 trough highlight:hover {
     padding: 5px;
     background: @selected;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 }
 
 .widget-volume {
@@ -266,7 +263,7 @@ trough highlight:hover {
 
 .widget-volume trough {
   padding: 3px;
-  background: alpha(#fff, .40);
+  background: alpha(@background, .50);
 }
 
 .widget-volume trough slider {
@@ -296,7 +293,7 @@ trough highlight:hover {
 
 .widget-backlight trough {
   padding: 3px;
-  background: alpha(#fff, .40);
+  background: alpha(@background, .50);
 }
 
 .widget-backlight trough slider {
