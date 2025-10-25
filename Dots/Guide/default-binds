@@ -20,13 +20,13 @@ SUPER + P = Toggle App Pseudo
 SUPER + F = Toggle App Fullscreen
 SUPER + SHIFT + F = Toggle App Maximized
 
-SUPER + SHIFT + S = Quick Screenshot
+SUPER + S = Quick Screenshot
 SUPER + L = Lock Computer
 CTRL + ALT + DELETE = Exit
 
 Menus:
 SUPER + SHIFT + L = Power menu
-SUPER + S = Screenshot Menu
+SUPER + SHIFT + S = Screenshot Menu
 SUPER + C = Clipboard History
 SUPER + PERIOD (.) = Emoji Selector
 SUPER + M = Theme Selector

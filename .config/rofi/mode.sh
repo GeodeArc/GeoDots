@@ -18,34 +18,33 @@ mode='main'
 # Options
 lmode='☀️'
 dmode='🌙'
-gmode='🎮️'
+style='🎨'
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
 		-p " $USER" \
-		-mesg "Light | Dark | Minimal" \
+		-mesg "Light | Dark | Change Style" \
 		-theme ${dir}/${mode}.rasi
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lmode\n$dmode\n$gmode" | rofi_cmd
+	echo -e "$lmode\n$dmode\n$style" | rofi_cmd
 }
 
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
     $lmode)
-    	$HOME/Dots/Scripts/Themes/light.sh
+    	$HOME/Dots/Scripts/Themes/t-light.sh
     	notify-send -i view-reveal-symbolic "Light Mode Active" "You will need to log out to see cursor theme changes."
         ;;
     $dmode)
-    	$HOME/Dots/Scripts/Themes/dark.sh
+    	$HOME/Dots/Scripts/Themes/t-dark.sh
     	notify-send -i view-reveal-symbolic "Dark Mode Active" "You will need to log out to see cursor theme changes."
         ;;
-    $gmode)
-		$HOME/Dots/Scripts/Themes/game.sh
-		notify-send -i applications-games-symbolic "Game Mode Active"
+    $style)
+		$HOME/.config/rofi/mode-style.sh
         ;;
 esac
