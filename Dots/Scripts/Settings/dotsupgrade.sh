@@ -283,7 +283,7 @@ dotsupgrade() {
                 ln -s $HOME/.cache/wal/colors-rofi.rasi $HOME/.config/rofi/options/colors.rasi
                 ln -s $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/colors.css
 
-                echo "postupdate" > $HOME/Dots/Options/startup
+                echo "postupgrade" > $HOME/Dots/Options/startup
 
                 clear
                 echo "Congratulations, DOTFILES should be successfully updated!"
