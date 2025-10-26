@@ -1,117 +1,48 @@
 #!/bin/bash
 
-# TO DO: 
-# Allow different editors from nano (neovim, user specified during setup)
-# Actually complete everything
-# Make things more complex (e.g modifying keybinds, adding monitors etc)
-
-# For advanced config, as well as advanced options, still allow users to edit the file directly if they please
-# Dont add literally every option to advanced options, only the most important stuff (listed)
-
 MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
+MAINMONITOR="$(cat $HOME/Dots/Options/mainmonitor)"
+EDITOR="$(cat $HOME/Dots/Options/editor)"
 
 clear
 
-hyprland-look() {
+monitorselect() {
     while true; do
-        echo "-- HYPRLAND LOOKS --"
-        echo "Change Looks/Decoration for Hyprland"
-        echo ""
-        echo "What would you like to do?"
-        echo ""
-        echo "-------------------------------------------------------"
-        echo "1. Change Decoration (Blur, Rounding etc)             "
-        echo "2. Change Animations (Window Transitions)             "
-        echo "-------------------------------------------------------"
-        echo "3. Return                                             󰌑"
-        echo "-------------------------------------------------------"
-        echo ""
-        read -p " ■ " choice
+        # add command here that identifies monitors later? 
+        echo "Enter the number of your preferred primary (main) monitor."
+        # echo "These have been identified for you" - cant find any non-gui utility for this (yet, nwg-displays works but not well)
+        for i in "${!MONITORS[@]}"; do
+            echo "$((i+1)) - ${MONITORS[i]}"
+        done
 
-        case $choice in 
-            1)
-                nano $HOME/.config/hypr/config/looks/decor.conf # Add advanced config - Gaps, Rounding, Blur, Shadow, Border colors
-                clear
-                ;;
-            2)
-                nano $HOME/.config/hypr/config/looks/animations.conf # just editor
-                clear
-                ;;
-            3)
-                clear
-                return
-                ;;
-            *)
-                clear
-                echo "X Please try again."
-                echo ""
-                ;;
-        esac
+        echo ""
+        echo -n " ■ "
+        read -r choice
+
+        if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le ${#MONITORS[@]} ]; then
+            break
+        fi
+        clear
+        echo "X Please try again."
+        echo ""
     done
-}
 
-hyprland-hardware() {
-    while true; do
-        echo "-- HYPRLAND HARDWARE --"
-        echo "Change Hardware Settings"
-        echo ""
-        echo "What would you like to do?"
-        echo ""
-        echo "-------------------------------------------------------"
-        echo "1. Manage Monitors (Add/Remove Monitors)              󰍹"
-        echo "2. Manage Input Devices (Gestures, Peripheral, etc)   󰍽"
-        echo "3. Set Primary Monitor                                󱋆"
-        echo "-------------------------------------------------------"
-        echo "4. Return                                             󰌑"
-        echo "-------------------------------------------------------"
-        echo ""
-        read -p " ■ " choice
-
-        case $choice in 
-            1)
-                $HOME/Dots/Scripts/Settings/Advanced/monitor.sh
-                clear
-                ;;
-            2)
-                nano $HOME/.config/hypr/config/hardware/input.conf # Add advanced config, sensitivity, gestures, and kb layout.
-                clear
-                ;;
-            3)
-                clear
-                echo "Below are your current monitors."
-                echo "Please copy one to use for the new primary monitor (e.g DP-1, Virtual-1)"
-                echo 
-                for i in "${!MONITORS[@]}"; do
-                    echo "${MONITORS[i]}"
-                done
-                echo 
-                read -p "Press ENTER to continue"
-                nano $HOME/.config/hypr/config/hardware/primary.conf # Maybe change to selection instead of nano, like postinstall.sh
-                clear
-                ;;
-            4)
-                clear
-                return
-                ;;
-            *)
-                clear
-                echo "X Please try again."
-                echo ""
-                ;;
-        esac
-    done
+    selected_monitor=${MONITORS[$((choice-1))]}
+    echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
+    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/config/hardware/primary.conf"
+    clear
 }
 
 hyprland() {
     while true; do
         echo "-- HYPRLAND SETTINGS --" 
         echo "Change settings for Hyprland"
-        echo ""
+        echo 
         echo "What would you like to do?"
-        echo ""
+        echo 
         echo "-------------------------------------------------------"
-        echo "1. Manage Looks/Decoration                           "
-        echo "2. Manage Hardware (Monitors, Input devices etc)     󰍹"
+        echo "1. Manage Monitors (Add/Remove Monitors)             󰍹" 
+        echo "2. Set Primary Monitor                                󱋆"
         echo "-------------------------------------------------------"
         echo "3. Modify General Hyprland Settings                   "
         echo "4. Modify Keybinds                                    󰌌"
@@ -120,49 +51,42 @@ hyprland() {
         echo "6. Modify Autostart Apps                              "
         echo "7. Modify Environment Variables                       "
         echo "-------------------------------------------------------"
-        echo "8. Edit Hyprlock (Lock Screen)                        "
+        echo "8. Return                                             󰌑"
         echo "-------------------------------------------------------"
-        echo "9. Return                                             󰌑"
-        echo "-------------------------------------------------------"
-        echo ""
+        echo 
         read -p " ■ " choice
 
         case $choice in 
             1)
-                clear
-                hyprland-look
+                $HOME/Dots/Scripts/Settings/Advanced/monitor.sh
                 clear
                 ;;
             2)
                 clear
-                hyprland-hardware
+                monitorselect
                 clear
                 ;;
             3)
-                nano $HOME/.config/hypr/config/software/general.conf
+                $EDITOR $HOME/.config/hypr/config/software/general.conf
                 clear
                 ;;
             4)
-                nano $HOME/.config/hypr/config/software/keybinds.conf # Advanced config, add or edit keybinds (this will be tricky but so worth).
+                $EDITOR $HOME/.config/hypr/config/software/keybinds.conf # add advanced config, add or edit keybinds (this will be tricky but so worth).
                 clear
                 ;;
             5)
-                nano $HOME/.config/hypr/config/software/rules.conf # Advanced config, add or edit window rules AND layer rules.
+                $EDITOR $HOME/.config/hypr/config/software/rules.conf
                 clear
                 ;;
             6)
-                nano $HOME/.config/hypr/config/setup/autostart.conf # Advanced config, add or edit autostart apps.
+                $EDITOR $HOME/.config/hypr/config/setup/autostart.conf
                 clear
                 ;;
             7)
-                nano $HOME/.config/hypr/config/setup/envvars.conf # Advanced config, add or edit environment variables.   
+                $EDITOR $HOME/.config/hypr/config/setup/envvars.conf
                 clear
                 ;;
-            8)
-                nano $HOME/.config/hypr/hyprlock.conf # Advanced config, wallpaper, widgets enabled, media player maybe, fingerprint, etc.
-                clear
-                ;;
-            9)  
+            8)  
                 clear
                 return
                 ;;
@@ -179,46 +103,151 @@ customization() {
     while true; do
         echo "-- CUSTOMIZE DOTFILES --"
         echo "Configure software included with GeoDots"
-        echo ""
+        echo 
         echo "What would you like to do?"
-        echo ""
+        echo 
         echo "-------------------------------------------------------"
         echo "1. Manage Command Aliases                             "
         echo "2. Change Cursor Theme                                󰇀"
         echo "-------------------------------------------------------"
-        echo "3. Change Waybar Items (Status Bar)      (Unfinished) 󱔓"
-        echo "4. Change Rofi Settings (Menus)          (Unfinished) "  
-        echo "5. Change Swaync Settings (Notifs)       (Unfinished) "
+        echo "3. Change Default Browser                             "
+        echo "4. Change Default Media Player                        "
+        echo "5. Change Default Terminal                            "
+        echo "6. Change Default TUI Editor                          "
         echo "-------------------------------------------------------"
-        echo "6. Return                                             󰌑"
+        echo "7. Waybar Monitor Selection                           󱔓"
+        echo "8. Rofi Launcher Type                                 "  
         echo "-------------------------------------------------------"
-        echo ""
+        echo "9. Return                                             󰌑"
+        echo "-------------------------------------------------------"
+        echo 
         read -p " ■ " choice
 
         case $choice in 
             1)
-                nano $HOME/.config/sh/aliases.sh # Advanced config, add or edit aliases.
+                $EDITOR $HOME/.config/sh/aliases.sh # its obvious enough, shouldnt need advanced config.
                 clear
                 ;;
             2)
-                nano $HOME/.config/hypr/config/cursortheme.conf # Advanced config, set cursor theme (should be really easy)
+                clear
+                echo "Enter the exact name of your preferred cursor theme."
+                echo "This will not appear until you restart Hyprland."
+                echo "It will be overwritten if you select another theme (e.g light/dark)."
+                echo 
+                read -p "■ " choice
+                echo "\$cursor_theme = $choice" > $HOME/.config/hypr/config/cursortheme.conf
+                gsettings set org.gnome.desktop.interface cursor-theme "$choice"
+                clear
+                read -p "Finished, press ENTER to continue."
                 clear
                 ;;
             3)
-                nano $HOME/.config/waybar/settings/items.jsonc # Advanced config, modify/change order of items, change workspaces, etc.
+                clear
+                echo "Enter the name of the default browser you want to use."
+                echo "This should be the command you use to launch the browser."
+                echo "If you arent sure, its probably the same as the package name (e.g firefox, chromium, etc)."
+                echo
+                read -p "■ " choice
+                echo "$choice" > $HOME/Dots/Options/browser
+                clear
+                read -p "Finished, press ENTER to continue."
                 clear
                 ;;
             4)
                 clear
-                $HOME/Dots/Scripts/Settings/placeholder.sh # Advanced config, change image, change rofi-emoji to smile, font?, vertical/horizontal launcher.
+                read -p "First, OPEN the media player you want to use and press ENTER."
+                clear
+                echo "Enter the name of the default media player you want to use."
+                echo "This needs to be the exact identifier used by playerctl."
+                echo "Below are your currently open media players."
+                echo
+                playerctl --list-all
+                echo
+                read -p "■ " choice
+                echo "$choice" > $HOME/Dots/Options/mediaplayer
+                clear
+                echo "(Optional) Enter an icon for the media player. This should be short, and preferably from nerdfonts.com."
+                echo "Leave this blank and we will use the default icon:  "
+                echo 
+                read -p "■ " choice
+                if [[ -z "$choice" ]]; then
+                    echo "" > $HOME/Dots/Options/mediaicon
+                else
+                    echo "$choice" > $HOME/Dots/Options/mediaicon
+                fi
+                clear
+                read -p "Finished, press ENTER to continue."
                 clear
                 ;;
             5)
                 clear
-                $HOME/Dots/Scripts/Settings/placeholder.sh # Advanced config, change control panel items, change media player type etc? 
+                echo "Enter the name of the default terminal you want to use."
+                echo "This should be the command you use to launch the terminal."
+                echo "If you arent sure, its probably the same as the package name (e.g kitty, alacritty, etc)."
+                echo
+                echo "It is also important to note that YOU will be responsible for configuring the new terminal emulator."
+                echo 
+                read -p "■ " choice
+                echo "$choice" > $HOME/Dots/Options/terminal
+                clear
+                read -p "Finished, press ENTER to continue."
                 clear
                 ;;
-            6)
+            6) 
+                clear
+                echo "Enter the name of the default TUI editor you want to use."
+                echo "This should be the command you use to launch the editor."
+                echo "If you arent sure, its probably the package name, but not always (e.g nano, nvim, micro etc)."
+                echo
+                read -p "■ " choice
+                echo "$choice" > $HOME/Dots/Options/editor
+                clear
+                read -p "Finished, press ENTER to continue."
+                clear
+                ;;
+            7)
+                clear
+                echo "What would you like to do?"
+                echo
+                echo "1: Make Waybar ONLY appear on the main monitor"
+                echo "2: Make Waybar appear on all monitors"
+                echo 
+                read -p "■ " choice
+
+                case $choice in
+                    1)
+                        echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/settings/items.jsonc"
+                        ;;
+                    2)
+                        echo "" > "$HOME/.config/waybar/settings/items.jsonc"
+                        ;;
+                esac
+                clear
+                read -p "Finished, press ENTER to continue."
+                clear
+                ;;
+            8)
+                clear
+                echo "What rofi launcher style would you like to use?"
+                echo
+                echo "1: Vertical Launcher"
+                echo "2: Horizontal Launcher"
+                echo 
+                read -p "■ " choice
+
+                case $choice in
+                    1)
+                        echo "vertical" > $HOME/Dots/Options/launchertype
+                        ;;
+                    2)
+                        echo "horizontal" > $HOME/Dots/Options/launchertype
+                        ;;
+                esac
+                clear
+                read -p "Finished, press ENTER to continue."
+                clear
+                ;;
+            9)
                 clear
                 return
                 ;;
@@ -280,6 +309,10 @@ while true; do
         5)
         	clear
             echo "Getting update information, please wait.."
+                curl -o /tmp/pkg-pacman -s https://gdrc.me/GeoDots/pkg-pacman
+                curl -o /tmp/pkg-aurs -s https://gdrc.me/GeoDots/pkg-aurs
+                curl -o /tmp/pkg-gtk -s https://gdrc.me/GeoDots/pkg-gtk
+                curl -o /tmp/pkg-qt -s https://gdrc.me/GeoDots/pkg-qt
             $HOME/Dots/Scripts/Settings/dotsupgrade.sh    
             clear
             ;;

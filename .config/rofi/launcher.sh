@@ -8,12 +8,13 @@
 
 stlconf="$(cat $HOME/Dots/Options/style)"
 thmconf="$(cat $HOME/Dots/Options/theme)"
+launcher="$(cat $HOME/Dots/Options/launchertype)"
 
 config="$stlconf"
 theme="$thmconf"
 
 dir="$HOME/.config/rofi/$config/$theme/launcher"
-mode='vertical'
+mode="$launcher"
 
 ## Run
 rofi \

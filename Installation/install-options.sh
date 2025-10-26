@@ -358,12 +358,14 @@ toolkitselect () {
         case "$apptype" in
             1)
                 echo qt > $HOME/GeoDots/apptype
+                echo qt > $HOME/GeoDots/Options/apptype
                 echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 break
                 ;; 
             2)
                 echo gtk > $HOME/GeoDots/apptype
+                echo gtk > $HOME/GeoDots/Options/apptype
                 echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 break
