@@ -4,12 +4,12 @@
 </h3>
 
 <div align="center">
-  <i>version 0.0.9 or something idk</i>
+  <i>version 0.1.0 (finally)</i>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
 > [!NOTE]
-> GeoDots is created for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
+> GeoDots is only (currently) supported for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
 
 #
 

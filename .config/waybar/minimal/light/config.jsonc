@@ -1,7 +1,7 @@
 {
     "spacing": 4,
     "height": 25,
-    "modules-left": ["hyprland/workspaces", "custom/wallpaper", "custom/nightlight", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "custom/wallpaper", "custom/hyprpicker", "custom/nightlight", "hyprland/window"],
     "modules-center": ["custom/spotify"],
     "modules-right": ["tray", "pulseaudio", "cpu", "memory", "disk", "clock", "custom/sidebar"],
 
@@ -27,6 +27,10 @@
       "format": "",
       "on-click": "waypaper",
       "on-click-right": "waypaper --random",
+    },
+    "custom/hyprpicker": {
+      "format": "",
+      "on-click": "color=$(hyprpicker 2>/dev/null) && echo -n $color | wl-copy && notify-send -i color-select-symbolic 'Color copied to clipboard!' $color",
     },
     "custom/nightlight": {
       "format": "󰃟",

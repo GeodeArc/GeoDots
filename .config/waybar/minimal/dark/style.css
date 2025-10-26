@@ -52,6 +52,7 @@ window#waybar {
 }
 
 #custom-wallpaper,
+#custom-hyprpicker, 
 #custom-nightlight {
   padding: 0 10px;
 }

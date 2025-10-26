@@ -26,6 +26,7 @@
       "disk",
       "hyprland/workspaces",
       "custom/wallpaper",
+      "custom/hyprpicker",
       "custom/nightlight",
       "clock",
       "custom/media"
@@ -115,6 +116,13 @@
     "format": "󰃟",
     "on-click": "pgrep hyprsunset && { pkill hyprsunset; notify-send -i night-light-disabled-symbolic -e 'Night Light Disabled'; } || { hyprsunset -t 4800 & notify-send -i night-light-symbolic -e 'Night Light Enabled'; }",
     "tooltip-format": "Night Light"
+  },
+
+  // Color Picker
+  "custom/hyprpicker": {
+    "format": "",
+    "on-click": "color=$(hyprpicker 2>/dev/null) && echo -n $color | wl-copy && notify-send -i color-select-symbolic 'Color copied to clipboard!' $color",
+    "tooltip-format": "Color Picker"
   },
   
   // Settings
