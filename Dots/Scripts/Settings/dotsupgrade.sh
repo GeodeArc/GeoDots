@@ -5,8 +5,11 @@ newver="$(curl -s https://gdrc.me/GeoDots/version)"
 
 codirs="$(curl -s https://gdrc.me/GeoDots/dirs)"
 directory="$HOME/.config"
-aurhelper="$(cat $HOME/Dots/Options/aurhelper)"
+aurhelper="$(cat $HOME/Dots/Options/aurpkgs)"
+aurupgrade="$(cat $HOME/Dots/Options/aurhelper)"
 apptype="$(cat $HOME/Dots/Options/apptype)"
+theme="$(cat $HOME/Dots/Options/theme)"
+style="$(cat $HOME/Dots/Options/style)"
 
 PACMAN_PKGS="$(cat /tmp/pkg-pacman)"
 AUR_PKGS="$(cat /tmp/pkg-aurs)"
@@ -87,10 +90,14 @@ dotsdownload() {
     clear
     echo "Cloning Repo"
     git clone https://github.com/GeodeArc/GeoDots
+    clear
+    read -p "Cloned repo. Press ENTER to continue"
+    clear
 }
 
 pkgdownload() {
     while true; do
+        echo ""
         echo "Installing any new pacman packages"
         sudo pacman -S --needed $PACMAN_PKGS
         if pacman -Qq $PACMAN_PKGS &>/dev/null; then
@@ -147,8 +154,9 @@ pkgdownload() {
     while true; do
         echo "Installing $apptype packages" # check if qt or gtk, install either GTK_APPS or QT_APPS
         if [[ "$apptype" == "qt" ]]; then
-            sudo pacman -S --needed $QT_PKGS
+            $aurhelper $QT_PKGS
             if pacman -Qq $QT_PKGS &>/dev/null; then
+                echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 echo "QT Packages installed successfully!"
                 read -p "Press Enter when you are ready to move on."
@@ -171,10 +179,10 @@ pkgdownload() {
                 clear
             fi
         elif [[ "$apptype" == "gtk" ]]; then
-            sudo pacman -S --needed $GTK_PKGS
+            $aurhelper $GTK_PKGS
             if pacman -Qq $GTK_PKGS &>/dev/null; then
+                echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
-                nautilustweak
                 echo "GTK Packages installed successfully!"
                 read -p "Press Enter when you are ready to move on."
                 clear
@@ -197,7 +205,7 @@ pkgdownload() {
             fi
         else
             echo "Warning: App type file not found/invalid. Installing fallback packages, modify hyprland configs to your specification."
-            $AUR_HELPER nautilus gnome-text-editor gnome-software gnome-keyring polkit-gnome kate kwrite dolphin discover kwallet hyprpolkitagent
+            $aurhelper nautilus gnome-text-editor gnome-software gnome-keyring polkit-gnome kate kwrite dolphin discover kwallet hyprpolkitagent
             break
         fi
     done
@@ -230,13 +238,30 @@ dotsupgrade() {
                 done
                 sleep 1
 
+                echo "Copying Options from previous install"
+                cp -r $HOME/Dots/Options/. $HOME/GeoDots/Dots/Options/
+
+                echo "Copying other options from previous install"
+                echo "alias updatepkgs='$aurupgrade'" >> $HOME/GeoDots/.config/sh/aliases.sh
+
+                if [[ "$theme" == "dark" ]]; then
+                    echo -e "\$cursortheme = Bibata-Modern-Classic" | sudo tee "$HOME/GeoDots/.config/hypr/config/cursortheme.conf" >/dev/null
+                else
+                    echo -e "\$cursortheme = Bibata-Modern-Ice" | sudo tee "$HOME/GeoDots/.config/hypr/config/cursortheme.conf" >/dev/null
+                fi
+
+                cp -a "$HOME/GeoDots/.config/waybar/$style/$theme/." "$HOME/GeoDots/.config/waybar/"
+                cp -a "$HOME/GeoDots/.config/swaync/$style/$theme/." "$HOME/GeoDots/.config/swaync/"
+                cp -a "$HOME/GeoDots/.config/rofi/$style/$theme/config.rasi" "$HOME/GeoDots/.config/rofi/"
+                cp -r $HOME/GeoDots/.config/hypr/themes/$style/hyprland.conf $HOME/GeoDots/.config/hypr/
+                cp -r $HOME/GeoDots/.config/hypr/themes/$style/hyprlock.conf $HOME/GeoDots/.config/hypr/
+
                 echo "Removing ~/Dots"
                 sudo rm -r "$HOME/Dots"
-                sudo rm "$HOME/.zshrc"
                 
                 sudo cp -a $HOME/GeoDots/.config/. $HOME/.config/
-                mv $HOME/.config/sh/.zshrc $HOME
-                mv $HOME/.config/sh/.bashrc $HOME
+                cp -r $HOME/.config/sh/.zshrc $HOME
+                cp -r $HOME/.config/sh/.bashrc $HOME
 
                 cp -a $HOME/GeoDots/Dots $HOME/Dots
 

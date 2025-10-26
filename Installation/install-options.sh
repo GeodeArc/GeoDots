@@ -18,6 +18,7 @@ aurinstall() {
         if pacman -Qq yay &>/dev/null; then
             echo "AUR helper (yay) already installed. Skipping this step."
             echo "yay -Sy --needed" > "$AUR_FILE"
+            echo "yay -Sy --needed" > "$HOME/GeoDots/Dots/Options/aurpkgs"
             echo "yay -Syu" > "$HOME/GeoDots/Dots/Options/aurhelper"
             echo "alias updatepkgs='yay -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
             sleep 1
@@ -27,6 +28,7 @@ aurinstall() {
         if pacman -Qq paru &>/dev/null; then
             echo "AUR helper (paru) already installed. Skipping this step."
             echo "paru -Sy --needed" > "$AUR_FILE"
+            echo "paru -Sy --needed" > "$HOME/GeoDots/Dots/Options/aurpkgs"
             echo "paru -Syu" > "$HOME/GeoDots/Dots/Options/aurhelper"
             echo "alias updatepkgs='paru -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
             sleep 1
@@ -116,6 +118,7 @@ install_aur_helper() {
             clear
             echo "$aurh_name installed successfully!"
             echo "$aurh_name -Sy --needed" > "$AUR_FILE"
+            echo "$aurh_name -Sy --needed" > "$HOME/GeoDots/Dots/Options/aurpkgs"
             echo "$aurh_name -Syu" > "$HOME/GeoDots/Dots/Options/aurhelper"
             echo "alias updatepkgs='$aurh_name -Syu'" >> "$HOME/GeoDots/.config/sh/aliases.sh"
             sudo rm -r $HOME/$aurh_name
@@ -163,6 +166,8 @@ custom_aur_helper() {
         if [[ -n "$customaur" ]]; then
             echo "Setting $customaur as AUR helper"
             echo $customaur > "$AUR_FILE"
+            echo $customaur > "$HOME/GeoDots/Dots/Options/aurpkgs"
+            echo "sudo pacman -Syu" > "$HOME/GeoDots/Dots/Options/aurhelper" # update command is different, lets hope they use chaotic aur
             echo ""
             echo "Press ENTER to continue, or 'back' if you made a mistake"
             read -p " ■ " finalaurcheck
@@ -358,14 +363,14 @@ toolkitselect () {
         case "$apptype" in
             1)
                 echo qt > $HOME/GeoDots/apptype
-                echo qt > $HOME/GeoDots/Options/apptype
+                echo qt > $HOME/GeoDots/Dots/Options/apptype
                 echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 break
                 ;; 
             2)
                 echo gtk > $HOME/GeoDots/apptype
-                echo gtk > $HOME/GeoDots/Options/apptype
+                echo gtk > $HOME/GeoDots/Dots/Options/apptype
                 echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 break
