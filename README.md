@@ -78,13 +78,17 @@ bash -c "$(curl -fsSL https://gdrc.me/dots.sh)"
 
 ### 🖼️ SCREENSHOTS:
 
-![light + modern showcase](https://github.com/user-attachments/assets/635816b8-79f0-441e-8463-f6ade9aa5827)
+![dark - modern](https://github.com/user-attachments/assets/a5558edf-8e42-4480-9007-973275fd95c4)
+
+![light - modern](https://github.com/user-attachments/assets/0890c9a8-acec-4b25-b6b0-7e4e95a5c8ff)
 
 ![colorful showcase](https://github.com/user-attachments/assets/6d8af081-8fe1-49bb-89c9-62195b0b4cee)
 
-![terminal stuff showcase](https://github.com/user-attachments/assets/9e89de01-28b6-4a0f-9092-e76107d44ec4)
+![terminal showcase](https://github.com/user-attachments/assets/b4932326-8a5a-465f-bc24-4d6824f89d62)
 
-![minimal showcase](https://github.com/user-attachments/assets/7e8ed97d-9600-43a0-9f71-c2f575e90e4b)
+![minimal showcase](https://github.com/user-attachments/assets/b6fa998c-00de-400f-baa6-e59b85655bc5)
+
+![hyprlock](https://github.com/user-attachments/assets/282bb4b1-7d4f-4cf3-9811-e0e636bd6226)
 
 # 
 
@@ -92,11 +96,6 @@ bash -c "$(curl -fsSL https://gdrc.me/dots.sh)"
 
 <details> 
   <summary>🟡 Roadmap</summary>
-  <h3>Current (Roadmap for first RELEASE):</h3>
-
-  - Better hyprlock with clickable widgets + more hyprlock themes?
-
-  <h3>Maybe later:</h3>
 
   - Add nvim config/editor choice?
 
