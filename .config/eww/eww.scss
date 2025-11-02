@@ -1,0 +1,25 @@
+@import '../../.cache/wal/colors.scss';
+
+.clock {
+    .clock-time {
+        color: $foreground;
+        font-weight: 900;
+        font-size: 80px;
+        font-family: "Adwaita Sans", sans-serif;
+        opacity: 0.8;
+    }
+
+    .clock-date {
+        color: $foreground;
+        font-weight: 400;
+        font-size: 18px;
+        font-family: "Adwaita Sans", sans-serif;
+        margin-top: -80px;
+        opacity: 0.8;
+    }
+
+    &.background {
+        background: none;
+    }
+}
+

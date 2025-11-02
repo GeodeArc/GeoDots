@@ -51,7 +51,7 @@ hyprland() {
         echo "6. Modify Autostart Apps                              "
         echo "7. Modify Environment Variables                       "
         echo "-------------------------------------------------------"
-        echo "8. Return                                             󰌑"
+        echo "Q. Return                                             󰌑"
         echo "-------------------------------------------------------"
         echo 
         read -p " ■ " choice
@@ -71,7 +71,7 @@ hyprland() {
                 clear
                 ;;
             4)
-                $EDITOR $HOME/.config/hypr/config/software/keybinds.conf # add advanced config, add or edit keybinds (this will be tricky but so worth).
+                $EDITOR $HOME/.config/hypr/config/software/keybinds.conf
                 clear
                 ;;
             5)
@@ -86,7 +86,7 @@ hyprland() {
                 $EDITOR $HOME/.config/hypr/config/setup/envvars.conf
                 clear
                 ;;
-            8)  
+            [qQ])
                 clear
                 return
                 ;;
@@ -116,9 +116,10 @@ customization() {
         echo "6. Change Default TUI Editor                          "
         echo "-------------------------------------------------------"
         echo "7. Waybar Monitor Selection                           󱔓"
-        echo "8. Rofi Launcher Type                                 "  
+        echo "8. Rofi Launcher Type                                 "
+        echo "9. Enable/Disable Desktop Clock                       󰌑"  
         echo "-------------------------------------------------------"
-        echo "9. Return                                             󰌑"
+        echo "Q. Return                                             󰌑"
         echo "-------------------------------------------------------"
         echo 
         read -p " ■ " choice
@@ -247,7 +248,30 @@ customization() {
                 read -p "Finished, press ENTER to continue."
                 clear
                 ;;
-            9)
+            9) 
+                clear
+                echo "What would you like to do?"
+                echo
+                echo "1: Enable Desktop Clock"
+                echo "2: Disable Desktop Clock"
+                echo 
+                read -p "■ " choice
+
+                case $choice in
+                    1)
+                        echo "enabled" > $HOME/Dots/Options/clock
+                        eww open clock &> /dev/null &
+                        ;;
+                    2)
+                        echo "disabled" > $HOME/Dots/Options/clock
+                        pkill eww
+                        ;;
+                esac
+                clear
+                read -p "Finished, press ENTER to continue."
+                clear
+                ;;
+            [qQ])
                 clear
                 return
                 ;;

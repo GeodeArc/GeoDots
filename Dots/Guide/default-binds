@@ -1,7 +1,10 @@
 Default Keybinds. PRESS Q TO EXIT.
 
 SUPER is your windows key, also known as Mod.
+ALT is your ALT key, also known as Mod2.
+
 At any time, press SUPER + K to see keybinds.
+This will NOT update if you change your keybinds.
 
 Base Apps:
 SUPER + ENTER = Open Terminal

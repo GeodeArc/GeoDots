@@ -21,3 +21,5 @@ notify-send -i preferences-desktop-wallpaper-symbolic "Wallpaper Applied" "New c
 
 swaync-client -R
 swaync-client -rs
+
+eww reload

@@ -6,4 +6,6 @@ elif [ -f "$HOME/Dots/Options/startup" ] && grep -q "postupgrade" "$HOME/Dots/Op
     kitty $HOME/Dots/Scripts/postupgrade.sh
 elif [ -f "$HOME/Dots/Options/autologin" ] && grep -q "enabled" "$HOME/Dots/Options/autologin"; then
     hyprlock
+elif [ -f "$HOME/Dots/Options/clock" ] && grep -q "enabled" "$HOME/Dots/Options/clock"; then
+    eww open clock 
 fi
