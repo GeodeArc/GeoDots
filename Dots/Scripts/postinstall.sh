@@ -47,7 +47,8 @@ monitorselect
 
 notify-send -i system-run-symbolic "Applying Initial Settings" "Applying wallpaper, and setting a few things up."
 
-setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
+waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
+eww open clock &> /dev/null &
 mv $HOME/.config/hypr/config/software/keybinds-complete.conf $HOME/.config/hypr/config/software/keybinds.conf
 
 echo "complete" > $HOME/Dots/Options/startup

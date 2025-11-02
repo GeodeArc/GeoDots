@@ -787,6 +787,7 @@ chaoticinstall () {
             echo "Chaotic AUR can be used to install AUR packages a lot faster."
             echo "Install/setup Chaotic-AUR? [Y/N]"
             echo ""
+            echo "You NEED to select 'Y' here if you skipped AUR installation."
             echo "This may take awhile, dont worry if you are stuck here for a bit"
             echo ""
             read -p " ■ " chaotic
