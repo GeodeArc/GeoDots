@@ -2,7 +2,7 @@
 
 AUR_FILE="$HOME/GeoDots/aurhelper"
 
-codirs="$(curl -s https://gdrc.me/GeoDots/configdirs)"
+codirs="$(curl -s https://gdrc.me/GeoDots/data/configdirs)"
 otherdots=(
     "$HOME/Dotfiles"
     "$HOME/dotfiles"
@@ -895,9 +895,9 @@ while true; do
     backup
 
     echo "Getting latest Dotfiles package list - Please wait"
-    curl -o $HOME/GeoDots/pkg-pacman -s https://gdrc.me/GeoDots/pkg-pacman
-    curl -o $HOME/GeoDots/pkg-aurs -s https://gdrc.me/GeoDots/pkg-aurs
-    curl -o $HOME/GeoDots/pkg-gtk -s https://gdrc.me/GeoDots/pkg-gtk
-    curl -o $HOME/GeoDots/pkg-qt -s https://gdrc.me/GeoDots/pkg-qt
+    curl -o $HOME/GeoDots/pkg-pacman -s https://gdrc.me/GeoDots/data/pkg-pacman
+    curl -o $HOME/GeoDots/pkg-aurs -s https://gdrc.me/GeoDots/data/pkg-aurs
+    curl -o $HOME/GeoDots/pkg-gtk -s https://gdrc.me/GeoDots/data/pkg-gtk
+    curl -o $HOME/GeoDots/pkg-qt -s https://gdrc.me/GeoDots/data/pkg-qt
     exit 0
 done

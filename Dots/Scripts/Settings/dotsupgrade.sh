@@ -1,9 +1,9 @@
 #!/bin/bash
 
 curver="$(cat $HOME/Dots/Options/currentver)"
-newver="$(curl -s https://gdrc.me/GeoDots/version)"
+newver="$(curl -s https://gdrc.me/GeoDots/data/version)"
 
-codirs="$(curl -s https://gdrc.me/GeoDots/dirs)"
+codirs="$(curl -s https://gdrc.me/GeoDots/data/dirs)"
 directory="$HOME/.config"
 aurhelper="$(cat $HOME/Dots/Options/aurpkgs)"
 aurupgrade="$(cat $HOME/Dots/Options/aurhelper)"
@@ -110,16 +110,7 @@ pkgdownload() {
             echo ""
             echo "WARNING: Installation of packages failed or could not be verified."
             echo "Press ENTER for another attempt"
-            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-            read -p " ■ " choice
-            if [[ "$choice" == "troubleshoot" ]]; then
-                clear
-                $HOME/GeoDots/Installation/troubleshooter.sh
-                PACMAN_PKGS="$(cat /tmp/pkg-pacman)" # refresh may be needed
-                AUR_PKGS="$(cat /tmp/pkg-aurs)"
-                GTK_PKGS="$(cat /tmp/pkg-gtk)"
-                QT_PKGS="$(cat /tmp/pkg-qt)"
-            fi
+            read -p " ■ "
             clear
         fi
     done
@@ -137,16 +128,7 @@ pkgdownload() {
             echo ""
             echo "WARNING: Installation of AURs failed or could not be verified."
             echo "Press ENTER for another attempt"
-            echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-            read -p " ■ " choice
-            if [[ "$choice" == "troubleshoot" ]]; then
-                clear
-                $HOME/GeoDots/Installation/troubleshooter.sh
-                PACMAN_PKGS="$(cat /tmp/pkg-pacman)" # refresh may be needed
-                AUR_PKGS="$(cat /tmp/pkg-aurs)"
-                GTK_PKGS="$(cat /tmp/pkg-gtk)"
-                QT_PKGS="$(cat /tmp/pkg-qt)"
-            fi
+            read -p " ■ "
             clear
         fi
     done
@@ -166,16 +148,7 @@ pkgdownload() {
                 echo ""
                 echo "WARNING: Installation of QT packages failed or could not be verified."
                 echo "Press ENTER for another attempt"
-                echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-                read -p " ■ " choice
-                if [[ "$choice" == "troubleshoot" ]]; then
-                    clear
-                    $HOME/GeoDots/Installation/troubleshooter.sh
-                    PACMAN_PKGS="$(cat /tmp/pkg-pacman)" # refresh may be needed
-                    AUR_PKGS="$(cat /tmp/pkg-aurs)"
-                    GTK_PKGS="$(cat /tmp/pkg-gtk)"
-                    QT_PKGS="$(cat /tmp/pkg-qt)"
-                fi
+                read -p " ■ "
                 clear
             fi
         elif [[ "$apptype" == "gtk" ]]; then
@@ -191,16 +164,7 @@ pkgdownload() {
                 echo ""
                 echo "WARNING: Installation of GTK packages failed or could not be verified."
                 echo "Press ENTER for another attempt"
-                echo "Alternatively, type 'troubleshoot' to run the troubleshooter"
-                read -p " ■ " choice
-                if [[ "$choice" == "troubleshoot" ]]; then
-                    clear
-                    $HOME/GeoDots/Installation/troubleshooter.sh
-                    PACMAN_PKGS="$(cat /tmp/pkg-pacman)" # refresh may be needed
-                    AUR_PKGS="$(cat /tmp/pkg-aurs)"
-                    GTK_PKGS="$(cat /tmp/pkg-gtk)"
-                    QT_PKGS="$(cat /tmp/pkg-qt)"
-                fi
+                read -p " ■ "
                 clear
             fi
         else

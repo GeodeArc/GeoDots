@@ -23,10 +23,10 @@ conflict1() {
 
 conflict2() {
     echo "Downloading package list to disk, please wait"
-    curl -o $HOME/GeoDots/pkg-pacman -s https://gdrc.me/GeoDots/pkg-pacman
-    curl -o $HOME/GeoDots/pkg-aurs -s https://gdrc.me/GeoDots/pkg-aurs
-    curl -o $HOME/GeoDots/pkg-gtk -s https://gdrc.me/GeoDots/pkg-gtk
-    curl -o $HOME/GeoDots/pkg-qt -s https://gdrc.me/GeoDots/pkg-qt
+    curl -o $HOME/GeoDots/pkg-pacman -s https://gdrc.me/data/GeoDots/pkg-pacman
+    curl -o $HOME/GeoDots/pkg-aurs -s https://gdrc.me/data/GeoDots/pkg-aurs
+    curl -o $HOME/GeoDots/pkg-gtk -s https://gdrc.me/data/GeoDots/pkg-gtk
+    curl -o $HOME/GeoDots/pkg-qt -s https://gdrc.me/data/GeoDots/pkg-qt
     clear
     echo "Look for similar matches to your conflicting/broken package"
     echo ""

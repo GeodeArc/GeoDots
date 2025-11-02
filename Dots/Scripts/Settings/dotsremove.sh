@@ -2,9 +2,9 @@
 
 backup_dir="$HOME/Dots/Backup"
 do_backup="false"
-codirs="$(curl -s https://gdrc.me/GeoDots/configdirs)"
-PACMAN_PKGS="$(curl -s https://gdrc.me/GeoDots/pkg-pacman)"
-AUR_PKGS="$(curl -s https://gdrc.me/GeoDots/pkg-aurs)"
+codirs="$(curl -s https://gdrc.me/GeoDots/data/configdirs)"
+PACMAN_PKGS="$(curl -s https://gdrc.me/GeoDots/data/pkg-pacman)"
+AUR_PKGS="$(curl -s https://gdrc.me/GeoDots/data/pkg-aurs)"
 
 BACKUPS=()
 if [ -d "$backup_dir" ]; then

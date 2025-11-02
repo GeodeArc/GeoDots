@@ -333,10 +333,10 @@ while true; do
         5)
         	clear
             echo "Getting update information, please wait.."
-            curl -o /tmp/pkg-pacman -s https://gdrc.me/GeoDots/pkg-pacman
-            curl -o /tmp/pkg-aurs -s https://gdrc.me/GeoDots/pkg-aurs
-            curl -o /tmp/pkg-gtk -s https://gdrc.me/GeoDots/pkg-gtk
-            curl -o /tmp/pkg-qt -s https://gdrc.me/GeoDots/pkg-qt
+            curl -o /tmp/pkg-pacman -s https://gdrc.me/GeoDots/data/pkg-pacman
+            curl -o /tmp/pkg-aurs -s https://gdrc.me/GeoDots/data/pkg-aurs
+            curl -o /tmp/pkg-gtk -s https://gdrc.me/GeoDots/data/pkg-gtk
+            curl -o /tmp/pkg-qt -s https://gdrc.me/GeoDots/data/pkg-qt
             $HOME/Dots/Scripts/Settings/dotsupgrade.sh    
             clear
             ;;
