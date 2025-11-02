@@ -242,7 +242,7 @@ while true; do
     echo "2. Remove a monitor's configuration                  󰶐"
     echo "3. Edit config file directly (Advanced)              󰌌"
     echo "-------------------------------------------------------"
-    echo "4. Return                                             󰌑"
+    echo "Q. Return                                             󰌑"
     echo "-------------------------------------------------------"
     echo ""
     read -p " ■ " choice
@@ -263,10 +263,9 @@ while true; do
             nano $HOME/.config/hypr/config/hardware/monitor.conf
             clear
             ;;
-        4)
+        [qQ])
             clear
-            $HOME/Dots/Scripts/Settings/settings.sh
-            break
+            exit 1
             ;;
         *)
             clear

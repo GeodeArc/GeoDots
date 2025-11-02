@@ -45,11 +45,12 @@ hyprland() {
         echo "2. Set Primary Monitor                                󱋆"
         echo "-------------------------------------------------------"
         echo "3. Modify General Hyprland Settings                   "
-        echo "4. Modify Keybinds                                    󰌌"
-        echo "5. Modify Window/Layer Rules                          "
+        echo "4. Modify Input Devices                               "
+        echo "5. Modify Keybinds                                    󰌌"
+        echo "6. Modify Window/Layer Rules                          "
         echo "-------------------------------------------------------"
-        echo "6. Modify Autostart Apps                              "
-        echo "7. Modify Environment Variables                       "
+        echo "7. Modify Autostart Apps                              "
+        echo "8. Modify Environment Variables                       "
         echo "-------------------------------------------------------"
         echo "Q. Return                                             󰌑"
         echo "-------------------------------------------------------"
@@ -71,18 +72,22 @@ hyprland() {
                 clear
                 ;;
             4)
-                $EDITOR $HOME/.config/hypr/config/software/keybinds.conf
+                $EDITOR $HOME/.config/hypr/config/hardware/input.conf
                 clear
                 ;;
             5)
-                $EDITOR $HOME/.config/hypr/config/software/rules.conf
+                $EDITOR $HOME/.config/hypr/config/software/keybinds.conf
                 clear
                 ;;
             6)
-                $EDITOR $HOME/.config/hypr/config/setup/autostart.conf
+                $EDITOR $HOME/.config/hypr/config/software/rules.conf
                 clear
                 ;;
             7)
+                $EDITOR $HOME/.config/hypr/config/setup/autostart.conf
+                clear
+                ;;
+            8)
                 $EDITOR $HOME/.config/hypr/config/setup/envvars.conf
                 clear
                 ;;

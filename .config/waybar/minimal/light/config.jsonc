@@ -3,7 +3,7 @@
     "height": 25,
     "modules-left": ["hyprland/workspaces", "custom/wallpaper", "custom/hyprpicker", "custom/nightlight", "hyprland/window"],
     "modules-center": ["custom/spotify"],
-    "modules-right": ["tray", "pulseaudio", "cpu", "memory", "disk", "clock", "custom/sidebar"],
+    "modules-right": ["tray", "pulseaudio", "cpu", "memory", "disk", "battery", "clock", "custom/sidebar"],
 
   "hyprland/workspaces": {
     "on-scroll-up": "hyprctl dispatch workspace r-1",
