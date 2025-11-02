@@ -246,7 +246,8 @@ dotsupgrade() {
                 ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/config/colors.conf
                 ln -s $HOME/.cache/wal/colors-rofi.rasi $HOME/.config/rofi/options/colors.rasi
                 ln -s $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/colors.css
-
+                
+                echo $newver > $HOME/Dots/Options/currentver
                 echo "postupgrade" > $HOME/Dots/Options/startup
 
                 clear
