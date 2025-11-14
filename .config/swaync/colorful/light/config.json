@@ -71,7 +71,7 @@
       "actions": [
         {
           "label": "🎨",
-          "command": "sh -c '~/.config/swaync/scripts/theme.sh' &"
+          "command": "setsid ~/.config/swaync/scripts/theme.sh >/dev/null 2>&1 & disown"
         },
         {
           "label": "😀",

@@ -94,19 +94,12 @@ tooltip label {
 
 #custom-wallpaper, 
 #custom-hyprpicker, 
+#custom-appmenu,
 #custom-nightlight {
     background-color: transparent;
     font-size: 18px;
     margin: 4px 0px;
     padding: 0 10px;
-}
-
-/* APP MENU */
-
-#custom-appmenu {
-    background: transparent;
-    margin: 4px 0px;
-    padding: 0 14px;
 }
 
 /* HARDWARE GROUP */

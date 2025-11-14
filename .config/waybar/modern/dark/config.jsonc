@@ -134,7 +134,7 @@
 
   // Rofi Application Launcher
   "custom/appmenu": {
-    "format": "   Apps",
+    "format": " ",
     "on-click": "~/.config/rofi/launcher.sh",
     "tooltip-format": "Open App Launcher"
   },
@@ -175,12 +175,14 @@
   "cpu": {
     "interval": 5,
     "format": "  {usage}% ",
+    "on-click": "resources"
   },
 
   // Memory
   "memory": {
     "interval": 5,
     "format": "-   {}% ",
+    "on-click": "resources"
   },
 
   // Harddisc space used
@@ -188,6 +190,7 @@
     "interval": 5,
     "format": "-   {percentage_used}% ",
     "path": "/",
+    "on-click": "resources"
   },
   
   // Network
@@ -280,8 +283,7 @@
   
   "custom/sidebar": {
       "format": "󱗼",
-      "tooltip-format": "L: Sidebar\nR: Reload configuration (wait 5-10 seconds)",
+      "tooltip-format": "Sidebar",
       "on-click": "swaync-client -t",
-      "on-click-right": "swaync-client -R && swaync-client -rs && sleep 1 && swaync-client -t"
   }
 }

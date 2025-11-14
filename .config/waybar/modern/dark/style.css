@@ -44,7 +44,6 @@ window#waybar {
 
 tooltip {
     border: 1px solid @foreground;
-    
     background-color: @background;
     opacity: 1;
 }
@@ -92,23 +91,12 @@ tooltip label {
 
 #custom-wallpaper, 
 #custom-hyprpicker, 
+#custom-appmenu,
 #custom-nightlight {
     background-color: transparent;
     font-size: 18px;
     margin: 4px 0px;
     padding: 0 10px;
-}
-
-#custom-hypridle.notactive {
-    color: @foreground;
-}
-
-/* APP MENU */
-
-#custom-appmenu {
-    background: transparent;
-    margin: 4px 0px;
-    padding: 0 14px;
 }
 
 /* HARDWARE GROUP */
