@@ -24,6 +24,7 @@
       "cpu", 
       "memory", 
       "disk",
+      "custom/appmenu",
       "hyprland/workspaces",
       "custom/wallpaper",
       "custom/hyprpicker",
