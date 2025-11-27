@@ -4,7 +4,7 @@
 </h3>
 
 <div align="center">
-  <i>version 0.1.0 (finally)</i>
+  <i>version 0.1.1 (finally)</i>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
@@ -18,13 +18,13 @@
 > Should work on pretty much any arch based system (minimal, or not). If theres an issue installing, please submit a bug report! 
 
 ```
-bash <(curl -fsSL "https://gdrc.me/dots.sh")
+bash <(curl -s "https://gdrc.me/dots.sh")
 ```
 
 > If the above command doesnt work, you are likely using a non-standard shell (like fish). Try running this command instead (assumes bash is installed, install `bash` with pacman otherwise).
 
 ```
-bash -c "$(curl -fsSL https://gdrc.me/dots.sh)"
+bash -c "$(curl -s https://gdrc.me/dots.sh)"
 ```
 
 <details> 
@@ -78,17 +78,26 @@ bash -c "$(curl -fsSL https://gdrc.me/dots.sh)"
 
 ### 🖼️ SCREENSHOTS:
 
-![dark - modern](https://github.com/user-attachments/assets/a5558edf-8e42-4480-9007-973275fd95c4)
+#### Modern Theme
+| Dark | Light |
+|:---|:---------------|
+| ![dark - modern](https://github.com/user-attachments/assets/a5558edf-8e42-4480-9007-973275fd95c4) | ![light - modern](https://github.com/user-attachments/assets/0890c9a8-acec-4b25-b6b0-7e4e95a5c8ff) |
+| Terminal Stuff | Hyprlock |
+| ![terminal stuff](https://github.com/user-attachments/assets/4c4cec04-b809-428d-9321-11febc144417) | ![hyprlock](https://github.com/user-attachments/assets/282bb4b1-7d4f-4cf3-9811-e0e636bd6226) |
 
-![light - modern](https://github.com/user-attachments/assets/0890c9a8-acec-4b25-b6b0-7e4e95a5c8ff)
+#### Colorful Theme
+| Dark | Light |
+|:---|:---------------|
+| ![dark - colorful](https://github.com/user-attachments/assets/6d8af081-8fe1-49bb-89c9-62195b0b4cee) | ![light-colorful](https://github.com/user-attachments/assets/7d13fc2a-a9c3-4b4a-887b-ffe585659db3) |
+| Terminal Stuff | Hyprlock |
+| ![terminal showcase](https://github.com/user-attachments/assets/b4932326-8a5a-465f-bc24-4d6824f89d62) | ![hyprlock](https://github.com/user-attachments/assets/2090c45f-b6a5-4aaa-a616-1d48ab63fdcd) |
 
-![colorful showcase](https://github.com/user-attachments/assets/6d8af081-8fe1-49bb-89c9-62195b0b4cee)
-
-![terminal showcase](https://github.com/user-attachments/assets/b4932326-8a5a-465f-bc24-4d6824f89d62)
-
-![minimal showcase](https://github.com/user-attachments/assets/b6fa998c-00de-400f-baa6-e59b85655bc5)
-
-![hyprlock](https://github.com/user-attachments/assets/282bb4b1-7d4f-4cf3-9811-e0e636bd6226)
+#### Minimal Theme
+| Dark | Light |
+|:---|:---------------|
+| ![dots 4](https://github.com/user-attachments/assets/a2ca5bc2-0b44-41dd-96b5-494cea577112) | ![dots 3](https://github.com/user-attachments/assets/934076e1-d6ab-4f4c-a61e-406fa6d74da2) |
+| Terminal Stuff | Hyprlock |
+| ![dots 2](https://github.com/user-attachments/assets/c9df1943-9e1a-40c2-b30c-2e46ac4201a1) | ![dots 1](https://github.com/user-attachments/assets/8710cbce-110f-4a22-aa72-374750bc4363) |
 
 # 
 
