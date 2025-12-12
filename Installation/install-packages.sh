@@ -173,7 +173,7 @@ nautilustweak () {
         case "$tweaks" in
             [Yy])
                 $AUR_HELPER nautilus-open-any-terminal nautilus-python libnautilus-extension python-gobject
-                git clone https://github.com/ronen25/nautilus-copypath
+                git clone https://git.sr.ht/~ronenk17/nautilus-copypath # fixed path, previously github
                 mkdir -p ~/.local/share/ # yes there are people without .local/share... (mainly minimal installs)
                 mkdir -p ~/.local/share/nautilus-python
                 mkdir -p ~/.local/share/nautilus-python/extensions

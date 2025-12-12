@@ -28,7 +28,10 @@ while true; do
 
     case "$installtype" in
         1)
-            ./Installation/main-guidedinstall.sh 
+            clear
+            echo "" > $HOME/GeoDots/geodots_aurhelper
+            ./Installation/install-options.sh
+            ./Installation/install-packages.sh
             break
             ;;
         2)
