@@ -1,0 +1,72 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+html {
+    font-family: Inter, NerdFontsSymbols Nerd Font, Arial, sans-serif;
+    font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+    display: flex;
+    background: #141330;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    max-width: 1000px;
+}
+.main img {
+    width: 95%;
+    height: auto;
+    border-radius: 18px;
+}
+.main h2 {
+    font-size: 2em;
+    margin: 30px;
+}
+.copy {
+    background: #514A73;
+    padding: 30px;
+    margin: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 100px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.copy a {
+    color: #fff;
+    background: #00000000;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+#copyicon {
+    margin-left: 10px;
+}
+.btn {
+    margin: 20px;
+    padding: 20px 30px;
+    background: #514A73;
+    font-size: 1.5em;
+    border-radius: 100px;
+}
+.btn a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+}
+.btn a:hover {
+    text-decoration: underline;
+}
