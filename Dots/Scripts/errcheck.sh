@@ -12,18 +12,20 @@ if [[ "$errver" == "$curver" ]]; then
 		--icon dialog-warning-symbolic \
         --action=open="View details" \
         "Please Upgrade GeoDots" \
-        "A recent application update has likely introduced issues with new breaking changes. \n Click below to learn more")
+        "A recent application update has likely introduced issues with new breaking changes. \n\nClick below to learn more")
 
     if [[ "$ACTION" == "open" ]]; then
         $terminal bash -c "
-            echo 'A recent application update has likely introduced issues with new breaking changes.'
+            echo 'Hyprland and other applications GeoDots uses run on a rolling-release system'
+            echo 'Sometimes, breaking changes are introduced that create issues.'
+            echo
             echo 'Below is a message describing what has happened.'
             echo
             echo \"$errmsg\"
             echo
-            echo 'At this point I will have pushed an update to fix these issues, please update by:'
-            echo '- Open the Settings app (SUPER + I)'
-            echo '- Select Upgrade GeoDots'
+            echo 'A fix has been issued in a new update. Please update by:'
+            echo '- Opening the Settings app (SUPER + I)'
+            echo '- Selecting Upgrade GeoDots'
             echo
             echo 'Press ENTER to close this message'
             read
