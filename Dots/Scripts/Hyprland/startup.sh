@@ -9,3 +9,5 @@ elif [ -f "$HOME/Dots/Options/autologin" ] && grep -q "enabled" "$HOME/Dots/Opti
 elif [ -f "$HOME/Dots/Options/clock" ] && grep -q "enabled" "$HOME/Dots/Options/clock"; then
     eww open clock 
 fi
+
+$HOME/Dots/Scripts/errcheck.sh

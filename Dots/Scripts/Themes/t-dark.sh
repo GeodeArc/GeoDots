@@ -16,6 +16,7 @@ echo "dark" > $HOME/Dots/Options/theme
 cp -a $HOME/.config/waybar/$style/dark/. $HOME/.config/waybar/
 cp -a $HOME/.config/swaync/$style/dark/. $HOME/.config/swaync/
 cp -a $HOME/.config/rofi/$style/dark/config.rasi $HOME/.config/rofi/
+cp -a $HOME/.config/hypr/themes/$style/dark/hyprlock.conf $HOME/.config/hypr/
 
 sleep 0.5 
 
