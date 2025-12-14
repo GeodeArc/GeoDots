@@ -307,7 +307,7 @@ echo "Packages installed successfully!"
 echo "Please save any unsaved documents, as the system will reboot after this is complete!"
 read -p "Press enter to copy dotfiles to your system."
 
-xdg-user-dirs-gtk-update
+xdg-user-dirs-update
 
 echo "Removing old config/dotfiles folders."
 sudo rm -r $HOME/Dots

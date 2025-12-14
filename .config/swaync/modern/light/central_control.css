@@ -39,7 +39,7 @@
 /* Notifications  */
 .control-center .notification-row .notification-background,
 .control-center .notification-row .notification-background .notification.critical {
-  background-color: alpha(#bbb, .80);
+  background-color: alpha(#fafafa, .80);
   border: 1px solid alpha(@foreground, .60);
   border-radius: 8px;
   margin: 4px 0px;
