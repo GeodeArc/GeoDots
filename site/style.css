@@ -70,3 +70,17 @@ body::-webkit-scrollbar {
 .btn a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 620px) {
+    .copy {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+    .btn {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
