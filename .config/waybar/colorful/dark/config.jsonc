@@ -5,6 +5,7 @@
 
 {
   // General Settings
+  "include": "settings.jsonc",
   "layer": "bottom",
   "margin-top": 8,
   "margin-bottom": 0,

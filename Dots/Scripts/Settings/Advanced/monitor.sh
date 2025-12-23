@@ -103,7 +103,7 @@ monitoradd() {
                     echo "Example: 100x100"
                     read -p " ■ " pos
 
-                    if [[ "$pos" =~ ^[0-9]+x[0-9]+$ ]]; then
+                    if [[ "$pos" =~ ^-?[0-9]+x-?[0-9]+$ ]]; then
                         break
                     fi
 

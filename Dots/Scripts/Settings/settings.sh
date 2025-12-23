@@ -222,10 +222,10 @@ customization() {
 
                 case $choice in
                     1)
-                        echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/settings/items.jsonc"
+                        echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/monitor.jsonc"
                         ;;
                     2)
-                        echo "" > "$HOME/.config/waybar/settings/items.jsonc"
+                        echo "" > "$HOME/.config/waybar/monitor.jsonc"
                         ;;
                 esac
                 clear
