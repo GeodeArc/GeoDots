@@ -1,7 +1,3 @@
-Test Error Message
+You wont see this anyway (atleast in 0.1.1), but Hyprland introduced a breaking change to window/layer rules.
 
-New Line
-
-123
-456
-789
+The syntax needed to be adjusted, meaning you will see an error message and your rules will not work.
