@@ -15,6 +15,7 @@ echo -e "\$cursortheme = $cursor_theme" > $HOME/.config/hypr/config/cursortheme.
 echo "dark" > $HOME/Dots/Options/theme
 cp -a $HOME/.config/waybar/$style/dark/. $HOME/.config/waybar/
 cp -a $HOME/.config/swaync/$style/dark/. $HOME/.config/swaync/
+cp -a $HOME/.config/swayosd/$style/dark.css $HOME/.config/swayosd/style.css
 cp -a $HOME/.config/rofi/$style/dark/config.rasi $HOME/.config/rofi/
 cp -a $HOME/.config/hypr/themes/$style/dark/hyprlock.conf $HOME/.config/hypr/
 

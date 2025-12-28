@@ -554,6 +554,7 @@ themeconfig() {
         echo "Setting $style style"
         cp -a "$HOME/GeoDots/.config/waybar/$style/$type/." "$HOME/GeoDots/.config/waybar/"
         cp -a "$HOME/GeoDots/.config/swaync/$style/$type/." "$HOME/GeoDots/.config/swaync/"
+        cp -a "$HOME/GeoDots/.config/swayosd/$style/$type.css" "HOME/GeoDots/.config/swayosd/style.css"
         cp -a "$HOME/GeoDots/.config/rofi/$style/$type/config.rasi" "$HOME/GeoDots/.config/rofi/"
         cp -r $HOME/GeoDots/.config/hypr/themes/$style/theme.conf $HOME/GeoDots/.config/hypr/
         cp -r $HOME/GeoDots/.config/hypr/themes/$style/$type/hyprlock.conf $HOME/GeoDots/.config/hypr/
