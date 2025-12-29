@@ -59,7 +59,7 @@ aurinstall() {
                     ;;
                 2)
                     clear
-                    install_aur_helper "paru" "https://aur.archlinux.org/paru-bin.git"
+                    install_aur_helper "paru" "https://aur.archlinux.org/paru.git"
                     if [[ $? -eq 0 ]]; then # checks for return 0
 			            return
 		            fi

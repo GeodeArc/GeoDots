@@ -1,15 +1,18 @@
 <h3 align="center">
-  <img width="2561" height="1084" alt="GeoDots Banner (cringe)" src="https://github.com/user-attachments/assets/c9e819ac-40ab-4e95-875d-b492a6f20fd8" />
+  <img width="100%" height="auto" alt="GeoDots Banner (cringe)" src="https://github.com/user-attachments/assets/c9e819ac-40ab-4e95-875d-b492a6f20fd8" />
   <h3 align="center">by <b>GeodeArc <3</b></h3>
 </h3>
 
 <div align="center">
-  <i>version 0.1.1 (finally)</i>
+  <i>version 0.1.2</i>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
 > [!NOTE]
 > GeoDots is only (currently) supported for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
+
+> [!WARNING]
+> Hyprland 53 introduced new syntax, meaning your config will be invalid when you update. Please use the upgrade script if you are affected.
 
 #
 
@@ -18,7 +21,7 @@
 > Should work on pretty much any arch based system (minimal, or not). If theres an issue installing, please submit a bug report! 
 
 ```
-bash <(curl -s "https://gdrc.me/dots.sh")
+bash <(curl -s https://gdrc.me/dots.sh)
 ```
 
 > If the above command doesnt work, you are likely using a non-standard shell (like fish). Try running this command instead (assumes bash is installed, install `bash` with pacman otherwise).
@@ -52,15 +55,12 @@ bash -c "$(curl -s https://gdrc.me/dots.sh)"
 
   <p></p>
 
-  - 🔄 Clone the repo. I hope you know how to do this already.
-  
-  - 🗃️ Head over the the gh-pages branch, and install the dependencies in the text files labeled 'pkg'. Not everything is 'technically' required.
-
-  - 🔶 Go to each config folder in /.config/, and if required, move a config (e.g modern+light) to the root of that folder.
-
-  - 💾 Copy folders from /.config/ to your .config folder
-
-  - 🏠 Copy the /Dots folder to your home directory
+  - Clone the repo. I hope you know how to do this already.
+  - Head over the the gh-pages branch, and install the dependencies in the text files labeled 'pkg'. Not everything is 'technically' required.
+  - Go to each config folder in /.config/, and if required, move a config (e.g modern+light) to the root of that folder.
+  - Copy folders from /.config/ to your .config folder
+  - Copy the /Dots folder to your home directory
+  - Adjust the /Dots/Options files accordingly to your preferences. I will add more documentation here later (maybe).
 
 </details> 
 
@@ -104,7 +104,7 @@ bash -c "$(curl -s https://gdrc.me/dots.sh)"
 ### ⚙ MORE:
 
 <details> 
-  <summary>🟡 Roadmap</summary>
+  <summary>Roadmap</summary>
 
   - Add nvim config/editor choice?
 
