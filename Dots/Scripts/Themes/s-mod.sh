@@ -14,7 +14,9 @@ cp -a $HOME/.config/hypr/themes/modern/$theme/hyprlock.conf $HOME/.config/hypr/
 sleep 0.5 
 
 killall waybar
+pkill swayosd
 waybar &
+swayosd-server &
 
 swaync-client -R
 swaync-client -rs
