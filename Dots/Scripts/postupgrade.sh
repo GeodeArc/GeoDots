@@ -1,25 +1,19 @@
 #!/bin/bash
 
-# TEMP FIX FOR 0.1.1 CUZ IM AN IDIOT
-theme="$(cat $HOME/Dots/Options/theme)"
-style="$(cat $HOME/Dots/Options/style)"
-
-if [[ ! -f "$HOME/.config/hypr/theme.conf" ]]; then
-    cp -r $HOME/.config/hypr/themes/$style/theme.conf $HOME/.config/hypr/theme.conf
-    cp -a "$HOME/.config/swayosd/$style/$theme.css" "$HOME/.config/swayosd/style.css"
-    hyprctl reload
-    pkill swayosd
-    setsid swayosd-server &> /dev/null &
-fi
-
 pkill waybar
 
-echo "Welcome back to GeoDots! You made it."
-echo "Lets get everything set up again."
-echo 
+echo "Running post install fixes"
+curl -s https://gdrc.me/GeoDots/data/fixup.sh > $HOME/Dots/Scripts/fixup.sh
+chmod u+x $HOME/Dots/Scripts/fixup.sh
+$HOME/Dots/Scripts/fixup.sh
 
 MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
 BACKUPDIRS=( $(eza -1 --icons=never $HOME/GeoDots-BACKUP | grep -v ' ') )
+
+clear
+echo "Welcome back to GeoDots! You made it."
+echo "Lets get everything set up again."
+echo 
 
 monitorselect() {
     while true; do

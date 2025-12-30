@@ -16,9 +16,8 @@ if [[ "$errver" == "$curver" ]]; then
 
     if [[ "$ACTION" == "open" ]]; then
         $terminal bash -c "
-            echo 'Hyprland and other applications GeoDots uses run on a rolling-release system'
+            echo 'Hyprland and other applications GeoDots uses update often.'
             echo 'Sometimes, breaking changes are introduced that create issues.'
-            echo
             echo 'Below is a message describing what has happened.'
             echo
             echo \"$errmsg\"
