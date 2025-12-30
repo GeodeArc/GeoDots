@@ -1,11 +1,15 @@
 #!/bin/bash
 
 # TEMP FIX FOR 0.1.1 CUZ IM AN IDIOT
+theme="$(cat $HOME/Dots/Options/theme)"
 style="$(cat $HOME/Dots/Options/style)"
 
 if [[ ! -f "$HOME/.config/hypr/theme.conf" ]]; then
     cp -r $HOME/.config/hypr/themes/$style/theme.conf $HOME/.config/hypr/theme.conf
+    cp -a "$HOME/.config/swayosd/$style/$theme.css" "$HOME/.config/swayosd/style.css"
     hyprctl reload
+    pkill swayosd
+    setsid swayosd-server &> /dev/null &
 fi
 
 pkill waybar
