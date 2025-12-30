@@ -5,6 +5,7 @@ style="$(cat $HOME/Dots/Options/style)"
 
 if [[ ! -f "$HOME/.config/hypr/theme.conf" ]]; then
     cp -r $HOME/.config/hypr/themes/$style/theme.conf $HOME/.config/hypr/theme.conf
+    hyprctl reload
 fi
 
 pkill waybar
