@@ -1,3 +1,1 @@
-You wont see this anyway (atleast in 0.1.1), but Hyprland introduced a breaking change to window/layer rules.
-
-The syntax needed to be adjusted, meaning you will see an error message and your rules will not work.
+There were some issues in the previous release (0.1.2) due to a lack of testing. This update should fix any issues you had.
