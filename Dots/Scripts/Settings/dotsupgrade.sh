@@ -217,8 +217,8 @@ dotsupgrade() {
                 cp -a "$HOME/GeoDots/.config/waybar/$style/$theme/." "$HOME/GeoDots/.config/waybar/"
                 cp -a "$HOME/GeoDots/.config/swaync/$style/$theme/." "$HOME/GeoDots/.config/swaync/"
                 cp -a "$HOME/GeoDots/.config/rofi/$style/$theme/config.rasi" "$HOME/GeoDots/.config/rofi/"
-                cp -r $HOME/GeoDots/.config/hypr/themes/$style/hyprland.conf $HOME/GeoDots/.config/hypr/
-                cp -r $HOME/GeoDots/.config/hypr/themes/$style/hyprlock.conf $HOME/GeoDots/.config/hypr/
+                cp -r $HOME/GeoDots/.config/hypr/themes/$style/theme.conf $HOME/GeoDots/.config/hypr/
+                cp -r $HOME/GeoDots/.config/hypr/themes/$style/$theme/hyprlock.conf $HOME/GeoDots/.config/hypr/
 
                 echo "Removing ~/Dots"
                 sudo rm -r "$HOME/Dots"

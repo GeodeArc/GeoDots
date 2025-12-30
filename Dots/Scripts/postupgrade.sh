@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# TEMP FIX FOR 0.1.1 CUZ IM AN IDIOT
+style="$(cat $HOME/Dots/Options/style)"
+
+if [[ ! -f "$HOME/.config/hypr/theme.conf" ]]; then
+    cp -r $HOME/.config/hypr/themes/$style/theme.conf $HOME/.config/hypr/theme.conf
+fi
+
 pkill waybar
 
 echo "Welcome back to GeoDots! You made it."
