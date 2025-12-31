@@ -80,6 +80,7 @@ restorebackup() {
             [Yy])
                 echo "Restoring wallpaper from $selected_backup"
                 cp -r $HOME/GeoDots-BACKUP/$selected_backup/Dots/Wallpapers/. $HOME/Dots/Wallpapers/
+                clear
                 break
                 ;;
             [Nn])
