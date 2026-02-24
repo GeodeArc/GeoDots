@@ -2,6 +2,12 @@
 
 sleep 1
 
+if grep -q "light" "$HOME/Dots/Options/theme"; then
+    light="-l"
+else
+    light=""
+fi
+
 primary_monitor=$(cat "$HOME/Dots/Options/mainmonitor")
 wallpaper=$(swww query | grep "^: $primary_monitor:" | sed 's/.*image: //')
 
@@ -12,7 +18,7 @@ rm $HOME/Dots/Options/wallpaper
 ln -s $genwal $HOME/Dots/Options/wallpaper
 echo "* { wallpaper: url(\"$genwal\", width); }" > "$HOME/.config/rofi/options/wallpaper.rasi"
 
-wal -q -i $genwal &
+wal -q $light -i $genwal &
 
 sleep 0.5
 

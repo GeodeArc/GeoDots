@@ -16,11 +16,6 @@ if [ -f "$HOME/.config/sh/aliases.sh" ]; then
     . "$HOME/.config/sh/aliases.sh"
 fi
 
-# KITTY THEME
-if grep -q "light" "$HOME/Dots/Options/theme"; then
-    kitty @ set-colors --all ~/.cache/wal/colors-kitty-light.conf
-fi
-
 # PROMPT
 eval "$(starship init bash)"
 if [[ $(tty) == *"pts"* ]]; then
