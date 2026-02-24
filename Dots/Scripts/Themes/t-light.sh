@@ -7,6 +7,10 @@ cursor_theme="Bibata-Modern-Ice"
 stlconf="$(cat $HOME/Dots/Options/style)"
 style="$stlconf"
 
+primary_monitor=$(cat "$HOME/Dots/Options/mainmonitor")
+wallpaper=$(swww query | grep "^: $primary_monitor:" | sed 's/.*image: //')
+genwal=$wallpaper
+
 gsettings set org.gnome.desktop.interface color-scheme "$wgt_theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
 gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
@@ -20,7 +24,7 @@ cp -a $HOME/.config/rofi/$style/light/config.rasi $HOME/.config/rofi/
 cp -a $HOME/.config/eww/light/eww.scss $HOME/.config/eww/
 cp -a $HOME/.config/hypr/themes/$style/light/hyprlock.conf $HOME/.config/hypr/
 
-wal -q -l -i $HOME/Dots/Options/wallpaper &
+wal -q -l -i $genwal &
 
 sleep 0.5 
 
