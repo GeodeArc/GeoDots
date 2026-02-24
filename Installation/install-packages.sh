@@ -331,6 +331,7 @@ mkdir -p $HOME/.cache/wal/
 sudo cp -a $HOME/GeoDots/.config/. $HOME/.config/
 mv $HOME/.config/sh/.zshrc $HOME
 mv $HOME/.config/sh/.bashrc $HOME
+mv $HOME/.config/starship/starship.toml $HOME/.config/
 
 echo "Creating DOTFILES folder (~/Dots)"
 cp -a $HOME/GeoDots/Dots $HOME/Dots

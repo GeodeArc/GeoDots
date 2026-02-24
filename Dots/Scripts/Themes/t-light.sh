@@ -22,6 +22,7 @@ cp -a $HOME/.config/swaync/$style/light/. $HOME/.config/swaync/
 cp -a $HOME/.config/swayosd/$style/light.css $HOME/.config/swayosd/style.css
 cp -a $HOME/.config/rofi/$style/light/config.rasi $HOME/.config/rofi/
 cp -a $HOME/.config/eww/light/eww.scss $HOME/.config/eww/
+cp -a $HOME/.config/starship/light/starship.toml $HOME/.config/
 cp -a $HOME/.config/hypr/themes/$style/light/hyprlock.conf $HOME/.config/hypr/
 
 wal -q -l -i $genwal &

@@ -3,15 +3,15 @@
 add_newline = true
 
 format = """
-[ ](#3B4252)\
+[ ](#DFE1E8)\
 $python\
 $username\
-[](bg:#434C5E fg:#3B4252)\
+[](bg:#B9C0CD fg:#DFE1E8)\
 $directory\
-[](fg:#434C5E bg:#4C566A)\
+[](fg:#B9C0CD bg:#9CA6B8)\
 $git_branch\
 $git_status\
-[](fg:#4C566A bg:#F76E00)\
+[](fg:#9CA6B8 bg:red)\
 $c\
 $elixir\
 $elm\
@@ -22,9 +22,9 @@ $julia\
 $nodejs\
 $nim\
 $rust\
-[](fg:#F76E00 bg:#e83a00)\
+[](fg:red bg:green)\
 $docker_context\
-[](fg:#e83a00 bg:blue)\
+[](fg:green bg:blue)\
 $os\
 [ ](blue)\
 """
@@ -39,12 +39,12 @@ command_timeout = 500
 
 [username]
 show_always = true
-style_user = "bg:#3B4252"
-style_root = "bg:#3B4252"
+style_user = "bg:#DFE1E8"
+style_root = "bg:#DFE1E8"
 format = '[$user ]($style)'
 
 [directory]
-style = "bg:#434C5E"
+style = "bg:#B9C0CD"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"

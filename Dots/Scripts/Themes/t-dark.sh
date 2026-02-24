@@ -22,6 +22,7 @@ cp -a $HOME/.config/swaync/$style/dark/. $HOME/.config/swaync/
 cp -a $HOME/.config/swayosd/$style/dark.css $HOME/.config/swayosd/style.css
 cp -a $HOME/.config/rofi/$style/dark/config.rasi $HOME/.config/rofi/
 cp -a $HOME/.config/eww/dark/eww.scss $HOME/.config/eww/
+cp -a $HOME/.config/starship/dark/starship.toml $HOME/.config/
 cp -a $HOME/.config/hypr/themes/$style/dark/hyprlock.conf $HOME/.config/hypr/
 
 wal -q -i $genwal &
