@@ -549,6 +549,7 @@ themeconfig() {
         gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
         gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
         echo -e "\$cursortheme = $cursor_theme" | sudo tee "$HOME/GeoDots/.config/hypr/config/cursortheme.conf" >/dev/null
+        echo "include ~/.cache/wal/colors-kitty-$type.conf" > $HOME/GeoDots/.config/kitty/theme.conf
         echo "$type" > "$HOME/GeoDots/Dots/Options/theme"
 
         echo "Setting $style style"

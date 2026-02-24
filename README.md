@@ -1,18 +1,15 @@
 <h3 align="center">
-  <img width="100%" height="auto" alt="GeoDots Banner (cringe)" src="https://github.com/user-attachments/assets/c9e819ac-40ab-4e95-875d-b492a6f20fd8" />
+  <img width="2530" height="1280" alt="GeoDots Logo" src="https://github.com/user-attachments/assets/2ac9a0ee-1d82-48bc-a166-4348eb762039" />
   <h3 align="center">by <b>GeodeArc <3</b></h3>
 </h3>
 
 <div align="center">
-  <i>version 0.1.2</i>
+  <i>version 0.1.3</i>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
 > [!NOTE]
 > GeoDots is only (currently) supported for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
-
-> [!WARNING]
-> Hyprland 53 introduced new syntax, meaning your config will be invalid when you update. Please use the upgrade script if you are affected.
 
 #
 
@@ -31,23 +28,26 @@ bash -c "$(curl -s https://gdrc.me/dots.sh)"
 ```
 
 <details> 
-  <summary>⌨ Manual Mode (ish)</summary>
+  <summary>🤔 Dont like curl bash?</summary>
 
   <p></p>
 
-  - 🗃️ Ensure dependencies & update
+  Thats fair, heres a more rigid method. 
+  
+  Ensure dependencies & update
   ```
   sudo pacman -Syu
   sudo pacman -S --needed git base-devel
   ```
-  - 💾 Begin Installation!
-  > Needs to be in home folder for now! May make the script better/adaptive if i feel like it
+  Begin Installation
   ```
-  cd
-  git clone https://github.com/GeodeArc/GeoDots/
-  cd GeoDots
+  git clone https://github.com/GeodeArc/GeoDots/ $HOME/GeoDots
+  cd $HOME/GeoDots/
   ./install.sh
   ```
+
+  > Feel free to inspect install.sh, and any other scripts inside of /Installation/.
+
 </details> 
 
 <details> 

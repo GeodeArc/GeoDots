@@ -11,6 +11,7 @@ gsettings set org.gnome.desktop.interface color-scheme "$wgt_theme"
 gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
 gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
 echo -e "\$cursortheme = $cursor_theme" > $HOME/.config/hypr/config/cursortheme.conf
+echo "include ~/.cache/wal/colors-kitty-light.conf" > $HOME/.config/kitty/theme.conf
 
 echo "light" > $HOME/Dots/Options/theme
 cp -a $HOME/.config/waybar/$style/light/. $HOME/.config/waybar/
