@@ -347,8 +347,14 @@ for dir in $codirs; do
     fi
 done
 
+if grep -q "light" "$HOME/Dots/Options/theme"; then
+    light="-l"
+else
+    light=""
+fi
+
 echo "Generating default color scheme:"
-wal -i "$HOME/Dots/Wallpapers/wall1.jpg"
+wal $light -i "$HOME/Dots/Wallpapers/wall1.jpg"
 ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/config/colors.conf
 ln -s $HOME/.cache/wal/colors-rofi.rasi $HOME/.config/rofi/options/colors.rasi
 ln -s $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/colors.css
