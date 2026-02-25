@@ -15,9 +15,9 @@ if [[ "$updcheck" == "true" ]]; then
 
         if [[ "$ACTION" == "open" ]]; then
             $terminal bash -c "
-                echo 'Hyprland and other applications GeoDots uses update often.'
-                echo 'Sometimes, breaking changes are introduced that create issues.'
-                echo 'Below is your current version and the new version.'
+                echo 'A new version of GeoDots has been released.'
+                echo 'Visit the Github releases page to see a list of new features.'
+                echo 'https://github.com/GeodeArc/GeoDots/releases'
                 echo
                 echo \"Current Version: $curver\"
                 echo \"New Version: $newver\"

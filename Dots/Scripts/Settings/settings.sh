@@ -297,6 +297,7 @@ customization() {
                 clear
                 read -p "Finished, press ENTER to continue."
                 clear
+                ;;
             [qQ])
                 clear
                 return
