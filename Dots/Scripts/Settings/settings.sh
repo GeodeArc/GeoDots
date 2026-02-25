@@ -123,6 +123,7 @@ customization() {
         echo "7. Waybar Monitor Selection                           󱔓"
         echo "8. Rofi Launcher Type                                 "
         echo "9. Enable/Disable Desktop Clock                       󰌑"  
+        echo "0. Enable/Disable Update Notification                 󰚰"
         echo "-------------------------------------------------------"
         echo "Q. Return                                             󰌑"
         echo "-------------------------------------------------------"
@@ -276,6 +277,26 @@ customization() {
                 read -p "Finished, press ENTER to continue."
                 clear
                 ;;
+            0)
+                clear
+                echo "What would you like to do?"
+                echo
+                echo "1: Enable Update Notification"
+                echo "2: Disable Update Notification"
+                echo 
+                read -p "■ " choice
+
+                case $choice in
+                    1)
+                        echo "true" > $HOME/Dots/Options/updcheck
+                        ;;
+                    2)
+                        echo "false" > $HOME/Dots/Options/updcheck
+                        ;;
+                esac
+                clear
+                read -p "Finished, press ENTER to continue."
+                clear
             [qQ])
                 clear
                 return

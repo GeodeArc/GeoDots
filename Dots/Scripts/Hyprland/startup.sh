@@ -11,3 +11,4 @@ elif [ -f "$HOME/Dots/Options/clock" ] && grep -q "enabled" "$HOME/Dots/Options/
 fi
 
 $HOME/Dots/Scripts/errcheck.sh
+$HOME/Dots/Scripts/updcheck.sh
