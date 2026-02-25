@@ -16,3 +16,9 @@ if [[ ! -f "$HOME/.config/swayosd/style.css" ]]; then
     setsid swayosd-server &> /dev/null &
     clear
 fi
+
+if [[ ! -f "$HOME/.config/eww/eww.scss" ]]; then
+    cp -a "$HOME/.config/eww/$theme/eww.scss" "$HOME/.config/eww/"
+    eww reload
+    clear
+fi
