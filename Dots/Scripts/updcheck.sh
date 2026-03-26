@@ -1,9 +1,21 @@
 #!/bin/bash
 
-newver=$(curl -s https://gdrc.me/GeoDots/data/version)
+url="https://gdrc.me/GeoDots/data/version"
+
 curver=$(cat $HOME/Dots/Options/currentver)
 terminal=$(cat $HOME/Dots/Options/terminal)
 updcheck=$(cat $HOME/Dots/Options/updcheck)
+
+[[ "$updcheck" != "true" ]] && exit 0
+newver=$(curl -fsS "$url" 2>/dev/null)
+
+# sanity checks
+if [[ $? -ne 0 || -z "$newver" ]]; then
+    exit 0
+fi
+if [[ ! "$newver" =~ ^[0-9]+(\.[0-9]+)*[a-z]?$ ]]; then
+    exit 0
+fi
 
 if [[ "$updcheck" == "true" ]]; then
     if [[ "$newver" != "$curver" ]]; then

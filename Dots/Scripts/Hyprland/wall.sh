@@ -9,7 +9,7 @@ else
 fi
 
 primary_monitor=$(cat "$HOME/Dots/Options/mainmonitor")
-wallpaper=$(swww query | grep "^: $primary_monitor:" | sed 's/.*image: //')
+wallpaper=$(awww query | grep "^: $primary_monitor:" | sed 's/.*image: //')
 
 genwal=$wallpaper
 wallname=$(echo $genwal | sed 's/.*\///')
