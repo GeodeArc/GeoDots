@@ -10,7 +10,9 @@ html {
 }
 body {
     display: flex;
-    background: #141330;
+    background-color: #0F1427;
+    background-image: url("bg.jpg");
+    background-size: cover;
     color: #fff;
     min-height: 100vh;
     overflow-x: hidden;
@@ -37,7 +39,7 @@ body::-webkit-scrollbar {
     font-size: 2em;
 }
 .copy {
-    background: #514A73;
+    background: #514a7388;
     padding: 20px;
     margin: 10px;
     font-size: 1em;
@@ -58,7 +60,7 @@ body::-webkit-scrollbar {
 .btn {
     margin: 20px;
     padding: 10px 20px;
-    background: #514A73;
+    background: #514A7388;
     font-size: 1.2em;
     border-radius: 100px;
 }
