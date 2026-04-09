@@ -31,14 +31,14 @@ body::-webkit-scrollbar {
     width: 95%;
     height: auto;
     border-radius: 18px;
+    margin: 20px;
 }
 .main h2 {
     font-size: 2em;
-    margin: 30px;
 }
 .copy {
     background: #514A73;
-    padding: 30px;
+    padding: 20px;
     margin: 10px;
     font-size: 1em;
     cursor: pointer;
@@ -50,16 +50,16 @@ body::-webkit-scrollbar {
     color: #fff;
     background: #00000000;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 #copyicon {
     margin-left: 10px;
 }
 .btn {
     margin: 20px;
-    padding: 20px 30px;
+    padding: 10px 20px;
     background: #514A73;
-    font-size: 1.5em;
+    font-size: 1.2em;
     border-radius: 100px;
 }
 .btn a {
