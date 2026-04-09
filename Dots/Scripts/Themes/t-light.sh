@@ -8,7 +8,7 @@ stlconf="$(cat $HOME/Dots/Options/style)"
 style="$stlconf"
 
 primary_monitor=$(cat "$HOME/Dots/Options/mainmonitor")
-wallpaper=$(swww query | grep "^: $primary_monitor:" | sed 's/.*image: //')
+wallpaper=$(awww query | grep "^: $primary_monitor:" | sed 's/.*image: //')
 genwal=$wallpaper
 
 gsettings set org.gnome.desktop.interface color-scheme "$wgt_theme"
