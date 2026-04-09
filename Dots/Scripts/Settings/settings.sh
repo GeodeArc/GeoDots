@@ -213,17 +213,19 @@ customization() {
                 clear
                 ;;
             7)
-                if [[ -z "$(cat $HOME/.config/waybar/monitor.jsonc)" ]]; then
+                clear
+                if [[ "$(cat $HOME/.config/waybar/monitor.jsonc)" == "{}" ]]; then
                     echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/monitor.jsonc"
                     notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Your bar will now only appear on your primary monitor."
                     setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
                 else 
-                    echo "" > "$HOME/.config/waybar/monitor.jsonc"
+                    echo "{}" > "$HOME/.config/waybar/monitor.jsonc"
                     notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Your bar will now appear on all monitors."
                     setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
                 fi
                 ;;
             8)
+                clear
                 if [[ "$(cat $HOME/Dots/Options/launchertype)" == "vertical" ]]; then
                     echo "horizontal" > $HOME/Dots/Options/launchertype
                     notify-send -i system-run-symbolic "Rofi Launcher Type" "Your rofi launcher will now be horizontal."
@@ -233,6 +235,7 @@ customization() {
                 fi
                 ;;
             9) 
+                clear
                 if [[ "$(cat $HOME/Dots/Options/clock)" == "enabled" ]]; then
                     echo "disabled" > $HOME/Dots/Options/clock
                     pkill eww
@@ -244,6 +247,7 @@ customization() {
                 fi
                 ;;
             0)
+                clear
                 if [[ "$(cat $HOME/Dots/Options/updcheck)" == "true" ]]; then
                     echo "false" > $HOME/Dots/Options/updcheck
                     notify-send -i system-run-symbolic "Update Notification" "Your update notification will now be disabled."
