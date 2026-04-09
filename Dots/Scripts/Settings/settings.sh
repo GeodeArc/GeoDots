@@ -121,7 +121,7 @@ customization() {
         echo "6. Change Default TUI Editor                          "
         echo "-------------------------------------------------------"
         echo "7. Waybar Monitor Selection                           󱔓"
-        echo "8. Rofi Launcher Type                                 "
+        echo "8. Horizontal/Vertical Rofi Launcher                  "
         echo "9. Enable/Disable Desktop Clock                       󰌑"  
         echo "0. Enable/Disable Update Notification                 󰚰"
         echo "-------------------------------------------------------"
@@ -213,90 +213,44 @@ customization() {
                 clear
                 ;;
             7)
-                clear
-                echo "What would you like to do?"
-                echo
-                echo "1: Make Waybar ONLY appear on the main monitor"
-                echo "2: Make Waybar appear on all monitors"
-                echo 
-                read -p "■ " choice
-
-                case $choice in
-                    1)
-                        echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/monitor.jsonc"
-                        ;;
-                    2)
-                        echo "" > "$HOME/.config/waybar/monitor.jsonc"
-                        ;;
-                esac
-                clear
-                read -p "Finished, press ENTER to continue."
-                clear
+                if [[ -z "$(cat $HOME/.config/waybar/monitor.jsonc)" ]]; then
+                    echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/monitor.jsonc"
+                    notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Your bar will now only appear on your primary monitor."
+                    setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
+                else 
+                    echo "" > "$HOME/.config/waybar/monitor.jsonc"
+                    notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Your bar will now appear on all monitors."
+                    setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
+                fi
                 ;;
             8)
-                clear
-                echo "What rofi launcher style would you like to use?"
-                echo
-                echo "1: Vertical Launcher"
-                echo "2: Horizontal Launcher"
-                echo 
-                read -p "■ " choice
-
-                case $choice in
-                    1)
-                        echo "vertical" > $HOME/Dots/Options/launchertype
-                        ;;
-                    2)
-                        echo "horizontal" > $HOME/Dots/Options/launchertype
-                        ;;
-                esac
-                clear
-                read -p "Finished, press ENTER to continue."
-                clear
+                if [[ "$(cat $HOME/Dots/Options/launchertype)" == "vertical" ]]; then
+                    echo "horizontal" > $HOME/Dots/Options/launchertype
+                    notify-send -i system-run-symbolic "Rofi Launcher Type" "Your rofi launcher will now be horizontal."
+                else
+                    echo "vertical" > $HOME/Dots/Options/launchertype
+                    notify-send -i system-run-symbolic "Rofi Launcher Type" "Your rofi launcher will now be vertical."
+                fi
                 ;;
             9) 
-                clear
-                echo "What would you like to do?"
-                echo
-                echo "1: Enable Desktop Clock"
-                echo "2: Disable Desktop Clock"
-                echo 
-                read -p "■ " choice
-
-                case $choice in
-                    1)
-                        echo "enabled" > $HOME/Dots/Options/clock
-                        eww open clock &> /dev/null &
-                        ;;
-                    2)
-                        echo "disabled" > $HOME/Dots/Options/clock
-                        pkill eww
-                        ;;
-                esac
-                clear
-                read -p "Finished, press ENTER to continue."
-                clear
+                if [[ "$(cat $HOME/Dots/Options/clock)" == "enabled" ]]; then
+                    echo "disabled" > $HOME/Dots/Options/clock
+                    pkill eww
+                    notify-send -i system-run-symbolic "Desktop Clock" "Your desktop clock will now be disabled."
+                else
+                    echo "enabled" > $HOME/Dots/Options/clock
+                    eww open clock &> /dev/null &
+                    notify-send -i system-run-symbolic "Desktop Clock" "Your desktop clock will now be enabled."
+                fi
                 ;;
             0)
-                clear
-                echo "What would you like to do?"
-                echo
-                echo "1: Enable Update Notification"
-                echo "2: Disable Update Notification"
-                echo 
-                read -p "■ " choice
-
-                case $choice in
-                    1)
-                        echo "true" > $HOME/Dots/Options/updcheck
-                        ;;
-                    2)
-                        echo "false" > $HOME/Dots/Options/updcheck
-                        ;;
-                esac
-                clear
-                read -p "Finished, press ENTER to continue."
-                clear
+                if [[ "$(cat $HOME/Dots/Options/updcheck)" == "true" ]]; then
+                    echo "false" > $HOME/Dots/Options/updcheck
+                    notify-send -i system-run-symbolic "Update Notification" "Your update notification will now be disabled."
+                else
+                    echo "true" > $HOME/Dots/Options/updcheck
+                    notify-send -i system-run-symbolic "Update Notification" "Your update notification will now be enabled."
+                fi
                 ;;
             [qQ])
                 clear

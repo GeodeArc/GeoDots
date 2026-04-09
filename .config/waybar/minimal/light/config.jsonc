@@ -1,5 +1,5 @@
 {
-    "include": "settings.jsonc",
+    "include": "monitor.jsonc",
     "spacing": 4,
     "height": 25,
     "modules-left": ["hyprland/workspaces", "custom/wallpaper", "custom/hyprpicker", "custom/nightlight", "hyprland/window"],

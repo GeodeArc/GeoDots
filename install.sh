@@ -15,7 +15,7 @@ while true; do
     echo "This installer currently donest help you if you have NVIDIA. Please check the hyprland wiki for NVIDIA instructions."
     echo ""
     echo "Welcome to the GeoDots Installer!"
-    echo "These dotfiles are specific to Arch Linux ONLY! An update may come eventually for other distros"
+    echo "These dotfiles are specific to Arch Linux based distros ONLY!"
     echo ""
     echo "┌─ Please choose an installation option:"
     echo "│"

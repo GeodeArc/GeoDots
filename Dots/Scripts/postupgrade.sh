@@ -3,8 +3,6 @@
 pkill waybar
 
 echo "Running post install fixes"
-curl -s https://gdrc.me/GeoDots/data/fixup.sh > $HOME/Dots/Scripts/fixup.sh
-chmod u+x $HOME/Dots/Scripts/fixup.sh
 $HOME/Dots/Scripts/fixup.sh
 
 MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
