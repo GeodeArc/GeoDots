@@ -216,11 +216,11 @@ customization() {
                 clear
                 if [[ "$(cat $HOME/.config/waybar/monitor.jsonc)" == "{}" ]]; then
                     echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/monitor.jsonc"
-                    notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Your bar will now only appear on your primary monitor."
+                    notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Waybar will now only appear on your primary monitor."
                     setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
                 else 
                     echo "{}" > "$HOME/.config/waybar/monitor.jsonc"
-                    notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Your bar will now appear on all monitors."
+                    notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Waybar will now appear on all monitors."
                     setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
                 fi
                 ;;
@@ -228,10 +228,10 @@ customization() {
                 clear
                 if [[ "$(cat $HOME/Dots/Options/launchertype)" == "vertical" ]]; then
                     echo "horizontal" > $HOME/Dots/Options/launchertype
-                    notify-send -i system-run-symbolic "Rofi Launcher Type" "Your rofi launcher will now be horizontal."
+                    notify-send -i system-run-symbolic "Rofi Launcher Type" "The Rofi launcher will now be horizontal."
                 else
                     echo "vertical" > $HOME/Dots/Options/launchertype
-                    notify-send -i system-run-symbolic "Rofi Launcher Type" "Your rofi launcher will now be vertical."
+                    notify-send -i system-run-symbolic "Rofi Launcher Type" "The Rofi launcher will now be vertical."
                 fi
                 ;;
             9) 
@@ -239,21 +239,21 @@ customization() {
                 if [[ "$(cat $HOME/Dots/Options/clock)" == "enabled" ]]; then
                     echo "disabled" > $HOME/Dots/Options/clock
                     pkill eww
-                    notify-send -i system-run-symbolic "Desktop Clock" "Your desktop clock will now be disabled."
+                    notify-send -i system-run-symbolic "Desktop Clock" "The desktop clock will now be disabled."
                 else
                     echo "enabled" > $HOME/Dots/Options/clock
                     eww open clock &> /dev/null &
-                    notify-send -i system-run-symbolic "Desktop Clock" "Your desktop clock will now be enabled."
+                    notify-send -i system-run-symbolic "Desktop Clock" "The desktop clock will now be enabled."
                 fi
                 ;;
             0)
                 clear
                 if [[ "$(cat $HOME/Dots/Options/updcheck)" == "true" ]]; then
                     echo "false" > $HOME/Dots/Options/updcheck
-                    notify-send -i system-run-symbolic "Update Notification" "Your update notification will now be disabled."
+                    notify-send -i system-run-symbolic "Update Notification" "The update notification will now be disabled."
                 else
                     echo "true" > $HOME/Dots/Options/updcheck
-                    notify-send -i system-run-symbolic "Update Notification" "Your update notification will now be enabled."
+                    notify-send -i system-run-symbolic "Update Notification" "The update notification will now be enabled."
                 fi
                 ;;
             [qQ])

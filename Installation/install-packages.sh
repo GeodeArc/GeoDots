@@ -172,14 +172,7 @@ nautilustweak () {
         read -p " ■ " tweaks
         case "$tweaks" in
             [Yy])
-                $AUR_HELPER nautilus-open-any-terminal nautilus-python libnautilus-extension python-gobject
-                git clone https://git.sr.ht/~ronenk17/nautilus-copypath # fixed path, previously github
-                mkdir -p ~/.local/share/ # yes there are people without .local/share... (mainly minimal installs)
-                mkdir -p ~/.local/share/nautilus-python
-                mkdir -p ~/.local/share/nautilus-python/extensions
-                cd nautilus-copypath
-                cp nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
-                $AUR_HELPER nautilus-admin-gtk4
+                $AUR_HELPER nautilus-open-any-terminal nautilus-admin-gtk4 nautilus-copy-path nautilus-python libnautilus-extension python-gobject
                 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
                 nautilus -q
                 clear
