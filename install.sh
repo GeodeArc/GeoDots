@@ -12,8 +12,6 @@ while true; do
     echo "Y88b  d88P Y8b.     Y88..88P 888  .d88P Y88..88P Y88b.       X88 "
     echo " Y8888P88   Y88888   Y88P8Y  88888888P   Y888YP   Y8888  88888P  "
     echo ""
-    echo "This installer currently donest help you if you have NVIDIA. Please check the hyprland wiki for NVIDIA instructions."
-    echo ""
     echo "Welcome to the GeoDots Installer!"
     echo "These dotfiles are specific to Arch Linux based distros ONLY!"
     echo ""
