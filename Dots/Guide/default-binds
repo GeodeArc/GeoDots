@@ -6,6 +6,11 @@ ALT is your ALT key, also known as Mod2.
 At any time, press SUPER + K to see keybinds.
 This will NOT update if you change your keybinds.
 
+Important:
+SUPER + SPACE = Launch Apps (App Menu)
+SUPER + Q = Quit App
+CTRL + ALT + DELETE = Exit Hyprland
+
 Base Apps:
 SUPER + ENTER = Open Terminal
 SUPER + E = Open File Manager
@@ -13,19 +18,14 @@ SUPER + T = Open Text Editor
 SUPER + B = Open Browser
 CTRL + SHIFT + ESC = Task Manager (Resources)
 
-Important:
-SUPER + SPACE = Launch Apps (App Menu)
-SUPER + Q = Quit App
-
+Actions:
 SUPER + V = Toggle App Floating
-SUPER + O = Toggle App Split
 SUPER + P = Toggle App Pseudo
 SUPER + F = Toggle App Fullscreen
 SUPER + SHIFT + F = Toggle App Maximized
 
 SUPER + S = Quick Screenshot
 SUPER + L = Lock Computer
-CTRL + ALT + DELETE = Exit
 
 Menus:
 SUPER + SHIFT + L = Power menu
