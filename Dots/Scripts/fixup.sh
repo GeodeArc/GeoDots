@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# im sure there are better ways of doing this, but this works for now.
-# this ensures that no matter when you upgrade, fixes will still be applied.
+version="$(curl -s https://geodearc.com/GeoDots/data/version)"
 
 theme="$(cat $HOME/Dots/Options/theme)"
 style="$(cat $HOME/Dots/Options/style)"
@@ -23,4 +22,9 @@ if [[ ! -f "$HOME/.config/eww/eww.scss" ]]; then
     cp -a "$HOME/.config/eww/$theme/eww.scss" "$HOME/.config/eww/"
     eww reload
     clear
+fi
+
+# if /Dots/Options/currentver file is empty, replace with latest version
+if [[ ! -f "$HOME/Dots/Options/currentver" ]]; then
+    echo "$version" > "$HOME/Dots/Options/currentver"
 fi
