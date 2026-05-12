@@ -24,7 +24,6 @@ if [[ ! -f "$HOME/.config/eww/eww.scss" ]]; then
     clear
 fi
 
-# if /Dots/Options/currentver file is empty, replace with latest version
-if [[ ! -f "$HOME/Dots/Options/currentver" ]]; then
+if [[ ! -s "$HOME/Dots/Options/currentver" ]]; then
     echo "$version" > "$HOME/Dots/Options/currentver"
 fi
