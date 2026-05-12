@@ -1,9 +1,9 @@
 #!/bin/bash
 
 curver="$(cat $HOME/Dots/Options/currentver)"
-newver="$(curl -s https://gdrc.me/GeoDots/data/version)"
+newver="$(curl -s https://geodearc.com/GeoDots/data/version)"
 
-codirs="$(curl -s https://gdrc.me/GeoDots/data/dirs)"
+codirs="$(curl -s https://geodearc.com/GeoDots/data/dirs)"
 directory="$HOME/.config"
 aurhelper="$(cat $HOME/Dots/Options/aurpkgs)"
 aurupgrade="$(cat $HOME/Dots/Options/aurhelper)"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-errver=$(curl -s https://gdrc.me/GeoDots/data/errorver)
-errmsg=$(curl -s https://gdrc.me/GeoDots/data/errormsg)
+errver=$(curl -s https://geodearc.com/GeoDots/data/errorver)
+errmsg=$(curl -s https://geodearc.com/GeoDots/data/errormsg)
 curver=$(cat $HOME/Dots/Options/currentver)
 terminal=$(cat $HOME/Dots/Options/terminal)
 
