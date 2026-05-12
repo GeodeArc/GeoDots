@@ -1,6 +1,6 @@
 # GeoDots website/backend stuff
 
-https://gdrc.me/GeoDots
+https://geodearc.com/GeoDots
 
 ### data files primarily include:
 - Initial installation script, downloads dependencies + clones the repo
