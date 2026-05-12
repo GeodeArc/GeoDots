@@ -11,6 +11,9 @@
 > [!NOTE]
 > GeoDots is only (currently) supported for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
 
+> [!WARNING]
+> Hyprland 55 deprecated a line (pseudotile = true) in ~/.config/hypr/config/software/general.conf. Simply delete the line to fix the error, or copy the updated file in this repo.
+
 #
 
 ### 🌟 INSTALLATION:
@@ -18,13 +21,13 @@
 > Should work on pretty much any arch based system (minimal, or not). If theres an issue installing, please submit a bug report! 
 
 ```
-bash <(curl -s https://gdrc.me/dots.sh)
+bash <(curl -s https://geodearc.com/dots.sh)
 ```
 
 > If the above command doesnt work, you are likely using a non-standard shell (like fish). Try running this command instead (assumes bash is installed, install `bash` with pacman otherwise).
 
 ```
-bash -c "$(curl -s https://gdrc.me/dots.sh)"
+bash -c "$(curl -s https://geodearc.com/dots.sh)"
 ```
 
 <details> 
