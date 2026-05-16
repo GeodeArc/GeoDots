@@ -349,7 +349,8 @@ fi
 
 echo "Generating default color scheme:"
 wal $light -i "$HOME/Dots/Wallpapers/wall1.jpg"
-ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/config/colors.conf
+ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/definitions/colors.conf # temp for hyprlock
+ln -s $HOME/.cache/wal/colors-hyprland.lua $HOME/.config/hypr/definitions/colors.lua
 ln -s $HOME/.cache/wal/colors-rofi.rasi $HOME/.config/rofi/options/colors.rasi
 ln -s $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/colors.css
 

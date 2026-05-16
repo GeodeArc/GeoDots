@@ -36,7 +36,7 @@ monitorselect() {
 
     selected_monitor=${MONITORS[$((choice-1))]}
     echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
-    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/config/hardware/primary.conf"
+    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/definitions/primary.conf" # this will change to lua eventually probably
     clear
 }
 
@@ -93,28 +93,7 @@ restorebackup() {
         esac
     done
 
-    while true; do
-        echo "Restore monitor config from $selected_backup? [Y/N]"
-        echo ""
-        read -p " ■ " choice
-        
-        case $choice in 
-            [Yy])
-                echo "Restoring monitor config from $selected_backup"
-                cp -r $HOME/GeoDots-BACKUP/$selected_backup/hypr/config/hardware/monitor.conf $HOME/.config/hypr/config/hardware/
-                break
-                ;;
-            [Nn])
-                clear
-                break
-                ;;
-            *)
-                clear
-                echo "X Please try again."
-                echo ""
-                ;;
-        esac
-    done
+    # no clue how im gonna restore monitor config yet
     
     clear
     echo "Thats all we can restore for now."
@@ -131,7 +110,8 @@ notify-send -i system-run-symbolic "Applying Initial Settings" "Applying wallpap
 
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
 eww open clock &> /dev/null &
-mv $HOME/.config/hypr/config/software/keybinds-complete.conf $HOME/.config/hypr/config/software/keybinds.conf
+mv $HOME/.config/hypr/config/keybinds-complete $HOME/.config/hypr/config/keybinds.lua
+hyprctl reload # just incase idk if hyprland is gonna freak out yet.
 
 echo "complete" > $HOME/Dots/Options/startup
 

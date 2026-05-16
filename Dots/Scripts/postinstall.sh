@@ -31,7 +31,7 @@ monitorselect() {
 
     selected_monitor=${MONITORS[$((choice-1))]}
     echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
-    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/config/hardware/primary.conf"
+    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/definitions/primary.conf" # this will change to lua eventually probably
     clear
 }
 
@@ -41,7 +41,8 @@ notify-send -i system-run-symbolic "Applying Initial Settings" "Applying wallpap
 
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
 eww open clock &> /dev/null &
-mv $HOME/.config/hypr/config/software/keybinds-complete.conf $HOME/.config/hypr/config/software/keybinds.conf
+mv $HOME/.config/hypr/config/keybinds-complete $HOME/.config/hypr/config/keybinds.lua
+hyprctl reload # just incase idk if hyprland is gonna freak out yet.
 
 echo "complete" > $HOME/Dots/Options/startup
 
