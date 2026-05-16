@@ -1,6 +1,7 @@
 #!/bin/bash
 
 version="$(curl -s https://geodearc.com/GeoDots/data/version)"
+aurhelper="$(cat $HOME/GeoDots/aurhelper)"
 
 theme="$(cat $HOME/Dots/Options/theme)"
 style="$(cat $HOME/Dots/Options/style)"
@@ -26,4 +27,8 @@ fi
 
 if [[ ! -s "$HOME/Dots/Options/currentver" ]]; then
     echo "$version" > "$HOME/Dots/Options/currentver"
+fi
+
+if ! pacman -Q hyprshutdown &>/dev/null; then
+    $aurhelper hyprshutdown
 fi
