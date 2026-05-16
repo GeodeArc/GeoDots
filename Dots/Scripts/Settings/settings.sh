@@ -59,7 +59,7 @@ hyprland() {
 
         case $choice in 
             1)
-                $EDITOR $HOME/.config/hypr/definitions/monitor.lua
+                $EDITOR $HOME/.config/hypr/config/monitor.lua
                 # will add advanced again but its broken for now
                 clear
                 ;;
