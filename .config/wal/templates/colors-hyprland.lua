@@ -1,4 +1,4 @@
-foreground = 'rgba({foreground.strip}CC)''
+foreground = 'rgba({foreground.strip}CC)'
 foregroundfull = 'rgb({foreground.strip})'
 
 background = 'rgba({background.strip}CC)'

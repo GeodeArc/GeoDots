@@ -321,7 +321,7 @@ toolkitselect () {
             2)
                 echo gtk > $HOME/GeoDots/apptype
                 echo gtk > $HOME/GeoDots/Dots/Options/apptype
-                echo -e "fileManager = 'nautilus --new-window' \ntextEditor = 'gnome-text-editor --new-window' \npolkitAgent = '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'" | tee $HOME/GeoDots/.config/hypr/config/apptype.conf
+                echo -e "fileManager = 'nautilus --new-window' \ntextEditor = 'gnome-text-editor --new-window' \npolkitAgent = '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'" | tee $HOME/GeoDots/.config/hypr/definitions/apptype.lua
                 clear
                 break
                 ;; 
