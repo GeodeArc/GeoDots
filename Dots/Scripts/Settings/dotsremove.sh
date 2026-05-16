@@ -121,7 +121,7 @@ removedots() {
                 echo "Logging you out in 3 seconds (Press CTRL+C to abort)"
                 echo "Thank you for trying GeoDots :D"
                 sleep 3
-                hyprctl dispatch exit
+                hyprshutdown
                 break
             ;;
             [Nn])

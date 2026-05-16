@@ -8,7 +8,7 @@ cp -a $HOME/.config/waybar/colorful/$theme/. $HOME/.config/waybar/
 cp -a $HOME/.config/swaync/colorful/$theme/. $HOME/.config/swaync/
 cp -a $HOME/.config/swayosd/colorful/$theme.css $HOME/.config/swayosd/style.css
 cp -a $HOME/.config/rofi/colorful/$theme/config.rasi $HOME/.config/rofi/
-cp -a $HOME/.config/hypr/themes/colorful/theme.conf $HOME/.config/hypr/
+cp -a $HOME/.config/hypr/themes/colorful/theme.lua $HOME/.config/hypr/
 cp -a $HOME/.config/hypr/themes/colorful/$theme/hyprlock.conf $HOME/.config/hypr/
 
 sleep 0.5 

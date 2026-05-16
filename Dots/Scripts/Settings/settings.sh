@@ -29,7 +29,7 @@ monitorselect() {
 
     selected_monitor=${MONITORS[$((choice-1))]}
     echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
-    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/config/hardware/primary.conf"
+    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/config/hardware/primary.conf" # this will change to lua eventually probably
     clear
 }
 
@@ -59,7 +59,8 @@ hyprland() {
 
         case $choice in 
             1)
-                $HOME/Dots/Scripts/Settings/Advanced/monitor.sh
+                $EDITOR $HOME/.config/hypr/definitions/monitor.lua
+                # will add advanced again but its broken for now
                 clear
                 ;;
             2)
@@ -68,27 +69,27 @@ hyprland() {
                 clear
                 ;;
             3)
-                $EDITOR $HOME/.config/hypr/config/software/general.conf
+                $EDITOR $HOME/.config/hypr/config/general.lua
                 clear
                 ;;
             4)
-                $EDITOR $HOME/.config/hypr/config/hardware/input.conf
+                $EDITOR $HOME/.config/hypr/config/input.lua
                 clear
                 ;;
             5)
-                $EDITOR $HOME/.config/hypr/config/software/keybinds.conf
+                $EDITOR $HOME/.config/hypr/config/keybinds.lua
                 clear
                 ;;
             6)
-                $EDITOR $HOME/.config/hypr/config/software/rules.conf
+                $EDITOR $HOME/.config/hypr/config/rules.lua
                 clear
                 ;;
             7)
-                $EDITOR $HOME/.config/hypr/config/setup/autostart.conf
+                $EDITOR $HOME/.config/hypr/config/startup.lua
                 clear
                 ;;
             8)
-                $EDITOR $HOME/.config/hypr/config/setup/envvars.conf
+                $EDITOR $HOME/.config/hypr/config/variables.lua
                 clear
                 ;;
             [qQ])
@@ -142,7 +143,7 @@ customization() {
                 echo "It will be overwritten if you select another theme (e.g light/dark)."
                 echo 
                 read -p "■ " choice
-                echo "\$cursor_theme = $choice" > $HOME/.config/hypr/config/cursortheme.conf
+                echo "cursor_theme = '$choice'" > $HOME/.config/hypr/definitions/cursortheme.lua
                 gsettings set org.gnome.desktop.interface cursor-theme "$choice"
                 clear
                 read -p "Finished, press ENTER to continue."

@@ -1,0 +1,94 @@
+local Mod = "SUPER"
+local Mod2 = "ALT"
+
+-- BASE APPS
+hl.bind(Mod .. " + RETURN", hl.dsp.exec_cmd(terminal))
+hl.bind(Mod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(Mod .. " + T", hl.dsp.exec_cmd(textEditor))
+hl.bind(Mod .. " + B", hl.dsp.exec_cmd(browser))
+hl.bind(Mod .. " + SHIFT + S", hl.dsp.exec_cmd([[hyprshot -m region -o $HOME/Pictures/Screenshots -f Screenshot_$(date "+%Y-%m-%d_%H:%M:%S").png -z]]))
+
+-- HYPRLAND MANAGEMENT
+hl.bind(Mod .. " + Q", hl.dsp.window.close())
+hl.bind(Mod2 .. " + F4", hl.dsp.window.close())
+
+hl.bind(Mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(Mod .. " + F", hl.dsp.window.fullscreen())
+hl.bind(Mod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = 1 }))
+
+hl.bind(Mod .. " + P", hl.dsp.window.pseudo())
+hl.bind(Mod .. " + J", hl.dsp.layout("togglesplit"))
+
+hl.bind(Mod2 .. " + CTRL + DELETE", hl.dsp.exec_cmd("hyprshutdown"))
+hl.bind(Mod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+
+-- MENUS
+hl.bind(Mod .. " + SPACE", hl.dsp.exec_cmd("~/.config/rofi/launcher.sh"))
+hl.bind(Mod .. " + M", hl.dsp.exec_cmd("~/.config/rofi/mode.sh"))
+hl.bind(Mod .. " + SHIFT + L", hl.dsp.exec_cmd("~/.config/rofi/powermenu.sh"))
+hl.bind(Mod .. " + S", hl.dsp.exec_cmd("~/.config/rofi/screenshot.sh"))
+hl.bind(Mod .. " + C", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+hl.bind(Mod .. " + period", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
+
+-- WAYBAR
+hl.bind(Mod .. " + SHIFT + B", hl.dsp.exec_cmd("~/Dots/Scripts/Waybar/waybar.sh"))
+hl.bind(Mod .. " + ALT + B", hl.dsp.exec_cmd("~/Dots/Scripts/Waybar/waybartoggle.sh"))
+
+-- MAIN SCRIPTS
+hl.bind(Mod .. " + K", hl.dsp.exec_cmd(terminal .. " less ~/Dots/Guide/default-binds"))
+hl.bind(Mod .. " + I", hl.dsp.exec_cmd(terminal .. " $HOME/Dots/Scripts/Settings/settings.sh"))
+
+-- OTHER APPS
+hl.bind(Mod .. " + W", hl.dsp.exec_cmd("waypaper"))
+hl.bind(Mod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper --random"))
+hl.bind(Mod .. " + CTRL + SHIFT + ESCAPE", hl.dsp.exec_cmd("resources"))
+hl.bind("XF86Calculator", hl.dsp.exec_cmd("gnome-calculator"))
+-- gnome-calculator isnt installed by default, install it or change it to something else
+
+-- WORKSPACE MANAGEMENT (SUPER)
+for i = 1, 10 do
+    local key = i % 10
+    hl.bind(Mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(Mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(Mod .. " + CTRL + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+end
+
+hl.bind(Mod .. " + left", hl.dsp.focus({ workspace = "r-1" }))
+hl.bind(Mod .. " + right", hl.dsp.focus({ workspace = "r+1" }))
+hl.bind(Mod .. " + CTRL + left", hl.dsp.window.move({ workspace = "r-1", follow = false }))
+hl.bind(Mod .. " + CTRL + right", hl.dsp.window.move({ workspace = "r+1", follow = false }))
+hl.bind(Mod .. " + SHIFT + left", hl.dsp.window.move({ workspace = "r-1" }))
+hl.bind(Mod .. " + SHIFT + right", hl.dsp.window.move({ workspace = "r+1" }))
+
+-- WINDOW MANAGEMENT (ALT)
+for _, dir in ipairs({ "left", "right", "up", "down" }) do
+    hl.bind(Mod2 ..  "+" .. dir,          hl.dsp.focus({ direction = dir }))
+    hl.bind(Mod2 .. "+ SHIFT + " .. dir,  hl.dsp.window.move({ direction = dir }))
+end
+
+hl.bind(Mod2 .. " + CTRL + left", hl.dsp.window.resize({ x = -50, y = 0, relative = true }))
+hl.bind(Mod2 .. " + CTRL + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }))
+hl.bind(Mod2 .. " + CTRL + up", hl.dsp.window.resize({ x = 0, y = -50, relative = true }))
+hl.bind(Mod2 .. " + CTRL + down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }))
+
+hl.bind(Mod2 .. " + TAB", hl.dsp.window.cycle_next({"next	"}))
+
+-- DRAGGING/RESIZING (MOUSE)
+hl.bind(Mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(Mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- MULTIMEDIA
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume 2"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume -2"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("swayosd-client --monitor DP-1 --output-volume mute-toggle"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("swayosd-client --monitor DP-1 --input-volume mute-toggle"), { locked = true, repeating = true })
+
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("swayosd-client --monitor DP-1 --brightness +5"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --monitor DP-1 --brightness -5"), { locked = true, repeating = true })
+
+hl.bind("CAPS + Caps_Lock", hl.dsp.exec_cmd("swayosd-client --monitor DP-1 --caps-lock"), { locked = true, repeating = true })
+
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next " .. player), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause " .. player), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause " .. player), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous " .. player), { locked = true })
