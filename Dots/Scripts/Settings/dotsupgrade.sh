@@ -138,7 +138,7 @@ pkgdownload() {
         if [[ "$apptype" == "qt" ]]; then
             $aurhelper $QT_PKGS
             if pacman -Qq $QT_PKGS &>/dev/null; then
-                echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
+                echo -e "fileManager = 'dolphin' \ntextEditor = 'kwrite' \npolkitAgent = '/usr/lib/hyprpolkitagent/hyprpolkitagent'" | tee $HOME/GeoDots/.config/hypr/definitions/apptype.lua
                 clear
                 echo "QT Packages installed successfully!"
                 read -p "Press Enter when you are ready to move on."
@@ -154,7 +154,7 @@ pkgdownload() {
         elif [[ "$apptype" == "gtk" ]]; then
             $aurhelper $GTK_PKGS
             if pacman -Qq $GTK_PKGS &>/dev/null; then
-                echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
+                echo -e "fileManager = 'nautilus --new-window' \ntextEditor = 'gnome-text-editor --new-window' \npolkitAgent = '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'" | tee $HOME/GeoDots/.config/hypr/definitions/apptype.lua
                 clear
                 echo "GTK Packages installed successfully!"
                 read -p "Press Enter when you are ready to move on."
@@ -209,16 +209,16 @@ dotsupgrade() {
                 echo "alias updatepkgs='$aurupgrade'" >> $HOME/GeoDots/.config/sh/aliases.sh
 
                 if [[ "$theme" == "dark" ]]; then
-                    echo -e "\$cursortheme = Bibata-Modern-Classic" | sudo tee "$HOME/GeoDots/.config/hypr/config/cursortheme.conf" >/dev/null
+                    echo -e "cursortheme = 'Bibata-Modern-Classic'" | tee "$HOME/GeoDots/.config/hypr/definitions/cursortheme.lua"
                 else
-                    echo -e "\$cursortheme = Bibata-Modern-Ice" | sudo tee "$HOME/GeoDots/.config/hypr/config/cursortheme.conf" >/dev/null
+                    echo -e "cursortheme = 'Bibata-Modern-Ice'" | tee "$HOME/GeoDots/.config/hypr/definitions/cursortheme.lua"
                 fi
 
                 cp -a "$HOME/GeoDots/.config/waybar/$style/$theme/." "$HOME/GeoDots/.config/waybar/"
                 cp -a "$HOME/GeoDots/.config/swaync/$style/$theme/." "$HOME/GeoDots/.config/swaync/"
                 cp -a "$HOME/GeoDots/.config/rofi/$style/$theme/config.rasi" "$HOME/GeoDots/.config/rofi/"
                 cp -a "$HOME/GeoDots/.config/swayosd/$style/$type.css" "$HOME/GeoDots/.config/swayosd/style.css"
-                cp -r $HOME/GeoDots/.config/hypr/themes/$style/theme.conf $HOME/GeoDots/.config/hypr/
+                cp -r $HOME/GeoDots/.config/hypr/themes/$style/theme.lua $HOME/GeoDots/.config/hypr/
                 cp -r $HOME/GeoDots/.config/hypr/themes/$style/$theme/hyprlock.conf $HOME/GeoDots/.config/hypr/
 
                 echo "Removing ~/Dots"
@@ -244,7 +244,8 @@ dotsupgrade() {
 
                 echo "Generating default color scheme:"
                 wal -i "$HOME/Dots/Wallpapers/wall1.jpg"
-                ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/config/colors.conf
+                ln -s $HOME/.cache/wal/colors-hyprland.conf $HOME/.config/hypr/definitions/colors.conf # temp for hyprlock
+                ln -s $HOME/.cache/wal/colors-hyprland.lua $HOME/.config/hypr/definitions/colors.lua
                 ln -s $HOME/.cache/wal/colors-rofi.rasi $HOME/.config/rofi/options/colors.rasi
                 ln -s $HOME/.cache/wal/colors-waybar.css $HOME/.config/waybar/colors.css
                 

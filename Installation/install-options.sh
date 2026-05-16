@@ -314,14 +314,14 @@ toolkitselect () {
             1)
                 echo qt > $HOME/GeoDots/apptype
                 echo qt > $HOME/GeoDots/Dots/Options/apptype
-                echo -e "\$fileManager = dolphin \n\$textEditor = kwrite \n\$polkitAgent = hyprpolkitagent" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
+                echo -e "fileManager = 'dolphin' \ntextEditor = 'kwrite' \npolkitAgent = '/usr/lib/hyprpolkitagent/hyprpolkitagent'" | tee $HOME/GeoDots/.config/hypr/definitions/apptype.lua
                 clear
                 break
                 ;; 
             2)
                 echo gtk > $HOME/GeoDots/apptype
                 echo gtk > $HOME/GeoDots/Dots/Options/apptype
-                echo -e "\$fileManager = nautilus --new-window \n\$textEditor = gnome-text-editor --new-window \n\$polkitAgent = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1" | sudo tee $HOME/GeoDots/.config/hypr/config/apptype.conf
+                echo -e "fileManager = 'nautilus --new-window' \ntextEditor = 'gnome-text-editor --new-window' \npolkitAgent = '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'" | tee $HOME/GeoDots/.config/hypr/config/apptype.conf
                 clear
                 break
                 ;; 
@@ -498,7 +498,7 @@ themeconfig() {
         gsettings set org.gnome.desktop.interface color-scheme "$theme"
         gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
         gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
-        echo -e "\$cursortheme = $cursor_theme" | sudo tee "$HOME/GeoDots/.config/hypr/config/cursortheme.conf" >/dev/null
+        echo -e "cursortheme = '$cursor_theme'" | tee "$HOME/GeoDots/.config/hypr/definitions/cursortheme.lua" >/dev/null
         echo "include ~/.cache/wal/colors-kitty-$type.conf" > $HOME/GeoDots/.config/kitty/theme.conf
         echo "$type" > "$HOME/GeoDots/Dots/Options/theme"
 
@@ -509,7 +509,7 @@ themeconfig() {
         cp -a "$HOME/GeoDots/.config/rofi/$style/$type/config.rasi" "$HOME/GeoDots/.config/rofi/"
         cp -a "$HOME/GeoDots/.config/eww/$type/eww.scss" "$HOME/GeoDots/.config/eww/"
         cp -a "$HOME/GeoDots/.config/starship/$type/starship.toml" "$HOME/GeoDots/.config/starship/"
-        cp -r $HOME/GeoDots/.config/hypr/themes/$style/theme.conf $HOME/GeoDots/.config/hypr/
+        cp -r $HOME/GeoDots/.config/hypr/themes/$style/theme.lua $HOME/GeoDots/.config/hypr/
         cp -r $HOME/GeoDots/.config/hypr/themes/$style/$type/hyprlock.conf $HOME/GeoDots/.config/hypr/
         echo "$style" > "$HOME/GeoDots/Dots/Options/style"
         

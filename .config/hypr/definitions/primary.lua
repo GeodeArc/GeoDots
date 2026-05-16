@@ -1,0 +1,1 @@
+-- NOT IN USE YET, hyprlock is yet to adopt hyprlang
