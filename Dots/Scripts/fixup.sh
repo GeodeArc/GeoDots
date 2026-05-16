@@ -1,7 +1,7 @@
 #!/bin/bash
 
 version="$(curl -s https://geodearc.com/GeoDots/data/version)"
-aurhelper="$(cat $HOME/GeoDots/aurhelper)"
+aurhelper="$(cat $HOME/Dots/Options/aurhelper)"
 
 theme="$(cat $HOME/Dots/Options/theme)"
 style="$(cat $HOME/Dots/Options/style)"
