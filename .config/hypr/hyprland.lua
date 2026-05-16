@@ -6,7 +6,7 @@
 -- 
 -- GLOBAL
 --
-broswer = '$(cat $HOME/Dots/Options/browser)'
+browser = '$(cat $HOME/Dots/Options/browser)'
 terminal = '$(cat $HOME/Dots/Options/terminal)'
 
 --
@@ -14,6 +14,16 @@ terminal = '$(cat $HOME/Dots/Options/terminal)'
 --
 hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
 hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
+
+
+--
+-- SOURCE (definitions)
+--
+require("definitions.apptype")
+require("definitions.cursortheme")
+require("definitions.player")
+require("definitions.colors")
+
 
 --
 -- SOURCE (main config)
@@ -26,13 +36,6 @@ require("config.rules")
 require("config.startup")
 require("config.variables")
 
---
--- SOURCE (customizable config)
---
-require("definitions.apptype")
-require("definitions.cursortheme")
-require("definitions.player")
-require("definitions.colors")
 
 --
 -- SOURCE (theme)
