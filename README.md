@@ -4,7 +4,7 @@
 </h3>
 
 <div align="center">
-  <i>version 0.1.3a</i>
+  <i>version 0.1.3b</i>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
@@ -12,7 +12,7 @@
 > GeoDots is only (currently) supported for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
 
 > [!WARNING]
-> Hyprland 55 deprecated a line (pseudotile = true) in ~/.config/hypr/config/software/general.conf. Simply delete the line to fix the error, or copy the updated file in this repo.
+> If you are experiencing issues with waybar font rendering, copy the latest waybar folder from this repo and replace it. Otherwise use the upgrade script.
 
 #
 
@@ -35,7 +35,7 @@ bash -c "$(curl -s https://geodearc.com/dots.sh)"
 
   <p></p>
 
-  Thats fair, heres a more rigid method. 
+  Understandable, heres another method.
   
   Ensure dependencies & update
   ```
