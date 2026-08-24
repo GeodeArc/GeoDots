@@ -17,7 +17,9 @@ if [[ $curver != $newver ]]; then
 
     echo "Downloading upgrade script from github"
     curl -o /tmp/dots-upgrade.sh -s https://geodearc.com/dots-upgrade.sh
-    dots-upgrade.sh
+    chmod +x /tmp/dots-upgrade.sh
+    clear
+    /tmp/dots-upgrade.sh
 else
     echo "No new version seems to available."
     echo "If you believe this is incorrect, please check your internet connection."
