@@ -40,6 +40,7 @@ monitorselect
 notify-send -i system-run-symbolic "Applying Initial Settings" "Applying wallpaper, and setting a few things up."
 
 setsid waypaper --wallpaper "$HOME/Dots/Wallpapers/wall1.jpg" &> /dev/null &
+setsid waybar &> /dev/null &
 eww open clock &> /dev/null &
 mv $HOME/.config/hypr/config/keybinds-complete $HOME/.config/hypr/config/keybinds.lua
 hyprctl reload # just incase idk if hyprland is gonna freak out yet.
