@@ -32,21 +32,11 @@ hl.bind(Mod .. " + period", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 
 -- WAYBAR
 hl.bind(Mod .. " + SHIFT + B", function()
-	if waybar_enabled then 
-		hl.exec_cmd("pkill -x waybar && waybar &")
-	else
-		hl.exec_cmd("notify-send 'Waybar Disabled' 'Enable waybar again by pressing SUPER+ALT+B'")
-	end
+	hl.exec_cmd("pkill -x waybar && waybar &")
 end)
 
 hl.bind(Mod .. " + ALT + B", function()
-  if waybar_enabled then
-    hl.exec_cmd("pkill -x waybar")
-    waybar_enabled = false
-  else
-    hl.exec_cmd("waybar")
-    waybar_enabled = true
-  end
+	hl.exec_cmd("pgrep -x waybar && pkill -x waybar || waybar &")
 end)
 
 -- MAIN SCRIPTS
