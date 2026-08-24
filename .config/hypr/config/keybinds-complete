@@ -32,7 +32,7 @@ hl.bind(Mod .. " + period", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 
 -- WAYBAR
 hl.bind(Mod .. " + SHIFT + B", function()
-	hl.exec_cmd("pkill -x waybar && waybar &")
+	hl.exec_cmd("pkill -x waybar; waybar &")
 end)
 
 hl.bind(Mod .. " + ALT + B", function()

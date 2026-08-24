@@ -22,8 +22,8 @@ wal -q $light -i $genwal &
 
 sleep 0.5
 
-pkill waybar && waybar &
-pkill swayosd && swayosd-server &
+pkill -x waybar; waybar &
+pkill -x swayosd; swayosd-server &
 
 notify-send -i preferences-desktop-wallpaper-symbolic "Wallpaper Applied" "New color scheme generated from image:\n$wallname"
 
