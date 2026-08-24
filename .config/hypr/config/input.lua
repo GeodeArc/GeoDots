@@ -12,6 +12,10 @@ hl.config({
             clickfinger_behavior = false,
         },
     },
+    gestures = {
+        workspace_swipe_use_r = true,
+		workspace_swipe_cancel_ratio = "0.1"
+    },
 })
 
 hl.gesture({
