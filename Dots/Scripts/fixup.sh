@@ -19,10 +19,8 @@ if [[ ! -f "$HOME/.config/eww/eww.scss" ]]; then
     clear
 fi
 
-if [[ ! -s "$HOME/Dots/Options/currentver" ]]; then
-    echo "$version" > "$HOME/Dots/Options/currentver"
-fi
-
 if ! pacman -Q hyprshutdown &>/dev/null; then
     $aurhelper hyprshutdown
 fi
+
+echo "$version" > "$HOME/Dots/Options/currentver"

@@ -4,7 +4,7 @@
 </h3>
 
 <div align="center">
-  <i>version 0.1.3b</i>
+  <i>version 0.1.4</i>
   <p>❤️ Many things arent finished, stay tuned for more!</p>
 </div>
 
@@ -12,7 +12,32 @@
 > GeoDots is only (currently) supported for Arch Linux Based distros (tested Arch, CachyOS, Endeavour). This MAY change later on, no guarantees.
 
 > [!WARNING]
-> If you are experiencing issues with waybar font rendering, copy the latest waybar folder from this repo and replace it. Otherwise use the upgrade script.
+> If you are upgrading from <1.4, please run this command INSTEAD of using the upgrade script via settings.
+
+```
+bash <(curl -s https://geodearc.com/dots-upgrade.sh)
+```
+
+<details>
+  <summary>Alternative methods</summary>
+
+  <p></p>
+
+> Using fish? Try this instead.
+
+```
+bash -c "$(curl -s https://geodearc.com/dots-upgrade.sh)"
+```
+
+> Prefer not using curl bash?
+
+```
+curl -s https://geodearc.com/dots-upgrade.sh -o dots-upgrade.sh
+chmod +x dots-upgrade.sh
+./dots-upgrade.sh
+```
+
+</details>
 
 #
 
