@@ -31,8 +31,6 @@ hl.bind(Mod .. " + C", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist d
 hl.bind(Mod .. " + period", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 
 -- WAYBAR
-local waybar_enabled = true
-
 hl.bind(Mod .. " + SHIFT + B", function()
 	if waybar_enabled then 
 		hl.exec_cmd("pkill -x waybar && waybar &")
