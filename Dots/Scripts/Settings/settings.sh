@@ -217,11 +217,13 @@ customization() {
                 if [[ "$(cat $HOME/.config/waybar/monitor.jsonc)" == "{}" ]]; then
                     echo -e "{\n    \"output\": \"$MAINMONITOR\"\n}" > "$HOME/.config/waybar/monitor.jsonc"
                     notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Waybar will now only appear on your primary monitor."
-                    setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
+                    pkill waybar && setsid waybar &> /dev/null &
+                    sleep 0.5
                 else 
                     echo "{}" > "$HOME/.config/waybar/monitor.jsonc"
                     notify-send -i computer-symbolic "Waybar Monitor Setting Updated" "Waybar will now appear on all monitors."
-                    setsid $HOME/Dots/Scripts/Waybar/waybar.sh &> /dev/null &
+                    pkill waybar && setsid waybar &> /dev/null &
+                    sleep 0.5
                 fi
                 ;;
             8)

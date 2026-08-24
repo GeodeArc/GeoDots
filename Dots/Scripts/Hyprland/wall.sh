@@ -22,9 +22,8 @@ wal -q $light -i $genwal &
 
 sleep 0.5
 
-$HOME/Dots/Scripts/Waybar/waybar.sh &
-pkill swayosd
-swayosd-server &
+pkill waybar && waybar &
+pkill swayosd && swayosd-server &
 
 notify-send -i preferences-desktop-wallpaper-symbolic "Wallpaper Applied" "New color scheme generated from image:\n$wallname"
 
