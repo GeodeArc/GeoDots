@@ -1,1 +1,10 @@
-0.1.3b
+!!!WARNING!!!
+
+This update script will NOT WORK properly. 
+
+I have adapted the script in later versions to fix this, but your current version is currently borked.
+
+Please run the command below to update your system to the latest version.
+
+bash <(curl -s https://geodearc.com/dots-upgrade.sh)
+(if you prefer not to use curl bash, see the github repo)
