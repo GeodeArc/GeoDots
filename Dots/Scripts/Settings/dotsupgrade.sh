@@ -1,7 +1,7 @@
 #!/bin/bash
 
 curver="$(cat $HOME/Dots/Options/currentver)"
-newver="$(curl -s https://geodearc.com/GeoDots/data/version)"
+newver="$(curl -s https://geodearc.com/GeoDots/data/ver)"
 
 if [[ $curver != $newver ]]; then
     echo "New version available!"
