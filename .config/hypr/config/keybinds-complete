@@ -31,8 +31,20 @@ hl.bind(Mod .. " + C", hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist d
 hl.bind(Mod .. " + period", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 
 -- WAYBAR
-hl.bind(Mod .. " + SHIFT + B", hl.dsp.exec_cmd("~/Dots/Scripts/Waybar/waybar.sh"))
-hl.bind(Mod .. " + ALT + B", hl.dsp.exec_cmd("~/Dots/Scripts/Waybar/waybartoggle.sh"))
+hl.bind(Mod .. " + SHIFT + B", function()
+    hl.exec_cmd("pkill -x waybar && waybar &")
+end)
+
+local waybar_enabled = true
+hl.bind(Mod .. " + ALT + B", function()
+  if waybar_enabled then
+    hl.exec_cmd("pkill -x waybar")
+    waybar_enabled = false
+  else
+    hl.exec_cmd("waybar")
+    waybar_enabled = true
+  end
+end)
 
 -- MAIN SCRIPTS
 hl.bind(Mod .. " + K", hl.dsp.exec_cmd(terminal .. " less ~/Dots/Guide/default-binds"))
