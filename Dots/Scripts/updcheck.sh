@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url="https://geodearc.com/GeoDots/data/version"
+url="https://geodearc.com/GeoDots/data/ver"
 
 curver=$(cat $HOME/Dots/Options/currentver)
 terminal=$(cat $HOME/Dots/Options/terminal)
