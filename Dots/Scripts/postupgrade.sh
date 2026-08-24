@@ -92,13 +92,12 @@ restorebackup() {
                 ;;
         esac
     done
-
-    # no clue how im gonna restore monitor config yet
     
     clear
     echo "Thats all we can restore for now."
-    echo "If there are more config files you want to restore (such as keybinds), you can manually move them back in."
-    echo "(Keep in mind, you may be missing out on new features/updates if you do this.)"
+    echo "Since GeoDots recently transitioned to the new lua syntax, we are unable to restore any other configurations."
+    echo "If you backed up your configuration and want to move stuff over, please follow the hyprland wiki."
+    echo "https://wiki.hyprland.org/Configuring/Start"
     echo 
     read -p "Press ENTER to continue."
 }
