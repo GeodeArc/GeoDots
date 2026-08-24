@@ -4,7 +4,6 @@ curver="$(cat $HOME/Dots/Options/currentver)"
 newver="$(curl -s https://geodearc.com/GeoDots/data/version)"
 
 codirs="$(curl -s https://geodearc.com/GeoDots/data/dirs)"
-directory="$HOME/.config"
 aurhelper="$(cat $HOME/Dots/Options/aurpkgs)"
 aurupgrade="$(cat $HOME/Dots/Options/aurhelper)"
 apptype="$(cat $HOME/Dots/Options/apptype)"
@@ -36,6 +35,7 @@ backup () {
 
                 for dir in $codirs; do
                     source="$HOME/.config/$dir"
+                    directory="$HOME/.config"
 
                     if [ -d "$source" ]; then
                         echo "Creating backup $source to $directory"
@@ -89,7 +89,7 @@ dotsdownload() {
     sudo rm -r GeoDots
     clear
     echo "Cloning Repo"
-    git clone https://github.com/GeodeArc/GeoDots
+    git clone https://github.com/GeodeArc/GeoDots ~/GeoDots
     clear
     read -p "Cloned repo. Press ENTER to continue"
     clear
