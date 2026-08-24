@@ -29,7 +29,7 @@ monitorselect() {
 
     selected_monitor=${MONITORS[$((choice-1))]}
     echo "$selected_monitor" > "$HOME/Dots/Options/mainmonitor"
-    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/config/hardware/primary.conf" # this will change to lua eventually probably
+    echo "\$monitor = $selected_monitor" > "$HOME/.config/hypr/definitions/primary.conf" # this will change to lua eventually probably
     clear
 }
 
@@ -59,8 +59,7 @@ hyprland() {
 
         case $choice in 
             1)
-                $EDITOR $HOME/.config/hypr/config/monitor.lua
-                # will add advanced again but its broken for now
+                $HOME/Dots/Scripts/Settings/Advanced/monitor.sh
                 clear
                 ;;
             2)

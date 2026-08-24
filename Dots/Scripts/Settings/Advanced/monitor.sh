@@ -3,7 +3,7 @@
 # CURRENTLY BORKED, LUA
 
 MONITORS=( $(hyprctl monitors | grep -oP '(?<=Monitor )[^ ]+') )
-CONFIG="$HOME/.config/hypr/config/hardware/monitor.conf"
+CONFIG="$HOME/.config/hypr/config/monitors.lua"
 
 clear
 
@@ -144,21 +144,20 @@ monitoradd() {
         while true; do
             echo "Finally, would you like to rotate the monitor?"
             echo 
-            echo "0 - Skip"
-            echo "1 - 90 degrees"
-            echo "2 - 180 degrees"
-            echo "3 - 270 degrees"
+            echo "1 - Skip"
+            echo "2 - 90 degrees"
+            echo "3 - 180 degrees"
+            echo "4 - 270 degrees"
             echo 
             read -p " ■ " choice
 
-            if [[ "$choice" == "0" ]]; then
-                tenabled="False"
+            if [[ "$choice" == "1" ]]; then
+                transform=""
                 break
             fi
 
-            if [[ "$choice" =~ ^[0-3]$ ]]; then
-                transform="transform,$choice"
-                tenabled="True, $choice"
+            if [[ "$choice" =~ ^[2-4]$ ]]; then
+                transform="transform = $choice"
                 break
             fi
 
@@ -172,14 +171,14 @@ monitoradd() {
         echo "Please edit the config file directly if you want more advanced options (VRR, HDR, mirroring, etc)."
         echo 
         echo "Below is your current configuration."
-        echo -e "ID: $mon\nResolution: $resolution\nPosition: $pos\nScale: $scale\nTransform: $tenabled"
+        echo -e "ID: $mon\nResolution: $resolution\nPosition: $pos\nScale: $scale\nTransform: $transform"
         echo
         echo "Add monitor to config file? [Y/N]"
         read -p " ■ " choice
 
         case $choice in
             [Yy])
-                echo -e "monitor=$mon,$resolution,$pos,$scale,$transform" >> $CONFIG
+                echo -e "hl.monitor({ output = '$mon', mode = '$resolution', position = '$pos', scale = '$scale', $transform })" >> $CONFIG
                 clear
                 echo "Finished, press ENTER to return."
                 read -p " ■ "
@@ -201,7 +200,7 @@ monitoradd() {
 }
 
 monitorremove() {
-    mapfile -t monitors < <(grep '^monitor=' "$CONFIG")
+    mapfile -t monitors < <(grep '^hl.monitor(' "$CONFIG")
 
     echo "Below are the monitors currently configured."
     echo "Please enter the number of the monitor you would like to remove."
@@ -262,7 +261,7 @@ while true; do
             ;;
         3)
             clear
-            nano $HOME/.config/hypr/config/hardware/monitor.conf
+            nano $HOME/.config/hypr/config/monitors.lua
             clear
             ;;
         [qQ])
