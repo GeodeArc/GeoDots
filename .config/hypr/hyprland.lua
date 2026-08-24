@@ -24,7 +24,6 @@ require("definitions.cursortheme")
 require("definitions.player")
 require("definitions.colors")
 
-
 --
 -- SOURCE (main config)
 --
@@ -35,7 +34,6 @@ require("config.monitors")
 require("config.rules")
 require("config.startup")
 require("config.variables")
-
 
 --
 -- SOURCE (theme)
