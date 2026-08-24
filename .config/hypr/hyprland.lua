@@ -39,3 +39,8 @@ require("config.variables")
 -- SOURCE (theme)
 --
 require("theme")
+
+hl.on("config.reloaded", function()
+	hl.exec_cmd("pkill -x waybar && waybar &")
+	hl.exec_cmd("notify-send -i system-reboot-symbolic -e 'Config file reloaded' 'Refreshing waybar'")
+end)
