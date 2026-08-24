@@ -1,1 +1,12 @@
-There were some issues in the previous release (0.1.2) due to a lack of testing. This update should fix any issues you had.
+!!!!!!!!! PLEASE READ !!!!!!!!!!
+
+The update script will not work correctly for this update. To upgrade GeoDots, please run the following command:
+
+bash <(curl -s https://geodearc.com/dots-upgrade.sh)
+(if you prefer not to use curl bash, visit the github repo for alternative instructions)
+
+DO NOT USE the built in updater via the settings menu. IT WILL NOT WORK
+
+
+PLEASE IGNORE THE ADVICE BELOW FOR THIS VERSION
+-----------------------------------------------
