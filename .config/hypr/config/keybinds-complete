@@ -46,7 +46,7 @@ hl.bind(Mod .. " + I", hl.dsp.exec_cmd(terminal .. " $HOME/Dots/Scripts/Settings
 -- OTHER APPS
 hl.bind(Mod .. " + W", hl.dsp.exec_cmd("waypaper"))
 hl.bind(Mod .. " + SHIFT + W", hl.dsp.exec_cmd("waypaper --random"))
-hl.bind(Mod .. " + CTRL + SHIFT + ESCAPE", hl.dsp.exec_cmd("resources"))
+hl.bind("CTRL + SHIFT + ESCAPE", hl.dsp.exec_cmd("resources"))
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("gnome-calculator"))
 -- gnome-calculator isnt installed by default, install it or change it to something else
 
